@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShrAgropecuaria.Classes
 {
-    class Cliente
+    public class Cliente
     {
     }
 }

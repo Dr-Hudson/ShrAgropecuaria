@@ -1,4 +1,6 @@
-﻿using ShrAgropecuaria.Views;
+﻿using ShrAgropecuaria.Classes;
+using ShrAgropecuaria.Views;
+using SimpleInjector.Lifestyles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +19,12 @@ namespace ProjAvaliacao2Bim
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new view_Menu());
+            using (ThreadScopedLifestyle.BeginScope(Dependencia.Container))
+            {
+                Dependencia.Configurar();
+                Application.Run(new view_Menu());
+            }
+            
         }
     }
 }

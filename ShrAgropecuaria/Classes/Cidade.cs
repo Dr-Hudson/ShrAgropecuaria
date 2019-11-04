@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShrAgropecuaria.Classes
 {
-    class Cidade
+    public class Cidade
     {
         int cid_cod;
         string cid_nome;
@@ -15,5 +15,8 @@ namespace ShrAgropecuaria.Classes
         public int Cid_cod { get => cid_cod; set => cid_cod = value; }
         public string Cid_nome { get => cid_nome; set => cid_nome = value; }
         internal Estado Estado { get => estado; set => estado = value; }
+
+        public string EstadoUf { get { return Estado.Est_uf; } }
+
     }
 }

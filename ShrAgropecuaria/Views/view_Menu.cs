@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShrAgropecuaria.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace ShrAgropecuaria.Views
         public view_Menu()
         {
             InitializeComponent();
+        }
+
+        private void fornecedoresToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var f = Dependencia.Container.GetInstance<view_Fornecedor>();
+            f.Show();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShrAgropecuaria.Classes
 {
-    class Estado
+    public class Estado
     {
         string est_uf;
         string est_nome;
