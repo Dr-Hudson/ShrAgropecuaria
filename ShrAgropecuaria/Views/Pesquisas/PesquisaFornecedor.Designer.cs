@@ -1,6 +1,6 @@
 ﻿namespace ShrAgropecuaria.Views.Pesquisas
 {
-    partial class PesquisaCidade
+    partial class PesquisaFornecedor
     {
         /// <summary>
         /// Required designer variable.
@@ -34,11 +34,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.BtnPesquisar = new System.Windows.Forms.Button();
             this.txt_nome = new System.Windows.Forms.TextBox();
-            this.DvgCidade = new System.Windows.Forms.DataGridView();
+            this.DgvForn = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.BtnSelecionarCid = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DvgCidade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvForn)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -48,7 +48,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.BtnPesquisar);
             this.panel1.Controls.Add(this.txt_nome);
-            this.panel1.Controls.Add(this.DvgCidade);
+            this.panel1.Controls.Add(this.DgvForn);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(696, 311);
@@ -91,7 +91,7 @@
             this.BtnPesquisar.TabIndex = 64;
             this.BtnPesquisar.Text = "*";
             this.BtnPesquisar.UseVisualStyleBackColor = true;
-            this.BtnPesquisar.Click += new System.EventHandler(this.BtnPesquisarNome_Click);
+            this.BtnPesquisar.Click += new System.EventHandler(this.BtnPesquisarFiltro_Click);
             // 
             // txt_nome
             // 
@@ -100,19 +100,19 @@
             this.txt_nome.Location = new System.Drawing.Point(195, 8);
             this.txt_nome.Name = "txt_nome";
             this.txt_nome.Size = new System.Drawing.Size(288, 23);
-            this.txt_nome.TabIndex = 1;
+            this.txt_nome.TabIndex = 63;
             // 
-            // DvgCidade
+            // DgvForn
             // 
-            this.DvgCidade.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DvgCidade.Location = new System.Drawing.Point(3, 38);
-            this.DvgCidade.Name = "DvgCidade";
-            this.DvgCidade.Size = new System.Drawing.Size(690, 270);
-            this.DvgCidade.TabIndex = 54;
+            this.DgvForn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvForn.Location = new System.Drawing.Point(3, 38);
+            this.DgvForn.Name = "DgvForn";
+            this.DgvForn.Size = new System.Drawing.Size(690, 270);
+            this.DgvForn.TabIndex = 54;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(20, 329);
+            this.button1.Location = new System.Drawing.Point(12, 329);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 56;
@@ -121,7 +121,7 @@
             // 
             // BtnSelecionarCid
             // 
-            this.BtnSelecionarCid.Location = new System.Drawing.Point(630, 338);
+            this.BtnSelecionarCid.Location = new System.Drawing.Point(630, 329);
             this.BtnSelecionarCid.Name = "BtnSelecionarCid";
             this.BtnSelecionarCid.Size = new System.Drawing.Size(75, 23);
             this.BtnSelecionarCid.TabIndex = 55;
@@ -129,19 +129,19 @@
             this.BtnSelecionarCid.UseVisualStyleBackColor = true;
             this.BtnSelecionarCid.Click += new System.EventHandler(this.BtnSelecionarCid_Click);
             // 
-            // PesquisaCidade
+            // PesquisaFornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(729, 382);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.BtnSelecionarCid);
-            this.Name = "PesquisaCidade";
-            this.Text = "PesquisaCidade";
+            this.Name = "PesquisaFornecedor";
+            this.Text = "PesquisaFornecedor";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DvgCidade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvForn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -154,7 +154,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BtnPesquisar;
         private System.Windows.Forms.TextBox txt_nome;
-        private System.Windows.Forms.DataGridView DvgCidade;
+        private System.Windows.Forms.DataGridView DgvForn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button BtnSelecionarCid;
     }

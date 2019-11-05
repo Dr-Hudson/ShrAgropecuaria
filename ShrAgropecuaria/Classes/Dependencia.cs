@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using ShrAgropecuaria.Views.Pesquisas;
 
 namespace ShrAgropecuaria.Classes
 {
@@ -29,6 +30,8 @@ namespace ShrAgropecuaria.Classes
             Container.Register<ICidadeRepository, MySqlCidadeRepository>(Lifestyle.Scoped);
             Container.Register<IFornecedorRepository, MySqlFornecedorRepository>(Lifestyle.Scoped);
             Container.Register<view_Fornecedor>();
+            Container.Register<PesquisaCidade>();
+            Container.Register<PesquisaFornecedor>();
         }
     }
 }

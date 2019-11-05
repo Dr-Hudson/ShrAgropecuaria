@@ -46,9 +46,6 @@
             this.txtBairro = new System.Windows.Forms.TextBox();
             this.txtNumero = new System.Windows.Forms.TextBox();
             this.txtComplemento = new System.Windows.Forms.TextBox();
-            this.txtCEP = new System.Windows.Forms.TextBox();
-            this.txtCNPJ = new System.Windows.Forms.TextBox();
-            this.txtTelefone = new System.Windows.Forms.TextBox();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -57,6 +54,9 @@
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnPesquisarCid = new System.Windows.Forms.Button();
+            this.txtCEP = new System.Windows.Forms.MaskedTextBox();
+            this.txtCNPJ = new System.Windows.Forms.MaskedTextBox();
+            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // btnGravar
@@ -64,7 +64,7 @@
             this.btnGravar.Location = new System.Drawing.Point(528, 394);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
-            this.btnGravar.TabIndex = 0;
+            this.btnGravar.TabIndex = 11;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
@@ -74,7 +74,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(690, 394);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 2;
+            this.btnExcluir.TabIndex = 13;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -178,66 +178,58 @@
             // 
             // txtNome
             // 
+            this.txtNome.AccessibleDescription = "";
+            this.txtNome.AccessibleName = "";
             this.txtNome.Location = new System.Drawing.Point(146, 45);
+            this.txtNome.MaxLength = 40;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(155, 20);
-            this.txtNome.TabIndex = 14;
+            this.txtNome.TabIndex = 1;
+            this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtEndereco
             // 
             this.txtEndereco.Location = new System.Drawing.Point(15, 118);
+            this.txtEndereco.MaxLength = 40;
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(191, 20);
-            this.txtEndereco.TabIndex = 15;
+            this.txtEndereco.TabIndex = 2;
+            this.txtEndereco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBairro
             // 
             this.txtBairro.Location = new System.Drawing.Point(236, 118);
+            this.txtBairro.MaxLength = 40;
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(191, 20);
-            this.txtBairro.TabIndex = 16;
+            this.txtBairro.TabIndex = 3;
+            this.txtBairro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtNumero
             // 
             this.txtNumero.Location = new System.Drawing.Point(447, 118);
+            this.txtNumero.MaxLength = 10;
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(33, 20);
-            this.txtNumero.TabIndex = 17;
+            this.txtNumero.TabIndex = 4;
+            this.txtNumero.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtComplemento
             // 
             this.txtComplemento.Location = new System.Drawing.Point(528, 118);
             this.txtComplemento.Name = "txtComplemento";
             this.txtComplemento.Size = new System.Drawing.Size(191, 20);
-            this.txtComplemento.TabIndex = 18;
-            // 
-            // txtCEP
-            // 
-            this.txtCEP.Location = new System.Drawing.Point(15, 197);
-            this.txtCEP.Name = "txtCEP";
-            this.txtCEP.Size = new System.Drawing.Size(191, 20);
-            this.txtCEP.TabIndex = 19;
-            // 
-            // txtCNPJ
-            // 
-            this.txtCNPJ.Location = new System.Drawing.Point(255, 283);
-            this.txtCNPJ.Name = "txtCNPJ";
-            this.txtCNPJ.Size = new System.Drawing.Size(191, 20);
-            this.txtCNPJ.TabIndex = 20;
-            // 
-            // txtTelefone
-            // 
-            this.txtTelefone.Location = new System.Drawing.Point(493, 283);
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(191, 20);
-            this.txtTelefone.TabIndex = 21;
+            this.txtComplemento.TabIndex = 5;
+            this.txtComplemento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtDescricao
             // 
             this.txtDescricao.Location = new System.Drawing.Point(15, 283);
+            this.txtDescricao.MaxLength = 10;
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(191, 20);
-            this.txtDescricao.TabIndex = 22;
+            this.txtDescricao.TabIndex = 8;
+            this.txtDescricao.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label11
             // 
@@ -260,9 +252,11 @@
             // txtEstado
             // 
             this.txtEstado.Location = new System.Drawing.Point(468, 197);
+            this.txtEstado.MaxLength = 2;
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.Size = new System.Drawing.Size(33, 20);
             this.txtEstado.TabIndex = 26;
+            this.txtEstado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnPesquisar
             // 
@@ -276,34 +270,66 @@
             // txtCidade
             // 
             this.txtCidade.Location = new System.Drawing.Point(245, 198);
+            this.txtCidade.MaxLength = 40;
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(182, 20);
-            this.txtCidade.TabIndex = 31;
+            this.txtCidade.TabIndex = 7;
+            this.txtCidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnLimpar
             // 
             this.btnLimpar.Location = new System.Drawing.Point(426, 394);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpar.TabIndex = 32;
+            this.btnLimpar.TabIndex = 12;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnPesquisarCid
             // 
-            this.btnPesquisarCid.Location = new System.Drawing.Point(507, 198);
+            this.btnPesquisarCid.Location = new System.Drawing.Point(433, 198);
             this.btnPesquisarCid.Name = "btnPesquisarCid";
             this.btnPesquisarCid.Size = new System.Drawing.Size(27, 23);
             this.btnPesquisarCid.TabIndex = 33;
             this.btnPesquisarCid.UseVisualStyleBackColor = true;
             this.btnPesquisarCid.Click += new System.EventHandler(this.btnPesquisarCid_Click);
             // 
+            // txtCEP
+            // 
+            this.txtCEP.Location = new System.Drawing.Point(12, 201);
+            this.txtCEP.Mask = "99999-999";
+            this.txtCEP.Name = "txtCEP";
+            this.txtCEP.Size = new System.Drawing.Size(194, 20);
+            this.txtCEP.TabIndex = 6;
+            this.txtCEP.UseWaitCursor = true;
+            // 
+            // txtCNPJ
+            // 
+            this.txtCNPJ.Location = new System.Drawing.Point(245, 283);
+            this.txtCNPJ.Mask = "99.999.999/9999-99";
+            this.txtCNPJ.Name = "txtCNPJ";
+            this.txtCNPJ.Size = new System.Drawing.Size(194, 20);
+            this.txtCNPJ.TabIndex = 9;
+            this.txtCNPJ.UseWaitCursor = true;
+            // 
+            // txtTelefone
+            // 
+            this.txtTelefone.Location = new System.Drawing.Point(492, 283);
+            this.txtTelefone.Mask = "(99)99999-9999";
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(194, 20);
+            this.txtTelefone.TabIndex = 10;
+            this.txtTelefone.UseWaitCursor = true;
+            // 
             // view_Fornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtTelefone);
+            this.Controls.Add(this.txtCNPJ);
+            this.Controls.Add(this.txtCEP);
             this.Controls.Add(this.btnPesquisarCid);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.txtCidade);
@@ -312,9 +338,6 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtDescricao);
-            this.Controls.Add(this.txtTelefone);
-            this.Controls.Add(this.txtCNPJ);
-            this.Controls.Add(this.txtCEP);
             this.Controls.Add(this.txtComplemento);
             this.Controls.Add(this.txtNumero);
             this.Controls.Add(this.txtBairro);
@@ -360,9 +383,6 @@
         private System.Windows.Forms.TextBox txtBairro;
         private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.TextBox txtComplemento;
-        private System.Windows.Forms.TextBox txtCEP;
-        private System.Windows.Forms.TextBox txtCNPJ;
-        private System.Windows.Forms.TextBox txtTelefone;
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
@@ -371,5 +391,8 @@
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnPesquisarCid;
+        private System.Windows.Forms.MaskedTextBox txtCEP;
+        private System.Windows.Forms.MaskedTextBox txtCNPJ;
+        private System.Windows.Forms.MaskedTextBox txtTelefone;
     }
 }

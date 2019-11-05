@@ -1,5 +1,6 @@
 ﻿using ShrAgropecuaria.Classes;
 using ShrAgropecuaria.Repositorios.Interfaces;
+using ShrAgropecuaria.Views.Pesquisas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,13 +55,16 @@ namespace ShrAgropecuaria.Views
                 forn.Forn_bairro = txtBairro.Text;
                 if(txtCEP.Text != "")
                 {
-                    forn.Forn_cep = txtCEP.Text;
-                    if(txtCidade.Text != "")
+                    
+                    forn.Forn_cep = txtCEP.Text.Replace("-", "");
+                    if (txtCidade.Text != "")
                     {
                         forn.Cidade = (Cidade)CidadeRepository.PegaId(txtCidade.Text);
                         if(txtCNPJ.Text != "")
                         {
-                            forn.Forn_cnpj = txtCNPJ.Text;
+                            
+                            
+                            forn.Forn_cnpj = txtCNPJ.Text.Replace(",", "").Replace("/", "").Replace("-", "");
                             if(txtComplemento.Text != "")
                             {
                                 forn.Forn_complemento = txtComplemento.Text;
@@ -78,7 +82,8 @@ namespace ShrAgropecuaria.Views
                                                 forn.Forn_numero = Convert.ToInt32(txtNumero.Text);
                                                 if(txtTelefone.Text != "")
                                                 {
-                                                    forn.Forn_telefone = txtTelefone.Text;
+                                                    
+                                                    forn.Forn_telefone = txtTelefone.Text.Replace(")","").Replace("(","").Replace("-","");
                                                     
                                                     if(forn != null)
                                                     {
@@ -105,6 +110,8 @@ namespace ShrAgropecuaria.Views
             }
         }
 
+
+
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             LimparTela();
@@ -113,17 +120,32 @@ namespace ShrAgropecuaria.Views
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            
+            var a = new PesquisaFornecedor(FornecedorRepository);
+            if(a.ShowDialog() == DialogResult.OK)
+            {
+                txtID.Text = a.forn.Forn_cod.ToString();
+                txtBairro.Text = a.forn.Forn_bairro;
+                txtCEP.Text = a.forn.Forn_cep;
+                txtCidade.Text = a.forn.Cidade.ToString();
+                txtEstado.Text = a.forn.Cidade.EstadoUf;
+                txtCNPJ.Text = a.forn.Forn_cnpj;
+                txtComplemento.Text = a.forn.Forn_complemento;
+                txtDescricao.Text = a.forn.Forn_descricao;
+                txtEndereco.Text = a.forn.Forn_endereco;
+                txtNome.Text = a.forn.Forn_nome;
+                txtNumero.Text = a.forn.Forn_numero.ToString();
+                txtTelefone.Text = a.forn.Forn_telefone;
+            }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             int cod;
             int.TryParse(txtID.Text, out cod);
-            //forn = FornecedorRepository.Get(cod);
+            forn = FornecedorRepository.Get(cod);
             if(forn != null)
             {
-                //FornecedorRepository.Excluir(forn);
+                FornecedorRepository.Excluir(forn);
             }
             else
             {
@@ -133,7 +155,12 @@ namespace ShrAgropecuaria.Views
 
         private void btnPesquisarCid_Click(object sender, EventArgs e)
         {
-
+            var a = new PesquisaCidade(CidadeRepository);
+            if(a.ShowDialog() == DialogResult.OK)
+            {
+                txtCidade.Text = a.Cidades.Cid_nome;
+                txtEstado.Text = a.Cidades.EstadoUf;
+            }
         }
     }
 }

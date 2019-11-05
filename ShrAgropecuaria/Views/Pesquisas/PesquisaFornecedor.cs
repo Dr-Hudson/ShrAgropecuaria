@@ -12,53 +12,54 @@ using System.Windows.Forms;
 
 namespace ShrAgropecuaria.Views.Pesquisas
 {
-    public partial class PesquisaCidade : Form
+    public partial class PesquisaFornecedor : Form
     {
+        public Fornecedor forn = new Fornecedor();
 
-        public ICidadeRepository CidadeRepository { get; }
-
-        public Cidade Cidades { get; set; }
-        
-        public PesquisaCidade(ICidadeRepository cidaderepository)
+        IFornecedorRepository FornecedorRepository { get; }
+        public PesquisaFornecedor(IFornecedorRepository fornecedorrepository)
         {
-
             InitializeComponent();
-            CidadeRepository = cidaderepository;
+            FornecedorRepository = fornecedorrepository;
         }
 
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
-            List<Cidade> cid = CidadeRepository.GetAll().ToList();
-            DvgCidade.DataSource = cid;
+            List<Fornecedor> forn = FornecedorRepository.GetAll("").ToList();
+            DgvForn.DataSource = forn;
         }
 
         private void BtnSelecionarCid_Click(object sender, EventArgs e)
         {
             try
             {
-                Cidades = DvgCidade.CurrentRow?.DataBoundItem as Cidade;
-                if(DvgCidade.CurrentRow!=null)
+                forn = DgvForn.CurrentRow?.DataBoundItem as Fornecedor;
+                if (DgvForn.CurrentRow != null)
                 {
                     DialogResult = DialogResult.OK;
                     Close();
+
                 }
+
             }
-            catch(Exception erro)
+            catch (Exception erro)
             {
                 MessageBox.Show(erro.Message, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+
         }
 
-        private void BtnPesquisarNome_Click(object sender, EventArgs e)
+        private void BtnPesquisarFiltro_Click(object sender, EventArgs e)
         {
-            List<Cidade> cidadess = new List<Cidade>();
+            List<Fornecedor> forn = new List<Fornecedor>();
             if (txt_id.Text != "")
-                cidadess = CidadeRepository.GetById(Convert.ToInt32(txt_id.Text)).ToList();
+                forn = FornecedorRepository.GetById(Convert.ToInt32(txt_id.Text)).ToList();
             else
-                cidadess = CidadeRepository.GetByNome(txt_nome.Text).ToList();
-            DvgCidade.DataSource = cidadess;
-            DvgCidade.DataSource = cidadess;
-            if (cidadess.Count == 0)
+                forn = FornecedorRepository.GetByNome(txt_nome.Text).ToList();
+            DgvForn.DataSource = forn;
+            DgvForn.DataSource = forn;
+            if (forn.Count == 0)
             {
                 MessageBox.Show("Nome ou ID não encontrada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
