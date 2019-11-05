@@ -1,5 +1,4 @@
-﻿using ShrAgropecuaria.Control;
-using ShrAgropecuaria.Repositorios.Interfaces;
+﻿using ShrAgropecuaria.Repositorios.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +13,11 @@ namespace ShrAgropecuaria.Views
 {
     public partial class view_Login : Form
     {
-        public view_Login()
+        public IUsuarioRepository UsuarioRepository { get; }
+        public view_Login(IUsuarioRepository usuarioRepository)
         {
             InitializeComponent();
+            UsuarioRepository = usuarioRepository;
         }
 
         private void BtEntrar_Click(object sender, EventArgs e)
@@ -35,8 +36,7 @@ namespace ShrAgropecuaria.Views
                 }
                 else
                 {
-                    UsuarioControle uc = new UsuarioControle();
-                    if(uc.ValidaUsuario(usuario, senha))
+                    if(UsuarioRepository.PegaUsuario(usuario, senha) != null)
                     {
                         var a = new view_Menu();
                         a.ShowDialog();
