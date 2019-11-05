@@ -19,7 +19,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
 
         public void Excluir(Fornecedor forn)
         {
-            Connection.Execute("delete from fornecedor where id = @id", forn);
+            Connection.Execute("delete from fornecedor where forn_cod = @forn_cod", forn);
         }
 
         public Fornecedor Get(int? id)
@@ -34,14 +34,16 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
 
         public IEnumerable<Fornecedor> GetAll(string nome)
         {
-            string sql = @"select forn.*, cid.* from fornecedor forn
+            string sql = @"select forn.*, cid.*, est.* from fornecedor forn
                             inner join cidade cid on cid.cid_cod = forn.cid_cod
+                            inner join estado est on est.est_uf = cid.est_uf
                             where forn.forn_nome like @nome";
-            return Connection.Query<Fornecedor, Cidade, Fornecedor>(sql, (fornecedor, cidade) =>
+            return Connection.Query<Fornecedor, Cidade, Estado, Fornecedor>(sql, (fornecedor, cidade, estado) =>
             {
                 fornecedor.Cidade = cidade;
+                fornecedor.Cidade.Estado = estado;
                 return fornecedor;
-            }, new { nome = "'%" + nome + "%'" });
+            }, new { nome = "%" + nome + "%" }, splitOn: "cid_cod, est_uf");
         }
 
         public IEnumerable<Fornecedor> GetById(int id)
@@ -53,19 +55,21 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
             {
                 fornecedor.Cidade = cidade;
                 return fornecedor;
-            }, new {id});
+            }, new {id}, splitOn: "cid_cod");
         }
 
         public IEnumerable<Fornecedor> GetByNome(string Nome)
         {
-            string sql = @"select forn.*, cid.* from fornecedor forn
+            string sql = @"select forn.*, cid.*, est.* from fornecedor forn
                             inner join cidade cid on cid.cid_cod = forn.cid_cod
+                            inner join estado est on est.est_uf = cid.est_uf
                             where forn.forn_nome like @nome";
-            return Connection.Query<Fornecedor, Cidade, Fornecedor>(sql, (fornecedor, cidade) =>
+            return Connection.Query<Fornecedor, Cidade, Estado, Fornecedor>(sql, (fornecedor, cidade, estado) =>
             {
                 fornecedor.Cidade = cidade;
+                fornecedor.Cidade.Estado = estado;
                 return fornecedor;
-            }, new { nome = "'%" + Nome + "%'" });
+            }, new { nome = "%" + Nome + "%" } , splitOn: "cid_cod, est_uf");
         }
 
         public void Gravar(Fornecedor forn)
@@ -78,9 +82,9 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
             }
             else
             {
-                Connection.Execute("update fornecedor set forn_cod = @forn_cod, forn_bairro = @forn_bairro, forn_complemento = @ forn_complemento, forn_cep = @forn_cep"
-                    + "forn_numero = @forn_numero, forn_endereco = @forn_endereco, forn_nome = @forn_nome, forn_descricao = @forn_descricao, forn_cnpj = @forn_cnpj, forn_telefone = @forn_telefone"
-                    +  "cid_cod = @cid_cod", forn);
+                Connection.Execute("update fornecedor set  forn_bairro = @forn_bairro, forn_complemento = @forn_complemento, forn_cep = @forn_cep , "
+                    + "forn_numero = @forn_numero, forn_endereco = @forn_endereco, forn_nome = @forn_nome, forn_descricao = @forn_descricao, forn_cnpj = @forn_cnpj, forn_telefone = @forn_telefone , "
+                    +  "cid_cod = @cidadeid where forn_cod = @forn_cod", forn);
             }
         }
 

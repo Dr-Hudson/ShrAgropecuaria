@@ -51,17 +51,7 @@ namespace ShrAgropecuaria.Views.Pesquisas
 
         private void BtnPesquisarNome_Click(object sender, EventArgs e)
         {
-            List<Cidade> cidadess = new List<Cidade>();
-            if (txt_id.Text != "")
-                cidadess = CidadeRepository.GetById(Convert.ToInt32(txt_id.Text)).ToList();
-            else
-                cidadess = CidadeRepository.GetByNome(txt_nome.Text).ToList();
-            DvgCidade.DataSource = cidadess;
-            DvgCidade.DataSource = cidadess;
-            if (cidadess.Count == 0)
-            {
-                MessageBox.Show("Nome ou ID não encontrada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+
         }
     }
 }

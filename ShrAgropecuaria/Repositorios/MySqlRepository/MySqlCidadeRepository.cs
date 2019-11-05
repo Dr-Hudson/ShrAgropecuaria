@@ -20,7 +20,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
         {
             if (id != null)
             {
-                return Connection.Query<Cidade>("select * from cidade where cid_id = @id", new { id = id }).FirstOrDefault();
+                return Connection.Query<Cidade>("select * from cidade where cid_cod = @id", new { id = id }).FirstOrDefault();
             }
             return null;
         }
@@ -35,23 +35,35 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
 
         public IEnumerable<Cidade> GetByNome(string nome)
         {
-            string sql = @"select *
-                    from cidade 
-                    where nome like @nome";
-            return Connection.Query<Cidade>(sql, new { nome = "%" + nome + "%" });
+            string sql = @"select cid.*, est.* 
+                    from cidade cid
+                    inner join estado est on cid.est_uf = est.est_uf
+                    where cid.cid_nome like @nome";
+            return Connection.Query<Cidade, Estado, Cidade>(sql, (cidade,estado) =>
+            {
+                cidade.Estado = estado;
+                return cidade;
+            }, new {nome = "%" + nome + "%"}, splitOn: "est_uf");
         }
 
         public IEnumerable<Cidade> GetById(int id)
         {
             string sql = @"select *
                     from cidade
-                    where cid_id = @id";
+                    where cid_cod = @id";
             return Connection.Query<Cidade>(sql, new { id });
         }
 
         public IEnumerable<Cidade> GetAll()
         {
-            return Connection.Query<Cidade>("select * from cidade order by cid_nome");
+            string sql = "select cid.* , esta.* from cidade cid " +
+                "inner join estado esta on cid.est_uf = esta.est_uf";
+                
+            return Connection.Query<Cidade, Estado, Cidade>(sql, (cidade, estado) =>
+              {
+                  cidade.Estado = estado;
+                  return cidade;
+              } ,splitOn: "est_uf");
         }
     }
 }
