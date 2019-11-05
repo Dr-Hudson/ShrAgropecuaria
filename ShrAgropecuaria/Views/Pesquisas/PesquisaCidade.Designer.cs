@@ -91,7 +91,7 @@
             this.BtnPesquisar.TabIndex = 64;
             this.BtnPesquisar.Text = "*";
             this.BtnPesquisar.UseVisualStyleBackColor = true;
-            this.BtnPesquisar.Click += new System.EventHandler(this.BtnPesquisarNome_Click);
+            this.BtnPesquisar.Click += new System.EventHandler(this.BtnPesquisar_Click);
             // 
             // txt_nome
             // 

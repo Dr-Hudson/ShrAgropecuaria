@@ -121,14 +121,16 @@ namespace ShrAgropecuaria.Views
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             var a = new PesquisaFornecedor(FornecedorRepository);
+            
             if(a.ShowDialog() == DialogResult.OK)
             {
+                
                 txtID.Text = a.forn.Forn_cod.ToString();
                 txtBairro.Text = a.forn.Forn_bairro;
                 txtCEP.Text = a.forn.Forn_cep;
-                txtCidade.Text = a.forn.Cidade.ToString();
+                txtCidade.Text = a.forn.Cidade.Cid_nome;
                 txtEstado.Text = a.forn.Cidade.EstadoUf;
-                txtCNPJ.Text = a.forn.Forn_cnpj;
+                txtCNPJ.Text = a.forn.Forn_cnpj.ToString();
                 txtComplemento.Text = a.forn.Forn_complemento;
                 txtDescricao.Text = a.forn.Forn_descricao;
                 txtEndereco.Text = a.forn.Forn_endereco;
@@ -159,7 +161,7 @@ namespace ShrAgropecuaria.Views
             if(a.ShowDialog() == DialogResult.OK)
             {
                 txtCidade.Text = a.Cidades.Cid_nome;
-                txtEstado.Text = a.Cidades.EstadoUf;
+                txtEstado.Text = a.Cidades.Estado.Est_uf;
             }
         }
     }
