@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 
 namespace ShrAgropecuaria.Repositorios.Interfaces
 {
-    public interface IUsuarioRepository
+    interface IUsuarioRepository
     {
-        Usuario Get(int? id);
-        IEnumerable<Usuario> GetAll(string nome);
         IEnumerable<Usuario> GetByNome(string Nome);
+        void Gravar(Usuario user);
+        void Excluir(Usuario user);
         Usuario PegaId(string nome);
-        void Gravar(Usuario u);
-        void Excluir(Usuario u);
+        Usuario PegaUsuario(string usuario, string senha);
     }
 }
-
