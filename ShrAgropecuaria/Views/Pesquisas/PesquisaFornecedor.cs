@@ -25,8 +25,22 @@ namespace ShrAgropecuaria.Views.Pesquisas
 
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
-            List<Fornecedor> forn = FornecedorRepository.GetAll("").ToList();
-            DgvForn.DataSource = forn;
+            if (txt_id.Text == "" && txt_nome.Text == "" && txtCid.Text == "")
+            {
+                List<Fornecedor> forn = FornecedorRepository.GetAll("").ToList();
+                DgvForn.DataSource = forn;
+            }
+            else if(txt_id.Text == "" && txt_nome.Text != "" && txtCid.Text == "")
+            {
+                List<Fornecedor> forn = FornecedorRepository.GetByNome(txt_nome.Text).ToList();
+                DgvForn.DataSource = forn;
+            }
+            else if(txt_id.Text == "" && txt_nome.Text == "" && txtCid.Text != "")
+            {
+                List<Fornecedor> forn = FornecedorRepository.GetByCid(txtCid.Text).ToList();
+                DgvForn.DataSource = forn;
+            }
+            
         }
 
         private void BtnSelecionarCid_Click(object sender, EventArgs e)
@@ -52,17 +66,7 @@ namespace ShrAgropecuaria.Views.Pesquisas
 
         private void BtnPesquisarFiltro_Click(object sender, EventArgs e)
         {
-            List<Fornecedor> forn = new List<Fornecedor>();
-            if (txt_id.Text != "")
-                forn = FornecedorRepository.GetById(Convert.ToInt32(txt_id.Text)).ToList();
-            else
-                forn = FornecedorRepository.GetByNome(txt_nome.Text).ToList();
-            DgvForn.DataSource = forn;
-            DgvForn.DataSource = forn;
-            if (forn.Count == 0)
-            {
-                MessageBox.Show("Nome ou ID não encontrada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+
         }
     }
 }

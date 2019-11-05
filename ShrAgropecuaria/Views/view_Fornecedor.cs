@@ -156,6 +156,7 @@ namespace ShrAgropecuaria.Views
             if(forn != null)
             {
                 FornecedorRepository.Excluir(forn);
+                MessageBox.Show("Excluído com sucesso!");
             }
             else
             {

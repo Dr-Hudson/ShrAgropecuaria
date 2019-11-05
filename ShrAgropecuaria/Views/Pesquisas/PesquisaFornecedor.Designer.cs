@@ -37,12 +37,16 @@
             this.DgvForn = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.BtnSelecionarCid = new System.Windows.Forms.Button();
+            this.Cidade = new System.Windows.Forms.Label();
+            this.txtCid = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvForn)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtCid);
+            this.panel1.Controls.Add(this.Cidade);
             this.panel1.Controls.Add(this.txt_id);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label4);
@@ -85,13 +89,13 @@
             // 
             // BtnPesquisar
             // 
-            this.BtnPesquisar.Location = new System.Drawing.Point(489, 8);
+            this.BtnPesquisar.Location = new System.Drawing.Point(655, 6);
             this.BtnPesquisar.Name = "BtnPesquisar";
             this.BtnPesquisar.Size = new System.Drawing.Size(29, 23);
             this.BtnPesquisar.TabIndex = 64;
             this.BtnPesquisar.Text = "*";
             this.BtnPesquisar.UseVisualStyleBackColor = true;
-            this.BtnPesquisar.Click += new System.EventHandler(this.BtnPesquisarFiltro_Click);
+            this.BtnPesquisar.Click += new System.EventHandler(this.BtnPesquisar_Click);
             // 
             // txt_nome
             // 
@@ -99,7 +103,7 @@
             this.txt_nome.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_nome.Location = new System.Drawing.Point(195, 8);
             this.txt_nome.Name = "txt_nome";
-            this.txt_nome.Size = new System.Drawing.Size(288, 23);
+            this.txt_nome.Size = new System.Drawing.Size(132, 23);
             this.txt_nome.TabIndex = 63;
             // 
             // DgvForn
@@ -129,6 +133,24 @@
             this.BtnSelecionarCid.UseVisualStyleBackColor = true;
             this.BtnSelecionarCid.Click += new System.EventHandler(this.BtnSelecionarCid_Click);
             // 
+            // Cidade
+            // 
+            this.Cidade.AutoSize = true;
+            this.Cidade.Location = new System.Drawing.Point(348, 11);
+            this.Cidade.Name = "Cidade";
+            this.Cidade.Size = new System.Drawing.Size(40, 13);
+            this.Cidade.TabIndex = 68;
+            this.Cidade.Text = "Cidade";
+            // 
+            // txtCid
+            // 
+            this.txtCid.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCid.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCid.Location = new System.Drawing.Point(394, 7);
+            this.txtCid.Name = "txtCid";
+            this.txtCid.Size = new System.Drawing.Size(132, 23);
+            this.txtCid.TabIndex = 69;
+            // 
             // PesquisaFornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,5 +179,7 @@
         private System.Windows.Forms.DataGridView DgvForn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button BtnSelecionarCid;
+        private System.Windows.Forms.TextBox txtCid;
+        private System.Windows.Forms.Label Cidade;
     }
 }

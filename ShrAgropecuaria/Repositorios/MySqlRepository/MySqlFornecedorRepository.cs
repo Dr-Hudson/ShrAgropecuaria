@@ -72,6 +72,20 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
             }, new { nome = "%" + Nome + "%" } , splitOn: "cid_cod, est_uf");
         }
 
+        public IEnumerable<Fornecedor> GetByCid(string a)
+        {
+            string sql = @"select forn.*, cid.*, est.* from fornecedor forn
+                            inner join cidade cid on cid.cid_cod = forn.cid_cod
+                            inner join estado est on est.est_uf = cid.est_uf
+                            where cid.cid_nome like @nome";
+            return Connection.Query<Fornecedor, Cidade, Estado, Fornecedor>(sql, (fornecedor, cidade, estado) =>
+            {
+                fornecedor.Cidade = cidade;
+                fornecedor.Cidade.Estado = estado;
+                return fornecedor;
+            }, new { nome = "%" + a + "%" }, splitOn: "cid_cod, est_uf");
+        }
+
         public void Gravar(Fornecedor forn)
         {
             if(forn.Forn_cod == null)

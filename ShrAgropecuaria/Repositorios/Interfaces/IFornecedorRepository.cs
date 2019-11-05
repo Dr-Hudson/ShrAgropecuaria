@@ -13,6 +13,7 @@ namespace ShrAgropecuaria.Repositorios.Interfaces
         IEnumerable<Fornecedor> GetAll(string nome);
         IEnumerable<Fornecedor> GetByNome(string Nome);
         IEnumerable<Fornecedor> GetById(int id);
+        IEnumerable<Fornecedor> GetByCid(string nomecid);
         Fornecedor PegaId(string nome);
         void Gravar(Fornecedor forn);
         void Excluir(Fornecedor forn);
