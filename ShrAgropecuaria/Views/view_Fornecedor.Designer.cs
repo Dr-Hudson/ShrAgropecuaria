@@ -64,7 +64,7 @@
             this.btnGravar.Location = new System.Drawing.Point(528, 394);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
-            this.btnGravar.TabIndex = 11;
+            this.btnGravar.TabIndex = 12;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
@@ -93,36 +93,36 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(204, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Nome";
+            this.label2.Text = "Nome *";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 102);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Endereço";
+            this.label3.Text = "Endereço *";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(300, 102);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Bairro";
+            this.label4.Text = "Bairro *";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(444, 102);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.Size = new System.Drawing.Size(51, 13);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Número";
+            this.label5.Text = "Número *";
             // 
             // label6
             // 
@@ -138,9 +138,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(12, 181);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(28, 13);
+            this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 9;
-            this.label7.Text = "CEP";
+            this.label7.Text = "CEP *";
             // 
             // label8
             // 
@@ -156,18 +156,18 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(511, 267);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 13);
+            this.label9.Size = new System.Drawing.Size(56, 13);
             this.label9.TabIndex = 11;
-            this.label9.Text = "Telefone";
+            this.label9.Text = "Telefone *";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(338, 267);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 13);
+            this.label10.Size = new System.Drawing.Size(41, 13);
             this.label10.TabIndex = 12;
-            this.label10.Text = "CNPJ";
+            this.label10.Text = "CNPJ *";
             // 
             // txtID
             // 
@@ -184,8 +184,10 @@
             this.txtNome.MaxLength = 40;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(155, 20);
-            this.txtNome.TabIndex = 1;
+            this.txtNome.TabIndex = 2;
             this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BloqueioNumero);
+            this.txtNome.Leave += new System.EventHandler(this.EventoSairNome);
             // 
             // txtEndereco
             // 
@@ -193,8 +195,10 @@
             this.txtEndereco.MaxLength = 40;
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(191, 20);
-            this.txtEndereco.TabIndex = 2;
+            this.txtEndereco.TabIndex = 3;
             this.txtEndereco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtEndereco.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BloqueioNumero);
+            this.txtEndereco.Leave += new System.EventHandler(this.EventoSairEndereco);
             // 
             // txtBairro
             // 
@@ -202,8 +206,10 @@
             this.txtBairro.MaxLength = 40;
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(191, 20);
-            this.txtBairro.TabIndex = 3;
+            this.txtBairro.TabIndex = 4;
             this.txtBairro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBairro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BloqueioNumero);
+            this.txtBairro.Leave += new System.EventHandler(this.EventoSairBairro);
             // 
             // txtNumero
             // 
@@ -211,21 +217,24 @@
             this.txtNumero.MaxLength = 10;
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(33, 20);
-            this.txtNumero.TabIndex = 4;
+            this.txtNumero.TabIndex = 5;
             this.txtNumero.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BloqueioLetra);
+            this.txtNumero.Leave += new System.EventHandler(this.EventoSairNumero);
             // 
             // txtComplemento
             // 
             this.txtComplemento.Location = new System.Drawing.Point(528, 118);
             this.txtComplemento.Name = "txtComplemento";
             this.txtComplemento.Size = new System.Drawing.Size(191, 20);
-            this.txtComplemento.TabIndex = 5;
+            this.txtComplemento.TabIndex = 6;
             this.txtComplemento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtComplemento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BloqueioNumero);
             // 
             // txtDescricao
             // 
             this.txtDescricao.Location = new System.Drawing.Point(15, 283);
-            this.txtDescricao.MaxLength = 10;
+            this.txtDescricao.MaxLength = 9;
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(191, 20);
             this.txtDescricao.TabIndex = 8;
@@ -236,9 +245,9 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(242, 181);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(40, 13);
+            this.label11.Size = new System.Drawing.Size(47, 13);
             this.label11.TabIndex = 23;
-            this.label11.Text = "Cidade";
+            this.label11.Text = "Cidade *";
             // 
             // label12
             // 
@@ -263,7 +272,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(303, 43);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(26, 23);
-            this.btnPesquisar.TabIndex = 29;
+            this.btnPesquisar.TabIndex = 1;
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
@@ -275,13 +284,15 @@
             this.txtCidade.Size = new System.Drawing.Size(182, 20);
             this.txtCidade.TabIndex = 7;
             this.txtCidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BloqueioNumero);
+            this.txtCidade.Leave += new System.EventHandler(this.EventoSairCidade);
             // 
             // btnLimpar
             // 
             this.btnLimpar.Location = new System.Drawing.Point(426, 394);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpar.TabIndex = 12;
+            this.btnLimpar.TabIndex = 14;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -291,7 +302,7 @@
             this.btnPesquisarCid.Location = new System.Drawing.Point(433, 198);
             this.btnPesquisarCid.Name = "btnPesquisarCid";
             this.btnPesquisarCid.Size = new System.Drawing.Size(27, 23);
-            this.btnPesquisarCid.TabIndex = 33;
+            this.btnPesquisarCid.TabIndex = 8;
             this.btnPesquisarCid.UseVisualStyleBackColor = true;
             this.btnPesquisarCid.Click += new System.EventHandler(this.btnPesquisarCid_Click);
             // 
@@ -301,8 +312,10 @@
             this.txtCEP.Mask = "99999-999";
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(194, 20);
-            this.txtCEP.TabIndex = 6;
+            this.txtCEP.TabIndex = 7;
             this.txtCEP.UseWaitCursor = true;
+            this.txtCEP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BloqueioLetra);
+            this.txtCEP.Leave += new System.EventHandler(this.EventoSairCPF);
             // 
             // txtCNPJ
             // 
@@ -310,8 +323,10 @@
             this.txtCNPJ.Mask = "99.999.999/9999-99";
             this.txtCNPJ.Name = "txtCNPJ";
             this.txtCNPJ.Size = new System.Drawing.Size(194, 20);
-            this.txtCNPJ.TabIndex = 9;
+            this.txtCNPJ.TabIndex = 10;
             this.txtCNPJ.UseWaitCursor = true;
+            this.txtCNPJ.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BloqueioLetra);
+            this.txtCNPJ.Leave += new System.EventHandler(this.EventoSairCNPJ);
             // 
             // txtTelefone
             // 
@@ -319,8 +334,10 @@
             this.txtTelefone.Mask = "(99)99999-9999";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(194, 20);
-            this.txtTelefone.TabIndex = 10;
+            this.txtTelefone.TabIndex = 11;
             this.txtTelefone.UseWaitCursor = true;
+            this.txtTelefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BloqueioLetra);
+            this.txtTelefone.Leave += new System.EventHandler(this.EventoSairTelefone);
             // 
             // view_Fornecedor
             // 

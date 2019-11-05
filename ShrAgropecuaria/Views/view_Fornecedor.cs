@@ -28,6 +28,9 @@ namespace ShrAgropecuaria.Views
             FornecedorRepository = fornecedorRepository;
             txtID.Enabled = false;
             txtEstado.Enabled = false;
+            txtCidade.Enabled = false;
+            
+            
         }
         
         void LimparTela()
@@ -108,6 +111,11 @@ namespace ShrAgropecuaria.Views
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("Nome do bairro deve ter ao menos 4 caracteres e não pode ultrapassar 40 caracteres");
+                txtBairro.Focus();
+            }
         }
 
 
@@ -163,6 +171,130 @@ namespace ShrAgropecuaria.Views
                 txtCidade.Text = a.Cidades.Cid_nome;
                 txtEstado.Text = a.Cidades.Estado.Est_uf;
             }
+        }
+
+        private void EventoSairBairro(object sender, EventArgs e)
+        {
+            if (txtBairro.Text.Length < 4 || txtBairro.Text.Length > 40)
+            {
+                MessageBox.Show("Nome do bairro deve ter ao menos 4 caracteres e não pode ultrapassar 40 caracteres");
+                txtBairro.BackColor = Color.Red;
+                txtBairro.Text = "";
+            }
+            else
+            {
+                txtBairro.BackColor = Color.White;
+            }
+        }
+
+        private void EventoSairNome(object sender, EventArgs e)
+        {
+            if (txtNome.Text.Length < 3 || txtNome.Text.Length > 40)
+            {
+                MessageBox.Show("O campo nome, é um campo obrigatório, nela deve conter o nome com ao menos 3 caracteres e no máximo 40!");
+                
+                txtNome.Text = "";
+                txtNome.BackColor = Color.Red;
+            }
+            else
+                txtNome.BackColor = Color.White;
+        }
+
+        private void BloqueioNumero(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar))
+            {
+
+                e.Handled = true;
+
+            }
+        }
+
+        private void BloqueioLetra(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void EventoSairCPF(object sender, EventArgs e)
+        {
+            if (txtCEP.Text.Length != 9)
+            {
+                MessageBox.Show("O CEP deve ser digitado de forma correta, incluindo seus 8 digitos!");
+
+                txtCEP.Text = "";
+                txtCEP.BackColor = Color.Red;
+            }
+            else
+                txtCEP.BackColor = Color.White;
+        }
+
+        private void EventoSairCNPJ(object sender, EventArgs e)
+        {
+            if (txtCNPJ.Text.Length != 18)
+            {
+                MessageBox.Show("O CNPJ deve ser digitado de forma correta, incluindo seus 14 digitos!");
+
+                txtCNPJ.Text = "";
+                txtCNPJ.BackColor = Color.Red;
+
+            }
+            else
+                txtCNPJ.BackColor = Color.White;
+        }
+
+        private void EventoSairTelefone(object sender, EventArgs e)
+        {
+            if (txtTelefone.Text.Length != 14)
+            {
+                MessageBox.Show("O Telefone deve ser digitado de forma correta, incluindo o DDD!");
+
+                txtTelefone.Text = "";
+                txtTelefone.BackColor = Color.Red;
+            }
+            else
+                txtTelefone.BackColor = Color.White;
+        }
+
+        private void EventoSairEndereco(object sender, EventArgs e)
+        {
+            if (txtEndereco.Text.Length < 3 || txtEndereco.Text.Length > 40)
+            {
+                MessageBox.Show("O campo Endereco, é um campo obrigatório, nela deve conter o nome com ao menos 3 caracteres e no máximo 40!");
+                
+                txtEndereco.Text = "";
+                txtEndereco.BackColor = Color.Red;
+            }
+            else
+                txtEndereco.BackColor = Color.White;
+        }
+
+        private void EventoSairNumero(object sender, EventArgs e)
+        {
+            if(txtNumero.Text.Length == 0 )
+            {
+                MessageBox.Show("Deve-se inserir o número!");
+                txtNumero.BackColor = Color.Red;
+
+            }
+            else
+            {
+                txtNumero.BackColor = Color.White;
+            }
+        }
+
+        private void EventoSairCidade(object sender, EventArgs e)
+        {
+            if (txtCidade.Text == "")
+            {
+                MessageBox.Show("Deve-se escolher uma cidade!!");
+                txtCidade.BackColor = Color.Red;
+            }
+            else
+                txtCidade.BackColor = Color.White;
+
         }
     }
 }
