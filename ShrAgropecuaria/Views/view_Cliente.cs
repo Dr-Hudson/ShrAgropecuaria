@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ShrAgropecuaria.Classes;
+using ShrAgropecuaria.Repositorios.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +12,15 @@ using System.Windows.Forms;
 
 namespace ShrAgropecuaria.Views
 {
-    public partial class view_Cliente : Form
+    public partial class View_Cliente : Form
     {
-        public view_Cliente()
+        Cliente cli = new Cliente();
+        public ICidadeRepository CidadeRepository { get; }
+        public IClienteRepository ClienteRepository { get; }
+        public View_Cliente()
         {
             InitializeComponent();
+           
         }
     }
 }

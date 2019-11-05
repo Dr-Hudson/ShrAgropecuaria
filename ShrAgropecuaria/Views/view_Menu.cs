@@ -18,9 +18,15 @@ namespace ShrAgropecuaria.Views
             InitializeComponent();
         }
 
-        private void fornecedoresToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void FornecedoresToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             var f = Dependencia.Container.GetInstance<view_Fornecedor>();
+            f.Show();
+        }
+
+        private void ClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = Dependencia.Container.GetInstance<View_Cliente>();
             f.Show();
         }
     }

@@ -60,12 +60,14 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
         {
             string sql = @"select cli.*, cid.* from cliente cli
                             inner join cidade cid on cid.cid_cod = cli.cid_cod
+                            inner join estado est on est.est_uf = cid.est_uf
                             where forn.cli_nome like @nome";
-            return Connection.Query<Cliente, Cidade, Cliente>(sql, (cliente, cidade) =>
+            return Connection.Query<Cliente, Cidade, Estado, Cliente>(sql, (cliente, cidade, estado) =>
             {
                 cliente.Cidade = cidade;
+                cliente.Cidade.Estado = estado;
                 return cliente;
-            }, new { nome = "'%" + nome + "%'" });
+            }, new { nome = "'%" + nome + "%'" }, splitOn: "cid_cod, est_uf");
         }
 
         public IEnumerable<Cliente> GetById(int id)
@@ -84,12 +86,14 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
         {
             string sql = @"select cli.*, cid.* from cliente cli
                             inner join cidade cid on cid.cid_cod = cli.cid_cod
+                            inner join estado est on est.est_uf = cid.est_uf
                             where forn.cli_nome like @nome";
-            return Connection.Query<Cliente, Cidade, Cliente>(sql, (cliente, cidade) =>
+            return Connection.Query<Cliente, Cidade, Estado, Cliente>(sql, (cliente, cidade, estado) =>
             {
                 cliente.Cidade = cidade;
+                cliente.Cidade.Estado = estado;
                 return cliente;
-            }, new { nome = "'%" + Nome + "%'" });
+            }, new { nome = "'%" + Nome + "%'" }, splitOn: "cid_cod, est_uf");
         }
     }
 }
