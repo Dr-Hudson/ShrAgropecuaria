@@ -29,7 +29,9 @@ namespace ShrAgropecuaria.Classes
             Container.Register<IDbConnection>(Connection.GetConnection, Lifestyle.Scoped);
             Container.Register<ICidadeRepository, MySqlCidadeRepository>(Lifestyle.Scoped);
             Container.Register<IFornecedorRepository, MySqlFornecedorRepository>(Lifestyle.Scoped);
+            Container.Register<IClienteRepository, MySqlClienteRepository>(Lifestyle.Scoped);
             Container.Register<view_Fornecedor>();
+            Container.Register<View_Cliente>();
             Container.Register<PesquisaCidade>();
             Container.Register<PesquisaFornecedor>();
         }
