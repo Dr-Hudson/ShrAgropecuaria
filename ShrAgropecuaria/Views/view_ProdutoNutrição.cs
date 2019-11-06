@@ -1,5 +1,6 @@
 ﻿using ShrAgropecuaria.Classes;
 using ShrAgropecuaria.Repositorios.Interfaces;
+using ShrAgropecuaria.Views.Pesquisas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,11 @@ namespace ShrAgropecuaria.Views
             InitializeComponent();
             ProdutoNutricao = produtoNutricao;
             txtID.Enabled = false;
-            cbTipo.DataSource = ProdutoNutricao.Carrega();
+            List<TipoProdutoNutricao> a = ProdutoNutricao.Carrega().ToList();
+            foreach(var b in a)
+            {
+                cbTipo.Items.Add(b);
+            }
         }
 
         private void Limpar()
@@ -32,6 +37,9 @@ namespace ShrAgropecuaria.Views
             txtValor.Text = "";
             dtpPrevisao.Value = DateTime.Now;
             cbTipo.SelectedItem = "";
+            txtNome.BackColor = Color.White;
+            txtValor.BackColor = Color.White;
+            cbTipo.BackColor = Color.White;
         }
 
         private void BtLimpar_Click(object sender, EventArgs e)
@@ -41,21 +49,27 @@ namespace ShrAgropecuaria.Views
 
         private void BtGravar_Click(object sender, EventArgs e)
         {
+            decimal n;
             lbR.Text = "";
-            if (txtNome.Text.Replace(" ", "").Length < 5)
+            txtNome.BackColor = Color.White;
+            txtValor.BackColor = Color.White;
+            cbTipo.BackColor = Color.White;
+            if (txtNome.Text.Replace(" ", "").Length == 0)
             {
-                lbR.Text = "Nome precisa ter mais de\n5 caracteres!";
+                lbR.Text = "Nome invalido!";
+                txtNome.BackColor = Color.Red;
             }
             else
-                if (txtValor.Text.Length == 0)
+                if (!decimal.TryParse(txtValor.Text, out n))
                 {
-                    lbR.Text = "Valor não definido";
-              
+                    lbR.Text = "Valor invalido";
+                    txtValor.BackColor = Color.Red;
                 }
                 else
                     if(cbTipo.SelectedItem == null)
                     {
                         lbR.Text = "Tipo não selecionado";
+                        cbTipo.BackColor = Color.Red;
                     }
                     else
                     {
@@ -64,7 +78,7 @@ namespace ShrAgropecuaria.Views
                         prod.Prodn_nomeprod = txtNome.Text;
                         prod.Prodn_obs = txtObs.Text;
                         prod.Prodn_previsaoentrega = dtpPrevisao.Value;
-                        prod.Prodn_valorunitario = Convert.ToInt32(txtValor.Text);
+                        prod.Prod_valorunitario = n;
                         prod.TipoProdutoNutricao = (TipoProdutoNutricao)cbTipo.SelectedItem;
                         if (txtID.Text.Length == 0)
                             prod.Prodn_cod = null;
@@ -74,9 +88,9 @@ namespace ShrAgropecuaria.Views
                         {
                             ProdutoNutricao.Gravar(prod);
                             if (txtID.Text == "")
-                                MessageBox.Show("Usuario cadastrado!");
+                                MessageBox.Show("Produto cadastrado!");
                             else
-                                MessageBox.Show("Usuario Alterado!");
+                                MessageBox.Show("Produto Alterado!");
                             Limpar();
                         }
                         catch (Exception erro)
@@ -85,6 +99,46 @@ namespace ShrAgropecuaria.Views
                         }
 
                     }
+        }
+
+        private void BtExcluir_Click(object sender, EventArgs e)
+        {
+            lbR.Text = "";
+            if (txtID.Text == "")
+            {
+                lbR.Text = "Use o botão de pesquisa e\nselecione um Produto";
+            }
+            else
+            {
+                ProdutoNutricao prod = new ProdutoNutricao();
+                prod.Prodn_cod = Convert.ToInt32(txtID.Text);
+                try
+                {
+                    ProdutoNutricao.Excluir(prod);
+                    MessageBox.Show("Excluido!");
+                    Limpar();
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show(erro.Message);
+                }
+            }
+        }
+
+        private void BtPesquisar_Click(object sender, EventArgs e)
+        {
+            var a = new PesquisaProdutoNutricao(ProdutoNutricao);
+
+            if (a.ShowDialog() == DialogResult.OK)
+            {
+
+                txtID.Text = a.Produto.Prodn_cod.ToString();
+                txtNome.Text = a.Produto.Prodn_nomeprod;
+                txtObs.Text = a.Produto.Prodn_obs;
+                txtValor.Text = a.Produto.Prod_valorunitario.ToString();
+                dtpPrevisao.Value = a.Produto.Prodn_previsaoentrega;
+                cbTipo.SelectedItem = a.Produto.TipoProdutoNutricao;
+            }
         }
     }
 }

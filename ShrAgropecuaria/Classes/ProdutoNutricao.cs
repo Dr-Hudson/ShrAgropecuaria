@@ -13,7 +13,7 @@ namespace ShrAgropecuaria.Classes
         string prodn_obs;
         DateTime prodn_previsaoentrega;
         string prodn_nomeprod;
-        decimal prodn_valorunitario;
+        decimal prod_valorunitario;
         TipoProdutoNutricao tipoProdutoNutricao;
 
         public int? Prodn_cod { get => prodn_cod; set => prodn_cod = value; }
@@ -21,7 +21,7 @@ namespace ShrAgropecuaria.Classes
         public string Prodn_obs { get => prodn_obs; set => prodn_obs = value; }
         public DateTime Prodn_previsaoentrega { get => prodn_previsaoentrega; set => prodn_previsaoentrega = value; }
         public string Prodn_nomeprod { get => prodn_nomeprod; set => prodn_nomeprod = value; }
-        public decimal Prodn_valorunitario { get => prodn_valorunitario; set => prodn_valorunitario = value; }
+        public decimal Prod_valorunitario { get => prod_valorunitario; set => prod_valorunitario = value; }
         internal TipoProdutoNutricao TipoProdutoNutricao { get => tipoProdutoNutricao; set => tipoProdutoNutricao = value; }
         public int? TipoProdutoNutricaoid { get { return TipoProdutoNutricao?.Tpn_cod; } }
     }

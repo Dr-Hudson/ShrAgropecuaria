@@ -77,6 +77,7 @@
     <Compile Include="Classes\Dependencia.cs" />
     <Compile Include="Classes\Estado.cs" />
     <Compile Include="Classes\Fornecedor.cs" />
+    <Compile Include="Classes\Parametrizacao.cs" />
     <Compile Include="Classes\ProdutoNutricao.cs" />
     <Compile Include="Classes\ProdutoPET.cs" />
     <Compile Include="Classes\TipoProdutoNutricao.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Repositorios\Interfaces\ICidadeRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IClienteRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IFornecedorRepository.cs" />
+    <Compile Include="Repositorios\Interfaces\IParametrizacaoRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IProdutoNutricao.cs" />
     <Compile Include="Repositorios\Interfaces\IProdutoPET.cs" />
     <Compile Include="Repositorios\Interfaces\IUsuarioRepository.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Repositorios\MySqlRepository\MySqlCidadeRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlClienteRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlFornecedorRepository.cs" />
+    <Compile Include="Repositorios\MySqlRepository\MySqlParametrizacaoRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlProdutoNutricaoRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlProdutoPET.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlRepository.cs" />
@@ -122,6 +125,12 @@
     </Compile>
     <Compile Include="Views\Pesquisas\PesquisaFornecedor.Designer.cs">
       <DependentUpon>PesquisaFornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pesquisas\PesquisaProdutoNutricao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisas\PesquisaProdutoNutricao.Designer.cs">
+      <DependentUpon>PesquisaProdutoNutricao.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Pesquisas\PesquisaProdutoPET.cs">
       <SubType>Form</SubType>
@@ -208,6 +217,9 @@
     <EmbeddedResource Include="Views\Pesquisas\PesquisaFornecedor.resx">
       <DependentUpon>PesquisaFornecedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pesquisas\PesquisaProdutoNutricao.resx">
+      <DependentUpon>PesquisaProdutoNutricao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\PesquisaUsuario.resx">
       <DependentUpon>PesquisaUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\view_Menu.resx">
       <DependentUpon>view_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\view_Parametrização.resx">
+      <DependentUpon>view_Parametrização.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\view_ProdutoNutrição.resx">
       <DependentUpon>view_ProdutoNutrição.cs</DependentUpon>

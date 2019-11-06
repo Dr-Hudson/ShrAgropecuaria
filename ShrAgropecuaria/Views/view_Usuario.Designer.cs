@@ -42,6 +42,7 @@
             this.btExcluir = new System.Windows.Forms.Button();
             this.btPesquisar = new System.Windows.Forms.Button();
             this.lbR = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.gbNivel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,14 +74,15 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(86, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Usuario";
+            this.label2.Text = "Usuario *";
             // 
             // txtSenha
             // 
             this.txtSenha.Location = new System.Drawing.Point(12, 75);
             this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(191, 20);
             this.txtSenha.TabIndex = 2;
             // 
@@ -89,9 +91,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 54);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Senha";
+            this.label3.Text = "Senha *";
             // 
             // gbNivel
             // 
@@ -177,11 +179,21 @@
             this.lbR.Size = new System.Drawing.Size(0, 17);
             this.lbR.TabIndex = 11;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 210);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(128, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "* são campos obrigatórios";
+            // 
             // view_Usuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(335, 214);
+            this.ClientSize = new System.Drawing.Size(333, 232);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.lbR);
             this.Controls.Add(this.btPesquisar);
             this.Controls.Add(this.btExcluir);
@@ -194,8 +206,9 @@
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtID);
+            this.MaximizeBox = false;
             this.Name = "view_Usuario";
-            this.Text = "view_Usuario";
+            this.Text = "Usuario";
             this.gbNivel.ResumeLayout(false);
             this.gbNivel.PerformLayout();
             this.ResumeLayout(false);
@@ -219,5 +232,6 @@
         private System.Windows.Forms.Button btExcluir;
         private System.Windows.Forms.Button btPesquisar;
         private System.Windows.Forms.Label lbR;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -45,6 +45,7 @@
             this.btGravar = new System.Windows.Forms.Button();
             this.btLimpar = new System.Windows.Forms.Button();
             this.lbR = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtID
@@ -75,23 +76,22 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(100, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 13);
+            this.label2.Size = new System.Drawing.Size(96, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Nome do produto ";
+            this.label2.Text = "Nome do produto *";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 72);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 13);
+            this.label3.Size = new System.Drawing.Size(75, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Valor unitario";
+            this.label3.Text = "Valor unitario *";
             // 
             // txtValor
             // 
             this.txtValor.Location = new System.Drawing.Point(15, 88);
-            this.txtValor.Mask = "000000.00";
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(100, 20);
             this.txtValor.TabIndex = 6;
@@ -110,9 +110,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(141, 72);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 13);
+            this.label4.Size = new System.Drawing.Size(109, 13);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Previsão de entrega";
+            this.label4.Text = "Previsão de entrega *";
             // 
             // txtObs
             // 
@@ -144,9 +144,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(258, 70);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 13);
+            this.label6.Size = new System.Drawing.Size(74, 13);
             this.label6.TabIndex = 13;
-            this.label6.Text = "Tipo produto";
+            this.label6.Text = "Tipo produto *";
             // 
             // btPesquisar
             // 
@@ -156,6 +156,7 @@
             this.btPesquisar.TabIndex = 17;
             this.btPesquisar.Text = "Pesquisar";
             this.btPesquisar.UseVisualStyleBackColor = true;
+            this.btPesquisar.Click += new System.EventHandler(this.BtPesquisar_Click);
             // 
             // btExcluir
             // 
@@ -165,6 +166,7 @@
             this.btExcluir.TabIndex = 16;
             this.btExcluir.Text = "Excluir";
             this.btExcluir.UseVisualStyleBackColor = true;
+            this.btExcluir.Click += new System.EventHandler(this.BtExcluir_Click);
             // 
             // btGravar
             // 
@@ -196,11 +198,21 @@
             this.lbR.Size = new System.Drawing.Size(0, 17);
             this.lbR.TabIndex = 18;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 297);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(128, 13);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "* são campos obrigatórios";
+            // 
             // view_ProdutoNutrição
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(401, 300);
+            this.ClientSize = new System.Drawing.Size(405, 319);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.lbR);
             this.Controls.Add(this.btPesquisar);
             this.Controls.Add(this.btExcluir);
@@ -218,8 +230,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtID);
+            this.MaximizeBox = false;
             this.Name = "view_ProdutoNutrição";
-            this.Text = "view_ProdutoNutrição";
+            this.Text = "Produto Nutrição";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,5 +257,6 @@
         private System.Windows.Forms.Button btGravar;
         private System.Windows.Forms.Button btLimpar;
         private System.Windows.Forms.Label lbR;
+        private System.Windows.Forms.Label label7;
     }
 }

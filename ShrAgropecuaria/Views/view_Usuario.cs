@@ -87,35 +87,59 @@ namespace ShrAgropecuaria.Views
 
         private void BtExcluir_Click(object sender, EventArgs e)
         {
-            txtUsuario.BackColor = Color.White;
-            txtSenha.BackColor = Color.White;
-            lbR.Text = "";
-            if (txtID.Text == "")
-            {
-                lbR.Text = "Use o botão de pesquisa e\nselecione um usuario";
+                    txtUsuario.BackColor = Color.White;
+                    txtSenha.BackColor = Color.White;
+                    lbR.Text = "";
+            
+                    if (txtID.Text == "")
+                    {
+                        lbR.Text = "Use o botão de pesquisa e\nselecione um usuario";
+                    }
+                    else
+                    {
+                        Usuario user = new Usuario();
+                        user.User_login = txtUsuario.Text;
+                        user.User_senha = txtSenha.Text;
+                        if (rbAdmin.Checked == true)
+                            user.User_nivel = "admin";
+                        else
+                            user.User_nivel = "user";
+                        user.User_cod = Convert.ToInt32(txtID.Text);
+                        Boolean flag = true;
+                        if (rbAdmin.Checked == true)
+                        {
+                            try
+                            {
+                                int n = UsuarioRepository.Conta();
+                                if (n == 1)
+                                {
+                                    flag = false;
+                                    lbR.Text = "Não é possivel excluir!\nEsse é o unico\nusuario adiminstrador";
+                                }
+                                    
+                            }
+                            catch (Exception erro)
+                            {
+                                MessageBox.Show(erro.Message);
+                            }
+                        }
+                        if(flag == true)
+                        {
+                            try
+                            {
+                                UsuarioRepository.Excluir(user);
+                                MessageBox.Show("Excluido!");
+                                Limpar();
+                            }
+                            catch (Exception erro)
+                            {
+                                MessageBox.Show(erro.Message);
+                            }
+                        }
+                       
             }
-            else
-            {
-                Usuario user = new Usuario();
-                user.User_login = txtUsuario.Text;
-                user.User_senha = txtSenha.Text;
-                if (rbAdmin.Checked == true)
-                    user.User_nivel = "admin";
-                else
-                    user.User_nivel = "user";
-                user.User_status = 'I';
-                user.User_cod = Convert.ToInt32(txtID.Text);
-                try
-                {
-                    UsuarioRepository.Excluir(user);
-                    MessageBox.Show("Excluido!");
-                    Limpar();
-                }
-                catch(Exception erro)
-                {
-                    MessageBox.Show(erro.Message);
-                }
-            }
+            
+            
         }
 
         private void BtPesquisar_Click(object sender, EventArgs e)
