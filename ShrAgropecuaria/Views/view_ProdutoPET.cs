@@ -295,5 +295,10 @@ namespace ShrAgropecuaria.Views
         {
             txtValorUnitario.Select(3, 0);
         }
+
+        private void LegendaSituacao(object sender, EventArgs e)
+        {
+            MessageBox.Show("O campo situação deve ser inserido A para ativo e I para inativo", "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

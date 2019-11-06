@@ -57,6 +57,7 @@
             this.txtCEP = new System.Windows.Forms.MaskedTextBox();
             this.txtCNPJ = new System.Windows.Forms.MaskedTextBox();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGravar
@@ -96,6 +97,7 @@
             this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Nome *";
+            this.label2.Click += new System.EventHandler(this.LegendaNome);
             // 
             // label3
             // 
@@ -331,11 +333,21 @@
             this.txtTelefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BloqueioLetra);
             this.txtTelefone.Leave += new System.EventHandler(this.EventoSairTelefone);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(12, 469);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(128, 13);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "* são campos obrigatórios";
+            // 
             // view_Fornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(341, 479);
+            this.ClientSize = new System.Drawing.Size(340, 494);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.txtTelefone);
             this.Controls.Add(this.txtCNPJ);
             this.Controls.Add(this.txtCEP);
@@ -366,7 +378,7 @@
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnGravar);
             this.Name = "view_Fornecedor";
-            this.Text = "view_Fornecedor";
+            this.Text = "Cadastro Fornecedor";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -403,5 +415,6 @@
         private System.Windows.Forms.MaskedTextBox txtCEP;
         private System.Windows.Forms.MaskedTextBox txtCNPJ;
         private System.Windows.Forms.MaskedTextBox txtTelefone;
+        private System.Windows.Forms.Label label13;
     }
 }
