@@ -54,7 +54,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(56, 35);
+            this.label1.Location = new System.Drawing.Point(43, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 13);
             this.label1.TabIndex = 0;
@@ -65,50 +65,50 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(43, 102);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Estoque";
+            this.label2.Text = "Estoque *";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(165, 35);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.Size = new System.Drawing.Size(62, 13);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Descrição";
+            this.label4.Text = "Descrição *";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(307, 35);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 13);
+            this.label6.Size = new System.Drawing.Size(64, 13);
             this.label6.TabIndex = 4;
-            this.label6.Text = "Fabricante";
+            this.label6.Text = "Fabricante *";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(462, 35);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 13);
+            this.label8.Size = new System.Drawing.Size(74, 13);
             this.label8.TabIndex = 6;
-            this.label8.Text = "ValorCompra";
+            this.label8.Text = "ValorCompra *";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(586, 35);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(67, 13);
+            this.label10.Size = new System.Drawing.Size(74, 13);
             this.label10.TabIndex = 8;
-            this.label10.Text = "ValorUnitario";
+            this.label10.Text = "ValorUnitario *";
             // 
             // txtID
             // 
             this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(46, 51);
+            this.txtID.Location = new System.Drawing.Point(32, 51);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(42, 20);
             this.txtID.TabIndex = 9;
@@ -116,39 +116,48 @@
             // txtDescricao
             // 
             this.txtDescricao.Location = new System.Drawing.Point(142, 51);
+            this.txtDescricao.MaxLength = 40;
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(97, 20);
-            this.txtDescricao.TabIndex = 10;
+            this.txtDescricao.TabIndex = 2;
+            this.txtDescricao.Leave += new System.EventHandler(this.EventoSairDescricaoProd);
             // 
             // txtFabricante
             // 
             this.txtFabricante.Location = new System.Drawing.Point(285, 51);
+            this.txtFabricante.MaxLength = 40;
             this.txtFabricante.Name = "txtFabricante";
             this.txtFabricante.Size = new System.Drawing.Size(97, 20);
-            this.txtFabricante.TabIndex = 11;
+            this.txtFabricante.TabIndex = 3;
+            this.txtFabricante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SomenteLetra);
+            this.txtFabricante.Leave += new System.EventHandler(this.EventoSairFabricante);
             // 
             // txtValorUnitario
             // 
             this.txtValorUnitario.Location = new System.Drawing.Point(566, 51);
-            this.txtValorUnitario.Mask = "$ 00000,00";
+            this.txtValorUnitario.Mask = "$ 00000000,00";
             this.txtValorUnitario.Name = "txtValorUnitario";
             this.txtValorUnitario.Size = new System.Drawing.Size(100, 20);
-            this.txtValorUnitario.TabIndex = 13;
-            this.txtValorUnitario.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtValorUnitario.TabIndex = 5;
+            this.txtValorUnitario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SomenteNumero);
+            this.txtValorUnitario.Leave += new System.EventHandler(this.EventoSairVU);
             // 
             // txtEstoque
             // 
             this.txtEstoque.Location = new System.Drawing.Point(12, 118);
+            this.txtEstoque.MaxLength = 11;
             this.txtEstoque.Name = "txtEstoque";
             this.txtEstoque.Size = new System.Drawing.Size(97, 20);
-            this.txtEstoque.TabIndex = 14;
+            this.txtEstoque.TabIndex = 6;
+            this.txtEstoque.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SomenteNumero);
+            this.txtEstoque.Leave += new System.EventHandler(this.EventoSairEstoque);
             // 
             // btnLimpar
             // 
             this.btnLimpar.Location = new System.Drawing.Point(444, 388);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpar.TabIndex = 15;
+            this.btnLimpar.TabIndex = 11;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -158,7 +167,7 @@
             this.btnGravar.Location = new System.Drawing.Point(550, 388);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
-            this.btnGravar.TabIndex = 16;
+            this.btnGravar.TabIndex = 9;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
@@ -168,35 +177,37 @@
             this.btnExcluir.Location = new System.Drawing.Point(659, 388);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 17;
+            this.btnExcluir.TabIndex = 10;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // txtCategoria
             // 
+            this.txtCategoria.Enabled = false;
             this.txtCategoria.Location = new System.Drawing.Point(142, 118);
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.Size = new System.Drawing.Size(100, 20);
             this.txtCategoria.TabIndex = 18;
+            this.txtCategoria.Leave += new System.EventHandler(this.EventoSairCat);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(165, 102);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 19;
-            this.label3.Text = "Categoria";
+            this.label3.Text = "Categoria *";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(315, 102);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 21;
-            this.label5.Text = "Situação";
+            this.label5.Text = "Situação *";
             // 
             // txtAtivo
             // 
@@ -205,14 +216,16 @@
             this.txtAtivo.Name = "txtAtivo";
             this.txtAtivo.ShortcutsEnabled = false;
             this.txtAtivo.Size = new System.Drawing.Size(100, 20);
-            this.txtAtivo.TabIndex = 20;
+            this.txtAtivo.TabIndex = 8;
+            this.txtAtivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SomenteLetra);
+            this.txtAtivo.Leave += new System.EventHandler(this.EventoSairSit);
             // 
             // brnPesquisarProd
             // 
             this.brnPesquisarProd.Location = new System.Drawing.Point(94, 51);
             this.brnPesquisarProd.Name = "brnPesquisarProd";
             this.brnPesquisarProd.Size = new System.Drawing.Size(24, 23);
-            this.brnPesquisarProd.TabIndex = 22;
+            this.brnPesquisarProd.TabIndex = 1;
             this.brnPesquisarProd.UseVisualStyleBackColor = true;
             this.brnPesquisarProd.Click += new System.EventHandler(this.brnPesquisarProd_Click);
             // 
@@ -221,18 +234,19 @@
             this.btnPesquisarCategoria.Location = new System.Drawing.Point(248, 118);
             this.btnPesquisarCategoria.Name = "btnPesquisarCategoria";
             this.btnPesquisarCategoria.Size = new System.Drawing.Size(24, 23);
-            this.btnPesquisarCategoria.TabIndex = 23;
+            this.btnPesquisarCategoria.TabIndex = 7;
             this.btnPesquisarCategoria.UseVisualStyleBackColor = true;
             this.btnPesquisarCategoria.Click += new System.EventHandler(this.btnPesquisarCategoria_Click);
             // 
             // txtValorCompra
             // 
             this.txtValorCompra.Location = new System.Drawing.Point(444, 54);
-            this.txtValorCompra.Mask = "$ 00000,00";
+            this.txtValorCompra.Mask = "$ 00000000.00";
             this.txtValorCompra.Name = "txtValorCompra";
             this.txtValorCompra.Size = new System.Drawing.Size(100, 20);
-            this.txtValorCompra.TabIndex = 24;
-            this.txtValorCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtValorCompra.TabIndex = 4;
+            this.txtValorCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SomenteNumero);
+            this.txtValorCompra.Leave += new System.EventHandler(this.EventoSairVC);
             // 
             // view_ProdutoPET
             // 
