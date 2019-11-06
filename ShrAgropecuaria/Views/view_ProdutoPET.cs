@@ -276,6 +276,24 @@ namespace ShrAgropecuaria.Views
                 txtValorCompra.BackColor = Color.White;
         }
 
-        
+        private void txtValorCompra_Click(object sender, EventArgs e)
+        {
+            txtValorCompra.Select(3, 0);
+        }
+
+        private void txtValorUnitario_Click(object sender, EventArgs e)
+        {
+            txtValorUnitario.Select(3, 0);
+        }
+
+        private void txtValorCompra_Enter(object sender, EventArgs e)
+        {
+            txtValorCompra.Select(3, 0);
+        }
+
+        private void txtValorUnitario_Enter(object sender, EventArgs e)
+        {
+            txtValorUnitario.Select(3, 0);
+        }
     }
 }
