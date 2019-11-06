@@ -223,6 +223,9 @@
     <EmbeddedResource Include="Views\view_Menu.resx">
       <DependentUpon>view_Menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\view_Parametrização.resx">
+      <DependentUpon>view_Parametrização.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\view_ProdutoNutrição.resx">
       <DependentUpon>view_ProdutoNutrição.cs</DependentUpon>
     </EmbeddedResource>
