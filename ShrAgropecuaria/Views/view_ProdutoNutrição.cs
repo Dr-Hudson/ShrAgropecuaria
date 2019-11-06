@@ -16,5 +16,10 @@ namespace ShrAgropecuaria.Views
         {
             InitializeComponent();
         }
+
+        private void MaskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
     }
 }

@@ -36,6 +36,7 @@
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosPETToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.produtoNutriçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +60,8 @@
             this.fornecedoresToolStripMenuItem1,
             this.clienteToolStripMenuItem,
             this.produtosPETToolStripMenuItem,
-            this.usuarioToolStripMenuItem});
+            this.usuarioToolStripMenuItem,
+            this.produtoNutriçãoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -94,6 +96,13 @@
             this.usuarioToolStripMenuItem.Text = "Usuario";
             this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.UsuarioToolStripMenuItem_Click);
             // 
+            // produtoNutriçãoToolStripMenuItem
+            // 
+            this.produtoNutriçãoToolStripMenuItem.Name = "produtoNutriçãoToolStripMenuItem";
+            this.produtoNutriçãoToolStripMenuItem.Size = new System.Drawing.Size(111, 20);
+            this.produtoNutriçãoToolStripMenuItem.Text = "Produto Nutrição";
+            this.produtoNutriçãoToolStripMenuItem.Click += new System.EventHandler(this.ProdutoNutriçãoToolStripMenuItem_Click);
+            // 
             // view_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -120,5 +129,6 @@
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produtosPETToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem produtoNutriçãoToolStripMenuItem;
     }
 }
