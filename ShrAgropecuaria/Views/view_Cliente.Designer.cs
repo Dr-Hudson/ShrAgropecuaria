@@ -72,6 +72,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
+            this.txt_msg = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txt_nomeCliente
@@ -275,21 +276,23 @@
             this.btn_pesqCidade.TabIndex = 11;
             this.btn_pesqCidade.Text = "Pesquisar";
             this.btn_pesqCidade.UseVisualStyleBackColor = true;
+            this.btn_pesqCidade.Click += new System.EventHandler(this.btn_pesqCidade_Click);
             // 
             // btn_gravar
             // 
             this.btn_gravar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_gravar.Location = new System.Drawing.Point(101, 393);
+            this.btn_gravar.Location = new System.Drawing.Point(108, 408);
             this.btn_gravar.Name = "btn_gravar";
             this.btn_gravar.Size = new System.Drawing.Size(75, 30);
             this.btn_gravar.TabIndex = 15;
             this.btn_gravar.Text = "Gravar";
             this.btn_gravar.UseVisualStyleBackColor = true;
+            this.btn_gravar.Click += new System.EventHandler(this.btn_gravar_Click);
             // 
             // btn_alterar
             // 
             this.btn_alterar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_alterar.Location = new System.Drawing.Point(182, 393);
+            this.btn_alterar.Location = new System.Drawing.Point(189, 408);
             this.btn_alterar.Name = "btn_alterar";
             this.btn_alterar.Size = new System.Drawing.Size(75, 30);
             this.btn_alterar.TabIndex = 16;
@@ -299,7 +302,7 @@
             // btn_limpar
             // 
             this.btn_limpar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_limpar.Location = new System.Drawing.Point(263, 393);
+            this.btn_limpar.Location = new System.Drawing.Point(270, 408);
             this.btn_limpar.Name = "btn_limpar";
             this.btn_limpar.Size = new System.Drawing.Size(75, 30);
             this.btn_limpar.TabIndex = 17;
@@ -309,7 +312,7 @@
             // btn_excluir
             // 
             this.btn_excluir.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_excluir.Location = new System.Drawing.Point(344, 393);
+            this.btn_excluir.Location = new System.Drawing.Point(351, 408);
             this.btn_excluir.Name = "btn_excluir";
             this.btn_excluir.Size = new System.Drawing.Size(75, 30);
             this.btn_excluir.TabIndex = 18;
@@ -338,7 +341,7 @@
             // mask_cep
             // 
             this.mask_cep.Location = new System.Drawing.Point(161, 177);
-            this.mask_cep.Mask = "00000-9999";
+            this.mask_cep.Mask = "00000-000";
             this.mask_cep.Name = "mask_cep";
             this.mask_cep.Size = new System.Drawing.Size(256, 20);
             this.mask_cep.TabIndex = 7;
@@ -504,11 +507,21 @@
             this.label25.TabIndex = 37;
             this.label25.Text = "*";
             // 
+            // txt_msg
+            // 
+            this.txt_msg.AutoSize = true;
+            this.txt_msg.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_msg.Location = new System.Drawing.Point(191, 374);
+            this.txt_msg.Name = "txt_msg";
+            this.txt_msg.Size = new System.Drawing.Size(0, 22);
+            this.txt_msg.TabIndex = 38;
+            // 
             // View_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(542, 450);
+            this.Controls.Add(this.txt_msg);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
@@ -606,5 +619,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label txt_msg;
     }
 }
