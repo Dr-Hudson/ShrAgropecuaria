@@ -29,5 +29,11 @@ namespace ShrAgropecuaria.Views
             var f = Dependencia.Container.GetInstance<View_Cliente>();
             f.Show();
         }
+
+        private void UsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = Dependencia.Container.GetInstance<view_Usuario>();
+            f.ShowDialog();
+        }
     }
 }

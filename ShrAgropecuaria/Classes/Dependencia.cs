@@ -36,6 +36,7 @@ namespace ShrAgropecuaria.Classes
             Container.Register<PesquisaCidade>();
             Container.Register<PesquisaFornecedor>();
             Container.Register<view_Login>();
+            Container.Register<view_Usuario>();
         }
     }
 }
