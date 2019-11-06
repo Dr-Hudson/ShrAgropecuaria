@@ -68,52 +68,105 @@ namespace ShrAgropecuaria.Views
                             
                             
                             forn.Forn_cnpj = txtCNPJ.Text.Replace(",", "").Replace("/", "").Replace("-", "");
-                            if(txtComplemento.Text != "")
+                            if(txtComplemento.Text != "" || txtComplemento.Text == "")
                             {
-                                forn.Forn_complemento = txtComplemento.Text;
-                                if(txtDescricao.Text != "")
+                                if (txtComplemento.Text == "" && MessageBox.Show("O campo complemento está em branco, gostaria de preencher para continuar?", "Campo em branco", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                 {
-                                    forn.Forn_descricao = txtDescricao.Text;
-                                    if(txtEndereco.Text != "")
+                                    return;
+                                }
+                                else
+                                {
+                                    forn.Forn_complemento = txtComplemento.Text;
+                                    if (txtDescricao.Text != "" || txtDescricao.Text == "")
                                     {
-                                        forn.Forn_endereco = txtEndereco.Text;
-                                        if(txtNome.Text != "")
+                                        if (txtDescricao.Text == "" && MessageBox.Show("O campo complemento está em branco, gostaria de preencher para continuar?", "Campo em branco", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                         {
-                                            forn.Forn_nome = txtNome.Text;
-                                            if(txtNumero.Text != "")
+                                            return;
+                                        }
+                                        else
+                                        {
+                                            forn.Forn_descricao = txtDescricao.Text;
+                                            if (txtEndereco.Text != "")
                                             {
-                                                forn.Forn_numero = Convert.ToInt32(txtNumero.Text);
-                                                if(txtTelefone.Text != "")
+                                                forn.Forn_endereco = txtEndereco.Text;
+                                                if (txtNome.Text != "")
                                                 {
-                                                    
-                                                    forn.Forn_telefone = txtTelefone.Text.Replace(")","").Replace("(","").Replace("-","");
-                                                    
-                                                    if(forn != null)
+                                                    forn.Forn_nome = txtNome.Text;
+                                                    if (txtNumero.Text != "")
                                                     {
-                                                        if (txtID.Text != "")
+                                                        forn.Forn_numero = Convert.ToInt32(txtNumero.Text);
+                                                        if (txtTelefone.Text != "")
                                                         {
-                                                            forn.Forn_cod = Convert.ToInt32(txtID.Text);
-                                                            FornecedorRepository.Gravar(forn);
+
+                                                            forn.Forn_telefone = txtTelefone.Text.Replace(")", "").Replace("(", "").Replace("-", "");
+
+                                                            if (forn != null)
+                                                            {
+                                                                if (txtID.Text != "")
+                                                                {
+                                                                    forn.Forn_cod = Convert.ToInt32(txtID.Text);
+                                                                    FornecedorRepository.Gravar(forn);
+                                                                }
+                                                                else
+                                                                    FornecedorRepository.Gravar(forn);
+
+                                                                MessageBox.Show("Gravou!");
+                                                                LimparTela();
+                                                            }
                                                         }
                                                         else
-                                                            FornecedorRepository.Gravar(forn);
-
-                                                        MessageBox.Show("Gravou!");
-                                                        LimparTela();
+                                                        {
+                                                            MessageBox.Show("Não foi possível fazer a gravação! Deve ser informado o Telefone!!", "Campo em branco", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                            txtTelefone.Focus();
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        MessageBox.Show("Não foi possível fazer a gravação! Deve ser informado o Número!!", "Campo em branco", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                        txtNumero.Focus();
                                                     }
                                                 }
+                                                else
+                                                {
+                                                    MessageBox.Show("Não foi possível fazer a gravação! Deve ser informado o Nome!!", "Campo em branco", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                    txtNome.Focus();
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Não foi possível fazer a gravação! Deve ser informado o Endereço!!", "Campo em branco", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                txtEndereco.Focus();
                                             }
                                         }
+                                        
                                     }
+                                    
                                 }
+                                
                             }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Não foi possível fazer a gravação! Deve ser informado o CNPJ!!", "Campo em branco", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            txtCNPJ.Focus();
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("Não foi possível fazer a gravação! Deve ser informado a cidade!!", "Campo em branco", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        btnPesquisarCid.Focus();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Não foi possível fazer a gravação! Deve ser informado o CEP!!", "Campo em branco", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtCEP.Focus();
                 }
             }
             else
             {
-                MessageBox.Show("Nome do bairro deve ter ao menos 4 caracteres e não pode ultrapassar 40 caracteres");
+                MessageBox.Show("Não foi possível fazer a gravação! Deve ser informado o bairro!!","Campo em branco",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 txtBairro.Focus();
             }
         }
