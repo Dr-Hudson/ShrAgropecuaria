@@ -26,7 +26,8 @@ namespace ProjAvaliacao2Bim
             {
 
                 Dependencia.Configurar();
-                Application.Run(Dependencia.Container.GetInstance<view_Login>()); ;
+                Application.Run(new view_Menu());
+                //Application.Run(Dependencia.Container.GetInstance<view_Login>());
             }
             
         }
