@@ -125,6 +125,12 @@
     <Compile Include="Views\view_Menu.Designer.cs">
       <DependentUpon>view_Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\view_MenuPublico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\view_MenuPublico.Designer.cs">
+      <DependentUpon>view_MenuPublico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\view_Parametrização.cs">
       <SubType>Form</SubType>
     </Compile>

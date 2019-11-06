@@ -1,4 +1,5 @@
-﻿using ShrAgropecuaria.Repositorios.Interfaces;
+﻿using ShrAgropecuaria.Classes;
+using ShrAgropecuaria.Repositorios.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,28 +19,48 @@ namespace ShrAgropecuaria.Views
         {
             InitializeComponent();
             UsuarioRepository = usuarioRepository;
+            
         }
 
         private void BtEntrar_Click(object sender, EventArgs e)
         {
             string usuario = txtUsuario.Text;
             string senha = txtSenha.Text;
-
-            if(usuario.Replace(" ","").Length == 0)
+            txtUsuario.BackColor = Color.White;
+            txtSenha.BackColor = Color.White;
+            if (usuario.Replace(" ","").Length == 0)
             {
                 lbR.Text = "Usuario não informado!";
+                txtUsuario.Text = "";
+                txtUsuario.BackColor = Color.Red;
             }
             else
                 if(senha.Replace(" ", "").Length == 0)
                 {
                     lbR.Text = "Senha não informada!";
+                    txtSenha.Text = "";
+                    txtSenha.BackColor = Color.Red;
                 }
                 else
                 {
-                    if(UsuarioRepository.PegaUsuario(usuario, senha) != null)
+                    Usuario user = UsuarioRepository.PegaUsuario(usuario, senha);
+                    if (user != null)
                     {
-                        var a = new view_Menu();
-                        a.ShowDialog();
+                        if (user.User_nivel == "admin")
+                        {
+                            this.Hide();
+                            Form f = new view_Menu();
+                            f.Closed += (s, args) => this.Close();
+                            f.Show();
+
+                        }
+                        else
+                        {
+                            this.Hide();
+                            Form f = new view_MenuPublico();
+                            f.Closed += (s, args) => this.Close();
+                            f.Show();
+                        }
                     }
                     else
                     {

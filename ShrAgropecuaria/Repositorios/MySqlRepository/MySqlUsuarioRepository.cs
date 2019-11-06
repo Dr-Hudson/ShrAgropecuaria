@@ -51,7 +51,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
         {
             string sql = @"select *
                     from usuario
-                    where user_login = @usuario and user_senha = @senha";
+                    where user_login = @usuario and user_senha = @senha and user_status = 'A'";
             return Connection.Query<Usuario>(sql, new { usuario, senha }).FirstOrDefault();
         }
     }
