@@ -165,6 +165,7 @@
             this.btPesquisar.TabIndex = 10;
             this.btPesquisar.Text = "Pesquisar";
             this.btPesquisar.UseVisualStyleBackColor = true;
+            this.btPesquisar.Click += new System.EventHandler(this.BtPesquisar_Click);
             // 
             // lbR
             // 

@@ -19,14 +19,14 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
         }
         public void Excluir(Usuario user)
         {
-            Connection.Execute("update usuario set user_nivel = 'I' where user_cod = @user_cod", user);
+            Connection.Execute("update usuario set user_status = 'I' where user_cod = @user_cod", user);
         }
 
         public IEnumerable<Usuario> GetByNome(string user)
         {
             string sql = @"select *
                     from usuario
-                    where user_usuario like @nome";
+                    where user_login like @user and user_status = 'A'";
             return Connection.Query<Usuario>(sql, new { user = "%" + user + "%" });
         }
 

@@ -1,5 +1,6 @@
 ﻿using ShrAgropecuaria.Classes;
 using ShrAgropecuaria.Repositorios.Interfaces;
+using ShrAgropecuaria.Views.Pesquisas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,7 +49,7 @@ namespace ShrAgropecuaria.Views
                 txtUsuario.BackColor = Color.Red;
             }
             else
-                if (txtSenha.Text.Length < 8)
+                if (txtSenha.Text.Length < 5)
                 {
                     lbR.Text = "Senha precisa ter mais de\n5 caracteres!";
                     txtSenha.BackColor = Color.Red;
@@ -73,7 +74,7 @@ namespace ShrAgropecuaria.Views
                         if (txtID.Text == "")
                             MessageBox.Show("Usuario cadastrado!");
                         else
-                            MessageBox.Show("Usuario Inserido!");
+                            MessageBox.Show("Usuario Alterado!");
                         Limpar();
                     }
                     catch(Exception erro)
@@ -104,9 +105,34 @@ namespace ShrAgropecuaria.Views
                     user.User_nivel = "user";
                 user.User_status = 'I';
                 user.User_cod = Convert.ToInt32(txtID.Text);
+                try
+                {
+                    UsuarioRepository.Excluir(user);
+                    MessageBox.Show("Excluido!");
+                    Limpar();
+                }
+                catch(Exception erro)
+                {
+                    MessageBox.Show(erro.Message);
+                }
             }
         }
 
+        private void BtPesquisar_Click(object sender, EventArgs e)
+        {
+            var a = new PesquisaUsuario(UsuarioRepository);
 
+            if (a.ShowDialog() == DialogResult.OK)
+            {
+
+                txtID.Text = a.Usuario.User_cod.ToString();
+                txtUsuario.Text = a.Usuario.User_login;
+                txtSenha.Text = a.Usuario.User_senha;
+                if (a.Usuario.User_nivel == "admin")
+                    rbAdmin.Checked = true;
+                else
+                    rbUser.Checked = true;
+            }
+        }
     }
 }

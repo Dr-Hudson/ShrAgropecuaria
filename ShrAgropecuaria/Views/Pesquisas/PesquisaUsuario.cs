@@ -12,11 +12,12 @@ using System.Windows.Forms;
 
 namespace ShrAgropecuaria.Views.Pesquisas
 {
+
     public partial class PesquisaUsuario : Form
     {
         public IUsuarioRepository UsuarioRepository { get; }
 
-        public Usuario Usuarios { get; set; }
+        public Usuario Usuario = new Usuario();
         public PesquisaUsuario(IUsuarioRepository usuarioRepository)
         {
             InitializeComponent();
@@ -26,16 +27,23 @@ namespace ShrAgropecuaria.Views.Pesquisas
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
             string user = txtUsuario.Text;
-            List<Usuario> usuarios = UsuarioRepository.GetByNome(user).ToList();
-            DgvDados.DataSource = usuarios;
+            try
+            {
+                List<Usuario> usuarios = UsuarioRepository.GetByNome(user).ToList();
+                dgvDados.DataSource = usuarios;
+            }
+            catch(Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
         }
 
         private void BtnSelecionar_Click(object sender, EventArgs e)
         {
             try
             {
-                Usuarios = DgvDados.CurrentRow?.DataBoundItem as Usuario;
-                if (DgvDados.CurrentRow != null)
+                Usuario = dgvDados.CurrentRow?.DataBoundItem as Usuario;
+                if (dgvDados.CurrentRow != null)
                 {
                     DialogResult = DialogResult.OK;
                     Close();
@@ -47,9 +55,8 @@ namespace ShrAgropecuaria.Views.Pesquisas
             }
         }
 
-        private void BtnCancelar_Click(object sender, EventArgs e)
+        private void BtCancelar_Click(object sender, EventArgs e)
         {
-
             DialogResult = DialogResult.Cancel;
             Close();
         }

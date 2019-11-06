@@ -119,6 +119,12 @@
     <Compile Include="Views\Pesquisas\PesquisaProdutoPET.Designer.cs">
       <DependentUpon>PesquisaProdutoPET.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pesquisas\PesquisaUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisas\PesquisaUsuario.Designer.cs">
+      <DependentUpon>PesquisaUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\view_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +195,9 @@
     <EmbeddedResource Include="Views\Pesquisas\PesquisaFornecedor.resx">
       <DependentUpon>PesquisaFornecedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pesquisas\PesquisaUsuario.resx">
+      <DependentUpon>PesquisaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\view_Cliente.resx">
       <DependentUpon>view_Cliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\view_Menu.resx">
       <DependentUpon>view_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\view_Usuario.resx">
+      <DependentUpon>view_Usuario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
