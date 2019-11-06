@@ -77,6 +77,7 @@
     <Compile Include="Classes\Dependencia.cs" />
     <Compile Include="Classes\Estado.cs" />
     <Compile Include="Classes\Fornecedor.cs" />
+    <Compile Include="Classes\Parametrizacao.cs" />
     <Compile Include="Classes\ProdutoNutricao.cs" />
     <Compile Include="Classes\ProdutoPET.cs" />
     <Compile Include="Classes\TipoProdutoNutricao.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Repositorios\Interfaces\ICidadeRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IClienteRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IFornecedorRepository.cs" />
+    <Compile Include="Repositorios\Interfaces\IParametrizacaoRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IProdutoNutricao.cs" />
     <Compile Include="Repositorios\Interfaces\IProdutoPET.cs" />
     <Compile Include="Repositorios\Interfaces\IUsuarioRepository.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Repositorios\MySqlRepository\MySqlCidadeRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlClienteRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlFornecedorRepository.cs" />
+    <Compile Include="Repositorios\MySqlRepository\MySqlParametrizacaoRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlProdutoNutricaoRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlProdutoPET.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlRepository.cs" />
@@ -222,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\view_Menu.resx">
       <DependentUpon>view_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\view_Parametrização.resx">
+      <DependentUpon>view_Parametrização.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\view_ProdutoNutrição.resx">
       <DependentUpon>view_ProdutoNutrição.cs</DependentUpon>

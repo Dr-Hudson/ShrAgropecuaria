@@ -17,6 +17,12 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
         {
 
         }
+
+        public int Conta()
+        {
+            return Connection.Query<int>("select count(*) from usuario where user_nivel = 'admin' and user_status = 'A' group by user_nivel").FirstOrDefault();
+        }
+
         public void Excluir(Usuario user)
         {
             Connection.Execute("update usuario set user_status = 'I' where user_cod = @user_cod", user);
