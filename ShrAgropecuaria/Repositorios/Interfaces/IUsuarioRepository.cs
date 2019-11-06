@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShrAgropecuaria.Repositorios.Interfaces
 {
-    interface IUsuarioRepository
+    public interface IUsuarioRepository
     {
         IEnumerable<Usuario> GetByNome(string Nome);
         void Gravar(Usuario user);

@@ -1,4 +1,5 @@
-﻿using ShrAgropecuaria.Classes;
+﻿using Dapper;
+using ShrAgropecuaria.Classes;
 using ShrAgropecuaria.Repositorios.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -51,7 +52,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
             string sql = @"select *
                     from usuario
                     where user_login = @usuario and user_senha = @senha";
-            return Connection.Query<Cidade>(sql, new { usuario, senha }).FirstOrDefault();
+            return Connection.Query<Usuario>(sql, new { usuario, senha }).FirstOrDefault();
         }
     }
 }
