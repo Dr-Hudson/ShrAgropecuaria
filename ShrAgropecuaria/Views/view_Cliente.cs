@@ -14,7 +14,7 @@ namespace ShrAgropecuaria.Views
 {
     public partial class View_Cliente : Form
     {
-        Cliente cli = new Cliente();
+        View_Cliente cli = new View_Cliente();
         public ICidadeRepository CidadeRepository { get; }
         public IClienteRepository ClienteRepository { get; }
         public View_Cliente()
