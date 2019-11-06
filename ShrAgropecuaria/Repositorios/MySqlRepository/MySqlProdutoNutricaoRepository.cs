@@ -26,7 +26,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
 
         public void Excluir(ProdutoNutricao prod)
         {
-                Connection.Execute("update produtonutricao set prodn_ativo = 'I' where prodm = @user_cod", prod);
+                Connection.Execute("update produtonutricao set prodn_ativo = 'I' where prodn_cod = @prodn_cod", prod);
             
         }
 
@@ -34,7 +34,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
         {
             string sql = @"select prod.*, tipo.* from produtonutricao prod
                             inner join tipoprodutonutricao tipo on prod.tpn_cod = tipo.tpn_cod
-                            where prod.pord_nome like @nome";
+                            where prod.prodn_nomeprod like @nome and prodn_ativo = 'A'";
             return Connection.Query<ProdutoNutricao, TipoProdutoNutricao, ProdutoNutricao>(sql, (produtonutricao, tipoprodutonutricao) =>
             {
                 produtonutricao.TipoProdutoNutricao = tipoprodutonutricao;
@@ -47,13 +47,13 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
             if (prod.Prodn_cod == null)
             {
                 Connection.Execute("insert into produtonutricao" +
-                    "(prodn_ativo,prodn_obs,prodn_previsaoentrega, prodn_nomeprod, prodn_valorunitario, tpn_cod)" +
-                    " values(@prodn_ativo, @prodn_obs, @prodn_previsaoentrega, @prodn_nomeprod, @prodn_valorunitario, @tipoprodutonutricaoid)", prod);
+                    "(prodn_ativo,prodn_obs,prodn_previsaoentrega, prodn_nomeprod, prod_valorunitario, tpn_cod)" +
+                    " values(@prodn_ativo, @prodn_obs, @prodn_previsaoentrega, @prodn_nomeprod, @prod_valorunitario, @tipoprodutonutricaoid)", prod);
             }
             else
             {
-                Connection.Execute("update produtonutricao set  prodn_ativo = @prodn_ativo, prodn_obs = @prodn_obs, prodn_previsaoentrega = @prodn_previsaoentrega , "
-                    + "prodn_nomeprod = @prodn_nomeprod, prodn_valorunitario = @prodn_valorunitario, tpn_cod = @tipoprodutonutricaoid"
+                Connection.Execute("update produtonutricao set prodn_ativo = @prodn_ativo, prodn_obs = @prodn_obs, prodn_previsaoentrega = @prodn_previsaoentrega , "
+                    + "prodn_nomeprod = @prodn_nomeprod, prod_valorunitario = @prod_valorunitario, tpn_cod = @tipoprodutonutricaoid "
                     + "where prodn_cod = @prodn_cod", prod);
             }
         }
