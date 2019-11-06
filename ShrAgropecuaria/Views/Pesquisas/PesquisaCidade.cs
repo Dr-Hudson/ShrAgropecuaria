@@ -28,8 +28,22 @@ namespace ShrAgropecuaria.Views.Pesquisas
 
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
-            List<Cidade> cid = CidadeRepository.GetAll().ToList();
-            DvgCidade.DataSource = cid;
+            if(txt_nome.Text == "" && txt_id.Text == "")
+            {
+                List<Cidade> cid = CidadeRepository.GetAll().ToList();
+                DvgCidade.DataSource = cid;
+            }
+            else if (txt_nome.Text != "" && txt_id.Text == "")
+            {
+                List<Cidade> cid = CidadeRepository.GetByNome(txt_nome.Text).ToList();
+                DvgCidade.DataSource = cid;
+            }
+            else
+            {
+                Cidades = CidadeRepository.Get(Convert.ToInt32(txt_id.Text));
+                DvgCidade.DataSource = Cidades;
+            }
+            
         }
 
         private void BtnSelecionarCid_Click(object sender, EventArgs e)
