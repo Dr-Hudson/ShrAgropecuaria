@@ -58,20 +58,49 @@ namespace ShrAgropecuaria.Views
         private void btn_gravar_Click(object sender, EventArgs e)
         {
             if (VerificaCampos())
+            {
+                LimparCampos();
+                if (txt_id.Text.Length == 0)
+                {
+                    txt_msg.Text = "Gravado com Sucesso!";
+                }
+                else
+                {
+                    cli.Cli_cod = Convert.ToInt32(txt_id.Text);
+                    txt_msg.Text = "Editado com Sucesso!";
+                }
                 ClienteRepository.Gravar(cli);
+            }
+        }
 
+        public void LimparCampos()
+        {
+            txt_id.Text = "";
+            txt_msg.Text = "";
+            txt_nomeCliente.Text = "";
+            mask_limite.Text = "";
+            mask_fiado.Text = "";
+            txt_endereco.Text = "";
+            txt_bairro.Text = "";
+            mask_cep.Text = "";
+            mask_numero.Text = "";
+            txt_complemento.Text = "";
+            txt_cidade.Text = "";
+            txt_rg.Text = "";
+            mask_cpf.Text = "";
+            mask_telefone.Text = "";
         }
 
         public bool VerificaCampos()
         {
             txt_msg.Text = "";
-            cli = null;
+            cli = new Cliente(); 
             if (txt_nomeCliente.Text.Length > 2)
             {
                 cli.Cli_nome = txt_nomeCliente.Text;
                 if (mask_limite.Text.Length > 0)
                 {
-                    cli.Cli_limite = Convert.ToDecimal(mask_limite.Text);
+                    cli.Cli_limite = Convert.ToDecimal(mask_limite.Text.Replace(" ",""));
                     string fiado = mask_fiado.Text.Replace("R$", "").Replace(" ", "").Replace(".", "");
                     if (fiado.Length > 0)
                     {
@@ -84,7 +113,7 @@ namespace ShrAgropecuaria.Views
                                 cli.Cli_bairro = txt_bairro.Text;
                                 if (mask_cep.Text.Length == 9)
                                 {
-                                    cli.Cli_cep = mask_cep.Text;
+                                    cli.Cli_cep = mask_cep.Text.Replace("-","");
                                     if (mask_numero.Text.Length > 0)
                                     {
                                         cli.Cli_numero = Convert.ToInt32(mask_numero.Text);
@@ -96,11 +125,12 @@ namespace ShrAgropecuaria.Views
                                                 cli.Cli_rg = txt_rg.Text;
                                                 if (mask_cpf.Text.Length == 14)
                                                 {
-                                                    cli.Cli_cpf = mask_cpf.Text;
+                                                    cli.Cli_cpf = mask_cpf.Text.Replace(",","").Replace("-","");
                                                     if (mask_telefone.Text.Length == 15)
                                                     {
-                                                        cli.Cli_telefone = mask_telefone.Text;
+                                                        cli.Cli_telefone = mask_telefone.Text.Replace("(","").Replace(")","").Replace(" ","").Replace("-","");
                                                         cli.Cli_complemento = txt_complemento.Text;
+                                                        cli.Cli_dataliberacao = dateTimePicker1.Value;
                                                         return true;
                                                     }
                                                     else
@@ -176,6 +206,58 @@ namespace ShrAgropecuaria.Views
             var a = new PesquisaCidade(CidadeRepository);
             if (a.ShowDialog() == DialogResult.OK)
                 txt_cidade.Text = a.Cidades.Cid_nome;
+        }
+
+        private void btn_limpar_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
+        }
+
+        private void btn_pesqCliente_Click(object sender, EventArgs e)
+        {
+            var a = new PesquisaCliente(ClienteRepository);
+            if (a.ShowDialog() == DialogResult.OK)
+            {
+                txt_id.Text = a.cli.Cli_cod.ToString();
+                txt_nomeCliente.Text = a.cli.Cli_nome;
+                dateTimePicker1.Value = a.cli.Cli_dataliberacao;
+                mask_limite.Text = a.cli.Cli_limite.ToString().PadLeft(11, ' ');
+                mask_fiado.Text = a.cli.Cli_saldofiado.ToString().PadLeft(11, ' ');
+                txt_endereco.Text = a.cli.Cli_endereco;
+                txt_bairro.Text = a.cli.Cli_bairro;
+                mask_cep.Text = a.cli.Cli_cep;
+                mask_numero.Text = a.cli.Cli_numero.ToString();
+                txt_complemento.Text = a.cli.Cli_complemento;
+                txt_cidade.Text = a.cli.Cidade.Cid_nome;
+                txt_rg.Text = a.cli.Cli_rg;
+                mask_cpf.Text = a.cli.Cli_cpf;
+                mask_telefone.Text = a.cli.Cli_telefone;
+
+                
+            }
+                
+        }
+
+        private void mask_fiado_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_excluir_Click(object sender, EventArgs e)
+        {
+            int cod;
+            int.TryParse(txt_id.Text, out cod);
+            cli = ClienteRepository.Get(cod);
+            if (cli != null)
+            {
+                ClienteRepository.Excluir(cli);
+                MessageBox.Show("Excluído com sucesso!");
+            }
+            else
+            {
+                MessageBox.Show("Não foi possível Excluir o Cliente");
+            }
+            LimparCampos();
         }
     }
 }
