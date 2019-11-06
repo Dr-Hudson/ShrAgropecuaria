@@ -28,6 +28,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
                     from usuario
                     where user_login like @user and user_status = 'A'";
             return Connection.Query<Usuario>(sql, new { user = "%" + user + "%" });
+
         }
 
         public void Gravar(Usuario user)
