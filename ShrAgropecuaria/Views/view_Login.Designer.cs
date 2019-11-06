@@ -100,7 +100,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtUsuario);
             this.Name = "view_Login";
-            this.Text = "view_Login";
+            this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 
