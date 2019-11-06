@@ -35,6 +35,8 @@
             this.fornecedoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosPETToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.produtoNutriçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +59,9 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fornecedoresToolStripMenuItem1,
             this.clienteToolStripMenuItem,
-            this.produtosPETToolStripMenuItem});
+            this.produtosPETToolStripMenuItem,
+            this.usuarioToolStripMenuItem,
+            this.produtoNutriçãoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -83,7 +87,21 @@
             this.produtosPETToolStripMenuItem.Name = "produtosPETToolStripMenuItem";
             this.produtosPETToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.produtosPETToolStripMenuItem.Text = "ProdutosPET";
-            this.produtosPETToolStripMenuItem.Click += new System.EventHandler(this.produtosPETToolStripMenuItem_Click);
+            this.produtosPETToolStripMenuItem.Click += new System.EventHandler(this.ProdutosPETToolStripMenuItem_Click_1);
+            // 
+            // usuarioToolStripMenuItem
+            // 
+            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.usuarioToolStripMenuItem.Text = "Usuario";
+            this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.UsuarioToolStripMenuItem_Click);
+            // 
+            // produtoNutriçãoToolStripMenuItem
+            // 
+            this.produtoNutriçãoToolStripMenuItem.Name = "produtoNutriçãoToolStripMenuItem";
+            this.produtoNutriçãoToolStripMenuItem.Size = new System.Drawing.Size(111, 20);
+            this.produtoNutriçãoToolStripMenuItem.Text = "Produto Nutrição";
+            this.produtoNutriçãoToolStripMenuItem.Click += new System.EventHandler(this.ProdutoNutriçãoToolStripMenuItem_Click);
             // 
             // view_Menu
             // 
@@ -110,5 +128,7 @@
         private System.Windows.Forms.ToolStripMenuItem fornecedoresToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produtosPETToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem produtoNutriçãoToolStripMenuItem;
     }
 }
