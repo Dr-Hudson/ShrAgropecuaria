@@ -77,7 +77,9 @@
     <Compile Include="Classes\Dependencia.cs" />
     <Compile Include="Classes\Estado.cs" />
     <Compile Include="Classes\Fornecedor.cs" />
+    <Compile Include="Classes\ProdutoNutricao.cs" />
     <Compile Include="Classes\ProdutoPET.cs" />
+    <Compile Include="Classes\TipoProdutoNutricao.cs" />
     <Compile Include="Classes\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +87,7 @@
     <Compile Include="Repositorios\Interfaces\ICidadeRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IClienteRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IFornecedorRepository.cs" />
+    <Compile Include="Repositorios\Interfaces\IProdutoNutricao.cs" />
     <Compile Include="Repositorios\Interfaces\IProdutoPET.cs" />
     <Compile Include="Repositorios\Interfaces\IUsuarioRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\Connection.cs" />
@@ -92,6 +95,7 @@
     <Compile Include="Repositorios\MySqlRepository\MySqlCidadeRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlClienteRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlFornecedorRepository.cs" />
+    <Compile Include="Repositorios\MySqlRepository\MySqlProdutoNutricaoRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlProdutoPET.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlUsuarioRepository.cs" />
