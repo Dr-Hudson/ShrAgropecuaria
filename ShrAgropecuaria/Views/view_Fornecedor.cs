@@ -46,6 +46,7 @@ namespace ShrAgropecuaria.Views
             txtNumero.Text = "";
             txtTelefone.Text = "";
             txtCidade.Text = "";
+            txtEstado.Text = "";
         }
 
         
@@ -215,6 +216,7 @@ namespace ShrAgropecuaria.Views
             {
                 MessageBox.Show("Não foi possível Excluir esse fornecedor");
             }
+            LimparTela();
         }
 
         private void btnPesquisarCid_Click(object sender, EventArgs e)

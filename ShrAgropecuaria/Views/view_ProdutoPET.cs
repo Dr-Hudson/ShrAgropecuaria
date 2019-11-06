@@ -34,6 +34,8 @@ namespace ShrAgropecuaria.Views
             txtID.Text = "";
             txtValorCompra.Text = "";
             txtValorUnitario.Text = "";
+            txtCategoria.Text = "";
+            txtAtivo.Text = "";
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -82,7 +84,7 @@ namespace ShrAgropecuaria.Views
                                                 ProdutoPet.Gravar(pp);
                                                 MessageBox.Show("Gravou com sucesso!!");
                                             }
-
+                                            LimparTela();
                                         }
                                     }
                                     else
