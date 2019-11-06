@@ -31,7 +31,12 @@ namespace ShrAgropecuaria.Classes
             Container.Register<IFornecedorRepository, MySqlFornecedorRepository>(Lifestyle.Scoped);
             Container.Register<IClienteRepository, MySqlClienteRepository>(Lifestyle.Scoped);
             Container.Register<IUsuarioRepository, MySqlUsuarioRepository>(Lifestyle.Scoped);
+            Container.Register<ICategoriaProdutoPET, MySqlCategoriaProdutoPET>(Lifestyle.Scoped);
+            Container.Register<IProdutoPET, MySqlProdutoPET>(Lifestyle.Scoped);
+            Container.Register<PesquisaCategoria>();
+            Container.Register<PesquisaProdutoPET>();
             Container.Register<view_Fornecedor>();
+            Container.Register<view_ProdutoPET>();
             Container.Register<Views.View_Cliente>();
             Container.Register<PesquisaCidade>();
             Container.Register<PesquisaFornecedor>();

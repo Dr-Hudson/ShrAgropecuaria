@@ -30,6 +30,12 @@ namespace ShrAgropecuaria.Views
             f.Show();
         }
 
+        private void produtosPETToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = Dependencia.Container.GetInstance<view_ProdutoPET>();
+            f.Show();
+        }
+
         private void UsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var f = Dependencia.Container.GetInstance<view_Usuario>();
