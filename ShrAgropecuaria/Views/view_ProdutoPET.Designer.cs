@@ -49,6 +49,7 @@
             this.brnPesquisarProd = new System.Windows.Forms.Button();
             this.btnPesquisarCategoria = new System.Windows.Forms.Button();
             this.txtValorCompra = new System.Windows.Forms.MaskedTextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -210,6 +211,7 @@
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 21;
             this.label5.Text = "Situação *";
+            this.label5.Click += new System.EventHandler(this.LegendaSituacao);
             // 
             // txtAtivo
             // 
@@ -252,11 +254,21 @@
             this.txtValorCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SomenteNumero);
             this.txtValorCompra.Leave += new System.EventHandler(this.EventoSairVC);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(12, 320);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(128, 13);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "* são campos obrigatórios";
+            // 
             // view_ProdutoPET
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 320);
+            this.ClientSize = new System.Drawing.Size(476, 342);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.txtValorCompra);
             this.Controls.Add(this.btnPesquisarCategoria);
             this.Controls.Add(this.brnPesquisarProd);
@@ -279,7 +291,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "view_ProdutoPET";
-            this.Text = "view_ProdutoPET";
+            this.Text = "Cadastro ProdutoPET";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,5 +320,6 @@
         private System.Windows.Forms.Button brnPesquisarProd;
         private System.Windows.Forms.Button btnPesquisarCategoria;
         private System.Windows.Forms.MaskedTextBox txtValorCompra;
+        private System.Windows.Forms.Label label13;
     }
 }

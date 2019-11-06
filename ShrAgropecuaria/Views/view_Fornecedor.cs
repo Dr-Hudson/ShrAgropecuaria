@@ -350,5 +350,10 @@ namespace ShrAgropecuaria.Views
                 txtCidade.BackColor = Color.White;
 
         }
+
+        private void LegendaNome(object sender, EventArgs e)
+        {
+            MessageBox.Show("Campo para inserir seu nome completo", "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

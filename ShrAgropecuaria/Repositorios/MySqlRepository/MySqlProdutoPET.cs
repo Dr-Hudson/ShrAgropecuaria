@@ -19,7 +19,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
 
         public void Excluir(ProdutoPET pet)
         {
-            Connection.Execute("delete from produtopet where pp_cod = @pp_cod", pet);
+            Connection.Execute("update produtopet set pp_ativo = 'I' where pp_cod = @pp_cod", pet);
         }
 
         public ProdutoPET Get(int? id)
