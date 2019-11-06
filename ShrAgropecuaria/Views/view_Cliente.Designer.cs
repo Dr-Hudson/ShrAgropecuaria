@@ -324,14 +324,16 @@
             this.mask_limite.Size = new System.Drawing.Size(256, 20);
             this.mask_limite.TabIndex = 3;
             this.mask_limite.ValidatingType = typeof(int);
+            this.mask_limite.Click += new System.EventHandler(this.mask_limite_Click);
             // 
             // mask_fiado
             // 
             this.mask_fiado.Location = new System.Drawing.Point(161, 97);
-            this.mask_fiado.Mask = "$00000";
+            this.mask_fiado.Mask = "$ 00000,00";
             this.mask_fiado.Name = "mask_fiado";
             this.mask_fiado.Size = new System.Drawing.Size(256, 20);
             this.mask_fiado.TabIndex = 4;
+            this.mask_fiado.Click += new System.EventHandler(this.mask_fiado_Click);
             // 
             // mask_cep
             // 
@@ -340,6 +342,7 @@
             this.mask_cep.Name = "mask_cep";
             this.mask_cep.Size = new System.Drawing.Size(256, 20);
             this.mask_cep.TabIndex = 7;
+            this.mask_cep.Click += new System.EventHandler(this.mask_cep_Click);
             // 
             // mask_numero
             // 
@@ -349,6 +352,7 @@
             this.mask_numero.Size = new System.Drawing.Size(256, 20);
             this.mask_numero.TabIndex = 8;
             this.mask_numero.ValidatingType = typeof(int);
+            this.mask_numero.Click += new System.EventHandler(this.mask_numero_Click);
             // 
             // mask_cpf
             // 
@@ -357,6 +361,7 @@
             this.mask_cpf.Name = "mask_cpf";
             this.mask_cpf.Size = new System.Drawing.Size(256, 20);
             this.mask_cpf.TabIndex = 13;
+            this.mask_cpf.Click += new System.EventHandler(this.mask_cpf_Click);
             // 
             // mask_telefone
             // 
@@ -365,6 +370,7 @@
             this.mask_telefone.Name = "mask_telefone";
             this.mask_telefone.Size = new System.Drawing.Size(256, 20);
             this.mask_telefone.TabIndex = 14;
+            this.mask_telefone.Click += new System.EventHandler(this.mask_telefone_Click);
             // 
             // label14
             // 
