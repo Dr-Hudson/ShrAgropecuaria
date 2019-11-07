@@ -32,6 +32,7 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtLogo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btAlterar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -66,17 +67,29 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Logo";
             // 
+            // btAlterar
+            // 
+            this.btAlterar.Location = new System.Drawing.Point(82, 167);
+            this.btAlterar.Name = "btAlterar";
+            this.btAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btAlterar.TabIndex = 8;
+            this.btAlterar.Text = "Gravar";
+            this.btAlterar.UseVisualStyleBackColor = true;
+            this.btAlterar.Click += new System.EventHandler(this.BtAlterar_Click);
+            // 
             // view_Parametrização
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(250, 168);
+            this.ClientSize = new System.Drawing.Size(256, 202);
+            this.Controls.Add(this.btAlterar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtLogo);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
             this.Name = "view_Parametrização";
             this.Text = "view_Parametrização";
+            this.Load += new System.EventHandler(this.View_Parametrização_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -88,5 +101,6 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtLogo;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btAlterar;
     }
 }

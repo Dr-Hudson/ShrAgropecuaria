@@ -10,7 +10,7 @@ namespace ShrAgropecuaria.Repositorios.Interfaces
     public interface IParametrizacaoRepository
     {
         Parametrizacao Get();
-        void Gravar(ProdutoNutricao user);
+        void Gravar(Parametrizacao p, Boolean f);
 
     }
 }

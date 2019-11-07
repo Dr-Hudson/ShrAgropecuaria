@@ -31,6 +31,7 @@ namespace ShrAgropecuaria.Views.Pesquisas
             {
                 List<Usuario> usuarios = UsuarioRepository.GetByNome(user).ToList();
                 dgvDados.DataSource = usuarios;
+                dgvDados.Columns[4].Visible = false;
             }
             catch(Exception erro)
             {

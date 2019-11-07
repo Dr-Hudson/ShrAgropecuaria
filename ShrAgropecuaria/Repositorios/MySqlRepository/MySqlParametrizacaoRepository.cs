@@ -29,11 +29,16 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
             {
                 Connection.Execute("insert into parametrizacao" +
                    "(par_logo,par_nomeemp)" +
-                   " values(@user_nivel, @user_status, @user_login, @user_senha)", par);
+                   " values(@par_logo, @par_nomeemp)", par);
+            }
+            else
+            {
+                Connection.Execute("update parametrizacao set" +
+                   " par_nomoemp = @par_nomeemp, par_logo = @par_logo", par);
             }
         }
 
-        public void Gravar(ProdutoNutricao user)
+        public void Gravar(ProdutoNutricao user, bool f)
         {
             throw new NotImplementedException();
         }
