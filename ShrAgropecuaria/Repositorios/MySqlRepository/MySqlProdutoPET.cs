@@ -65,13 +65,13 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
         public IEnumerable<ProdutoPET> GetByNome(string Nome)
         {
             string sql = "select pp.*, cat.* from produtopet pp " +
-                "inner join categoriaprodutopet cat on cat.cat_cod = pp.cat_cod" +
-                "where pp.pp_descricao like  = @nome";
+                "inner join categoriaprodutopet cat on cat.cat_cod = pp.cat_cod " +
+                "where pp.pp_descricao like @nome";
             return Connection.Query<ProdutoPET, CategoriaProdutoPET, ProdutoPET>(sql, (produtopet, categoriaprodutopet) =>
             {
                 produtopet.Cat = categoriaprodutopet;
                 return produtopet;
-            }, new { nome = "%" + Nome  +"%" }, splitOn: "cat_cod");
+            //}, new { nome = "%" + Nome  +"%" }, splitOn: "cat_cod");
         }
 
         public void Gravar(ProdutoPET pet)

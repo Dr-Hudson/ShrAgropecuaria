@@ -34,7 +34,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
             else
             {
                 Connection.Execute("update parametrizacao set" +
-                   " par_nomoemp = @par_nomeemp, par_logo = @par_logo", par);
+                   " par_nomeemp = @par_nomeemp, par_logo = @par_logo", par);
             }
         }
 
