@@ -12,6 +12,7 @@ namespace ShrAgropecuaria.Repositorios.Interfaces
         Cliente Get(int? id);
         IEnumerable<Cliente> GetAll(string nome);
         IEnumerable<Cliente> GetByNome(string Nome);
+        IEnumerable<Cliente> GetByCPF(string cpf);
         IEnumerable<Cliente> GetById(int id);
         Cliente PegaId(string nome);
         void Gravar(Cliente cli);

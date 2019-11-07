@@ -38,13 +38,13 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
                 Connection.Execute("INSERT INTO cliente " +
                     "(cli_cod, cli_dataliberacao, cli_limite, cli_saldofiado, cli_bairro, cli_cep, cli_complemento, cli_numero, cli_nome, cli_cpf, cli_rg, cli_endereco, cli_telefone, cid_cod) " + 
                     "VALUES (@cli_cod, @cli_dataliberacao, @cli_limite, @cli_saldofiado, @cli_bairro, @cli_cep, @cli_complemento, @cli_numero, @cli_nome, @cli_cpf, @cli_rg, @cli_endereco, " +
-                    " @cli_telefone, @cid_cod)", cli);
+                    " @cli_telefone, @cidadeid)", cli);
             }
             else
             {
                 Connection.Execute("UPDATE cliente SET cli_dataliberacao = @cli_dataliberacao, cli_limite = @cli_limite, cli_saldofiado = @cli_saldofiado, cli_bairro = @cli_bairro," +
                     "cli_cep = @cli_cep, cli_complemento = @cli_complemento, cli_numero = @cli_numero, cli_nome = @cli_nome, cli_cpf = @cli_cpf, cli_rg = @cli_rg, cli_endereco = @cli_endereco, " +
-                    "cli_telefone = @cli_telefone, cid_cod = @cid_cod WHERE cli_cod = @cli_cod;", cli);
+                    "cli_telefone = @cli_telefone, cid_cod = @cidadeid WHERE cli_cod = @cli_cod;", cli);
             }
         }
 
@@ -53,7 +53,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
             string sql = @"select cli.*, cid.* from cliente cli
                             inner join cidade cid on cid.cid_cod = cli.cid_cod
                             where cli.cli_nome like @nome";
-            return Connection.Query<Cliente>(sql, new { nome = "'%" + nome + "%'" }).FirstOrDefault();
+            return Connection.Query<Cliente>(sql, new { nome = "%" + nome + "%" }).FirstOrDefault();
         }
 
         public IEnumerable<Cliente> GetAll(string nome)
@@ -61,13 +61,13 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
             string sql = @"select cli.*, cid.* from cliente cli
                             inner join cidade cid on cid.cid_cod = cli.cid_cod
                             inner join estado est on est.est_uf = cid.est_uf
-                            where forn.cli_nome like @nome";
+                            where cli.cli_nome like @nome";
             return Connection.Query<Cliente, Cidade, Estado, Cliente>(sql, (cliente, cidade, estado) =>
             {
                 cliente.Cidade = cidade;
                 cliente.Cidade.Estado = estado;
                 return cliente;
-            }, new { nome = "'%" + nome + "%'" }, splitOn: "cid_cod, est_uf");
+            }, new { nome = "%" + nome + "%" }, splitOn: "cid_cod, est_uf");
         }
 
         public IEnumerable<Cliente> GetById(int id)
@@ -87,13 +87,27 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
             string sql = @"select cli.*, cid.* from cliente cli
                             inner join cidade cid on cid.cid_cod = cli.cid_cod
                             inner join estado est on est.est_uf = cid.est_uf
-                            where forn.cli_nome like @nome";
+                            where cli.cli_nome like @nome";
             return Connection.Query<Cliente, Cidade, Estado, Cliente>(sql, (cliente, cidade, estado) =>
             {
                 cliente.Cidade = cidade;
                 cliente.Cidade.Estado = estado;
                 return cliente;
-            }, new { nome = "'%" + Nome + "%'" }, splitOn: "cid_cod, est_uf");
+            }, new { nome = "%" + Nome + "%" }, splitOn: "cid_cod, est_uf");
+        }
+
+        public IEnumerable<Cliente> GetByCPF(string cpf)
+        {
+            string sql = @"select cli.*, cid.* from cliente cli
+                            inner join cidade cid on cid.cid_cod = cli.cid_cod
+                            inner join estado est on est.est_uf = cid.est_uf
+                            where cli.cli_cpf like @cpf";
+            return Connection.Query<Cliente, Cidade, Estado, Cliente>(sql, (cliente, cidade, estado) =>
+            {
+                cliente.Cidade = cidade;
+                cliente.Cidade.Estado = estado;
+                return cliente;
+            }, new { cpf = "%" + cpf + "%" }, splitOn: "cid_cod, est_uf");
         }
     }
 }
