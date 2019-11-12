@@ -71,7 +71,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
             {
                 produtopet.Cat = categoriaprodutopet;
                 return produtopet;
-            //}, new { nome = "%" + Nome  +"%" }, splitOn: "cat_cod");
+            }, new { nome = "%" + Nome  +"%" }, splitOn: "cat_cod");
         }
 
         public void Gravar(ProdutoPET pet)

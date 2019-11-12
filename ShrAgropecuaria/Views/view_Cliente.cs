@@ -91,16 +91,52 @@ namespace ShrAgropecuaria.Views
             mask_telefone.Text = "";
         }
 
+        public static bool IsCpf(string cpf)
+        {
+            int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+            string tempCpf;
+            string digito;
+            int soma;
+            int resto;
+            cpf = cpf.Trim();
+            cpf = cpf.Replace(".", "").Replace("-", "");
+            if (cpf.Length != 11)
+                return false;
+            tempCpf = cpf.Substring(0, 9);
+            soma = 0;
+
+            for (int i = 0; i < 9; i++)
+                soma += int.Parse(tempCpf[i].ToString()) * multiplicador1[i];
+            resto = soma % 11;
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+            digito = resto.ToString();
+            tempCpf = tempCpf + digito;
+            soma = 0;
+            for (int i = 0; i < 10; i++)
+                soma += int.Parse(tempCpf[i].ToString()) * multiplicador2[i];
+            resto = soma % 11;
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+            digito = digito + resto.ToString();
+            return cpf.EndsWith(digito);
+        }
+
         public bool VerificaCampos()
         {
             txt_msg.Text = "";
-            cli = new Cliente(); 
+            cli = new Cliente();
             if (txt_nomeCliente.Text.Length > 2)
             {
                 cli.Cli_nome = txt_nomeCliente.Text;
                 if (mask_limite.Text.Length > 0)
                 {
-                    cli.Cli_limite = Convert.ToDecimal(mask_limite.Text.Replace(" ",""));
+                    cli.Cli_limite = Convert.ToDecimal(mask_limite.Text.Replace(" ", ""));
                     string fiado = mask_fiado.Text.Replace("R$", "").Replace(" ", "").Replace(".", "");
                     if (fiado.Length > 0)
                     {
@@ -113,7 +149,7 @@ namespace ShrAgropecuaria.Views
                                 cli.Cli_bairro = txt_bairro.Text;
                                 if (mask_cep.Text.Length == 9)
                                 {
-                                    cli.Cli_cep = mask_cep.Text.Replace("-","");
+                                    cli.Cli_cep = mask_cep.Text.Replace("-", "");
                                     if (mask_numero.Text.Length > 0)
                                     {
                                         cli.Cli_numero = Convert.ToInt32(mask_numero.Text);
@@ -125,18 +161,27 @@ namespace ShrAgropecuaria.Views
                                                 cli.Cli_rg = txt_rg.Text;
                                                 if (mask_cpf.Text.Length == 14)
                                                 {
-                                                    cli.Cli_cpf = mask_cpf.Text.Replace(",","").Replace("-","");
-                                                    if (mask_telefone.Text.Length == 15)
+                                                    cli.Cli_cpf = mask_cpf.Text.Replace(",", "").Replace("-", "");
+
+                                                    if (IsCpf(cli.Cli_cpf))
                                                     {
-                                                        cli.Cli_telefone = mask_telefone.Text.Replace("(","").Replace(")","").Replace(" ","").Replace("-","");
-                                                        cli.Cli_complemento = txt_complemento.Text;
-                                                        cli.Cli_dataliberacao = dateTimePicker1.Value;
-                                                        return true;
+                                                        if (mask_telefone.Text.Length == 15)
+                                                        {
+                                                            cli.Cli_telefone = mask_telefone.Text.Replace("(", "").Replace(")", "").Replace(" ", "").Replace("-", "");
+                                                            cli.Cli_complemento = txt_complemento.Text;
+                                                            cli.Cli_dataliberacao = dateTimePicker1.Value;
+                                                            return true;
+                                                        }
+                                                        else
+                                                        {
+                                                            txt_msg.Text = "Telefone Incompleto!";
+                                                            mask_telefone.Focus();
+                                                        }
                                                     }
                                                     else
                                                     {
-                                                        txt_msg.Text = "Telefone Incompleto!";
-                                                        mask_telefone.Focus();
+                                                        txt_msg.Text = "CPF Invalido!";
+                                                        mask_cpf.Focus();
                                                     }
                                                 }
                                                 else
@@ -233,9 +278,9 @@ namespace ShrAgropecuaria.Views
                 mask_cpf.Text = a.cli.Cli_cpf;
                 mask_telefone.Text = a.cli.Cli_telefone;
 
-                
+
             }
-                
+
         }
 
         private void mask_fiado_Enter(object sender, EventArgs e)
