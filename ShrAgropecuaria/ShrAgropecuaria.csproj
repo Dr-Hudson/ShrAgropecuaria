@@ -87,6 +87,7 @@
     <Compile Include="Repositorios\Interfaces\ICategoriaProdutoPET.cs" />
     <Compile Include="Repositorios\Interfaces\ICidadeRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IClienteRepository.cs" />
+    <Compile Include="Repositorios\Interfaces\IFiadoRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IFornecedorRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IParametrizacaoRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IProdutoNutricao.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Repositorios\MySqlRepository\MySqlCategoriaProdutoPET.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlCidadeRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlClienteRepository.cs" />
+    <Compile Include="Repositorios\MySqlRepository\MySqlFiadoRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlFornecedorRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlParametrizacaoRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlProdutoNutricaoRepository.cs" />
@@ -149,6 +151,12 @@
     </Compile>
     <Compile Include="Views\view_Cliente.Designer.cs">
       <DependentUpon>view_Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\view_Fiado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\view_Fiado.Designer.cs">
+      <DependentUpon>view_Fiado.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\view_Fornecedor.cs">
       <SubType>Form</SubType>
@@ -225,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\view_Cliente.resx">
       <DependentUpon>view_Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\view_Fiado.resx">
+      <DependentUpon>view_Fiado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\view_Fornecedor.resx">
       <DependentUpon>view_Fornecedor.cs</DependentUpon>

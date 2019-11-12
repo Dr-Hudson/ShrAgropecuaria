@@ -54,5 +54,11 @@ namespace ShrAgropecuaria.Views
             f.Show();
 
         }
+
+        private void FiadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = Dependencia.Container.GetInstance<view_Fiado>();
+            f.Show();
+        }
     }
 }
