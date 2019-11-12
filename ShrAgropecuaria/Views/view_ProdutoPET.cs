@@ -159,26 +159,7 @@ namespace ShrAgropecuaria.Views
             }
         }
 
-        private void brnPesquisarProd_Click(object sender, EventArgs e)
-        {
-            var a = new PesquisaProdutoPET(ProdutoPet);
-
-
-            string b;
-            string c;
-            if (a.ShowDialog() == DialogResult.OK)
-            {
-                txtAtivo.Text = a.pp.Pp_ativo;
-                txtCategoria.Text = a.pp.Cat.Cat_descricao;
-                txtDescricao.Text = a.pp.Pp_descricao;
-                txtEstoque.Text = a.pp.Pp_estoque.ToString();
-                txtFabricante.Text = a.pp.Pp_fabricante;
-                txtID.Text = a.pp.Pp_cod.ToString();
-                
-                txtValorCompra.Text = a.pp.Pp_valorcompra.ToString().PadLeft(11,' ');
-                txtValorUnitario.Text = a.pp.Pp_valorunitario.ToString().PadLeft(11, ' ');
-            }
-        }
+        
 
         
 
@@ -301,6 +282,108 @@ namespace ShrAgropecuaria.Views
         private void LegendaSituacao(object sender, EventArgs e)
         {
             MessageBox.Show("O campo situação deve ser inserido A para ativo e I para inativo", "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnPesquisarProd_Click(object sender, EventArgs e)
+        {
+            var a = new PesquisaProdutoPET(ProdutoPet);
+
+
+            
+            if (a.ShowDialog() == DialogResult.OK)
+            {
+                txtAtivo.Text = a.pp.Pp_ativo;
+                txtCategoria.Text = a.pp.Cat.Cat_descricao;
+                txtDescricao.Text = a.pp.Pp_descricao;
+                txtEstoque.Text = a.pp.Pp_estoque.ToString();
+                txtFabricante.Text = a.pp.Pp_fabricante;
+                txtID.Text = a.pp.Pp_cod.ToString();
+
+                txtValorCompra.Text = a.pp.Pp_valorcompra.ToString().PadLeft(11, ' ');
+                txtValorUnitario.Text = a.pp.Pp_valorunitario.ToString().PadLeft(11, ' ');
+            }
+        }
+
+        
+
+        private void SomenteNumeroDPE(object sender, KeyPressEventArgs e)
+        {
+            string buff = "";
+            int i;
+            if (txtValorCompra.MaskCompleted)
+            {
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+                {
+                    e.Handled = true;
+                    
+                }
+                else
+                {
+                    char[] chars = txtValorCompra.Text.ToCharArray();
+
+                    for (i = 0; i < chars.Length - 1; i++)
+                        chars[i] = chars[i + 1];
+
+                    chars[i] = e.KeyChar;
+
+                    for (i = 0; i < chars.Length; i++)
+                        buff += chars[i];
+
+                    buff = buff.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", "").Replace(",", "").Replace(" ", "");
+
+                    txtValorCompra.Text = buff.PadLeft(11);
+
+                    
+                }
+                
+            }
+
+            
+
+            
+        }
+
+        private void SomenteNumeroDPEVU(object sender, KeyPressEventArgs e)
+        {
+            string buff = "";
+            int i;
+            if (txtValorUnitario.MaskCompleted)
+            {
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+                {
+                    e.Handled = true;
+
+                }
+                else
+                {
+                    char[] chars = txtValorUnitario.Text.ToCharArray();
+
+                    for (i = 0; i < chars.Length - 1; i++)
+                        chars[i] = chars[i + 1];
+
+                    chars[i] = e.KeyChar;
+
+                    for (i = 0; i < chars.Length; i++)
+                        buff += chars[i];
+
+                    buff = buff.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", "").Replace(",", "").Replace(" ", "");
+
+                    txtValorUnitario.Text = buff.PadLeft(11);
+
+
+                }
+
+            }
         }
     }
 }
