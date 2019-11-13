@@ -38,7 +38,8 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
 
         public void Grava(Cliente cli)
         {
-            throw new NotImplementedException();
+            Connection.Execute("update cliente set cli_saldofiado = @cli_saldofiado "
+                   + "where cli_cod = @cli_cod", cli);
         }
     }
 }

@@ -34,8 +34,8 @@ namespace ShrAgropecuaria.Views
             {
                 cliente = new Cliente();
                 lbNome.Text = "Nome: " + a.cliente.Cli_nome;
-                lbRg.Text = "CPF: " + a.cliente.Cli_rg;
-                lbCpf.Text = "RG: " +  a.cliente.Cli_cpf;
+                lbRg.Text = "RG: " + a.cliente.Cli_rg;
+                lbCpf.Text = "CPF: " +  a.cliente.Cli_cpf;
                 lbFiado.Text = "Valor devido de fiado: " + a.cliente.Cli_saldofiado.ToString();
                 cliente.Cli_cod = a.cliente.Cli_cod;
                 cliente.Cli_saldofiado = a.cliente.Cli_saldofiado;
@@ -87,7 +87,7 @@ namespace ShrAgropecuaria.Views
 
         private void btPagar_Click(object sender, EventArgs e)
         {
-            if (txtValor.Text != "")
+            if (txtValor.Text.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", ",").Replace(" ", "").Replace(",", "").Length > 0)
             {
                 Boolean flag = false;
                 string msg = "";
@@ -136,6 +136,12 @@ namespace ShrAgropecuaria.Views
                         {
                             FiadoRepository.Grava(cliente);
                             MessageBox.Show(msg);
+                            txtValor.Text = "";
+                            pnPagar.Visible = false;
+                            lbCpf.Text = "";
+                            lbRg.Text = "";
+                            lbNome.Text = "";
+                            lbFiado.Text = "";
                         }
                         catch (Exception erro)
                         {
