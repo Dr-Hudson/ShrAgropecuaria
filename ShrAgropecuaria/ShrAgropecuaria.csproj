@@ -80,6 +80,7 @@
     <Compile Include="Classes\Parametrizacao.cs" />
     <Compile Include="Classes\ProdutoNutricao.cs" />
     <Compile Include="Classes\ProdutoPET.cs" />
+    <Compile Include="Classes\Session.cs" />
     <Compile Include="Classes\TipoProdutoNutricao.cs" />
     <Compile Include="Classes\Usuario.cs" />
     <Compile Include="Program.cs" />

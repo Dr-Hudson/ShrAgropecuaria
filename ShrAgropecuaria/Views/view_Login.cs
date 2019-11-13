@@ -46,6 +46,8 @@ namespace ShrAgropecuaria.Views
                     Usuario user = UsuarioRepository.PegaUsuario(usuario, senha);
                     if (user != null)
                     {
+                        Session.Instance.ID = (int)user.User_cod;
+                        Session.Instance.Nome = user.User_login;
                         if (user.User_nivel == "admin")
                         {
                             this.Hide();
