@@ -34,6 +34,7 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.btnPesquisar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -58,7 +59,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -70,11 +72,13 @@
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.panel12);
             this.panel1.Controls.Add(this.panel11);
             this.panel1.Controls.Add(this.panel10);
             this.panel1.Controls.Add(this.panel9);
@@ -139,13 +143,23 @@
             this.panel9.Size = new System.Drawing.Size(108, 29);
             this.panel9.TabIndex = 34;
             // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Location = new System.Drawing.Point(62, 2);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(28, 23);
+            this.btnPesquisar.TabIndex = 1;
+            this.btnPesquisar.Text = "*";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(3, 5);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(18, 13);
-            this.label8.TabIndex = 36;
+            this.label8.TabIndex = 2;
             this.label8.Text = "ID";
             // 
             // txtID
@@ -153,7 +167,7 @@
             this.txtID.Location = new System.Drawing.Point(27, 2);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(28, 20);
-            this.txtID.TabIndex = 17;
+            this.txtID.TabIndex = 1;
             // 
             // panel8
             // 
@@ -365,15 +379,24 @@
             this.label7.Text = "Lançar Despesa";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // btnPesquisar
+            // panel12
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(62, 2);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(28, 23);
-            this.btnPesquisar.TabIndex = 1;
-            this.btnPesquisar.Text = "*";
-            this.btnPesquisar.UseVisualStyleBackColor = true;
-            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel12.Controls.Add(this.btnExcluir);
+            this.panel12.Location = new System.Drawing.Point(11, 188);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(88, 29);
+            this.panel12.TabIndex = 36;
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(4, 1);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.TabIndex = 9;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // view_LancarDespesa
             // 
@@ -403,6 +426,7 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel12.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -441,5 +465,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

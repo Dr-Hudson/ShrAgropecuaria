@@ -19,13 +19,14 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
 
         public int conta(int id)
         {
-            string sql = @"select count(*) from contasapagar where cap_cod group by cap_cod = " + id;
+            string sql = @"select count(*) from contasapagar where cap_cod = " + id;
             return Connection.Query<int>(sql).FirstOrDefault();
         }
 
         public void Excluir(ContasAPagar cap)
         {
-            throw new NotImplementedException();
+            
+                Connection.Execute("delete from contasapagar where cap_cod = @cap_cod", cap);
         }
 
         public ContasAPagar Get(int? id)

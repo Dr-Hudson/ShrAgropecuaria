@@ -260,6 +260,9 @@
     <EmbeddedResource Include="Views\Pesquisas\PesquisaProdutoNutricao.resx">
       <DependentUpon>PesquisaProdutoNutricao.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pesquisas\PesquisaProdutoPET.resx">
+      <DependentUpon>PesquisaProdutoPET.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\PesquisaUsuario.resx">
       <DependentUpon>PesquisaUsuario.cs</DependentUpon>
     </EmbeddedResource>

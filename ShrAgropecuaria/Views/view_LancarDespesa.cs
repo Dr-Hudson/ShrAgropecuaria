@@ -50,12 +50,12 @@ namespace ShrAgropecuaria.Views
         {
             txtDescricao.Text = "";
             txtParcelas.Text = "";
-            txtUser.Text = "";
+            txtID.Text = "";
             txtValorDespesa.Text = "";
             rbAVista.Checked = false;
             rbParcelado.Checked = false;
             dtpData.Value = DateTime.Now;
-            cbbDespesa.SelectedItem = "";
+            cbbDespesa.SelectedItem = null;
 
         }
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -222,6 +222,23 @@ namespace ShrAgropecuaria.Views
 
 
             }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            int cod;
+            int.TryParse(txtID.Text, out cod);
+            cap = IContasapagar.Get(cod);
+            if (cap != null)
+            {
+                IContasapagar.Excluir(cap);
+                MessageBox.Show("Excluído com sucesso!");
+            }
+            else
+            {
+                MessageBox.Show("Não foi possível Excluir esse fornecedor");
+            }
+            Limpar();
         }
     }
 }

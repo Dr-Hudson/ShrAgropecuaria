@@ -50,7 +50,21 @@ namespace ShrAgropecuaria.Views.Pesquisas
             if (txt_id.Text == "" && txt_nome.Text == "" && txtCategoria.Text == "")
             {
                 List<ProdutoPET> pp = ProdutoPET.GetAll().ToList();
+
+                
                 DgvPP.DataSource = pp;
+                DgvPP.Columns.Remove("Pp_cod");
+                
+                DgvPP.Columns["Pp_fabricante"].HeaderText = "Nome do fabricante";
+                DgvPP.Columns["Pp_valorcompra"].HeaderText = "Valor da compra do produto";
+                DgvPP.Columns["Pp_estoque"].HeaderText = "Estoque";
+                DgvPP.Columns["Pp_descricao"].HeaderText = "Descrição do produto";
+                DgvPP.Columns["Pp_valorunitario"].HeaderText = "Valor Unitário";
+                DgvPP.Columns["CategoriaProdutoDescricao"].HeaderText = "Categoria";
+                DgvPP.Columns.Remove("CategoriaProdutoPETId");
+                DgvPP.Columns.Remove("Pp_Ativo");
+
+
             }
             else if (txt_id.Text != "" && txt_nome.Text == "" && txtCategoria.Text=="")
             {

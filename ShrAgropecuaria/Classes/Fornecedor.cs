@@ -21,17 +21,23 @@ namespace ShrAgropecuaria.Classes
         Cidade cidade;
 
         public int? Forn_cod { get => forn_cod; set => forn_cod = value; }
+        public string Forn_nome { get => forn_nome; set => forn_nome = value; }
+        public string Forn_endereco { get => forn_endereco; set => forn_endereco = value; }
         public string Forn_bairro { get => forn_bairro; set => forn_bairro = value; }
         public string Forn_complemento { get => forn_complemento; set => forn_complemento = value; }
         public string Forn_cep { get => forn_cep; set => forn_cep = value; }
         public int Forn_numero { get => forn_numero; set => forn_numero = value; }
-        public string Forn_endereco { get => forn_endereco; set => forn_endereco = value; }
-        public string Forn_nome { get => forn_nome; set => forn_nome = value; }
+        
+        
         public string Forn_descricao { get => forn_descricao; set => forn_descricao = value; }
         public string Forn_cnpj { get => forn_cnpj; set => forn_cnpj = value; }
         public string Forn_telefone { get => forn_telefone; set => forn_telefone = value; }
         internal Cidade Cidade { get => cidade; set => cidade = value; }
 
         public int? Cidadeid { get { return Cidade?.Cid_cod; } }
+
+        public string NomeCidade { get { return Cidade?.Cid_nome; } }
+
+        public string Estado { get { return Cidade?.EstadoUf; } }
     }
 }
