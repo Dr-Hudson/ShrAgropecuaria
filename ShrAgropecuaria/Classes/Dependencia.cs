@@ -38,7 +38,7 @@ namespace ShrAgropecuaria.Classes
             Container.Register<IFiadoRepository, MySqlFiadoRepository>(Lifestyle.Scoped);
             Container.Register<IContasAPagarRepository, MySqlContasAPagarRepository>(Lifestyle.Scoped);
             Container.Register<IDespesaRepository, MySqlDespesaRepository>(Lifestyle.Scoped);
-
+            Container.Register<PesquisaLancarDespesa>();
             Container.Register<PesquisaCategoria>();
             Container.Register<view_LancarDespesa>();
             Container.Register<PesquisaProdutoPET>();

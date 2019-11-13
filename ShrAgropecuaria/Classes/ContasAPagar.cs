@@ -15,6 +15,7 @@ namespace ShrAgropecuaria.Classes
         DateTime cap_datavencimento;
         decimal cap_valordespesa;
         decimal cap_valorpago;
+        string cap_descricao;
         Despesa despesa;
         Usuario user;
         PedidoPET pedidopet;
@@ -37,5 +38,6 @@ namespace ShrAgropecuaria.Classes
 
         public int? PedidoPetid { get { return Pedidopet?.Pedp_cod; } }
 
+        public string Cap_descricao { get => cap_descricao; set => cap_descricao = value; }
     }
 }

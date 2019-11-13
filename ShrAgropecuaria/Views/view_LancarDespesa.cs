@@ -1,5 +1,6 @@
 ﻿using ShrAgropecuaria.Classes;
 using ShrAgropecuaria.Repositorios.Interfaces;
+using ShrAgropecuaria.Views.Pesquisas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,6 +35,10 @@ namespace ShrAgropecuaria.Views
             IContasapagar = contasaapagar;
             IDespesa = despesa;
             IUsuario = usuario;
+            txtUser.Text = Session.Instance.Nome;
+            txtUser.Enabled = false;
+            txtID.Enabled = false;
+            btnPesquisar.Focus();
             List<Despesa> ldespesa = IDespesa.GetAll().ToList();
             foreach (var b in ldespesa)
             {
@@ -50,7 +55,7 @@ namespace ShrAgropecuaria.Views
             rbAVista.Checked = false;
             rbParcelado.Checked = false;
             dtpData.Value = DateTime.Now;
-            cbbDespesa.Items.Clear();
+            cbbDespesa.SelectedItem = "";
 
         }
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -64,7 +69,7 @@ namespace ShrAgropecuaria.Views
             int parcela = 1;
             if(txtDescricao.Text != "")
             {
-                //desp.Desp_descricao = txtDescricao.Text;
+                cap.Cap_descricao = txtDescricao.Text;
                 if(txtUser.Text != "")
                 {
                     user = IUsuario.getNome(txtUser.Text);
@@ -155,6 +160,68 @@ namespace ShrAgropecuaria.Views
         private void rbParcelado_CheckedChanged(object sender, EventArgs e)
         {
             txtParcelas.Enabled = true;
+        }
+
+        private void txtDescricao_Leave(object sender, EventArgs e)
+        {
+            if (txtDescricao.Text == "")
+            {
+                MessageBox.Show("O campo do descrição está em branco!!, deve-se ser preenchido para fazer a gravação!!", "Campo em branco", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtDescricao.BackColor = Color.Red;
+            }
+            else
+                txtDescricao.BackColor = Color.White;
+        
+        }
+
+        private void txtParcelas_Leave(object sender, EventArgs e)
+        {
+            if (txtParcelas.Text == "")
+            {
+                MessageBox.Show("O campo do parcelas está em branco!!, deve-se ser preenchido para fazer a gravação!!", "Campo em branco", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtDescricao.BackColor = Color.Red;
+            }
+            else if (Convert.ToInt32(txtParcelas.Text) > 10)
+            {
+                MessageBox.Show("O campo do parcelas passou do limite, deve ser 10 ou menos parcelas!!", "Valor excedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtDescricao.BackColor = Color.Red;
+            }
+            else
+                txtDescricao.BackColor = Color.White;
+        }
+
+        private void cbbDespesa_Leave(object sender, EventArgs e)
+        {
+            if(cbbDespesa.SelectedItem == null)
+            {
+                MessageBox.Show("O campo do despesa está em branco!!, deve-se ser preenchido para fazer a gravação!!", "Campo em branco", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtDescricao.BackColor = Color.Red;
+            }
+            else
+                txtDescricao.BackColor = Color.Red;
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            var a = new PesquisaLancarDespesa(IContasapagar);
+
+            if (a.ShowDialog() == DialogResult.OK)
+            {
+
+                txtID.Text = a.CAP.Cap_cod.ToString();
+                txtDescricao.Text = a.CAP.Cap_descricao;
+                txtUser.Text = a.CAP.User.User_login;
+                txtValorDespesa.Text = a.CAP.Cap_valordespesa.ToString().PadLeft(11, ' ');
+                txtParcelas.Text = IContasapagar.conta(Convert.ToInt32(txtID.Text)).ToString();
+                if (Convert.ToInt32(txtParcelas.Text) > 1)
+                    rbParcelado.Checked = true;
+                else
+                    rbAVista.Checked = true;
+                dtpData.Value = a.CAP.Cap_datageracao;
+                cbbDespesa.Text = a.CAP.Despesa.Desp_descricao;
+
+
+            }
         }
     }
 }

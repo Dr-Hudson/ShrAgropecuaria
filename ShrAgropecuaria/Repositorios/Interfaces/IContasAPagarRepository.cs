@@ -13,5 +13,7 @@ namespace ShrAgropecuaria.Repositorios.Interfaces
         IEnumerable<ContasAPagar> GetAll(string nome);
         void Gravar(ContasAPagar cap, int parcela);
         void Excluir(ContasAPagar cap);
+
+        int conta(int id);
     }
 }
