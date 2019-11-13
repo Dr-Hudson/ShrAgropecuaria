@@ -16,8 +16,8 @@ namespace ShrAgropecuaria.Views.Pesquisas
     {
         public ProdutoPET pp = new ProdutoPET();
 
-        IProdutoPET ProdutoPET { get; }
-        public PesquisaProdutoPET(IProdutoPET produtopet)
+        IProdutoPETRepository ProdutoPET { get; }
+        public PesquisaProdutoPET(IProdutoPETRepository produtopet)
         {
             InitializeComponent();
             ProdutoPET = produtopet;

@@ -16,8 +16,8 @@ namespace ShrAgropecuaria.Views.Pesquisas
     {
         public CategoriaProdutoPET cat = new CategoriaProdutoPET();
 
-        ICategoriaProdutoPET CategoriaProdutoPET { get; }
-        public PesquisaCategoria(ICategoriaProdutoPET categoriaprodutopet)
+        ICategoriaProdutoPETRepository CategoriaProdutoPET { get; }
+        public PesquisaCategoria(ICategoriaProdutoPETRepository categoriaprodutopet)
         {
             InitializeComponent();
 

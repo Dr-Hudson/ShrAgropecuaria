@@ -60,5 +60,11 @@ namespace ShrAgropecuaria.Views
             var f = Dependencia.Container.GetInstance<view_Fiado>();
             f.Show();
         }
+
+        private void lançarDespesaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = Dependencia.Container.GetInstance<view_LancarDespesa>();
+            f.Show();
+        }
     }
 }

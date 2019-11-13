@@ -37,6 +37,14 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
 
         }
 
+        public Usuario getNome(string nome)
+        {
+            string sql = @"select *
+                    from usuario
+                    where user_login = @user and user_status = 'A'";
+            return Connection.Query<Usuario>(sql, new { user = nome }).FirstOrDefault();
+        }
+
         public void Gravar(Usuario user)
         {
             if (user.User_cod == null)

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShrAgropecuaria.Repositorios.Interfaces
 {
-    public interface IProdutoPET
+    public interface IProdutoPETRepository
     {
 
         ProdutoPET Get(int? id);

@@ -10,7 +10,7 @@ using Dapper;
 
 namespace ShrAgropecuaria.Repositorios.MySqlRepository
 {
-    class MySqlProdutoPET : MySqlRepository, IProdutoPET
+    class MySqlProdutoPET : MySqlRepository, IProdutoPETRepository
     {
         public MySqlProdutoPET(IDbConnection connection): base(connection)
         {
