@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShrAgropecuaria.Repositorios.Interfaces
 {
-    interface IFiadoRepository
+    public interface IFiadoRepository
     {
         IEnumerable<Cliente> BuscaPorNome(string nome);
 

@@ -1,4 +1,5 @@
-﻿using ShrAgropecuaria.Classes;
+﻿using Dapper;
+using ShrAgropecuaria.Classes;
 using ShrAgropecuaria.Repositorios.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,16 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
 
         public IEnumerable<Cliente> BuscaPorNome(string nome)
         {
-            throw new NotImplementedException();
+            string sql = @"select cli.*, cid.* from cliente cli
+                            inner join cidade cid on cid.cid_cod = cli.cid_cod
+                            inner join estado est on est.est_uf = cid.est_uf
+                            where cli.cli_nome like @Nome";
+            return Connection.Query<Cliente, Cidade, Estado, Cliente>(sql, (cliente, cidade, estado) =>
+            {
+                cliente.Cidade = cidade;
+                cliente.Cidade.Estado = estado;
+                return cliente;
+            }, new { Nome = "%" + nome + "%" }, splitOn: "cid_cod, est_uf");
         }
 
         public void Grava(Cliente cli)
