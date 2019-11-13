@@ -52,6 +52,7 @@ namespace ShrAgropecuaria.Classes
             Container.Register<view_ProdutoNutrição>();
             Container.Register<view_Parametrização>();
             Container.Register<view_Fiado>();
+            Container.Register<PesquisaFiado>();
         }
     }
 }

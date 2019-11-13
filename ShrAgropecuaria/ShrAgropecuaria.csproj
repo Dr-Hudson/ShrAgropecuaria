@@ -83,6 +83,7 @@
     <Compile Include="Classes\PedidoPET.cs" />
     <Compile Include="Classes\ProdutoNutricao.cs" />
     <Compile Include="Classes\ProdutoPET.cs" />
+    <Compile Include="Classes\Session.cs" />
     <Compile Include="Classes\TipoProdutoNutricao.cs" />
     <Compile Include="Classes\Usuario.cs" />
     <Compile Include="Program.cs" />
@@ -128,6 +129,12 @@
     </Compile>
     <Compile Include="Views\Pesquisas\PesquisaCliente.Designer.cs">
       <DependentUpon>PesquisaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pesquisas\PesquisaFiado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisas\PesquisaFiado.Designer.cs">
+      <DependentUpon>PesquisaFiado.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Pesquisas\PesquisaFornecedor.cs">
       <SubType>Form</SubType>
@@ -234,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\PesquisaCliente.resx">
       <DependentUpon>PesquisaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pesquisas\PesquisaFiado.resx">
+      <DependentUpon>PesquisaFiado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\PesquisaFornecedor.resx">
       <DependentUpon>PesquisaFornecedor.cs</DependentUpon>
