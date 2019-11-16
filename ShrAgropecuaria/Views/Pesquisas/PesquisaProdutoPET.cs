@@ -54,7 +54,7 @@ namespace ShrAgropecuaria.Views.Pesquisas
                 
                 DgvPP.DataSource = pp;
                 DgvPP.Columns.Remove("Pp_cod");
-                
+                //DgvPP.Columns["Pp_cod"].Visible = true;
                 DgvPP.Columns["Pp_fabricante"].HeaderText = "Nome do fabricante";
                 DgvPP.Columns["Pp_valorcompra"].HeaderText = "Valor da compra do produto";
                 DgvPP.Columns["Pp_estoque"].HeaderText = "Estoque";

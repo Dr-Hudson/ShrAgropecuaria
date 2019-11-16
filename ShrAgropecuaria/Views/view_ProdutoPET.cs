@@ -143,11 +143,13 @@ namespace ShrAgropecuaria.Views
             {
                 ProdutoPet.Excluir(pp);
                 MessageBox.Show("Excluído com sucesso!");
+                LimparTela();
             }
             else
             {
                 MessageBox.Show("Não foi possível Excluir esse produto");
             }
+            
         }
 
         private void btnPesquisarCategoria_Click(object sender, EventArgs e)
