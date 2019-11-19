@@ -76,8 +76,10 @@
     <Compile Include="Classes\Cliente.cs" />
     <Compile Include="Classes\Dependencia.cs" />
     <Compile Include="Classes\Estado.cs" />
+    <Compile Include="Classes\Fazenda.cs" />
     <Compile Include="Classes\Fornecedor.cs" />
     <Compile Include="Classes\Parametrizacao.cs" />
+    <Compile Include="Classes\PedidoNutricao.cs" />
     <Compile Include="Classes\ProdutoNutricao.cs" />
     <Compile Include="Classes\ProdutoPET.cs" />
     <Compile Include="Classes\TipoProdutoNutricao.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="Repositorios\Interfaces\ICategoriaProdutoPET.cs" />
     <Compile Include="Repositorios\Interfaces\ICidadeRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IClienteRepository.cs" />
+    <Compile Include="Repositorios\Interfaces\IFazendaRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IFiadoRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IFornecedorRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IParametrizacaoRepository.cs" />
@@ -97,6 +100,7 @@
     <Compile Include="Repositorios\MySqlRepository\MySqlCategoriaProdutoPET.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlCidadeRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlClienteRepository.cs" />
+    <Compile Include="Repositorios\MySqlRepository\MySqlFazendaRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlFiadoRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlFornecedorRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlParametrizacaoRepository.cs" />
@@ -121,6 +125,12 @@
     </Compile>
     <Compile Include="Views\Pesquisas\PesquisaCliente.Designer.cs">
       <DependentUpon>PesquisaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pesquisas\PesquisaFazenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisas\PesquisaFazenda.Designer.cs">
+      <DependentUpon>PesquisaFazenda.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Pesquisas\PesquisaFornecedor.cs">
       <SubType>Form</SubType>
@@ -151,6 +161,12 @@
     </Compile>
     <Compile Include="Views\view_Cliente.Designer.cs">
       <DependentUpon>view_Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\view_ControlarEntregaPedidoNutrição.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\view_ControlarEntregaPedidoNutrição.Designer.cs">
+      <DependentUpon>view_ControlarEntregaPedidoNutrição.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\view_Fiado.cs">
       <SubType>Form</SubType>
@@ -222,6 +238,9 @@
     <EmbeddedResource Include="Views\Pesquisas\PesquisaCliente.resx">
       <DependentUpon>PesquisaCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pesquisas\PesquisaFazenda.resx">
+      <DependentUpon>PesquisaFazenda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\PesquisaFornecedor.resx">
       <DependentUpon>PesquisaFornecedor.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\view_Cliente.resx">
       <DependentUpon>view_Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\view_ControlarEntregaPedidoNutrição.resx">
+      <DependentUpon>view_ControlarEntregaPedidoNutrição.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\view_Fiado.resx">
       <DependentUpon>view_Fiado.cs</DependentUpon>

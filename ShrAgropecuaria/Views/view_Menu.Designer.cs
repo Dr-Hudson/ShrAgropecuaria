@@ -39,6 +39,7 @@
             this.produtoNutriçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parametrizacaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fiadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entregaPedidoNutriçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +66,8 @@
             this.usuarioToolStripMenuItem,
             this.produtoNutriçãoToolStripMenuItem,
             this.parametrizacaoToolStripMenuItem,
-            this.fiadoToolStripMenuItem});
+            this.fiadoToolStripMenuItem,
+            this.entregaPedidoNutriçãoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -89,7 +91,7 @@
             // produtosPETToolStripMenuItem
             // 
             this.produtosPETToolStripMenuItem.Name = "produtosPETToolStripMenuItem";
-            this.produtosPETToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
+            this.produtosPETToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.produtosPETToolStripMenuItem.Text = "ProdutosPET";
             this.produtosPETToolStripMenuItem.Click += new System.EventHandler(this.ProdutosPETToolStripMenuItem_Click_1);
             // 
@@ -121,6 +123,13 @@
             this.fiadoToolStripMenuItem.Text = "Fiado";
             this.fiadoToolStripMenuItem.Click += new System.EventHandler(this.FiadoToolStripMenuItem_Click);
             // 
+            // entregaPedidoNutriçãoToolStripMenuItem
+            // 
+            this.entregaPedidoNutriçãoToolStripMenuItem.Name = "entregaPedidoNutriçãoToolStripMenuItem";
+            this.entregaPedidoNutriçãoToolStripMenuItem.Size = new System.Drawing.Size(148, 20);
+            this.entregaPedidoNutriçãoToolStripMenuItem.Text = "Entrega Pedido Nutrição";
+            this.entregaPedidoNutriçãoToolStripMenuItem.Click += new System.EventHandler(this.EntregaPedidoNutriçãoToolStripMenuItem_Click);
+            // 
             // view_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,5 +159,6 @@
         private System.Windows.Forms.ToolStripMenuItem produtoNutriçãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem parametrizacaoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fiadoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem entregaPedidoNutriçãoToolStripMenuItem;
     }
 }

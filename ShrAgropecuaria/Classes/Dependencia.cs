@@ -36,6 +36,9 @@ namespace ShrAgropecuaria.Classes
             Container.Register<IProdutoNutricao, MySqlProdutoNutricaoRepository>(Lifestyle.Scoped);
             Container.Register<IParametrizacaoRepository, MySqlParametrizacaoRepository>(Lifestyle.Scoped);
             Container.Register<IFiadoRepository, MySqlFiadoRepository>(Lifestyle.Scoped);
+
+            Container.Register<IFazendaRepository, MySqlFazendaRepository>(Lifestyle.Scoped);
+
             Container.Register<PesquisaCategoria>();
             Container.Register<PesquisaProdutoPET>();
             Container.Register<view_Fornecedor>();
@@ -48,6 +51,7 @@ namespace ShrAgropecuaria.Classes
             Container.Register<view_ProdutoNutrição>();
             Container.Register<view_Parametrização>();
             Container.Register<view_Fiado>();
+            Container.Register<view_ControlarEntregaPedidoNutrição>();
         }
     }
 }

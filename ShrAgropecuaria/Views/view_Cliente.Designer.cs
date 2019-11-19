@@ -75,9 +75,9 @@
             this.label26 = new System.Windows.Forms.Label();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label28 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -110,7 +110,7 @@
             this.btn_pesqCliente.TabIndex = 1;
             this.btn_pesqCliente.Text = "Pesquisar";
             this.btn_pesqCliente.UseVisualStyleBackColor = true;
-            this.btn_pesqCliente.Click += new System.EventHandler(this.btn_pesqCliente_Click);
+            this.btn_pesqCliente.Click += new System.EventHandler(this.Btn_pesqCliente_Click);
             // 
             // dateTimePicker1
             // 
@@ -154,7 +154,7 @@
             this.txt_bairro.Location = new System.Drawing.Point(170, 74);
             this.txt_bairro.Name = "txt_bairro";
             this.txt_bairro.Size = new System.Drawing.Size(256, 20);
-            this.txt_bairro.TabIndex = 6;
+            this.txt_bairro.TabIndex = 1;
             // 
             // label5
             // 
@@ -191,7 +191,7 @@
             this.txt_complemento.Location = new System.Drawing.Point(170, 155);
             this.txt_complemento.Name = "txt_complemento";
             this.txt_complemento.Size = new System.Drawing.Size(256, 20);
-            this.txt_complemento.TabIndex = 9;
+            this.txt_complemento.TabIndex = 4;
             // 
             // label8
             // 
@@ -209,7 +209,7 @@
             this.txt_cidade.Name = "txt_cidade";
             this.txt_cidade.ReadOnly = true;
             this.txt_cidade.Size = new System.Drawing.Size(256, 20);
-            this.txt_cidade.TabIndex = 10;
+            this.txt_cidade.TabIndex = 5;
             // 
             // label9
             // 
@@ -226,7 +226,7 @@
             this.txt_rg.Location = new System.Drawing.Point(168, 181);
             this.txt_rg.Name = "txt_rg";
             this.txt_rg.Size = new System.Drawing.Size(256, 20);
-            this.txt_rg.TabIndex = 12;
+            this.txt_rg.TabIndex = 5;
             // 
             // label10
             // 
@@ -253,7 +253,7 @@
             this.txt_endereco.Location = new System.Drawing.Point(170, 47);
             this.txt_endereco.Name = "txt_endereco";
             this.txt_endereco.Size = new System.Drawing.Size(256, 20);
-            this.txt_endereco.TabIndex = 5;
+            this.txt_endereco.TabIndex = 0;
             this.txt_endereco.UseWaitCursor = true;
             // 
             // label12
@@ -283,10 +283,10 @@
             this.btn_pesqCidade.Location = new System.Drawing.Point(432, 178);
             this.btn_pesqCidade.Name = "btn_pesqCidade";
             this.btn_pesqCidade.Size = new System.Drawing.Size(89, 27);
-            this.btn_pesqCidade.TabIndex = 11;
+            this.btn_pesqCidade.TabIndex = 6;
             this.btn_pesqCidade.Text = "Pesquisar";
             this.btn_pesqCidade.UseVisualStyleBackColor = true;
-            this.btn_pesqCidade.Click += new System.EventHandler(this.btn_pesqCidade_Click);
+            this.btn_pesqCidade.Click += new System.EventHandler(this.Btn_pesqCidade_Click);
             // 
             // btn_gravar
             // 
@@ -294,10 +294,10 @@
             this.btn_gravar.Location = new System.Drawing.Point(106, 54);
             this.btn_gravar.Name = "btn_gravar";
             this.btn_gravar.Size = new System.Drawing.Size(75, 30);
-            this.btn_gravar.TabIndex = 15;
+            this.btn_gravar.TabIndex = 0;
             this.btn_gravar.Text = "Gravar";
             this.btn_gravar.UseVisualStyleBackColor = true;
-            this.btn_gravar.Click += new System.EventHandler(this.btn_gravar_Click);
+            this.btn_gravar.Click += new System.EventHandler(this.Btn_gravar_Click);
             // 
             // btn_limpar
             // 
@@ -305,10 +305,10 @@
             this.btn_limpar.Location = new System.Drawing.Point(187, 54);
             this.btn_limpar.Name = "btn_limpar";
             this.btn_limpar.Size = new System.Drawing.Size(75, 30);
-            this.btn_limpar.TabIndex = 17;
+            this.btn_limpar.TabIndex = 1;
             this.btn_limpar.Text = "Limpar";
             this.btn_limpar.UseVisualStyleBackColor = true;
-            this.btn_limpar.Click += new System.EventHandler(this.btn_limpar_Click);
+            this.btn_limpar.Click += new System.EventHandler(this.Btn_limpar_Click);
             // 
             // btn_excluir
             // 
@@ -316,20 +316,21 @@
             this.btn_excluir.Location = new System.Drawing.Point(268, 54);
             this.btn_excluir.Name = "btn_excluir";
             this.btn_excluir.Size = new System.Drawing.Size(75, 30);
-            this.btn_excluir.TabIndex = 18;
+            this.btn_excluir.TabIndex = 2;
             this.btn_excluir.Text = "Excluir";
             this.btn_excluir.UseVisualStyleBackColor = true;
-            this.btn_excluir.Click += new System.EventHandler(this.btn_excluir_Click);
+            this.btn_excluir.Click += new System.EventHandler(this.Btn_excluir_Click);
             // 
             // mask_limite
             // 
             this.mask_limite.Location = new System.Drawing.Point(168, 126);
-            this.mask_limite.Mask = "00000000,00";
+            this.mask_limite.Mask = "$ 00000000,00";
             this.mask_limite.Name = "mask_limite";
             this.mask_limite.Size = new System.Drawing.Size(256, 20);
             this.mask_limite.TabIndex = 3;
             this.mask_limite.ValidatingType = typeof(int);
-            this.mask_limite.Click += new System.EventHandler(this.mask_limite_Click);
+            this.mask_limite.Click += new System.EventHandler(this.Mask_limite_Click);
+            this.mask_limite.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Mask_limite_KeyPress);
             // 
             // mask_fiado
             // 
@@ -338,8 +339,8 @@
             this.mask_fiado.Name = "mask_fiado";
             this.mask_fiado.Size = new System.Drawing.Size(256, 20);
             this.mask_fiado.TabIndex = 4;
-            this.mask_fiado.Click += new System.EventHandler(this.mask_fiado_Click);
-            this.mask_fiado.Enter += new System.EventHandler(this.mask_fiado_Enter);
+            this.mask_fiado.Click += new System.EventHandler(this.Mask_fiado_Click);
+            this.mask_fiado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Mask_fiado_KeyPress);
             // 
             // mask_cep
             // 
@@ -347,18 +348,18 @@
             this.mask_cep.Mask = "00000-000";
             this.mask_cep.Name = "mask_cep";
             this.mask_cep.Size = new System.Drawing.Size(256, 20);
-            this.mask_cep.TabIndex = 7;
-            this.mask_cep.Click += new System.EventHandler(this.mask_cep_Click);
+            this.mask_cep.TabIndex = 2;
+            this.mask_cep.Click += new System.EventHandler(this.Mask_cep_Click);
             // 
             // mask_numero
             // 
             this.mask_numero.Location = new System.Drawing.Point(170, 128);
-            this.mask_numero.Mask = "00000";
+            this.mask_numero.Mask = "000000";
             this.mask_numero.Name = "mask_numero";
             this.mask_numero.Size = new System.Drawing.Size(256, 20);
-            this.mask_numero.TabIndex = 8;
+            this.mask_numero.TabIndex = 3;
             this.mask_numero.ValidatingType = typeof(int);
-            this.mask_numero.Click += new System.EventHandler(this.mask_numero_Click);
+            this.mask_numero.Click += new System.EventHandler(this.Mask_numero_Click);
             // 
             // mask_cpf
             // 
@@ -366,8 +367,8 @@
             this.mask_cpf.Mask = "000.000.000-00";
             this.mask_cpf.Name = "mask_cpf";
             this.mask_cpf.Size = new System.Drawing.Size(256, 20);
-            this.mask_cpf.TabIndex = 13;
-            this.mask_cpf.Click += new System.EventHandler(this.mask_cpf_Click);
+            this.mask_cpf.TabIndex = 6;
+            this.mask_cpf.Click += new System.EventHandler(this.Mask_cpf_Click);
             // 
             // mask_telefone
             // 
@@ -375,8 +376,8 @@
             this.mask_telefone.Mask = "(00) 00000-0000";
             this.mask_telefone.Name = "mask_telefone";
             this.mask_telefone.Size = new System.Drawing.Size(256, 20);
-            this.mask_telefone.TabIndex = 14;
-            this.mask_telefone.Click += new System.EventHandler(this.mask_telefone_Click);
+            this.mask_telefone.TabIndex = 7;
+            this.mask_telefone.Click += new System.EventHandler(this.Mask_telefone_Click);
             // 
             // label14
             // 
@@ -570,6 +571,17 @@
             this.panel1.Size = new System.Drawing.Size(586, 266);
             this.panel1.TabIndex = 41;
             // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(5, 5);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(194, 26);
+            this.label28.TabIndex = 36;
+            this.label28.Text = "Dados do Cliente:";
+            this.label28.UseWaitCursor = true;
+            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -607,17 +619,6 @@
             this.label27.TabIndex = 35;
             this.label27.Text = "Endereço:";
             this.label27.UseWaitCursor = true;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(5, 5);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(183, 26);
-            this.label28.TabIndex = 36;
-            this.label28.Text = "Dados do Clinte:";
-            this.label28.UseWaitCursor = true;
             // 
             // panel3
             // 

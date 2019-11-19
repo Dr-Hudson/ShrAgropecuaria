@@ -304,8 +304,6 @@ namespace ShrAgropecuaria.Views
             }
         }
 
-        
-
         private void SomenteNumeroDPE(object sender, KeyPressEventArgs e)
         {
             string buff = "";
@@ -319,8 +317,7 @@ namespace ShrAgropecuaria.Views
             {
                 if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
                 {
-                    e.Handled = true;
-                    
+                    e.Handled = true;                 
                 }
                 else
                 {
@@ -336,16 +333,9 @@ namespace ShrAgropecuaria.Views
 
                     buff = buff.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", "").Replace(",", "").Replace(" ", "");
 
-                    txtValorCompra.Text = buff.PadLeft(11);
-
-                    
-                }
-                
-            }
-
-            
-
-            
+                    txtValorCompra.Text = buff.PadLeft(11);                   
+                }             
+            }          
         }
 
         private void SomenteNumeroDPEVU(object sender, KeyPressEventArgs e)
@@ -362,7 +352,6 @@ namespace ShrAgropecuaria.Views
                 if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
                 {
                     e.Handled = true;
-
                 }
                 else
                 {
@@ -379,10 +368,7 @@ namespace ShrAgropecuaria.Views
                     buff = buff.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", "").Replace(",", "").Replace(" ", "");
 
                     txtValorUnitario.Text = buff.PadLeft(11);
-
-
                 }
-
             }
         }
     }

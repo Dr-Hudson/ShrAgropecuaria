@@ -25,41 +25,70 @@ namespace ShrAgropecuaria.Views
             ClienteRepository = clienteRepository;
         }
 
-        private void mask_limite_Click(object sender, EventArgs e)
+        private void Mask_limite_Click(object sender, EventArgs e)
         {
-            mask_limite.Select(0, 0);
+            mask_limite.Select(14, 0);
         }
 
-        private void mask_fiado_Click(object sender, EventArgs e)
+        private void Mask_fiado_Click(object sender, EventArgs e)
         {
-            mask_fiado.Select(3, 0);
+            mask_fiado.Select(14, 0);
         }
 
-        private void mask_cep_Click(object sender, EventArgs e)
+        private void Mask_cep_Click(object sender, EventArgs e)
         {
-            mask_cep.Select(0, 0);
+            string cep = mask_cep.Text.Replace("-", "").Replace(" ", "");
+            if (cep.Length > 0)
+                mask_cep.Select(cep.Length, 0);
+            else
+                mask_cep.Select(0, 0);
         }
 
-        private void mask_numero_Click(object sender, EventArgs e)
+        private void Mask_numero_Click(object sender, EventArgs e)
         {
-            mask_numero.Select(0, 0);
+            if (mask_numero.Text.Replace(" ", "").Length > 0)
+                mask_numero.Select(mask_numero.Text.Length, 0);
+            else
+                mask_numero.Select(0, 0);
         }
 
-        private void mask_cpf_Click(object sender, EventArgs e)
+        private void Mask_cpf_Click(object sender, EventArgs e)
         {
-            mask_cpf.Select(0, 0);
+            string cpf = mask_cpf.Text.Replace(",", "").Replace("-", "").Replace(" ", "");
+            if (cpf.Length > 0 && cpf.Length < 3)
+                mask_cpf.Select(cpf.Length, 0);
+            else
+                if (cpf.Length >= 3 && cpf.Length < 6)
+                mask_cpf.Select(cpf.Length + 1, 0);
+            else
+                if (cpf.Length >= 6 && cpf.Length < 9)
+                mask_cpf.Select(cpf.Length + 2, 0);
+            else
+                if (cpf.Length >= 9)
+                mask_cpf.Select(cpf.Length + 3, 0);
+            else
+                mask_cpf.Select(0, 0);
         }
 
-        private void mask_telefone_Click(object sender, EventArgs e)
+        private void Mask_telefone_Click(object sender, EventArgs e)
         {
-            mask_telefone.Select(0, 0);
+            string telefone = mask_telefone.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "");
+            if (telefone.Length > 0 && telefone.Length < 2)
+                mask_telefone.Select(telefone.Length + 1, 0);
+            else
+                if (telefone.Length >= 2 && telefone.Length < 7)
+                mask_telefone.Select(telefone.Length + 3, 0);
+            else
+                if (telefone.Length >= 7)
+                mask_telefone.Select(telefone.Length + 4, 0);
+            else
+                mask_telefone.Select(1, 0);
         }
 
-        private void btn_gravar_Click(object sender, EventArgs e)
+        private void Btn_gravar_Click(object sender, EventArgs e)
         {
             if (VerificaCampos())
             {
-                LimparCampos();
                 if (txt_id.Text.Length == 0)
                 {
                     txt_msg.Text = "Gravado com Sucesso!";
@@ -70,6 +99,7 @@ namespace ShrAgropecuaria.Views
                     txt_msg.Text = "Editado com Sucesso!";
                 }
                 ClienteRepository.Gravar(cli);
+                LimparCampos();
             }
         }
 
@@ -95,35 +125,41 @@ namespace ShrAgropecuaria.Views
         {
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
-            string tempCpf;
-            string digito;
-            int soma;
-            int resto;
-            cpf = cpf.Trim();
-            cpf = cpf.Replace(".", "").Replace("-", "");
+
+            cpf = cpf.Trim().Replace(".", "").Replace("-", "");
             if (cpf.Length != 11)
                 return false;
-            tempCpf = cpf.Substring(0, 9);
-            soma = 0;
+
+            for (int j = 0; j < 10; j++)
+                if (j.ToString().PadLeft(11, char.Parse(j.ToString())) == cpf)
+                    return false;
+
+            string tempCpf = cpf.Substring(0, 9);
+            int soma = 0;
 
             for (int i = 0; i < 9; i++)
                 soma += int.Parse(tempCpf[i].ToString()) * multiplicador1[i];
-            resto = soma % 11;
+
+            int resto = soma % 11;
             if (resto < 2)
                 resto = 0;
             else
                 resto = 11 - resto;
-            digito = resto.ToString();
-            tempCpf = tempCpf + digito;
+
+            string digito = resto.ToString();
+            tempCpf += digito;
             soma = 0;
             for (int i = 0; i < 10; i++)
                 soma += int.Parse(tempCpf[i].ToString()) * multiplicador2[i];
+
             resto = soma % 11;
             if (resto < 2)
                 resto = 0;
             else
                 resto = 11 - resto;
-            digito = digito + resto.ToString();
+
+            digito += resto.ToString();
+
             return cpf.EndsWith(digito);
         }
 
@@ -136,8 +172,8 @@ namespace ShrAgropecuaria.Views
                 cli.Cli_nome = txt_nomeCliente.Text;
                 if (mask_limite.Text.Length > 0)
                 {
-                    cli.Cli_limite = Convert.ToDecimal(mask_limite.Text.Replace(" ", ""));
-                    string fiado = mask_fiado.Text.Replace("R$", "").Replace(" ", "").Replace(".", "");
+                    cli.Cli_limite = Convert.ToDecimal(mask_limite.Text.Replace("_", "").Replace("R$", "").Replace(".", ","));
+                    string fiado = mask_fiado.Text.Replace("R$", "").Replace(" ", "").Replace(".", ",");
                     if (fiado.Length > 0)
                     {
                         cli.Cli_saldofiado = Convert.ToDecimal(fiado);
@@ -246,19 +282,19 @@ namespace ShrAgropecuaria.Views
             return false;
         }
 
-        private void btn_pesqCidade_Click(object sender, EventArgs e)
+        private void Btn_pesqCidade_Click(object sender, EventArgs e)
         {
             var a = new PesquisaCidade(CidadeRepository);
             if (a.ShowDialog() == DialogResult.OK)
                 txt_cidade.Text = a.Cidades.Cid_nome;
         }
 
-        private void btn_limpar_Click(object sender, EventArgs e)
+        private void Btn_limpar_Click(object sender, EventArgs e)
         {
             LimparCampos();
         }
 
-        private void btn_pesqCliente_Click(object sender, EventArgs e)
+        private void Btn_pesqCliente_Click(object sender, EventArgs e)
         {
             var a = new PesquisaCliente(ClienteRepository);
             if (a.ShowDialog() == DialogResult.OK)
@@ -277,18 +313,10 @@ namespace ShrAgropecuaria.Views
                 txt_rg.Text = a.cli.Cli_rg;
                 mask_cpf.Text = a.cli.Cli_cpf;
                 mask_telefone.Text = a.cli.Cli_telefone;
-
-
             }
-
         }
 
-        private void mask_fiado_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_excluir_Click(object sender, EventArgs e)
+        private void Btn_excluir_Click(object sender, EventArgs e)
         {
             int cod;
             int.TryParse(txt_id.Text, out cod);
@@ -303,6 +331,70 @@ namespace ShrAgropecuaria.Views
                 MessageBox.Show("Não foi possível Excluir o Cliente");
             }
             LimparCampos();
+        }
+
+        private void Mask_fiado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string buff = "";
+            int i;
+            if (mask_fiado.MaskCompleted)
+            {
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+                    e.Handled = true;
+                else
+                {
+                    char[] chars = mask_fiado.Text.ToCharArray();
+
+                    for (i = 0; i < chars.Length - 1; i++)
+                        chars[i] = chars[i + 1];
+
+                    chars[i] = e.KeyChar;
+
+                    for (i = 0; i < chars.Length; i++)
+                        buff += chars[i];
+
+                    buff = buff.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", "").Replace(",", "").Replace(" ", "");
+
+                    mask_fiado.Text = buff.PadLeft(11);
+                }
+            }
+        }
+
+        private void Mask_limite_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string buff = "";
+            int i;
+            if (mask_limite.MaskCompleted)
+            {
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+                    e.Handled = true;
+                else
+                {
+                    char[] chars = mask_limite.Text.ToCharArray();
+
+                    for (i = 0; i < chars.Length - 1; i++)
+                        chars[i] = chars[i + 1];
+
+                    chars[i] = e.KeyChar;
+
+                    for (i = 0; i < chars.Length; i++)
+                        buff += chars[i];
+
+                    buff = buff.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", "").Replace(",", "").Replace(" ", "");
+
+                    mask_limite.Text = buff.PadLeft(11);
+                }
+            }
         }
     }
 }
