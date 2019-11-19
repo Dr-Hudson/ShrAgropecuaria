@@ -259,7 +259,18 @@ namespace ShrAgropecuaria.Views
                 dtpData.Value = a.CAP.Cap_datageracao;
                 cbbDespesa.Text = a.CAP.Despesa.Desp_descricao;*/
                 DgvDespesa.DataSource = lcap;
-
+                DgvDespesa.Columns.Remove("Cap_cod");
+                DgvDespesa.Columns.Remove("Cap_datapagamento");
+                DgvDespesa.Columns.Remove("Cap_valorpago");
+                DgvDespesa.Columns.Remove("User");
+                DgvDespesa.Columns.Remove("Despesaid");
+                DgvDespesa.Columns.Remove("Usuarioid");
+                DgvDespesa.Columns.Remove("PedidoPetid");
+                DgvDespesa.Columns["Cap_descricao"].HeaderText = "Descrição da despesa";
+                DgvDespesa.Columns["Cap_datageracao"].HeaderText = "Data de lançamento";
+                DgvDespesa.Columns["Cap_datavencimento"].HeaderText = "Data do vencimento";
+                DgvDespesa.Columns["DespesaDescricao"].HeaderText = "Categoria da despesa";
+                DgvDespesa.Columns["NomeUsuario"].HeaderText = "Nome do Usuario";
 
             }
         }
