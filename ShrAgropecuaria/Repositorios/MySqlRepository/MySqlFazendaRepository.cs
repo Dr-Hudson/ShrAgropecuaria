@@ -69,7 +69,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
         {
             if (entregue)
             {
-                string sql = @"select faz.*, cli.*, pd.* from pedidonutricao pd
+                string sql = @"select pd.*, faz.*, cli.*, usu.* from pedidonutricao pd
                             inner join fazenda faz on faz.faz_cod = pd.faz_cod
                             inner join cliente cli on cli.cli_cod = pd.cli_cod
                             inner join usuario usu on usu.user_cod = pd.user_cod
@@ -85,7 +85,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
             }
             else
             {
-                string sql = @"select faz.*, cli.*, pd.*, usu.* from pedidonutricao pd
+                string sql = @"select pd.*, faz.*, cli.*, usu.* from pedidonutricao pd
                             inner join fazenda faz on faz.faz_cod = pd.faz_cod
                             inner join cliente cli on cli.cli_cod = pd.cli_cod
                             inner join usuario usu on usu.user_cod = pd.user_cod
