@@ -39,8 +39,9 @@
             this.produtoNutriçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parametrizacaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fiadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.entregaPedidoNutriçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lançarDespesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entregaPedidoNutriçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entregaPedidoNutriçãoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -68,10 +69,11 @@
             this.produtoNutriçãoToolStripMenuItem,
             this.parametrizacaoToolStripMenuItem,
             this.fiadoToolStripMenuItem,
-            this.lançarDespesaToolStripMenuItem});
+            this.lançarDespesaToolStripMenuItem,
+            this.entregaPedidoNutriçãoToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(947, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -131,18 +133,18 @@
             this.lançarDespesaToolStripMenuItem.Text = "Lançar Despesa";
             this.lançarDespesaToolStripMenuItem.Click += new System.EventHandler(this.lançarDespesaToolStripMenuItem_Click);
             // 
-            // entregaPedidoNutriçãoToolStripMenuItem
+            // entregaPedidoNutriçãoToolStripMenuItem1
             // 
-            this.entregaPedidoNutriçãoToolStripMenuItem.Name = "entregaPedidoNutriçãoToolStripMenuItem";
-            this.entregaPedidoNutriçãoToolStripMenuItem.Size = new System.Drawing.Size(148, 20);
-            this.entregaPedidoNutriçãoToolStripMenuItem.Text = "Entrega Pedido Nutrição";
-            this.entregaPedidoNutriçãoToolStripMenuItem.Click += new System.EventHandler(this.EntregaPedidoNutriçãoToolStripMenuItem_Click);
+            this.entregaPedidoNutriçãoToolStripMenuItem1.Name = "entregaPedidoNutriçãoToolStripMenuItem1";
+            this.entregaPedidoNutriçãoToolStripMenuItem1.Size = new System.Drawing.Size(148, 20);
+            this.entregaPedidoNutriçãoToolStripMenuItem1.Text = "Entrega Pedido Nutrição";
+            this.entregaPedidoNutriçãoToolStripMenuItem1.Click += new System.EventHandler(this.entregaPedidoNutriçãoToolStripMenuItem1_Click);
             // 
             // view_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(947, 450);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "view_Menu";
@@ -169,5 +171,6 @@
         private System.Windows.Forms.ToolStripMenuItem fiadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entregaPedidoNutriçãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lançarDespesaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem entregaPedidoNutriçãoToolStripMenuItem1;
     }
 }
