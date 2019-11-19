@@ -85,13 +85,13 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
             }
             else
             {
-                string sql = @"select faz.*, cli.*, pd.* from pedidonutricao pd
+                string sql = @"select faz.*, cli.*, pd.*, usu.* from pedidonutricao pd
                             inner join fazenda faz on faz.faz_cod = pd.faz_cod
                             inner join cliente cli on cli.cli_cod = pd.cli_cod
                             inner join usuario usu on usu.user_cod = pd.user_cod
                             where pd.cli_cod = @idCli AND pd.faz_cod = @idFaz ";
                 //AND pd.pn_dataentrega = NULL
-                return Connection.Query<PedidoNutricao, Cliente, Fazenda, Usuario, PedidoNutricao>(sql, (pedidonutricao, cliente, fazenda, usuario) =>
+                return Connection.Query<PedidoNutricao, Fazenda, Cliente, Usuario, PedidoNutricao>(sql, (pedidonutricao, fazenda, cliente, usuario) =>
                 {
                     pedidonutricao.Cliente = cliente;
                     pedidonutricao.Fazenda = fazenda;
