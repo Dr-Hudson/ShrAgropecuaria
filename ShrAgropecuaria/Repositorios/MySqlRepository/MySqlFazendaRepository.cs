@@ -69,9 +69,9 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
         {
             if (entregue)
             {
-                string sql = @"select faz.*, cid.*, cli.*, pd.* from pedidonutricao pd
+                string sql = @"select faz.*, cli.*, pd.* from pedidonutricao pd
                             inner join fazenda faz on faz.faz_cod = pd.faz_cod
-                            inner join cliente cli on cli.cli_cod = faz.cli_cod
+                            inner join cliente cli on cli.cli_cod = pd.cli_cod
                             inner join usuario usu on usu.user_cod = pd.user_cod
                             where pd.cli_cod = @idCli AND pd.faz_cod = @idFaz ";
                 //AND pd.pn_dataentrega <> NULL
