@@ -17,21 +17,24 @@ namespace ProjAvaliacao2Bim
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        [STAThread]
+        /// 
         
+
+        [STAThread]
         static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             using (ThreadScopedLifestyle.BeginScope(Dependencia.Container))
             {
 
                 Dependencia.Configurar();
-                Application.Run(new view_Menu());
-                /*MySqlParametrizacaoRepository m = new MySqlParametrizacaoRepository(Connection.GetConnection());
+                //Application.Run(new view_Menu());
+                MySqlParametrizacaoRepository m = new MySqlParametrizacaoRepository(Connection.GetConnection());
                 if(m.Get() == null)
                     Application.Run(Dependencia.Container.GetInstance<view_Parametrização>());
-                Application.Run(Dependencia.Container.GetInstance<view_Login>());*/
+                Application.Run(Dependencia.Container.GetInstance<view_Login>());
             }
             
         }

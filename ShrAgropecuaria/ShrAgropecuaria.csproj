@@ -74,32 +74,40 @@
     <Compile Include="Classes\CategoriaProdutoPET.cs" />
     <Compile Include="Classes\Cidade.cs" />
     <Compile Include="Classes\Cliente.cs" />
+    <Compile Include="Classes\ContasAPagar.cs" />
     <Compile Include="Classes\Dependencia.cs" />
+    <Compile Include="Classes\Despesa.cs" />
     <Compile Include="Classes\Estado.cs" />
     <Compile Include="Classes\Fazenda.cs" />
     <Compile Include="Classes\Fornecedor.cs" />
     <Compile Include="Classes\Parametrizacao.cs" />
     <Compile Include="Classes\PedidoNutricao.cs" />
+    <Compile Include="Classes\PedidoPET.cs" />
     <Compile Include="Classes\ProdutoNutricao.cs" />
     <Compile Include="Classes\ProdutoPET.cs" />
+    <Compile Include="Classes\Session.cs" />
     <Compile Include="Classes\TipoProdutoNutricao.cs" />
     <Compile Include="Classes\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositorios\Interfaces\ICategoriaProdutoPET.cs" />
+    <Compile Include="Repositorios\Interfaces\ICategoriaProdutoPETRepository.cs" />
     <Compile Include="Repositorios\Interfaces\ICidadeRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IClienteRepository.cs" />
+    <Compile Include="Repositorios\Interfaces\IContasAPagarRepository.cs" />
+    <Compile Include="Repositorios\Interfaces\IDespesaRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IFazendaRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IFiadoRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IFornecedorRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IParametrizacaoRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IProdutoNutricao.cs" />
-    <Compile Include="Repositorios\Interfaces\IProdutoPET.cs" />
+    <Compile Include="Repositorios\Interfaces\IProdutoPETRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IUsuarioRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\Connection.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlCategoriaProdutoPET.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlCidadeRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlClienteRepository.cs" />
+    <Compile Include="Repositorios\MySqlRepository\MySqlContasAPagarRepository.cs" />
+    <Compile Include="Repositorios\MySqlRepository\MySqlDespesaRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlFazendaRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlFiadoRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlFornecedorRepository.cs" />
@@ -126,6 +134,12 @@
     <Compile Include="Views\Pesquisas\PesquisaCliente.Designer.cs">
       <DependentUpon>PesquisaCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pesquisas\PesquisaFiado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisas\PesquisaFiado.Designer.cs">
+      <DependentUpon>PesquisaFiado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pesquisas\PesquisaFazenda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +151,12 @@
     </Compile>
     <Compile Include="Views\Pesquisas\PesquisaFornecedor.Designer.cs">
       <DependentUpon>PesquisaFornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pesquisas\PesquisaLancarDespesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisas\PesquisaLancarDespesa.Designer.cs">
+      <DependentUpon>PesquisaLancarDespesa.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Pesquisas\PesquisaProdutoNutricao.cs">
       <SubType>Form</SubType>
@@ -179,6 +199,12 @@
     </Compile>
     <Compile Include="Views\view_Fornecedor.Designer.cs">
       <DependentUpon>view_Fornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\view_LancarDespesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\view_LancarDespesa.Designer.cs">
+      <DependentUpon>view_LancarDespesa.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\view_Login.cs">
       <SubType>Form</SubType>
@@ -241,11 +267,20 @@
     <EmbeddedResource Include="Views\Pesquisas\PesquisaFazenda.resx">
       <DependentUpon>PesquisaFazenda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pesquisas\PesquisaFiado.resx">
+      <DependentUpon>PesquisaFiado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\PesquisaFornecedor.resx">
       <DependentUpon>PesquisaFornecedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pesquisas\PesquisaLancarDespesa.resx">
+      <DependentUpon>PesquisaLancarDespesa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\PesquisaProdutoNutricao.resx">
       <DependentUpon>PesquisaProdutoNutricao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pesquisas\PesquisaProdutoPET.resx">
+      <DependentUpon>PesquisaProdutoPET.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\PesquisaUsuario.resx">
       <DependentUpon>PesquisaUsuario.cs</DependentUpon>
@@ -261,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\view_Fornecedor.resx">
       <DependentUpon>view_Fornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\view_LancarDespesa.resx">
+      <DependentUpon>view_LancarDespesa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\view_Login.resx">
       <DependentUpon>view_Login.cs</DependentUpon>

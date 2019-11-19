@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace ShrAgropecuaria.Repositorios.Interfaces
 {
-    public interface IFiadoRepository
+    public interface IDespesaRepository
     {
-        IEnumerable<Cliente> BuscaPorNome(string nome);
+        Despesa Get(int? id);
+        IEnumerable<Despesa> GetAll();
 
-        IEnumerable<Cliente> BuscaPorCpf(string cpf);
-
-        void Grava(Cliente cli);
+        Despesa GetNome(string nome);
     }
 }

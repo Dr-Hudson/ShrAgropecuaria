@@ -16,10 +16,10 @@ namespace ShrAgropecuaria.Views
     public partial class view_ProdutoPET : Form
     {
         ProdutoPET pp = new ProdutoPET();
-        IProdutoPET ProdutoPet { get; }
-        ICategoriaProdutoPET CategoriaProdutoPET { get; }
+        IProdutoPETRepository ProdutoPet { get; }
+        ICategoriaProdutoPETRepository CategoriaProdutoPET { get; }
 
-        public view_ProdutoPET(IProdutoPET produtopet, ICategoriaProdutoPET categoriaprodutopet)
+        public view_ProdutoPET(IProdutoPETRepository produtopet, ICategoriaProdutoPETRepository categoriaprodutopet)
         {
             InitializeComponent();
             ProdutoPet = produtopet;
@@ -143,11 +143,13 @@ namespace ShrAgropecuaria.Views
             {
                 ProdutoPet.Excluir(pp);
                 MessageBox.Show("Excluído com sucesso!");
+                LimparTela();
             }
             else
             {
                 MessageBox.Show("Não foi possível Excluir esse produto");
             }
+            
         }
 
         private void btnPesquisarCategoria_Click(object sender, EventArgs e)

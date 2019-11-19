@@ -40,6 +40,7 @@
             this.parametrizacaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fiadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entregaPedidoNutriçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lançarDespesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +68,7 @@
             this.produtoNutriçãoToolStripMenuItem,
             this.parametrizacaoToolStripMenuItem,
             this.fiadoToolStripMenuItem,
-            this.entregaPedidoNutriçãoToolStripMenuItem});
+            this.lançarDespesaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -123,6 +124,13 @@
             this.fiadoToolStripMenuItem.Text = "Fiado";
             this.fiadoToolStripMenuItem.Click += new System.EventHandler(this.FiadoToolStripMenuItem_Click);
             // 
+            // lançarDespesaToolStripMenuItem
+            // 
+            this.lançarDespesaToolStripMenuItem.Name = "lançarDespesaToolStripMenuItem";
+            this.lançarDespesaToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
+            this.lançarDespesaToolStripMenuItem.Text = "Lançar Despesa";
+            this.lançarDespesaToolStripMenuItem.Click += new System.EventHandler(this.lançarDespesaToolStripMenuItem_Click);
+            // 
             // entregaPedidoNutriçãoToolStripMenuItem
             // 
             this.entregaPedidoNutriçãoToolStripMenuItem.Name = "entregaPedidoNutriçãoToolStripMenuItem";
@@ -160,5 +168,6 @@
         private System.Windows.Forms.ToolStripMenuItem parametrizacaoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fiadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entregaPedidoNutriçãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lançarDespesaToolStripMenuItem;
     }
 }

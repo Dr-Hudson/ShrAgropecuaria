@@ -15,6 +15,8 @@ namespace ShrAgropecuaria.Repositorios.Interfaces
         Usuario PegaId(string nome);
         Usuario PegaUsuario(string usuario, string senha);
 
+        Usuario getNome(string nome);
+
         int Conta();
     }
 }

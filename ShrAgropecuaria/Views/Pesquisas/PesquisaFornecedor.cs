@@ -40,7 +40,20 @@ namespace ShrAgropecuaria.Views.Pesquisas
                 List<Fornecedor> forn = FornecedorRepository.GetByCid(txtCid.Text).ToList();
                 DgvForn.DataSource = forn;
             }
-            
+
+            DgvForn.Columns.Remove("Forn_cod");
+            DgvForn.Columns["Forn_nome"].HeaderText = "Nome do fornecedor";
+            DgvForn.Columns["Forn_endereco"].HeaderText = "Endereço";
+            DgvForn.Columns["Forn_bairro"].HeaderText = "Bairro";
+            DgvForn.Columns["Forn_complemento"].HeaderText = "Complemento";
+            DgvForn.Columns["Forn_cep"].HeaderText = "CEP";
+            DgvForn.Columns["Forn_numero"].HeaderText = "Número";
+            DgvForn.Columns["Forn_descricao"].HeaderText = "Descrição";
+            DgvForn.Columns["Forn_cnpj"].HeaderText = "CNPJ";
+            DgvForn.Columns["Forn_telefone"].HeaderText = "Telefone";
+            DgvForn.Columns.Remove("Cidadeid");
+            DgvForn.Columns["NomeCidade"].HeaderText = "Cidade";
+
         }
 
         private void BtnSelecionarCid_Click(object sender, EventArgs e)

@@ -10,7 +10,7 @@ using Dapper;
 
 namespace ShrAgropecuaria.Repositorios.MySqlRepository
 {
-    class MySqlProdutoPET : MySqlRepository, IProdutoPET
+    class MySqlProdutoPET : MySqlRepository, IProdutoPETRepository
     {
         public MySqlProdutoPET(IDbConnection connection): base(connection)
         {
@@ -29,20 +29,21 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
 
         public IEnumerable<ProdutoPET> GetAll()
         {
-            string sql = "select pp.*, cat.* from produtopet pp " +
-                "inner join categoriaprodutopet cat on cat.cat_cod = pp.cat_cod";
+            string sql = "select pp.pp_cod, pp.pp_descricao, pp.pp_fabricante, pp.pp_valorcompra, pp.pp_valorunitario, pp.pp_estoque, cat.cat_descricao from produtopet pp " +
+                "inner join categoriaprodutopet cat on cat.cat_cod = pp.cat_cod " +
+                "where pp_ativo = 'A'";
             return Connection.Query<ProdutoPET, CategoriaProdutoPET, ProdutoPET>(sql, (produtopet, categoriaprodutopet) =>
             {
                 produtopet.Cat = categoriaprodutopet;
                 return produtopet;
-            }, splitOn: "cat_cod");
+            }, splitOn: "cat_cod, pp_descricao, pp_fabricante, pp_valorcompra, pp_valorunitario, pp_estoque, cat_descricao");
         }
 
         public IEnumerable<ProdutoPET> GetByCat(string nome)
         {
             string sql = "select pp.*, cat.* from produtopet pp " +
                 "inner join categoriaprodutopet cat on cat.cat_cod = pp.cat_cod" +
-                "where cat.cat_descricao like @nome";
+                "where cat.cat_descricao like @nome and pp.pp_ativo = 'A'";
             return Connection.Query<ProdutoPET, CategoriaProdutoPET, ProdutoPET>(sql, (produtopet, categoriaprodutopet) =>
             {
                 produtopet.Cat = categoriaprodutopet;
@@ -54,7 +55,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
         {
             string sql = "select pp.*, cat.* from produtopet pp " +
                 "inner join categoriaprodutopet cat on cat.cat_cod = pp.cat_cod" +
-                "where pp.pp_cod = @pp_cod";
+                "where pp.pp_cod = @pp_cod and pp.pp_ativo = 'A'";
             return Connection.Query<ProdutoPET, CategoriaProdutoPET, ProdutoPET>(sql, (produtopet, categoriaprodutopet) =>
             {
                 produtopet.Cat = categoriaprodutopet;
@@ -66,7 +67,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
         {
             string sql = "select pp.*, cat.* from produtopet pp " +
                 "inner join categoriaprodutopet cat on cat.cat_cod = pp.cat_cod " +
-                "where pp.pp_descricao like @nome";
+                "where pp.pp_descricao like @nome and pp.pp_ativo = 'A'";
             return Connection.Query<ProdutoPET, CategoriaProdutoPET, ProdutoPET>(sql, (produtopet, categoriaprodutopet) =>
             {
                 produtopet.Cat = categoriaprodutopet;
