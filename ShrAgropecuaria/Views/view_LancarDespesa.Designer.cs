@@ -29,10 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.btnLancar = new System.Windows.Forms.Button();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnEnviar = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -53,17 +50,20 @@
             this.rbAVista = new System.Windows.Forms.RadioButton();
             this.rbParcelado = new System.Windows.Forms.RadioButton();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.txtValorDespesa = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDescricao = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.btnLancar = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.btnLimpar = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.DgvDespesa = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -73,14 +73,15 @@
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel12.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvDespesa)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.panel12);
-            this.panel1.Controls.Add(this.panel11);
-            this.panel1.Controls.Add(this.panel10);
+            this.panel1.Controls.Add(this.btnEnviar);
             this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.panel7);
@@ -91,46 +92,18 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(30, 91);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(722, 236);
+            this.panel1.Size = new System.Drawing.Size(722, 183);
             this.panel1.TabIndex = 0;
             // 
-            // panel11
+            // btnEnviar
             // 
-            this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel11.Controls.Add(this.btnLancar);
-            this.panel11.Location = new System.Drawing.Point(421, 182);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(88, 29);
-            this.panel11.TabIndex = 34;
-            // 
-            // btnLancar
-            // 
-            this.btnLancar.Location = new System.Drawing.Point(4, 1);
-            this.btnLancar.Name = "btnLancar";
-            this.btnLancar.Size = new System.Drawing.Size(75, 23);
-            this.btnLancar.TabIndex = 9;
-            this.btnLancar.Text = "Lançar";
-            this.btnLancar.UseVisualStyleBackColor = true;
-            this.btnLancar.Click += new System.EventHandler(this.btnLancar_Click);
-            // 
-            // panel10
-            // 
-            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel10.Controls.Add(this.btnLimpar);
-            this.panel10.Location = new System.Drawing.Point(315, 183);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(86, 29);
-            this.panel10.TabIndex = 34;
-            // 
-            // btnLimpar
-            // 
-            this.btnLimpar.Location = new System.Drawing.Point(3, 3);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpar.TabIndex = 10;
-            this.btnLimpar.Text = "Limpar";
-            this.btnLimpar.UseVisualStyleBackColor = true;
-            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            this.btnEnviar.Location = new System.Drawing.Point(520, 121);
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.Size = new System.Drawing.Size(75, 23);
+            this.btnEnviar.TabIndex = 9;
+            this.btnEnviar.Text = "Enviar";
+            this.btnEnviar.UseVisualStyleBackColor = true;
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
             // panel9
             // 
@@ -141,11 +114,11 @@
             this.panel9.Location = new System.Drawing.Point(11, 7);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(108, 29);
-            this.panel9.TabIndex = 34;
+            this.panel9.TabIndex = 1;
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(62, 2);
+            this.btnPesquisar.Location = new System.Drawing.Point(61, 0);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(28, 23);
             this.btnPesquisar.TabIndex = 1;
@@ -167,7 +140,7 @@
             this.txtID.Location = new System.Drawing.Point(27, 2);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(28, 20);
-            this.txtID.TabIndex = 1;
+            this.txtID.TabIndex = 300;
             // 
             // panel8
             // 
@@ -177,7 +150,7 @@
             this.panel8.Location = new System.Drawing.Point(11, 119);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(498, 29);
-            this.panel8.TabIndex = 34;
+            this.panel8.TabIndex = 8;
             // 
             // label5
             // 
@@ -194,6 +167,7 @@
             this.dtpData.Name = "dtpData";
             this.dtpData.Size = new System.Drawing.Size(374, 20);
             this.dtpData.TabIndex = 8;
+            this.dtpData.Leave += new System.EventHandler(this.dtpData_Leave);
             // 
             // panel7
             // 
@@ -203,7 +177,7 @@
             this.panel7.Location = new System.Drawing.Point(520, 3);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(195, 29);
-            this.panel7.TabIndex = 35;
+            this.panel7.TabIndex = 3;
             // 
             // label3
             // 
@@ -219,7 +193,7 @@
             this.txtUser.Location = new System.Drawing.Point(52, 2);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(133, 20);
-            this.txtUser.TabIndex = 22;
+            this.txtUser.TabIndex = 300;
             // 
             // panel6
             // 
@@ -229,7 +203,7 @@
             this.panel6.Location = new System.Drawing.Point(125, 84);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(184, 29);
-            this.panel6.TabIndex = 34;
+            this.panel6.TabIndex = 6;
             // 
             // label6
             // 
@@ -257,7 +231,7 @@
             this.panel5.Location = new System.Drawing.Point(125, 49);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(184, 29);
-            this.panel5.TabIndex = 34;
+            this.panel5.TabIndex = 5;
             // 
             // label2
             // 
@@ -285,7 +259,7 @@
             this.panel4.Location = new System.Drawing.Point(11, 49);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(92, 62);
-            this.panel4.TabIndex = 34;
+            this.panel4.TabIndex = 4;
             // 
             // rbAVista
             // 
@@ -298,37 +272,30 @@
             this.rbAVista.Text = "À vista";
             this.rbAVista.UseVisualStyleBackColor = true;
             this.rbAVista.CheckedChanged += new System.EventHandler(this.rbAVista_CheckedChanged);
+            this.rbAVista.Leave += new System.EventHandler(this.rbAVista_Leave);
             // 
             // rbParcelado
             // 
             this.rbParcelado.AutoSize = true;
-            this.rbParcelado.Location = new System.Drawing.Point(11, 31);
+            this.rbParcelado.Location = new System.Drawing.Point(11, 35);
             this.rbParcelado.Name = "rbParcelado";
             this.rbParcelado.Size = new System.Drawing.Size(73, 17);
-            this.rbParcelado.TabIndex = 4;
+            this.rbParcelado.TabIndex = 5;
             this.rbParcelado.TabStop = true;
             this.rbParcelado.Text = "Parcelado";
             this.rbParcelado.UseVisualStyleBackColor = true;
             this.rbParcelado.CheckedChanged += new System.EventHandler(this.rbParcelado_CheckedChanged);
+            this.rbParcelado.Leave += new System.EventHandler(this.rbParcelado_Leave);
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.txtValorDespesa);
+            this.panel3.Controls.Add(this.label4);
             this.panel3.Location = new System.Drawing.Point(315, 49);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(194, 29);
-            this.panel3.TabIndex = 33;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Valor da despesa";
+            this.panel3.TabIndex = 7;
             // 
             // txtValorDespesa
             // 
@@ -339,6 +306,16 @@
             this.txtValorDespesa.Size = new System.Drawing.Size(89, 20);
             this.txtValorDespesa.TabIndex = 7;
             this.txtValorDespesa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SomenteNumeroDPE);
+            this.txtValorDespesa.Leave += new System.EventHandler(this.txtValorDespesa_Leave);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Valor da despesa";
             // 
             // panel2
             // 
@@ -348,7 +325,7 @@
             this.panel2.Location = new System.Drawing.Point(184, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(310, 29);
-            this.panel2.TabIndex = 32;
+            this.panel2.TabIndex = 2;
             // 
             // label1
             // 
@@ -368,25 +345,14 @@
             this.txtDescricao.TabIndex = 2;
             this.txtDescricao.Leave += new System.EventHandler(this.txtDescricao_Leave);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Britannic Bold", 36F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(229, 19);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(359, 53);
-            this.label7.TabIndex = 31;
-            this.label7.Text = "Lançar Despesa";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // panel12
             // 
             this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel12.Controls.Add(this.btnExcluir);
-            this.panel12.Location = new System.Drawing.Point(11, 188);
+            this.panel12.Location = new System.Drawing.Point(30, 608);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(88, 29);
-            this.panel12.TabIndex = 36;
+            this.panel12.TabIndex = 10;
             // 
             // btnExcluir
             // 
@@ -398,18 +364,77 @@
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
+            // panel11
+            // 
+            this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel11.Controls.Add(this.btnLancar);
+            this.panel11.Location = new System.Drawing.Point(664, 608);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(88, 29);
+            this.panel11.TabIndex = 8;
+            // 
+            // btnLancar
+            // 
+            this.btnLancar.Location = new System.Drawing.Point(4, 1);
+            this.btnLancar.Name = "btnLancar";
+            this.btnLancar.Size = new System.Drawing.Size(75, 23);
+            this.btnLancar.TabIndex = 9;
+            this.btnLancar.Text = "Lançar";
+            this.btnLancar.UseVisualStyleBackColor = true;
+            this.btnLancar.Click += new System.EventHandler(this.btnLancar_Click);
+            // 
+            // panel10
+            // 
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel10.Controls.Add(this.btnLimpar);
+            this.panel10.Location = new System.Drawing.Point(572, 608);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(86, 29);
+            this.panel10.TabIndex = 9;
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(3, 3);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpar.TabIndex = 10;
+            this.btnLimpar.Text = "Novo";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Britannic Bold", 36F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(229, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(359, 53);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Lançar Despesa";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // DgvDespesa
+            // 
+            this.DgvDespesa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvDespesa.Location = new System.Drawing.Point(30, 290);
+            this.DgvDespesa.Name = "DgvDespesa";
+            this.DgvDespesa.Size = new System.Drawing.Size(722, 307);
+            this.DgvDespesa.TabIndex = 32;
+            // 
             // view_LancarDespesa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 365);
+            this.ClientSize = new System.Drawing.Size(790, 649);
+            this.Controls.Add(this.panel12);
+            this.Controls.Add(this.DgvDespesa);
+            this.Controls.Add(this.panel10);
+            this.Controls.Add(this.panel11);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panel1);
             this.Name = "view_LancarDespesa";
             this.Text = "view_LancarDespesa";
             this.panel1.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -427,6 +452,9 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel12.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvDespesa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -467,5 +495,7 @@
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.DataGridView DgvDespesa;
+        private System.Windows.Forms.Button btnEnviar;
     }
 }

@@ -39,11 +39,22 @@ namespace ShrAgropecuaria.Views
             txtUser.Enabled = false;
             txtID.Enabled = false;
             btnPesquisar.Focus();
+            btnEnviar.Enabled = false;
             List<Despesa> ldespesa = IDespesa.GetAll().ToList();
             foreach (var b in ldespesa)
             {
                 cbbDespesa.Items.Add(b);
             }
+        }
+
+        public void CamposPreenchido()
+        {
+            if (txtDescricao.Text != "")
+                if (txtParcelas.Text != "")
+                    if (rbAVista.Checked || rbParcelado.Checked)
+                        if (cbbDespesa.Text != "")
+                            if (txtValorDespesa.Text.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", "").Replace(" ", "").Replace(",", "") != "")
+                                btnEnviar.Enabled = true;
         }
 
         public void Limpar() 
@@ -64,54 +75,38 @@ namespace ShrAgropecuaria.Views
             txtDescricao.Focus();
         }
 
+        public bool ValidaPreco(List<ContasAPagar> lcap)
+        {
+            
+            string a = txtValorDespesa.Text.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", ",").Replace(" ", "");
+            decimal b = Math.Round(Convert.ToDecimal(a), 2);
+            decimal d=0;
+            foreach (var c in lcap)
+                d += c.Cap_valordespesa;
+
+            if (d == b)
+                return true;
+            else if(d < b)
+            {
+                MessageBox.Show("O valor alterado na grid é menor que o valor total da despesa, favor, arrumar os preços!!");
+                return false;
+            }
+            else
+                MessageBox.Show("O valor alterado na grid é maior que o valor total da despesa, favor, arrumar os preços!!");
+            return false;
+            
+        }
+
         private void btnLancar_Click(object sender, EventArgs e)
         {
-            int parcela = 1;
-            if(txtDescricao.Text != "")
-            {
-                cap.Cap_descricao = txtDescricao.Text;
-                if(txtUser.Text != "")
-                {
-                    user = IUsuario.getNome(txtUser.Text);
-                    if(txtValorDespesa.Text != "")
-                    {
-                        string a = txtValorDespesa.Text.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", ",").Replace(" ", "");
-                        cap.Cap_valordespesa = Math.Round(Convert.ToDecimal(a), 2);
-                        if(dtpData.Value != null)
-                        {
-                            cap.Cap_datageracao = dtpData.Value;
-                            if(cbbDespesa.SelectedItem != null)
-                            {
-                                desp = IDespesa.GetNome(cbbDespesa.SelectedItem.ToString());
-                                if (rbAVista.Checked)
-                                    parcela = 1;
-                                else if (rbParcelado.Checked)
-                                    parcela = Convert.ToInt32(txtParcelas.Text);
-                                cap.Despesa = desp;
-                                cap.User = user;
-                                if (cap != null)
-                                {
-                                    if(txtID.Text != "")
-                                    {
-                                        
-                                        desp.Desp_cod = Convert.ToInt32(txtID.Text);
-                                        IContasapagar.Gravar(cap, parcela);
-                                        MessageBox.Show("Gravou Com Sucesso!!");
-                                    }
-                                    else
-                                    {
-                                        
-                                        IContasapagar.Gravar(cap, parcela);
-                                        MessageBox.Show("Gravou Com Sucesso!!");
-                                    }
-                                    
-                                }
 
-                            }
-                        }
-                    }
-                }
+            List<ContasAPagar> lcap = (List<ContasAPagar>)DgvDespesa.DataSource;
+            if(ValidaPreco(lcap))
+            {
+                IContasapagar.Gravar(lcap);
+                MessageBox.Show("Gravado com sucesso!!");
             }
+            
         }
 
         private void SomenteNumeroDPE(object sender, KeyPressEventArgs e)
@@ -155,6 +150,7 @@ namespace ShrAgropecuaria.Views
         private void rbAVista_CheckedChanged(object sender, EventArgs e)
         {
             txtParcelas.Enabled = false;
+            txtParcelas.Text = "1";
         }
 
         private void rbParcelado_CheckedChanged(object sender, EventArgs e)
@@ -170,8 +166,13 @@ namespace ShrAgropecuaria.Views
                 txtDescricao.BackColor = Color.Red;
             }
             else
+            {
                 txtDescricao.BackColor = Color.White;
-        
+                CamposPreenchido();
+
+            }
+
+
         }
 
         private void txtParcelas_Leave(object sender, EventArgs e)
@@ -179,27 +180,39 @@ namespace ShrAgropecuaria.Views
             if (txtParcelas.Text == "")
             {
                 MessageBox.Show("O campo do parcelas está em branco!!, deve-se ser preenchido para fazer a gravação!!", "Campo em branco", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtDescricao.BackColor = Color.Red;
+                txtParcelas.BackColor = Color.Red;
             }
             else if (Convert.ToInt32(txtParcelas.Text) > 10)
             {
                 MessageBox.Show("O campo do parcelas passou do limite, deve ser 10 ou menos parcelas!!", "Valor excedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtDescricao.BackColor = Color.Red;
+                txtParcelas.BackColor = Color.Red;
             }
             else
+            {
                 txtDescricao.BackColor = Color.White;
+                CamposPreenchido();
+            }
+               
         }
 
         private void cbbDespesa_Leave(object sender, EventArgs e)
         {
             if(cbbDespesa.SelectedItem == null)
             {
-                MessageBox.Show("O campo do despesa está em branco!!, deve-se ser preenchido para fazer a gravação!!", "Campo em branco", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtDescricao.BackColor = Color.Red;
+                
+                
+                    MessageBox.Show("O campo do despesa está em branco!!, deve-se ser preenchido para fazer a gravação!!", "Campo em branco", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cbbDespesa.BackColor = Color.Red;
+                
+                
             }
             else
-                txtDescricao.BackColor = Color.Red;
-        }
+            {
+                cbbDespesa.BackColor = Color.White;
+                CamposPreenchido();
+            }
+                
+            }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
@@ -226,19 +239,79 @@ namespace ShrAgropecuaria.Views
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            int cod;
-            int.TryParse(txtID.Text, out cod);
-            cap = IContasapagar.Get(cod);
-            if (cap != null)
-            {
-                IContasapagar.Excluir(cap);
-                MessageBox.Show("Excluído com sucesso!");
-            }
-            else
-            {
-                MessageBox.Show("Não foi possível Excluir esse fornecedor");
-            }
+            List<ContasAPagar> lcap = (List<ContasAPagar>)DgvDespesa.DataSource;
+            IContasapagar.Excluir(lcap);
             Limpar();
+        }
+
+        private void dtpData_Leave(object sender, EventArgs e)
+        {
+            
+            CamposPreenchido();
+        }
+
+        private void rbAVista_Leave(object sender, EventArgs e)
+        {
+            
+            CamposPreenchido();
+        }
+
+        private void rbParcelado_Leave(object sender, EventArgs e)
+        {
+            
+            CamposPreenchido();
+        }
+
+        private void txtValorDespesa_Leave(object sender, EventArgs e)
+        {
+            
+            CamposPreenchido();
+        }
+
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            DateTime w;
+            ContasAPagar capp = new ContasAPagar();
+            capp.Cap_datageracao = dtpData.Value;
+            user = IUsuario.getNome(txtUser.Text);
+            string aux;
+
+
+
+            desp = IDespesa.GetNome(cbbDespesa.SelectedItem.ToString());
+            aux = desp.Desp_dia + "/" + capp.Cap_datageracao.Month + "/" + capp.Cap_datageracao.Year + " " + capp.Cap_datageracao.Hour + ":" + capp.Cap_datageracao.Minute + ":" + capp.Cap_datageracao.Second;
+            w = Convert.ToDateTime(aux);
+            //w = cap.Cap_datageracao;
+            List<ContasAPagar> lcap = new List<ContasAPagar>();
+            for(int i = 0; i<Convert.ToInt32(txtParcelas.Text); i++)
+            {
+                ContasAPagar cappp = new ContasAPagar();
+                w =w.AddMonths(1);
+                cappp.Cap_descricao = txtDescricao.Text;
+                cappp.Cap_datageracao = dtpData.Value;
+
+                string a = txtValorDespesa.Text.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", ",").Replace(" ", "");
+
+                
+                
+                cappp.Despesa = desp;
+                cappp.User = user;
+                cappp.Cap_valordespesa = Math.Round(Convert.ToDecimal(a), 2)/ Convert.ToInt32(txtParcelas.Text);
+                cappp.Cap_datavencimento = w;
+                lcap.Add(cappp);
+            }
+
+            DgvDespesa.DataSource = lcap;
+
+            DgvDespesa.Columns.Remove("Cap_cod");
+            DgvDespesa.Columns.Remove("Cap_datapagamento");
+            DgvDespesa.Columns.Remove("Cap_valorpago");
+            DgvDespesa.Columns.Remove("User");
+            DgvDespesa.Columns.Remove("Despesaid");
+            DgvDespesa.Columns.Remove("Usuarioid");
+            DgvDespesa.Columns.Remove("PedidoPetid");
+
+            
         }
     }
 }

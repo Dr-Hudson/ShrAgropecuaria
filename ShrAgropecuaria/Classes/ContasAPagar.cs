@@ -21,6 +21,7 @@ namespace ShrAgropecuaria.Classes
         PedidoPET pedidopet;
 
         public int? Cap_cod { get => cap_cod; set => cap_cod = value; }
+        public string Cap_descricao { get => cap_descricao; set => cap_descricao = value; }
         public DateTime Cap_datapagamento { get => cap_datapagamento; set => cap_datapagamento = value; }
         public DateTime Cap_datageracao { get => cap_datageracao; set => cap_datageracao = value; }
         public DateTime Cap_datavencimento { get => cap_datavencimento; set => cap_datavencimento = value; }
@@ -38,6 +39,10 @@ namespace ShrAgropecuaria.Classes
 
         public int? PedidoPetid { get { return Pedidopet?.Pedp_cod; } }
 
-        public string Cap_descricao { get => cap_descricao; set => cap_descricao = value; }
+        public string DespesaDescricao { get { return Despesa?.Desp_descricao; } }
+
+        //public string Cap_datageracaoo { get => cap_datageracao}
+
+        
     }
 }
