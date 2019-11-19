@@ -38,6 +38,8 @@ namespace ShrAgropecuaria.Views
             txtUser.Text = Session.Instance.Nome;
             txtUser.Enabled = false;
             txtID.Enabled = false;
+            txtDias.Enabled = false;
+            dtpParcela.Enabled = false;
             btnPesquisar.Focus();
             btnEnviar.Enabled = false;
             List<Despesa> ldespesa = IDespesa.GetAll().ToList();
@@ -53,8 +55,17 @@ namespace ShrAgropecuaria.Views
                 if (txtParcelas.Text != "")
                     if (rbAVista.Checked || rbParcelado.Checked)
                         if (cbbDespesa.Text != "")
-                            if (txtValorDespesa.Text.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", "").Replace(" ", "").Replace(",", "") != "")
-                                btnEnviar.Enabled = true;
+                            if(cbbDespesa.Text == "Outros")
+                            {
+                                if(txtDias.Text != "")
+                                    if (txtValorDespesa.Text.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", "").Replace(" ", "").Replace(",", "") != "")
+                                        btnEnviar.Enabled = true;
+                            }
+                            else
+                                if (txtValorDespesa.Text.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", "").Replace(" ", "").Replace(",", "") != "")
+                                        btnEnviar.Enabled = true;
+
+
         }
 
         public void Limpar() 
@@ -66,7 +77,12 @@ namespace ShrAgropecuaria.Views
             rbAVista.Checked = false;
             rbParcelado.Checked = false;
             dtpData.Value = DateTime.Now;
+            dtpParcela.Value = DateTime.Now;
+            txtDias.Enabled = false;
+            dtpParcela.Enabled = false;
+            txtDias.Text = "";
             cbbDespesa.SelectedItem = null;
+            DgvDespesa.DataSource = "";
 
         }
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -106,6 +122,8 @@ namespace ShrAgropecuaria.Views
                 IContasapagar.Gravar(lcap);
                 MessageBox.Show("Gravado com sucesso!!");
             }
+            Limpar();
+            DgvDespesa.DataSource = "";
             
         }
 
@@ -156,6 +174,7 @@ namespace ShrAgropecuaria.Views
         private void rbParcelado_CheckedChanged(object sender, EventArgs e)
         {
             txtParcelas.Enabled = true;
+            txtParcelas.Text = "";
         }
 
         private void txtDescricao_Leave(object sender, EventArgs e)
@@ -209,19 +228,26 @@ namespace ShrAgropecuaria.Views
             else
             {
                 cbbDespesa.BackColor = Color.White;
+                if(cbbDespesa.Text == "Outros")
+                {
+                    txtDias.Enabled = true;
+                    dtpParcela.Enabled = true;
+                }
                 CamposPreenchido();
             }
                 
-            }
+        }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             var a = new PesquisaLancarDespesa(IContasapagar);
 
+            
+
             if (a.ShowDialog() == DialogResult.OK)
             {
-
-                txtID.Text = a.CAP.Cap_cod.ToString();
+                List<ContasAPagar> lcap = IContasapagar.GetData(a.CAP.Cap_datageracao).ToList();
+                /*txtID.Text = a.CAP.Cap_cod.ToString();
                 txtDescricao.Text = a.CAP.Cap_descricao;
                 txtUser.Text = a.CAP.User.User_login;
                 txtValorDespesa.Text = a.CAP.Cap_valordespesa.ToString().PadLeft(11, ' ');
@@ -231,7 +257,8 @@ namespace ShrAgropecuaria.Views
                 else
                     rbAVista.Checked = true;
                 dtpData.Value = a.CAP.Cap_datageracao;
-                cbbDespesa.Text = a.CAP.Despesa.Desp_descricao;
+                cbbDespesa.Text = a.CAP.Despesa.Desp_descricao;*/
+                DgvDespesa.DataSource = lcap;
 
 
             }
@@ -240,7 +267,10 @@ namespace ShrAgropecuaria.Views
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             List<ContasAPagar> lcap = (List<ContasAPagar>)DgvDespesa.DataSource;
-            IContasapagar.Excluir(lcap);
+            
+            
+                
+            IContasapagar.Excluir(lcap[0].Cap_datageracao);
             Limpar();
         }
 
@@ -272,36 +302,72 @@ namespace ShrAgropecuaria.Views
         {
             DateTime w;
             ContasAPagar capp = new ContasAPagar();
-            capp.Cap_datageracao = dtpData.Value;
+            capp.Cap_datageracao = DateTime.Parse(dtpData.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+            capp.Cap_datavencimento = DateTime.Parse(dtpParcela.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             user = IUsuario.getNome(txtUser.Text);
             string aux;
 
 
 
             desp = IDespesa.GetNome(cbbDespesa.SelectedItem.ToString());
-            aux = desp.Desp_dia + "/" + capp.Cap_datageracao.Month + "/" + capp.Cap_datageracao.Year + " " + capp.Cap_datageracao.Hour + ":" + capp.Cap_datageracao.Minute + ":" + capp.Cap_datageracao.Second;
-            w = Convert.ToDateTime(aux);
+            
             //w = cap.Cap_datageracao;
             List<ContasAPagar> lcap = new List<ContasAPagar>();
-            for(int i = 0; i<Convert.ToInt32(txtParcelas.Text); i++)
+            if (cbbDespesa.Text != "Outros")
             {
-                ContasAPagar cappp = new ContasAPagar();
-                w =w.AddMonths(1);
-                cappp.Cap_descricao = txtDescricao.Text;
-                cappp.Cap_datageracao = dtpData.Value;
+                aux = desp.Desp_dia + "-" + capp.Cap_datageracao.Month + "-" + capp.Cap_datageracao.Year + " " + capp.Cap_datageracao.Hour + ":" + capp.Cap_datageracao.Minute + ":" + capp.Cap_datageracao.Second;
+                w = Convert.ToDateTime(aux);
+                for (int i = 0; i < Convert.ToInt32(txtParcelas.Text); i++)
+                {
+                    ContasAPagar cappp = new ContasAPagar();
+                    w = w.AddMonths(1);
+                    cappp.Cap_descricao = txtDescricao.Text;
+                    cappp.Cap_datageracao = dtpData.Value;
 
-                string a = txtValorDespesa.Text.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", ",").Replace(" ", "");
+                    string a = txtValorDespesa.Text.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", ",").Replace(" ", "");
+
+
+
+                    cappp.Despesa = desp;
+                    cappp.User = user;
+                    cappp.Cap_valordespesa = Math.Round(Convert.ToDecimal(a), 2) / Convert.ToInt32(txtParcelas.Text);
+                    cappp.Cap_datavencimento = w;
+                    lcap.Add(cappp);
+                    
+                }
+
+                DgvDespesa.DataSource = lcap;
 
                 
-                
-                cappp.Despesa = desp;
-                cappp.User = user;
-                cappp.Cap_valordespesa = Math.Round(Convert.ToDecimal(a), 2)/ Convert.ToInt32(txtParcelas.Text);
-                cappp.Cap_datavencimento = w;
-                lcap.Add(cappp);
+            }
+            else
+            {
+                aux = capp.Cap_datavencimento.Day + "-" + capp.Cap_datavencimento.Month + "-" + capp.Cap_datavencimento.Year + " " + capp.Cap_datavencimento.Hour + ":" + capp.Cap_datavencimento.Minute + ":" + capp.Cap_datavencimento.Second;
+                w = Convert.ToDateTime(aux);
+                for (int i = 0; i < Convert.ToInt32(txtParcelas.Text); i++)
+                {
+                    ContasAPagar cappp = new ContasAPagar();
+                    
+                    cappp.Cap_descricao = txtDescricao.Text;
+                    cappp.Cap_datageracao = dtpData.Value;
+
+                    string a = txtValorDespesa.Text.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", ",").Replace(" ", "");
+
+
+
+                    cappp.Despesa = desp;
+                    cappp.User = user;
+                    cappp.Cap_valordespesa = Math.Round(Convert.ToDecimal(a), 2) / Convert.ToInt32(txtParcelas.Text);
+                    cappp.Cap_datavencimento = w;
+                    lcap.Add(cappp);
+                    w = w.AddDays(Convert.ToInt32(txtDias.Text));
+
+                }
+
+                DgvDespesa.DataSource = lcap;
             }
 
-            DgvDespesa.DataSource = lcap;
+
 
             DgvDespesa.Columns.Remove("Cap_cod");
             DgvDespesa.Columns.Remove("Cap_datapagamento");
@@ -310,8 +376,24 @@ namespace ShrAgropecuaria.Views
             DgvDespesa.Columns.Remove("Despesaid");
             DgvDespesa.Columns.Remove("Usuarioid");
             DgvDespesa.Columns.Remove("PedidoPetid");
-
+            DgvDespesa.Columns["Cap_descricao"].HeaderText = "Descrição da despesa";
+            DgvDespesa.Columns["Cap_datageracao"].HeaderText = "Data de lançamento";
+            DgvDespesa.Columns["Cap_datavencimento"].HeaderText = "Data do vencimento";
+            DgvDespesa.Columns["DespesaDescricao"].HeaderText = "Categoria da despesa";
+            DgvDespesa.Columns["NomeUsuario"].HeaderText = "Nome do Usuario";
             
+
+
+
+
+        }
+
+        private void SomenteNumero(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

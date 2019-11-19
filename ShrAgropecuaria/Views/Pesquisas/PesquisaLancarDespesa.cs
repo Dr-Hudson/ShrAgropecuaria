@@ -28,12 +28,12 @@ namespace ShrAgropecuaria.Views.Pesquisas
             if (txt_id.Text == "" && txt_nome.Text == "")
             {
                 List<ContasAPagar> CAP = Icontasapagar.GetAll("").ToList();
-                DgvForn.DataSource = CAP;
+                DgvDespesa.DataSource = CAP;
             }
             else if(txt_id.Text == "" && txt_nome.Text != "")
             {
                 List<ContasAPagar> CAP = Icontasapagar.GetAll(txt_nome.Text).ToList();
-                DgvForn.DataSource = CAP;
+                DgvDespesa.DataSource = CAP;
             }
             
             
@@ -43,8 +43,8 @@ namespace ShrAgropecuaria.Views.Pesquisas
         {
             try
             {
-                CAP = DgvForn.CurrentRow?.DataBoundItem as ContasAPagar;
-                if (DgvForn.CurrentRow != null)
+                CAP = DgvDespesa.CurrentRow?.DataBoundItem as ContasAPagar;
+                if (DgvDespesa.CurrentRow != null)
                 {
                     DialogResult = DialogResult.OK;
                     Close();

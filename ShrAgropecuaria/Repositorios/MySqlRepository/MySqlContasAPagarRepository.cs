@@ -23,10 +23,11 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
             return Connection.Query<int>(sql).FirstOrDefault();
         }
 
-        public void Excluir(List<ContasAPagar> lcap)
+        public void Excluir(DateTime a)
         {
-            foreach(var cap in lcap)
-                Connection.Execute("delete from contasapagar where cap_datageracao = @cap_datageracao", cap);
+
+            Connection.Execute("delete from contasapagar where cap_datageracao = @a", new { a });            
+                
         }
 
         public ContasAPagar Get(int? id)
@@ -53,6 +54,23 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
                 return contasapagar;
                 
             }, new { nome = "%" + nome + "%" }, splitOn: "desp_cod, user_cod");
+        }
+
+        public IEnumerable<ContasAPagar> GetData(DateTime data)
+        {
+            string sql = @"select cap.*, desp.*, user.* from contasapagar cap
+                            inner join despesas desp on desp.desp_cod = cap.desp_cod
+                            inner join usuario user on user.user_cod = cap.user_cod
+                            
+                            where cap.cap_datageracao = @data";
+            return Connection.Query<ContasAPagar, Despesa, Usuario, ContasAPagar>(sql, (contasapagar, despesa, usuario) =>
+            {
+                contasapagar.Despesa = despesa;
+                contasapagar.User = usuario;
+
+                return contasapagar;
+
+            }, new { data }, splitOn: "desp_cod, user_cod");
         }
 
         public void Gravar(List<ContasAPagar> lcap)
