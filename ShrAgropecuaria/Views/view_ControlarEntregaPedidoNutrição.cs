@@ -17,11 +17,13 @@ namespace ShrAgropecuaria.Views
     {
         public IClienteRepository ClienteRepository { get; }
         public IFazendaRepository FazendaRepository { get; }
-        public view_ControlarEntregaPedidoNutrição(IClienteRepository clienteRepository, IFazendaRepository fazendaRepository)
+        public IPedidoNutricaoRepository PedidoNutricaoRepository { get; }
+        public view_ControlarEntregaPedidoNutrição(IClienteRepository clienteRepository, IFazendaRepository fazendaRepository, IPedidoNutricaoRepository pedidoNutricaoRepository)
         {
             InitializeComponent();
             ClienteRepository = clienteRepository;
             FazendaRepository = fazendaRepository;
+            PedidoNutricaoRepository = pedidoNutricaoRepository;
         }
 
         private void btn_pesqCliente_Click(object sender, EventArgs e)
@@ -54,50 +56,77 @@ namespace ShrAgropecuaria.Views
 
         private void btn_limpar_Click(object sender, EventArgs e)
         {
+            LimparTudo();
+        }
+
+        public void LimparTudo()
+        {
             txt_idFazenda.Text = "";
             txt_nomeFazenda.Text = "";
             txt_idCli.Text = "";
             txt_nomeCliente.Text = "";
 
+            dataGridView1.DataSource = null;
+
+            radio_entregue.Checked = false;
+            radio_naoEntregue.Checked = false;
+
             btn_pesqFazenda.Enabled = false;
             radio_entregue.Enabled = false;
             radio_naoEntregue.Enabled = false;
+            btn_nEntregue.Visible = false;
+            btn_gravar.Visible = true;
         }
 
-        private void radio_entregue_CheckedChanged(object sender, EventArgs e)
+        private void btn_gravar_Click(object sender, EventArgs e)
         {
-            if (radio_entregue.Checked)
+            var ok = new view_DataEntrega();
+            if (ok.ShowDialog() == DialogResult.OK)
             {
-                int idCli = Convert.ToInt32(txt_idCli.Text);
-                int idFaz = Convert.ToInt32(txt_idFazenda.Text);
-                List<PedidoNutricao> li = FazendaRepository.GetByPedido(idCli, idFaz, true).ToList();
-                dataGridView1.DataSource = li;
-            }
-            else
-            {
-                int idCli = Convert.ToInt32(txt_idCli.Text);
-                int idFaz = Convert.ToInt32(txt_idFazenda.Text);
-                List<PedidoNutricao> li = FazendaRepository.GetByPedido(idCli, idFaz, false).ToList();
-                dataGridView1.DataSource = li;
+                PedidoNutricao p = new PedidoNutricao
+                {
+                    Pn_cod = (int)dataGridView1.CurrentRow.Cells[0].Value,
+                    Pn_dataentrega = ok.dataEntrega
+                };
+                PedidoNutricaoRepository.AlterarDataEntrega(p);
+                LimparTudo();
+                MessageBox.Show("Alterado Com Sucesso");
             }
         }
 
-        private void radio_naoEntregue_CheckedChanged(object sender, EventArgs e)
+        private void btn_nEntregue_Click(object sender, EventArgs e)
         {
-            if (radio_naoEntregue.Checked)
+            if (DialogResult.Yes == MessageBox.Show("Deseja marcar como Não Entregue?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
             {
-                int idCli = Convert.ToInt32(txt_idCli.Text);
-                int idFaz = Convert.ToInt32(txt_idFazenda.Text);
-                List<PedidoNutricao> li = FazendaRepository.GetByPedido(idCli, idFaz, false).ToList();
-                dataGridView1.DataSource = li;
+                PedidoNutricao p = new PedidoNutricao
+                {
+                    Pn_cod = (int)dataGridView1.CurrentRow.Cells[0].Value,
+                };
+                dataGridView1.CurrentRow.Cells[2].Value = null;
+                PedidoNutricaoRepository.AlterarDataEntrega(p);
+                LimparTudo();
+                MessageBox.Show("Alterado Com Sucesso");
             }
-            else
-            {
-                int idCli = Convert.ToInt32(txt_idCli.Text);
-                int idFaz = Convert.ToInt32(txt_idFazenda.Text);
-                List<PedidoNutricao> li = FazendaRepository.GetByPedido(idCli, idFaz, true).ToList();
-                dataGridView1.DataSource = li;
-            }
+        }
+
+        private void radio_entregue_Click(object sender, EventArgs e)
+        {
+            btn_nEntregue.Visible = true;
+            btn_gravar.Visible = false;
+            int idCli = Convert.ToInt32(txt_idCli.Text);
+            int idFaz = Convert.ToInt32(txt_idFazenda.Text);
+            List<PedidoNutricao> li = PedidoNutricaoRepository.GetByPedido(idCli, idFaz, true).ToList();
+            dataGridView1.DataSource = li;
+        }
+
+        private void radio_naoEntregue_Click(object sender, EventArgs e)
+        {
+            btn_nEntregue.Visible = false;
+            btn_gravar.Visible = true;
+            int idCli = Convert.ToInt32(txt_idCli.Text);
+            int idFaz = Convert.ToInt32(txt_idFazenda.Text);
+            List<PedidoNutricao> li = PedidoNutricaoRepository.GetByPedido(idCli, idFaz, false).ToList();
+            dataGridView1.DataSource = li;
         }
     }
 }

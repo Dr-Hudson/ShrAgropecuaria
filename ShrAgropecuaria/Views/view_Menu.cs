@@ -72,11 +72,5 @@ namespace ShrAgropecuaria.Views
             var f = Dependencia.Container.GetInstance<view_ControlarEntregaPedidoNutrição>();
             f.Show();
         }
-
-        private void quitarContasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var f = Dependencia.Container.GetInstance<view_QuitarContasAPagar>();
-            f.Show();
-        }
     }
 }

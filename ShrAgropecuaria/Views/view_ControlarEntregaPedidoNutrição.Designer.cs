@@ -45,14 +45,14 @@
             this.btn_pesqFazenda = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.radio_naoEntregue = new System.Windows.Forms.RadioButton();
+            this.radio_entregue = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btn_nEntregue = new System.Windows.Forms.Button();
             this.btn_gravar = new System.Windows.Forms.Button();
             this.btn_limpar = new System.Windows.Forms.Button();
-            this.txt_msg = new System.Windows.Forms.Label();
-            this.radio_entregue = new System.Windows.Forms.RadioButton();
-            this.radio_naoEntregue = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -241,65 +241,18 @@
             this.panel3.Size = new System.Drawing.Size(1113, 331);
             this.panel3.TabIndex = 2;
             // 
-            // dataGridView1
+            // radio_naoEntregue
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 47);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1074, 263);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(498, 11);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(116, 26);
-            this.label6.TabIndex = 48;
-            this.label6.Text = "Pedido(s):";
-            this.label6.UseWaitCursor = true;
-            // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.btn_gravar);
-            this.panel4.Controls.Add(this.btn_limpar);
-            this.panel4.Controls.Add(this.txt_msg);
-            this.panel4.Location = new System.Drawing.Point(345, 497);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(456, 100);
-            this.panel4.TabIndex = 3;
-            // 
-            // btn_gravar
-            // 
-            this.btn_gravar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_gravar.Location = new System.Drawing.Point(145, 54);
-            this.btn_gravar.Name = "btn_gravar";
-            this.btn_gravar.Size = new System.Drawing.Size(75, 30);
-            this.btn_gravar.TabIndex = 0;
-            this.btn_gravar.Text = "Gravar";
-            this.btn_gravar.UseVisualStyleBackColor = true;
-            // 
-            // btn_limpar
-            // 
-            this.btn_limpar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_limpar.Location = new System.Drawing.Point(226, 54);
-            this.btn_limpar.Name = "btn_limpar";
-            this.btn_limpar.Size = new System.Drawing.Size(75, 30);
-            this.btn_limpar.TabIndex = 1;
-            this.btn_limpar.Text = "Limpar";
-            this.btn_limpar.UseVisualStyleBackColor = true;
-            this.btn_limpar.Click += new System.EventHandler(this.btn_limpar_Click);
-            // 
-            // txt_msg
-            // 
-            this.txt_msg.AutoSize = true;
-            this.txt_msg.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_msg.Location = new System.Drawing.Point(133, 20);
-            this.txt_msg.Name = "txt_msg";
-            this.txt_msg.Size = new System.Drawing.Size(0, 22);
-            this.txt_msg.TabIndex = 38;
+            this.radio_naoEntregue.AutoSize = true;
+            this.radio_naoEntregue.Enabled = false;
+            this.radio_naoEntregue.Location = new System.Drawing.Point(1002, 11);
+            this.radio_naoEntregue.Name = "radio_naoEntregue";
+            this.radio_naoEntregue.Size = new System.Drawing.Size(91, 17);
+            this.radio_naoEntregue.TabIndex = 1;
+            this.radio_naoEntregue.TabStop = true;
+            this.radio_naoEntregue.Text = "Não Entregue";
+            this.radio_naoEntregue.UseVisualStyleBackColor = true;
+            this.radio_naoEntregue.Click += new System.EventHandler(this.radio_naoEntregue_Click);
             // 
             // radio_entregue
             // 
@@ -312,30 +265,83 @@
             this.radio_entregue.TabStop = true;
             this.radio_entregue.Text = "Entegue";
             this.radio_entregue.UseVisualStyleBackColor = true;
-            this.radio_entregue.CheckedChanged += new System.EventHandler(this.radio_entregue_CheckedChanged);
+            this.radio_entregue.Click += new System.EventHandler(this.radio_entregue_Click);
             // 
-            // radio_naoEntregue
+            // label6
             // 
-            this.radio_naoEntregue.AutoSize = true;
-            this.radio_naoEntregue.Enabled = false;
-            this.radio_naoEntregue.Location = new System.Drawing.Point(1002, 11);
-            this.radio_naoEntregue.Name = "radio_naoEntregue";
-            this.radio_naoEntregue.Size = new System.Drawing.Size(91, 17);
-            this.radio_naoEntregue.TabIndex = 1;
-            this.radio_naoEntregue.TabStop = true;
-            this.radio_naoEntregue.Text = "Não Entregue";
-            this.radio_naoEntregue.UseVisualStyleBackColor = true;
-            this.radio_naoEntregue.CheckedChanged += new System.EventHandler(this.radio_naoEntregue_CheckedChanged);
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(498, 11);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(116, 26);
+            this.label6.TabIndex = 48;
+            this.label6.Text = "Pedido(s):";
+            this.label6.UseWaitCursor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(19, 47);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1074, 263);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.btn_nEntregue);
+            this.panel4.Controls.Add(this.btn_gravar);
+            this.panel4.Controls.Add(this.btn_limpar);
+            this.panel4.Location = new System.Drawing.Point(345, 497);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(442, 57);
+            this.panel4.TabIndex = 3;
+            // 
+            // btn_nEntregue
+            // 
+            this.btn_nEntregue.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_nEntregue.Location = new System.Drawing.Point(63, 11);
+            this.btn_nEntregue.Name = "btn_nEntregue";
+            this.btn_nEntregue.Size = new System.Drawing.Size(204, 30);
+            this.btn_nEntregue.TabIndex = 4;
+            this.btn_nEntregue.Text = "Marcar como Não Entregue";
+            this.btn_nEntregue.UseVisualStyleBackColor = true;
+            this.btn_nEntregue.Visible = false;
+            this.btn_nEntregue.Click += new System.EventHandler(this.btn_nEntregue_Click);
+            // 
+            // btn_gravar
+            // 
+            this.btn_gravar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_gravar.Location = new System.Drawing.Point(94, 11);
+            this.btn_gravar.Name = "btn_gravar";
+            this.btn_gravar.Size = new System.Drawing.Size(173, 30);
+            this.btn_gravar.TabIndex = 0;
+            this.btn_gravar.Text = "Marcar como Entregue";
+            this.btn_gravar.UseVisualStyleBackColor = true;
+            this.btn_gravar.Click += new System.EventHandler(this.btn_gravar_Click);
+            // 
+            // btn_limpar
+            // 
+            this.btn_limpar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_limpar.Location = new System.Drawing.Point(273, 11);
+            this.btn_limpar.Name = "btn_limpar";
+            this.btn_limpar.Size = new System.Drawing.Size(75, 30);
+            this.btn_limpar.TabIndex = 1;
+            this.btn_limpar.Text = "Limpar";
+            this.btn_limpar.UseVisualStyleBackColor = true;
+            this.btn_limpar.Click += new System.EventHandler(this.btn_limpar_Click);
             // 
             // view_ControlarEntregaPedidoNutrição
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1137, 609);
+            this.ClientSize = new System.Drawing.Size(1137, 572);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.MaximumSize = new System.Drawing.Size(1153, 611);
+            this.MinimumSize = new System.Drawing.Size(1153, 611);
             this.Name = "view_ControlarEntregaPedidoNutrição";
             this.Text = "view_ControlarEntregaPedidoNutrição";
             this.panel1.ResumeLayout(false);
@@ -346,7 +352,6 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -375,8 +380,8 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btn_gravar;
         private System.Windows.Forms.Button btn_limpar;
-        private System.Windows.Forms.Label txt_msg;
         private System.Windows.Forms.RadioButton radio_naoEntregue;
         private System.Windows.Forms.RadioButton radio_entregue;
+        private System.Windows.Forms.Button btn_nEntregue;
     }
 }

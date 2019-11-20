@@ -32,9 +32,7 @@ namespace ShrAgropecuaria.Classes
         public Cliente Cliente { get => cliente; set => cliente = value; }
         public Usuario Usuario { get => usuario; set => usuario = value; }
 
-        public int? FazendaId { get { return Fazenda.Faz_cod; } }
         public string FazendaNome { get { return Fazenda.Faz_nome; } }
-        public int? Clienteid { get { return cliente?.Cli_cod; } }
         public string ClienteNome { get { return cliente?.Cli_nome; } }
     }
 }
