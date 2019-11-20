@@ -85,6 +85,7 @@
     <Compile Include="Classes\PedidoPET.cs" />
     <Compile Include="Classes\ProdutoNutricao.cs" />
     <Compile Include="Classes\ProdutoPET.cs" />
+    <Compile Include="Classes\SaldoClientePedidoLoja.cs" />
     <Compile Include="Classes\Session.cs" />
     <Compile Include="Classes\TipoProdutoNutricao.cs" />
     <Compile Include="Classes\Usuario.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Repositorios\Interfaces\IParametrizacaoRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IProdutoNutricao.cs" />
     <Compile Include="Repositorios\Interfaces\IProdutoPETRepository.cs" />
+    <Compile Include="Repositorios\Interfaces\ISaldoProdutoNutricao.cs" />
     <Compile Include="Repositorios\Interfaces\IUsuarioRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\Connection.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlCategoriaProdutoPET.cs" />
@@ -115,6 +117,7 @@
     <Compile Include="Repositorios\MySqlRepository\MySqlProdutoNutricaoRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlProdutoPET.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlRepository.cs" />
+    <Compile Include="Repositorios\MySqlRepository\MySqlSaldoProdutoNutricaoRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlUsuarioRepository.cs" />
     <Compile Include="Views\Pesquisas\PesquisaCategoria.cs">
       <SubType>Form</SubType>
@@ -170,11 +173,23 @@
     <Compile Include="Views\Pesquisas\PesquisaProdutoPET.Designer.cs">
       <DependentUpon>PesquisaProdutoPET.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pesquisas\PesquisaSaldoClienteLoja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisas\PesquisaSaldoClienteLoja.Designer.cs">
+      <DependentUpon>PesquisaSaldoClienteLoja.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pesquisas\PesquisaUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Pesquisas\PesquisaUsuario.Designer.cs">
       <DependentUpon>PesquisaUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SaldoProdutoNutricao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SaldoProdutoNutricao.Designer.cs">
+      <DependentUpon>SaldoProdutoNutricao.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\view_Cliente.cs">
       <SubType>Form</SubType>
@@ -294,8 +309,14 @@
     <EmbeddedResource Include="Views\Pesquisas\PesquisaProdutoPET.resx">
       <DependentUpon>PesquisaProdutoPET.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pesquisas\PesquisaSaldoClienteLoja.resx">
+      <DependentUpon>PesquisaSaldoClienteLoja.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\PesquisaUsuario.resx">
       <DependentUpon>PesquisaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SaldoProdutoNutricao.resx">
+      <DependentUpon>SaldoProdutoNutricao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\view_Cliente.resx">
       <DependentUpon>view_Cliente.cs</DependentUpon>

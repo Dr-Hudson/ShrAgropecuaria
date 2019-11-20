@@ -1,6 +1,6 @@
 ﻿namespace ShrAgropecuaria.Views.Pesquisas
 {
-    partial class PesquisaUsuario
+    partial class PesquisaSaldoClienteLoja
     {
         /// <summary>
         /// Required designer variable.
@@ -48,7 +48,7 @@
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(696, 311);
-            this.panel1.TabIndex = 60;
+            this.panel1.TabIndex = 63;
             // 
             // label4
             // 
@@ -56,9 +56,9 @@
             this.label4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(16, 12);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 15);
+            this.label4.Size = new System.Drawing.Size(52, 15);
             this.label4.TabIndex = 65;
-            this.label4.Text = "Usuario";
+            this.label4.Text = "Fazenda";
             // 
             // BtnPesquisar
             // 
@@ -89,34 +89,33 @@
             // 
             // btCancelar
             // 
-            this.btCancelar.Location = new System.Drawing.Point(15, 337);
+            this.btCancelar.Location = new System.Drawing.Point(15, 338);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btCancelar.TabIndex = 62;
+            this.btCancelar.TabIndex = 65;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
-            this.btCancelar.Click += new System.EventHandler(this.BtCancelar_Click);
             // 
             // BtnSelecionar
             // 
             this.BtnSelecionar.Location = new System.Drawing.Point(630, 338);
             this.BtnSelecionar.Name = "BtnSelecionar";
             this.BtnSelecionar.Size = new System.Drawing.Size(75, 23);
-            this.BtnSelecionar.TabIndex = 61;
+            this.BtnSelecionar.TabIndex = 64;
             this.BtnSelecionar.Text = "Selecionar";
             this.BtnSelecionar.UseVisualStyleBackColor = true;
             this.BtnSelecionar.Click += new System.EventHandler(this.BtnSelecionar_Click);
             // 
-            // PesquisaUsuario
+            // PesquisaSaldoClienteLoja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 372);
+            this.ClientSize = new System.Drawing.Size(721, 369);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.BtnSelecionar);
-            this.Name = "PesquisaUsuario";
-            this.Text = "PesquisaUsuario";
+            this.Name = "PesquisaSaldoClienteLoja";
+            this.Text = "PesquisaSaldoClienteLoja";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDados)).EndInit();
