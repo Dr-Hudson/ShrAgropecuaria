@@ -45,6 +45,7 @@ namespace ShrAgropecuaria.Classes
             Container.Register<PesquisaCategoria>();
             Container.Register<view_LancarDespesa>();
             Container.Register<PesquisaProdutoPET>();
+            Container.Register<view_QuitarContasAPagar>();
             Container.Register<view_Fornecedor>();
             Container.Register<view_ProdutoPET>();
             Container.Register<Views.View_Cliente>();
