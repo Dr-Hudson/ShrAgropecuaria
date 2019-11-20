@@ -17,11 +17,11 @@ namespace ShrAgropecuaria.Views
     {
         public ISaldoProdutoNutricao SaldoProdutoNutricaoRepository { get; }
         public SaldoClientePedidoLoja SaldoClientePedidoLoja;
-        public SaldoProdutoNutricao()
+        public SaldoProdutoNutricao(ISaldoProdutoNutricao saldoProdutoNutricao)
         {
             InitializeComponent();
             lbInstrucao.Text = "Utilize o botão selecionar cliente para pesquisar\no cliente que está retirando o saldo de produto nutrição.";
-
+            SaldoProdutoNutricaoRepository = saldoProdutoNutricao;
         }
 
         private void btSelecionar_Click(object sender, EventArgs e)
@@ -47,38 +47,6 @@ namespace ShrAgropecuaria.Views
 
         private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            string buff = "";
-            int i;
-            if (txtValor.MaskCompleted)
-            {
-                e.Handled = true;
-                return;
-            }
-            else
-            {
-                if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
-                {
-                    e.Handled = true;
-
-                }
-                else
-                {
-                    char[] chars = txtValor.Text.ToCharArray();
-
-                    for (i = 0; i < chars.Length - 1; i++)
-                        chars[i] = chars[i + 1];
-
-                    chars[i] = e.KeyChar;
-
-                    for (i = 0; i < chars.Length; i++)
-                        buff += chars[i];
-
-                    buff = buff.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", "").Replace(",", "").Replace(" ", "");
-
-                    txtValor.Text = buff.PadLeft(11);
-                }
-
-            }
         }
 
         private void btPagar_Click(object sender, EventArgs e)

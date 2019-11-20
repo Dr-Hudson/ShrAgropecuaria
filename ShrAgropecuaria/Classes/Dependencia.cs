@@ -62,6 +62,7 @@ namespace ShrAgropecuaria.Classes
             Container.Register<PesquisaPedidoNutrição>();
             Container.Register<view_PedidoNutrição>();
             Container.Register<SaldoProdutoNutricao>();
+            Container.Register<PesquisaSaldoClienteLoja>();
         }
     }
 }

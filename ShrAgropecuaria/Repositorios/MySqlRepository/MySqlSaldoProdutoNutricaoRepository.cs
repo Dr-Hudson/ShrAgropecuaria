@@ -22,7 +22,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
                             inner join pedidonutricao ped on saldo.pn_cod = ped.pn_cod
                             inner join produtonutricao prod on saldo.prodn_cod = prod.prodn_cod
                             inner join fazenda faz on faz.faz_cod = ped.faz_cod
-                            where faz.nome  like @Fazenda";
+                            where faz.faz_nome like @Fazenda";
             return Connection.Query<SaldoClientePedidoLoja, PedidoNutricao, ProdutoNutricao, SaldoClientePedidoLoja>(sql, (saldoclientepedidoloja, pedidonutricao, produtonutricao) =>
             {
                 saldoclientepedidoloja.ProdutoNutricao = produtonutricao;
