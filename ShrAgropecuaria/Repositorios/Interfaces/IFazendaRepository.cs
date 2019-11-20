@@ -12,7 +12,5 @@ namespace ShrAgropecuaria.Repositorios.Interfaces
         IEnumerable<Fazenda> GetAll(string nome);
         IEnumerable<Fazenda> GetByNome(string Nome);
         IEnumerable<Fazenda> GetByIE(string ie);
-        IEnumerable<PedidoNutricao> GetByPedido(int idCli, int idFaz, bool entregue);
-        void AlterarDataEntrega(PedidoNutricao pedNutri);
     }
 }

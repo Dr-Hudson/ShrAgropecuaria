@@ -40,6 +40,7 @@ namespace ShrAgropecuaria.Views.Pesquisas
                 List<Fazenda> faz = FazendaRepository.GetByIE(txt_ie.Text).ToList();
                 DgvForn.DataSource = faz;
             }
+
             DgvForn.Columns.Remove("Cidade");
             DgvForn.Columns.Remove("Cliente");
             DgvForn.Columns.Remove("Cidadeid");

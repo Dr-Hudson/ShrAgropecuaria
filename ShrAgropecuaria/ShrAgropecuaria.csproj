@@ -99,6 +99,7 @@
     <Compile Include="Repositorios\Interfaces\IFiadoRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IFornecedorRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IParametrizacaoRepository.cs" />
+    <Compile Include="Repositorios\Interfaces\IPedidoNutricaoRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IProdutoNutricao.cs" />
     <Compile Include="Repositorios\Interfaces\IProdutoPETRepository.cs" />
     <Compile Include="Repositorios\Interfaces\IUsuarioRepository.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Repositorios\MySqlRepository\MySqlFiadoRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlFornecedorRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlParametrizacaoRepository.cs" />
+    <Compile Include="Repositorios\MySqlRepository\MySqlPedidoNutricaoRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlProdutoNutricaoRepository.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlProdutoPET.cs" />
     <Compile Include="Repositorios\MySqlRepository\MySqlRepository.cs" />
@@ -157,6 +159,12 @@
     </Compile>
     <Compile Include="Views\Pesquisas\PesquisaLancarDespesa.Designer.cs">
       <DependentUpon>PesquisaLancarDespesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pesquisas\PesquisaPedidoNutrição.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisas\PesquisaPedidoNutrição.Designer.cs">
+      <DependentUpon>PesquisaPedidoNutrição.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Pesquisas\PesquisaProdutoNutricao.cs">
       <SubType>Form</SubType>
@@ -205,6 +213,12 @@
     </Compile>
     <Compile Include="Views\view_Fornecedor.Designer.cs">
       <DependentUpon>view_Fornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\view_PedidoNutrição.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\view_PedidoNutrição.Designer.cs">
+      <DependentUpon>view_PedidoNutrição.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\view_LancarDespesa.cs">
       <SubType>Form</SubType>
@@ -282,6 +296,9 @@
     <EmbeddedResource Include="Views\Pesquisas\PesquisaLancarDespesa.resx">
       <DependentUpon>PesquisaLancarDespesa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pesquisas\PesquisaPedidoNutrição.resx">
+      <DependentUpon>PesquisaPedidoNutrição.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\PesquisaProdutoNutricao.resx">
       <DependentUpon>PesquisaProdutoNutricao.cs</DependentUpon>
     </EmbeddedResource>
@@ -305,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\view_Fornecedor.resx">
       <DependentUpon>view_Fornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\view_PedidoNutrição.resx">
+      <DependentUpon>view_PedidoNutrição.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\view_LancarDespesa.resx">
       <DependentUpon>view_LancarDespesa.cs</DependentUpon>
