@@ -16,6 +16,12 @@ namespace ShrAgropecuaria.Repositorios.Interfaces
 
         IEnumerable<ContasAPagar> GetData(DateTime data);
 
+        IEnumerable<ContasAPagar> GetAbertas();
+
+        IEnumerable<ContasAPagar> GetFechadas();
+
+        void Quitar(ContasAPagar cap, bool flag);
+
         int conta(int id);
     }
 }

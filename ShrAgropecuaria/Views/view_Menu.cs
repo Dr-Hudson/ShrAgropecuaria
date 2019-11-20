@@ -73,6 +73,12 @@ namespace ShrAgropecuaria.Views
             f.Show();
         }
 
+        private void quitarContasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = Dependencia.Container.GetInstance<view_QuitarContasAPagar>();
+            f.Show();
+        }
+
         private void pedidoNutriçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var a = Dependencia.Container.GetInstance<view_PedidoNutrição>();

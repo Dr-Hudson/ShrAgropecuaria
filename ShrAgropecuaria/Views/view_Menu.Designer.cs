@@ -42,6 +42,8 @@
             this.lançarDespesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entregaPedidoNutriçãoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.entregaPedidoNutriçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitarContasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entregaPedidoNutriçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidoNutriçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -73,6 +75,8 @@
             this.lançarDespesaToolStripMenuItem,
             this.entregaPedidoNutriçãoToolStripMenuItem1,
             this.pedidoNutriçãoToolStripMenuItem});
+            this.entregaPedidoNutriçãoToolStripMenuItem1,
+            this.quitarContasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(947, 24);
@@ -96,7 +100,7 @@
             // produtosPETToolStripMenuItem
             // 
             this.produtosPETToolStripMenuItem.Name = "produtosPETToolStripMenuItem";
-            this.produtosPETToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.produtosPETToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.produtosPETToolStripMenuItem.Text = "ProdutosPET";
             this.produtosPETToolStripMenuItem.Click += new System.EventHandler(this.ProdutosPETToolStripMenuItem_Click_1);
             // 
@@ -154,6 +158,13 @@
             this.pedidoNutriçãoToolStripMenuItem.Text = "Pedido Nutrição";
             this.pedidoNutriçãoToolStripMenuItem.Click += new System.EventHandler(this.pedidoNutriçãoToolStripMenuItem_Click);
             // 
+            // quitarContasToolStripMenuItem
+            // 
+            this.quitarContasToolStripMenuItem.Name = "quitarContasToolStripMenuItem";
+            this.quitarContasToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+            this.quitarContasToolStripMenuItem.Text = "Quitar Contas";
+            this.quitarContasToolStripMenuItem.Click += new System.EventHandler(this.quitarContasToolStripMenuItem_Click);
+            // 
             // view_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,5 +198,6 @@
         private System.Windows.Forms.ToolStripMenuItem lançarDespesaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entregaPedidoNutriçãoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pedidoNutriçãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quitarContasToolStripMenuItem;
     }
 }
