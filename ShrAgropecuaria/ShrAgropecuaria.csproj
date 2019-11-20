@@ -214,6 +214,12 @@
     <Compile Include="Views\view_Fornecedor.Designer.cs">
       <DependentUpon>view_Fornecedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\view_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\view_Menu.Designer.cs">
+      <DependentUpon>view_Menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\view_PedidoNutrição.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,12 +237,6 @@
     </Compile>
     <Compile Include="Views\view_Login.Designer.cs">
       <DependentUpon>view_Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\view_Menu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\view_Menu.Designer.cs">
-      <DependentUpon>view_Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\view_MenuPublico.cs">
       <SubType>Form</SubType>
@@ -261,6 +261,12 @@
     </Compile>
     <Compile Include="Views\view_ProdutoPET.Designer.cs">
       <DependentUpon>view_ProdutoPET.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\view_QuitarContasAPagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\view_QuitarContasAPagar.Designer.cs">
+      <DependentUpon>view_QuitarContasAPagar.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\view_Usuario.cs">
       <SubType>Form</SubType>
@@ -332,9 +338,6 @@
     <EmbeddedResource Include="Views\view_Login.resx">
       <DependentUpon>view_Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\view_Menu.resx">
-      <DependentUpon>view_Menu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\view_Parametrização.resx">
       <DependentUpon>view_Parametrização.cs</DependentUpon>
     </EmbeddedResource>
@@ -343,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\view_ProdutoPET.resx">
       <DependentUpon>view_ProdutoPET.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\view_QuitarContasAPagar.resx">
+      <DependentUpon>view_QuitarContasAPagar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\view_Usuario.resx">
       <DependentUpon>view_Usuario.cs</DependentUpon>
