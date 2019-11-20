@@ -83,5 +83,11 @@ namespace ShrAgropecuaria.Views
             var f = Dependencia.Container.GetInstance<view_PedidoNutrição>();
             f.Show();
         }
+
+        private void SaldoClienteNaLojaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = Dependencia.Container.GetInstance<SaldoProdutoNutricao>();
+            f.Show();
+        }
     }
 }

@@ -58,6 +58,7 @@
             this.pnPagar.Name = "pnPagar";
             this.pnPagar.Size = new System.Drawing.Size(325, 144);
             this.pnPagar.TabIndex = 12;
+            this.pnPagar.Visible = false;
             // 
             // label1
             // 
