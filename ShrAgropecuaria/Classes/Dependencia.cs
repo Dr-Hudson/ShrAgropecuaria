@@ -38,26 +38,27 @@ namespace ShrAgropecuaria.Classes
             Container.Register<IFiadoRepository, MySqlFiadoRepository>(Lifestyle.Scoped);
             Container.Register<IContasAPagarRepository, MySqlContasAPagarRepository>(Lifestyle.Scoped);
             Container.Register<IDespesaRepository, MySqlDespesaRepository>(Lifestyle.Scoped);
-            Container.Register<PesquisaLancarDespesa>();
-
+            Container.Register<IPedidoNutricaoRepository, MySqlPedidoNutricaoRepository>(Lifestyle.Scoped);
             Container.Register<IFazendaRepository, MySqlFazendaRepository>(Lifestyle.Scoped);
 
+            Container.Register<PesquisaLancarDespesa>();
             Container.Register<PesquisaCategoria>();
             Container.Register<view_LancarDespesa>();
             Container.Register<PesquisaProdutoPET>();
-            Container.Register<view_QuitarContasAPagar>();
             Container.Register<view_Fornecedor>();
             Container.Register<view_ProdutoPET>();
-            Container.Register<Views.View_Cliente>();
+            Container.Register<View_Cliente>();
             Container.Register<PesquisaCidade>();
             Container.Register<PesquisaFornecedor>();
             Container.Register<view_Login>();
-            Container.Register<Views.view_Usuario>();
+            Container.Register<view_Usuario>();
             Container.Register<view_ProdutoNutrição>();
             Container.Register<view_Parametrização>();
             Container.Register<view_Fiado>();
             Container.Register<view_ControlarEntregaPedidoNutrição>();
             Container.Register<PesquisaFiado>();
+            Container.Register<PesquisaPedidoNutrição>();
+            Container.Register<view_PedidoNutrição>();
         }
     }
 }
