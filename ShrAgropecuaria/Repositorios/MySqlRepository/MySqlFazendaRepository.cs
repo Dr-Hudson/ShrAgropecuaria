@@ -19,18 +19,18 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
 
         public IEnumerable<Fazenda> GetAll(string nome)
         {
-            string sql = @"select faz.*, cid.*, cli.* from fazenda faz
+            string sql = @"select faz.*, cli.*, cid.*, est.* from fazenda faz
                             inner join cliente cli on cli.cli_cod = faz.cli_cod
                             inner join cidade cid on cid.cid_cod = faz.cid_cod
                             inner join estado est on est.est_uf = cid.est_uf
                             where faz.faz_nome like @nome";
-            return Connection.Query<Fazenda, Cidade, Cliente, Estado, Fazenda>(sql, (fazenda, cidade, cliente, estado) =>
+            return Connection.Query<Fazenda, Cliente, Cidade, Estado, Fazenda>(sql, (fazenda, cliente, cidade, estado) =>
             {
                 fazenda.Cidade = cidade;
                 fazenda.Cidade.Estado = estado;
                 fazenda.Cliente = cliente;
                 return fazenda;
-            }, new { nome = "%" + nome + "%" }, splitOn: "cid_cod, est_uf");
+            }, new { nome = "%" + nome + "%" }, splitOn: "cli_cod, cid_cod, est_uf");
         }
 
         public IEnumerable<Fazenda> GetByNome(string Nome)
@@ -74,7 +74,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
                             inner join cliente cli on cli.cli_cod = pd.cli_cod
                             inner join usuario usu on usu.user_cod = pd.user_cod
                             where pd.cli_cod = @idCli AND pd.faz_cod = @idFaz AND pd.pn_dataentrega IS NOT NULL";
-                return Connection.Query<PedidoNutricao, Cliente, Fazenda, Usuario, PedidoNutricao>(sql, (pedidonutricao, cliente, fazenda, usuario) =>
+                return Connection.Query<PedidoNutricao, Fazenda, Cliente, Usuario, PedidoNutricao>(sql, (pedidonutricao, fazenda, cliente, usuario) =>
                 {
                     pedidonutricao.Cliente = cliente;
                     pedidonutricao.Fazenda = fazenda;
