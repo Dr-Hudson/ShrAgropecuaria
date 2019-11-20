@@ -73,9 +73,8 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
                             inner join fazenda faz on faz.faz_cod = pd.faz_cod
                             inner join cliente cli on cli.cli_cod = pd.cli_cod
                             inner join usuario usu on usu.user_cod = pd.user_cod
-                            where pd.cli_cod = @idCli AND pd.faz_cod = @idFaz ";
-                //AND pd.pn_dataentrega <> NULL
-                return Connection.Query<PedidoNutricao, Cliente, Fazenda, Usuario, PedidoNutricao>(sql, (pedidonutricao, cliente, fazenda,usuario) =>
+                            where pd.cli_cod = @idCli AND pd.faz_cod = @idFaz AND pd.pn_dataentrega IS NOT NULL";
+                return Connection.Query<PedidoNutricao, Cliente, Fazenda, Usuario, PedidoNutricao>(sql, (pedidonutricao, cliente, fazenda, usuario) =>
                 {
                     pedidonutricao.Cliente = cliente;
                     pedidonutricao.Fazenda = fazenda;
@@ -89,8 +88,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
                             inner join fazenda faz on faz.faz_cod = pd.faz_cod
                             inner join cliente cli on cli.cli_cod = pd.cli_cod
                             inner join usuario usu on usu.user_cod = pd.user_cod
-                            where pd.cli_cod = @idCli AND pd.faz_cod = @idFaz ";
-                //AND pd.pn_dataentrega = NULL
+                            where pd.cli_cod = @idCli AND pd.faz_cod = @idFaz AND pd.pn_dataentrega IS NULL";
                 return Connection.Query<PedidoNutricao, Fazenda, Cliente, Usuario, PedidoNutricao>(sql, (pedidonutricao, fazenda, cliente, usuario) =>
                 {
                     pedidonutricao.Cliente = cliente;
@@ -99,6 +97,14 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
                     return pedidonutricao;
                 }, new { idCli, idFaz }, splitOn: "faz_cod, cli_cod, user_cod");
             }
+        }
+
+        public void AlterarDataEntrega(PedidoNutricao pedNutri)
+        {
+            if (pedNutri.Pn_dataentrega.Year.ToString() != "1")
+                Connection.Execute("update pedidonutricao set pn_dataentrega = @pn_dataentrega where pn_cod = @pn_cod", pedNutri);
+            else
+                Connection.Execute("update pedidonutricao set pn_dataentrega = null where pn_cod = @pn_cod", pedNutri);
         }
     }
 }
