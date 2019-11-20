@@ -138,8 +138,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.BtnSelecionarCid);
-            this.MaximumSize = new System.Drawing.Size(734, 405);
-            this.MinimumSize = new System.Drawing.Size(734, 405);
             this.Name = "PesquisaFazenda";
             this.Text = "PesquisaFazenda";
             this.panel1.ResumeLayout(false);

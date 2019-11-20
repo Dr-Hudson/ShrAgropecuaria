@@ -83,7 +83,6 @@ namespace ShrAgropecuaria.Views
             txtDias.Text = "";
             cbbDespesa.SelectedItem = null;
             DgvDespesa.DataSource = "";
-            txtUser.Text = Session.Instance.Nome;
 
         }
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -120,14 +119,8 @@ namespace ShrAgropecuaria.Views
             List<ContasAPagar> lcap = (List<ContasAPagar>)DgvDespesa.DataSource;
             if(ValidaPreco(lcap))
             {
-                if(lcap[0].Cap_cod == null)
-                {
-                    IContasapagar.Gravar(lcap);
-                    MessageBox.Show("Gravado com sucesso!!");
-                }
-                else
-                    MessageBox.Show("Despesa já lançada!!");
-
+                IContasapagar.Gravar(lcap);
+                MessageBox.Show("Gravado com sucesso!!");
             }
             Limpar();
             DgvDespesa.DataSource = "";
@@ -276,7 +269,6 @@ namespace ShrAgropecuaria.Views
                 DgvDespesa.Columns["Cap_descricao"].HeaderText = "Descrição da despesa";
                 DgvDespesa.Columns["Cap_datageracao"].HeaderText = "Data de lançamento";
                 DgvDespesa.Columns["Cap_datavencimento"].HeaderText = "Data do vencimento";
-                DgvDespesa.Columns["Cap_valordespesa"].HeaderText = "Valor da despesa";
                 DgvDespesa.Columns["DespesaDescricao"].HeaderText = "Categoria da despesa";
                 DgvDespesa.Columns["NomeUsuario"].HeaderText = "Nome do Usuario";
 
@@ -398,7 +390,6 @@ namespace ShrAgropecuaria.Views
             DgvDespesa.Columns["Cap_descricao"].HeaderText = "Descrição da despesa";
             DgvDespesa.Columns["Cap_datageracao"].HeaderText = "Data de lançamento";
             DgvDespesa.Columns["Cap_datavencimento"].HeaderText = "Data do vencimento";
-            DgvDespesa.Columns["Cap_valordespesa"].HeaderText = "Valor da despesa";
             DgvDespesa.Columns["DespesaDescricao"].HeaderText = "Categoria da despesa";
             DgvDespesa.Columns["NomeUsuario"].HeaderText = "Nome do Usuario";
             

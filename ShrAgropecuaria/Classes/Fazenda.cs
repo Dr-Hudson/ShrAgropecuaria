@@ -28,8 +28,5 @@ namespace ShrAgropecuaria.Classes
 
         public int? Cidadeid { get { return Cidade?.Cid_cod; } }
         public int? Clienteid { get { return Cliente?.Cli_cod; } }
-
-        public string ClienteNome { get { return cliente?.Cli_nome; } }
-        public string CidadeNome { get { return cidade?.Cid_nome; } }
     }
 }

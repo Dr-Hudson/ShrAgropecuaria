@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_Confirmar = new System.Windows.Forms.Button();
-            this.btn_Cancelar = new System.Windows.Forms.Button();
-            this.dataE = new System.Windows.Forms.DateTimePicker();
             this.label28 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.dataE = new System.Windows.Forms.DateTimePicker();
+            this.btn_Cancelar = new System.Windows.Forms.Button();
+            this.btn_Confirmar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,35 +51,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(421, 116);
             this.panel1.TabIndex = 1;
-            // 
-            // btn_Confirmar
-            // 
-            this.btn_Confirmar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Confirmar.Location = new System.Drawing.Point(123, 79);
-            this.btn_Confirmar.Name = "btn_Confirmar";
-            this.btn_Confirmar.Size = new System.Drawing.Size(89, 30);
-            this.btn_Confirmar.TabIndex = 47;
-            this.btn_Confirmar.Text = "Confirmar";
-            this.btn_Confirmar.UseVisualStyleBackColor = true;
-            this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
-            // 
-            // btn_Cancelar
-            // 
-            this.btn_Cancelar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Cancelar.Location = new System.Drawing.Point(218, 79);
-            this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(85, 30);
-            this.btn_Cancelar.TabIndex = 46;
-            this.btn_Cancelar.Text = "Cancelar";
-            this.btn_Cancelar.UseVisualStyleBackColor = true;
-            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
-            // 
-            // dataE
-            // 
-            this.dataE.Location = new System.Drawing.Point(157, 45);
-            this.dataE.Name = "dataE";
-            this.dataE.Size = new System.Drawing.Size(227, 20);
-            this.dataE.TabIndex = 45;
             // 
             // label28
             // 
@@ -113,6 +84,35 @@
             this.label17.TabIndex = 44;
             this.label17.Text = "*";
             // 
+            // dataE
+            // 
+            this.dataE.Location = new System.Drawing.Point(157, 45);
+            this.dataE.Name = "dataE";
+            this.dataE.Size = new System.Drawing.Size(227, 20);
+            this.dataE.TabIndex = 45;
+            // 
+            // btn_Cancelar
+            // 
+            this.btn_Cancelar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cancelar.Location = new System.Drawing.Point(218, 79);
+            this.btn_Cancelar.Name = "btn_Cancelar";
+            this.btn_Cancelar.Size = new System.Drawing.Size(85, 30);
+            this.btn_Cancelar.TabIndex = 46;
+            this.btn_Cancelar.Text = "Cancelar";
+            this.btn_Cancelar.UseVisualStyleBackColor = true;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
+            // 
+            // btn_Confirmar
+            // 
+            this.btn_Confirmar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Confirmar.Location = new System.Drawing.Point(123, 79);
+            this.btn_Confirmar.Name = "btn_Confirmar";
+            this.btn_Confirmar.Size = new System.Drawing.Size(89, 30);
+            this.btn_Confirmar.TabIndex = 47;
+            this.btn_Confirmar.Text = "Confirmar";
+            this.btn_Confirmar.UseVisualStyleBackColor = true;
+            this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
+            // 
             // view_DataEntrega
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -120,8 +120,6 @@
             this.ClientSize = new System.Drawing.Size(429, 127);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximumSize = new System.Drawing.Size(429, 127);
-            this.MinimumSize = new System.Drawing.Size(429, 127);
             this.Name = "view_DataEntrega";
             this.Text = "view_DataEntrega";
             this.panel1.ResumeLayout(false);

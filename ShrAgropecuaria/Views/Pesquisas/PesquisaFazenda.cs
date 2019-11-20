@@ -40,18 +40,6 @@ namespace ShrAgropecuaria.Views.Pesquisas
                 List<Fazenda> faz = FazendaRepository.GetByIE(txt_ie.Text).ToList();
                 DgvForn.DataSource = faz;
             }
-
-            DgvForn.Columns.Remove("Cidade");
-            DgvForn.Columns.Remove("Cliente");
-            DgvForn.Columns.Remove("Cidadeid");
-            DgvForn.Columns.Remove("Clienteid");
-            DgvForn.Columns["Faz_cod"].HeaderText = "Codigo";
-            DgvForn.Columns["Faz_quantgado"].HeaderText = "Quantidade de Gado";
-            DgvForn.Columns["Faz_tamanho"].HeaderText = "Tamanho";
-            DgvForn.Columns["Faz_nome"].HeaderText = "Nome";
-            DgvForn.Columns["Faz_inscricaoestadual"].HeaderText = "I.E.";
-            DgvForn.Columns["ClienteNome"].HeaderText = "Cliente";
-            DgvForn.Columns["CidadeNome"].HeaderText = "Cidade";
         }
 
         private void button1_Click(object sender, EventArgs e)

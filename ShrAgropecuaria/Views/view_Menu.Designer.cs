@@ -96,7 +96,7 @@
             // produtosPETToolStripMenuItem
             // 
             this.produtosPETToolStripMenuItem.Name = "produtosPETToolStripMenuItem";
-            this.produtosPETToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.produtosPETToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.produtosPETToolStripMenuItem.Text = "ProdutosPET";
             this.produtosPETToolStripMenuItem.Click += new System.EventHandler(this.ProdutosPETToolStripMenuItem_Click_1);
             // 

@@ -640,8 +640,6 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.MaximumSize = new System.Drawing.Size(623, 691);
-            this.MinimumSize = new System.Drawing.Size(623, 691);
             this.Name = "View_Cliente";
             this.Text = "Cliente";
             this.panel1.ResumeLayout(false);

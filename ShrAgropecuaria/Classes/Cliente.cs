@@ -39,6 +39,5 @@ namespace ShrAgropecuaria.Classes
         public Cidade Cidade { get => cidade; set => cidade = value; }
 
         public int? Cidadeid { get { return Cidade?.Cid_cod; } }
-        public string CidadeNome { get { return cidade?.Cid_nome; } }
     }
 }
