@@ -29,7 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
             this.btnEnviar = new System.Windows.Forms.Button();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtDias = new System.Windows.Forms.TextBox();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dtpParcela = new System.Windows.Forms.DateTimePicker();
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -37,9 +44,6 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpData = new System.Windows.Forms.DateTimePicker();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtUser = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.cbbDespesa = new System.Windows.Forms.ComboBox();
@@ -55,6 +59,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDescricao = new System.Windows.Forms.TextBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtUser = new System.Windows.Forms.TextBox();
             this.panel12 = new System.Windows.Forms.Panel();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -64,14 +71,17 @@
             this.label7 = new System.Windows.Forms.Label();
             this.DgvDespesa = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -81,29 +91,93 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.btnEnviar);
+            this.panel1.Controls.Add(this.panel15);
+            this.panel1.Controls.Add(this.panel14);
+            this.panel1.Controls.Add(this.panel13);
             this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.panel8);
-            this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(30, 91);
+            this.panel1.Location = new System.Drawing.Point(30, 119);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(722, 183);
+            this.panel1.Size = new System.Drawing.Size(644, 193);
             this.panel1.TabIndex = 0;
+            // 
+            // panel15
+            // 
+            this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel15.Controls.Add(this.btnEnviar);
+            this.panel15.Location = new System.Drawing.Point(534, 154);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(86, 29);
+            this.panel15.TabIndex = 11;
             // 
             // btnEnviar
             // 
-            this.btnEnviar.Location = new System.Drawing.Point(520, 121);
+            this.btnEnviar.Location = new System.Drawing.Point(4, 2);
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Size = new System.Drawing.Size(75, 23);
-            this.btnEnviar.TabIndex = 9;
+            this.btnEnviar.TabIndex = 11;
             this.btnEnviar.Text = "Enviar";
             this.btnEnviar.UseVisualStyleBackColor = true;
             this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
+            // 
+            // panel14
+            // 
+            this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel14.Controls.Add(this.label10);
+            this.panel14.Controls.Add(this.txtDias);
+            this.panel14.Location = new System.Drawing.Point(410, 49);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(210, 29);
+            this.panel14.TabIndex = 7;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 7);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(100, 13);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Dias Entre Parcelas";
+            // 
+            // txtDias
+            // 
+            this.txtDias.Location = new System.Drawing.Point(109, 2);
+            this.txtDias.MaxLength = 3;
+            this.txtDias.Name = "txtDias";
+            this.txtDias.Size = new System.Drawing.Size(94, 20);
+            this.txtDias.TabIndex = 5;
+            this.txtDias.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SomenteNumero);
+            // 
+            // panel13
+            // 
+            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel13.Controls.Add(this.label9);
+            this.panel13.Controls.Add(this.dtpParcela);
+            this.panel13.Location = new System.Drawing.Point(11, 154);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(517, 29);
+            this.panel13.TabIndex = 10;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(97, 13);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Data da 1º Parcela";
+            // 
+            // dtpParcela
+            // 
+            this.dtpParcela.Location = new System.Drawing.Point(112, 3);
+            this.dtpParcela.Name = "dtpParcela";
+            this.dtpParcela.Size = new System.Drawing.Size(398, 20);
+            this.dtpParcela.TabIndex = 8;
             // 
             // panel9
             // 
@@ -113,12 +187,12 @@
             this.panel9.Controls.Add(this.txtID);
             this.panel9.Location = new System.Drawing.Point(11, 7);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(108, 29);
+            this.panel9.Size = new System.Drawing.Size(92, 29);
             this.panel9.TabIndex = 1;
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(61, 0);
+            this.btnPesquisar.Location = new System.Drawing.Point(55, 1);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(28, 23);
             this.btnPesquisar.TabIndex = 1;
@@ -137,7 +211,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(27, 2);
+            this.txtID.Location = new System.Drawing.Point(22, 2);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(28, 20);
             this.txtID.TabIndex = 300;
@@ -149,8 +223,8 @@
             this.panel8.Controls.Add(this.dtpData);
             this.panel8.Location = new System.Drawing.Point(11, 119);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(498, 29);
-            this.panel8.TabIndex = 8;
+            this.panel8.Size = new System.Drawing.Size(609, 29);
+            this.panel8.TabIndex = 9;
             // 
             // label5
             // 
@@ -165,45 +239,19 @@
             // 
             this.dtpData.Location = new System.Drawing.Point(112, 3);
             this.dtpData.Name = "dtpData";
-            this.dtpData.Size = new System.Drawing.Size(374, 20);
+            this.dtpData.Size = new System.Drawing.Size(490, 20);
             this.dtpData.TabIndex = 8;
             this.dtpData.Leave += new System.EventHandler(this.dtpData_Leave);
-            // 
-            // panel7
-            // 
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel7.Controls.Add(this.label3);
-            this.panel7.Controls.Add(this.txtUser);
-            this.panel7.Location = new System.Drawing.Point(520, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(195, 29);
-            this.panel7.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 6);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Usuario";
-            // 
-            // txtUser
-            // 
-            this.txtUser.Location = new System.Drawing.Point(52, 2);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(133, 20);
-            this.txtUser.TabIndex = 300;
             // 
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel6.Controls.Add(this.label6);
             this.panel6.Controls.Add(this.cbbDespesa);
-            this.panel6.Location = new System.Drawing.Point(125, 84);
+            this.panel6.Location = new System.Drawing.Point(125, 49);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(184, 29);
-            this.panel6.TabIndex = 6;
+            this.panel6.Size = new System.Drawing.Size(279, 29);
+            this.panel6.TabIndex = 5;
             // 
             // label6
             // 
@@ -216,10 +264,13 @@
             // 
             // cbbDespesa
             // 
+            this.cbbDespesa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDespesa.FormattingEnabled = true;
-            this.cbbDespesa.Location = new System.Drawing.Point(57, 2);
+            this.cbbDespesa.Location = new System.Drawing.Point(65, 3);
             this.cbbDespesa.Name = "cbbDespesa";
-            this.cbbDespesa.Size = new System.Drawing.Size(121, 21);
+            this.cbbDespesa.Size = new System.Drawing.Size(207, 21);
             this.cbbDespesa.TabIndex = 6;
             this.cbbDespesa.Leave += new System.EventHandler(this.cbbDespesa_Leave);
             // 
@@ -228,10 +279,10 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.txtParcelas);
-            this.panel5.Location = new System.Drawing.Point(125, 49);
+            this.panel5.Location = new System.Drawing.Point(125, 84);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(184, 29);
-            this.panel5.TabIndex = 5;
+            this.panel5.Size = new System.Drawing.Size(279, 29);
+            this.panel5.TabIndex = 6;
             // 
             // label2
             // 
@@ -244,11 +295,12 @@
             // 
             // txtParcelas
             // 
-            this.txtParcelas.Location = new System.Drawing.Point(57, 2);
+            this.txtParcelas.Location = new System.Drawing.Point(65, 2);
             this.txtParcelas.MaxLength = 2;
             this.txtParcelas.Name = "txtParcelas";
-            this.txtParcelas.Size = new System.Drawing.Size(120, 20);
+            this.txtParcelas.Size = new System.Drawing.Size(207, 20);
             this.txtParcelas.TabIndex = 5;
+            this.txtParcelas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SomenteNumero);
             this.txtParcelas.Leave += new System.EventHandler(this.txtParcelas_Leave);
             // 
             // panel4
@@ -292,19 +344,20 @@
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.txtValorDespesa);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(315, 49);
+            this.panel3.Location = new System.Drawing.Point(410, 84);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(194, 29);
-            this.panel3.TabIndex = 7;
+            this.panel3.Size = new System.Drawing.Size(210, 29);
+            this.panel3.TabIndex = 8;
             // 
             // txtValorDespesa
             // 
-            this.txtValorDespesa.Location = new System.Drawing.Point(98, 2);
+            this.txtValorDespesa.Location = new System.Drawing.Point(109, 2);
             this.txtValorDespesa.Mask = "$ 00000000.00";
             this.txtValorDespesa.Name = "txtValorDespesa";
             this.txtValorDespesa.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtValorDespesa.Size = new System.Drawing.Size(89, 20);
+            this.txtValorDespesa.Size = new System.Drawing.Size(94, 20);
             this.txtValorDespesa.TabIndex = 7;
+            this.txtValorDespesa.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtValorDespesa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SomenteNumeroDPE);
             this.txtValorDespesa.Leave += new System.EventHandler(this.txtValorDespesa_Leave);
             // 
@@ -322,15 +375,15 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.txtDescricao);
-            this.panel2.Location = new System.Drawing.Point(184, 3);
+            this.panel2.Location = new System.Drawing.Point(125, 7);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(310, 29);
+            this.panel2.Size = new System.Drawing.Size(495, 29);
             this.panel2.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 8);
+            this.label1.Location = new System.Drawing.Point(3, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 0;
@@ -338,21 +391,47 @@
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(64, 4);
+            this.txtDescricao.Location = new System.Drawing.Point(65, 3);
             this.txtDescricao.MaxLength = 40;
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(239, 20);
+            this.txtDescricao.Size = new System.Drawing.Size(423, 20);
             this.txtDescricao.TabIndex = 2;
             this.txtDescricao.Leave += new System.EventHandler(this.txtDescricao_Leave);
+            // 
+            // panel7
+            // 
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel7.Controls.Add(this.label3);
+            this.panel7.Controls.Add(this.txtUser);
+            this.panel7.Location = new System.Drawing.Point(30, 87);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(195, 29);
+            this.panel7.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Usuario";
+            // 
+            // txtUser
+            // 
+            this.txtUser.Location = new System.Drawing.Point(52, 2);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(133, 20);
+            this.txtUser.TabIndex = 300;
             // 
             // panel12
             // 
             this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel12.Controls.Add(this.btnExcluir);
-            this.panel12.Location = new System.Drawing.Point(30, 608);
+            this.panel12.Location = new System.Drawing.Point(30, 639);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(88, 29);
-            this.panel12.TabIndex = 10;
+            this.panel12.TabIndex = 14;
             // 
             // btnExcluir
             // 
@@ -368,10 +447,10 @@
             // 
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel11.Controls.Add(this.btnLancar);
-            this.panel11.Location = new System.Drawing.Point(664, 608);
+            this.panel11.Location = new System.Drawing.Point(589, 634);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(88, 29);
-            this.panel11.TabIndex = 8;
+            this.panel11.Size = new System.Drawing.Size(85, 29);
+            this.panel11.TabIndex = 12;
             // 
             // btnLancar
             // 
@@ -387,10 +466,10 @@
             // 
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel10.Controls.Add(this.btnLimpar);
-            this.panel10.Location = new System.Drawing.Point(572, 608);
+            this.panel10.Location = new System.Drawing.Point(497, 634);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(86, 29);
-            this.panel10.TabIndex = 9;
+            this.panel10.TabIndex = 13;
             // 
             // btnLimpar
             // 
@@ -406,7 +485,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Britannic Bold", 36F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(229, 19);
+            this.label7.Location = new System.Drawing.Point(177, 9);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(359, 53);
             this.label7.TabIndex = 31;
@@ -416,31 +495,35 @@
             // DgvDespesa
             // 
             this.DgvDespesa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvDespesa.Location = new System.Drawing.Point(30, 290);
+            this.DgvDespesa.Location = new System.Drawing.Point(30, 321);
             this.DgvDespesa.Name = "DgvDespesa";
-            this.DgvDespesa.Size = new System.Drawing.Size(722, 307);
+            this.DgvDespesa.Size = new System.Drawing.Size(644, 307);
             this.DgvDespesa.TabIndex = 32;
             // 
             // view_LancarDespesa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 649);
+            this.ClientSize = new System.Drawing.Size(693, 678);
             this.Controls.Add(this.panel12);
             this.Controls.Add(this.DgvDespesa);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel1);
             this.Name = "view_LancarDespesa";
             this.Text = "view_LancarDespesa";
             this.panel1.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -451,6 +534,8 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
@@ -497,5 +582,12 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.DataGridView DgvDespesa;
         private System.Windows.Forms.Button btnEnviar;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dtpParcela;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtDias;
+        private System.Windows.Forms.Panel panel15;
     }
 }

@@ -34,11 +34,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.BtnPesquisar = new System.Windows.Forms.Button();
             this.txt_nome = new System.Windows.Forms.TextBox();
-            this.DgvForn = new System.Windows.Forms.DataGridView();
+            this.DgvDespesa = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.BtnSelecionarCid = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvForn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvDespesa)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -48,7 +48,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.BtnPesquisar);
             this.panel1.Controls.Add(this.txt_nome);
-            this.panel1.Controls.Add(this.DgvForn);
+            this.panel1.Controls.Add(this.DgvDespesa);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(696, 311);
@@ -102,13 +102,13 @@
             this.txt_nome.Size = new System.Drawing.Size(132, 23);
             this.txt_nome.TabIndex = 63;
             // 
-            // DgvForn
+            // DgvDespesa
             // 
-            this.DgvForn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvForn.Location = new System.Drawing.Point(3, 38);
-            this.DgvForn.Name = "DgvForn";
-            this.DgvForn.Size = new System.Drawing.Size(690, 270);
-            this.DgvForn.TabIndex = 54;
+            this.DgvDespesa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvDespesa.Location = new System.Drawing.Point(3, 38);
+            this.DgvDespesa.Name = "DgvDespesa";
+            this.DgvDespesa.Size = new System.Drawing.Size(690, 270);
+            this.DgvDespesa.TabIndex = 54;
             // 
             // button1
             // 
@@ -141,7 +141,7 @@
             this.Text = "PesquisaLancarDespesa";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvForn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvDespesa)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -154,7 +154,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BtnPesquisar;
         private System.Windows.Forms.TextBox txt_nome;
-        private System.Windows.Forms.DataGridView DgvForn;
+        private System.Windows.Forms.DataGridView DgvDespesa;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button BtnSelecionarCid;
     }

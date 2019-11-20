@@ -41,7 +41,7 @@ namespace ShrAgropecuaria.Classes
 
         public string DespesaDescricao { get { return Despesa?.Desp_descricao; } }
 
-        //public string Cap_datageracaoo { get => cap_datageracao}
+        public string NomeUsuario { get { return User?.User_login; } }
 
         
     }

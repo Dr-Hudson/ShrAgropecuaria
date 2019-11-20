@@ -12,7 +12,9 @@ namespace ShrAgropecuaria.Repositorios.Interfaces
         ContasAPagar Get(int? id);
         IEnumerable<ContasAPagar> GetAll(string nome);
         void Gravar(List<ContasAPagar> lcap);
-        void Excluir(List<ContasAPagar> lcap);
+        void Excluir(DateTime a);
+
+        IEnumerable<ContasAPagar> GetData(DateTime data);
 
         int conta(int id);
     }
