@@ -40,6 +40,22 @@ namespace ShrAgropecuaria.Views.Pesquisas
                 List<Cliente> cli = ClienteRepository.GetByCPF(txt_cpf.Text).ToList();
                 DgvForn.DataSource = cli;
             }
+            DgvForn.Columns.Remove("Cidadeid");
+            DgvForn.Columns.Remove("Cidade");
+            DgvForn.Columns["Cli_cod"].HeaderText = "Codigo";
+            DgvForn.Columns["Cli_dataliberacao"].HeaderText = "Data de Liberação";
+            DgvForn.Columns["Cli_limite"].HeaderText = "Limite";
+            DgvForn.Columns["Cli_saldofiado"].HeaderText = "Saldo Fiado";
+            DgvForn.Columns["Cli_bairro"].HeaderText = "Bairro";
+            DgvForn.Columns["Cli_cep"].HeaderText = "CEP";
+            DgvForn.Columns["Cli_complemento"].HeaderText = "Complemento";
+            DgvForn.Columns["Cli_numero"].HeaderText = "Número";
+            DgvForn.Columns["Cli_nome"].HeaderText = "Nome";
+            DgvForn.Columns["Cli_cpf"].HeaderText = "CPF";
+            DgvForn.Columns["Cli_rg"].HeaderText = "RG";
+            DgvForn.Columns["Cli_endereco"].HeaderText = "Endereço";
+            DgvForn.Columns["Cli_telefone"].HeaderText = "Telefone";
+            DgvForn.Columns["CidadeNome"].HeaderText = "Cidade";
         }
 
         private void BtnSelecionarCid_Click(object sender, EventArgs e)
