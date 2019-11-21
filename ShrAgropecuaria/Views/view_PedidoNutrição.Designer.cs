@@ -62,19 +62,19 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txt_obs = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txt_valorTotal = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.mask_telefone = new System.Windows.Forms.MaskedTextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txt_porcentagem = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.dataE = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txt_porcentagem = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.mask_telefone = new System.Windows.Forms.MaskedTextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txt_valorTotal = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt_obs = new System.Windows.Forms.TextBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
@@ -278,6 +278,7 @@
             this.btn_remover.TabIndex = 49;
             this.btn_remover.Text = "-";
             this.btn_remover.UseVisualStyleBackColor = true;
+            this.btn_remover.Click += new System.EventHandler(this.btn_remover_Click);
             // 
             // label6
             // 
@@ -448,40 +449,73 @@
             this.panel10.Size = new System.Drawing.Size(937, 99);
             this.panel10.TabIndex = 52;
             // 
-            // label7
+            // label15
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(4, 5);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(108, 22);
-            this.label7.TabIndex = 49;
-            this.label7.Text = "Observação";
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(740, 46);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(27, 33);
+            this.label15.TabIndex = 60;
+            this.label15.Text = "*";
             // 
-            // txt_obs
+            // label14
             // 
-            this.txt_obs.Location = new System.Drawing.Point(166, 7);
-            this.txt_obs.Name = "txt_obs";
-            this.txt_obs.Size = new System.Drawing.Size(256, 20);
-            this.txt_obs.TabIndex = 48;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Red;
+            this.label14.Location = new System.Drawing.Point(902, 21);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(27, 33);
+            this.label14.TabIndex = 59;
+            this.label14.Text = "*";
             // 
-            // label9
+            // label12
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(4, 33);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(101, 22);
-            this.label9.TabIndex = 51;
-            this.label9.Text = "Valor Total";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(426, 60);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(27, 33);
+            this.label12.TabIndex = 58;
+            this.label12.Text = "*";
             // 
-            // txt_valorTotal
+            // dataE
             // 
-            this.txt_valorTotal.Location = new System.Drawing.Point(166, 35);
-            this.txt_valorTotal.Name = "txt_valorTotal";
-            this.txt_valorTotal.ReadOnly = true;
-            this.txt_valorTotal.Size = new System.Drawing.Size(256, 20);
-            this.txt_valorTotal.TabIndex = 50;
+            this.dataE.Location = new System.Drawing.Point(672, 24);
+            this.dataE.Name = "dataE";
+            this.dataE.Size = new System.Drawing.Size(227, 20);
+            this.dataE.TabIndex = 57;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(490, 20);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(176, 22);
+            this.label11.TabIndex = 56;
+            this.label11.Text = "Previsão de Entrega";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(490, 48);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(118, 22);
+            this.label10.TabIndex = 55;
+            this.label10.Text = "Porcentagem";
+            // 
+            // txt_porcentagem
+            // 
+            this.txt_porcentagem.Location = new System.Drawing.Point(672, 50);
+            this.txt_porcentagem.Name = "txt_porcentagem";
+            this.txt_porcentagem.Size = new System.Drawing.Size(65, 20);
+            this.txt_porcentagem.TabIndex = 54;
+            this.txt_porcentagem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // label13
             // 
@@ -502,73 +536,40 @@
             this.mask_telefone.TabIndex = 52;
             this.mask_telefone.Click += new System.EventHandler(this.mask_telefone_Click);
             // 
-            // label10
+            // label9
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(490, 48);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(118, 22);
-            this.label10.TabIndex = 55;
-            this.label10.Text = "Porcentagem";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(4, 33);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(101, 22);
+            this.label9.TabIndex = 51;
+            this.label9.Text = "Valor Total";
             // 
-            // txt_porcentagem
+            // txt_valorTotal
             // 
-            this.txt_porcentagem.Location = new System.Drawing.Point(672, 50);
-            this.txt_porcentagem.Name = "txt_porcentagem";
-            this.txt_porcentagem.Size = new System.Drawing.Size(65, 20);
-            this.txt_porcentagem.TabIndex = 54;
-            this.txt_porcentagem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
+            this.txt_valorTotal.Location = new System.Drawing.Point(166, 35);
+            this.txt_valorTotal.Name = "txt_valorTotal";
+            this.txt_valorTotal.ReadOnly = true;
+            this.txt_valorTotal.Size = new System.Drawing.Size(256, 20);
+            this.txt_valorTotal.TabIndex = 50;
             // 
-            // dataE
+            // label7
             // 
-            this.dataE.Location = new System.Drawing.Point(672, 24);
-            this.dataE.Name = "dataE";
-            this.dataE.Size = new System.Drawing.Size(227, 20);
-            this.dataE.TabIndex = 57;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(4, 5);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 22);
+            this.label7.TabIndex = 49;
+            this.label7.Text = "Observação";
             // 
-            // label11
+            // txt_obs
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(490, 20);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(176, 22);
-            this.label11.TabIndex = 56;
-            this.label11.Text = "Previsão de Entrega";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(426, 60);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(27, 33);
-            this.label12.TabIndex = 58;
-            this.label12.Text = "*";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(902, 21);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(27, 33);
-            this.label14.TabIndex = 59;
-            this.label14.Text = "*";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(740, 46);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(27, 33);
-            this.label15.TabIndex = 60;
-            this.label15.Text = "*";
+            this.txt_obs.Location = new System.Drawing.Point(166, 7);
+            this.txt_obs.Name = "txt_obs";
+            this.txt_obs.Size = new System.Drawing.Size(256, 20);
+            this.txt_obs.TabIndex = 48;
             // 
             // panel11
             // 

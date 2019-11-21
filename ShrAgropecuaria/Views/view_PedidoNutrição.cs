@@ -192,5 +192,15 @@ namespace ShrAgropecuaria.Views
                 }
             }
         }
+
+        private void btn_remover_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.RowCount > 0)
+            {
+                prodPedNutriList.Remove(prodPedNutriList[dataGridView1.CurrentRow.Index]);
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = prodPedNutriList;
+            }
+        }
     }
 }
