@@ -32,5 +32,16 @@ namespace ShrAgropecuaria.Classes
         public string Pp_ativo { get => pp_ativo; set => pp_ativo = value; }
 
         public string CategoriaProdutoDescricao { get { return Cat?.Cat_descricao; } }
+
+        public override bool Equals(object obj)
+        {
+            return obj is ProdutoPET pET &&
+                   EqualityComparer<int?>.Default.Equals(pp_cod, pET.pp_cod);
+        }
+
+        public override int GetHashCode()
+        {
+            return -1452915636 + EqualityComparer<int?>.Default.GetHashCode(pp_cod);
+        }
     }
 }

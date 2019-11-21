@@ -33,12 +33,17 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtValor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnRmv = new System.Windows.Forms.Button();
             this.btnVender = new System.Windows.Forms.Button();
+            this.txtQtde = new System.Windows.Forms.TextBox();
+            this.quantt = new System.Windows.Forms.Label();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,13 +91,13 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Data";
             // 
-            // textBox1
+            // txtValor
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(15, 75);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(107, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtValor.Enabled = false;
+            this.txtValor.Location = new System.Drawing.Point(15, 75);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(107, 20);
+            this.txtValor.TabIndex = 5;
             // 
             // label3
             // 
@@ -113,7 +118,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(348, 97);
+            this.btnAdd.Location = new System.Drawing.Point(370, 97);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(22, 23);
             this.btnAdd.TabIndex = 8;
@@ -123,33 +128,84 @@
             // 
             // btnRmv
             // 
-            this.btnRmv.Location = new System.Drawing.Point(376, 97);
+            this.btnRmv.Location = new System.Drawing.Point(398, 97);
             this.btnRmv.Name = "btnRmv";
             this.btnRmv.Size = new System.Drawing.Size(21, 23);
             this.btnRmv.TabIndex = 9;
             this.btnRmv.Text = "-";
             this.btnRmv.UseVisualStyleBackColor = true;
+            this.btnRmv.Click += new System.EventHandler(this.BtnRmv_Click);
             // 
             // btnVender
             // 
-            this.btnVender.Location = new System.Drawing.Point(193, 307);
+            this.btnVender.Location = new System.Drawing.Point(62, 316);
             this.btnVender.Name = "btnVender";
             this.btnVender.Size = new System.Drawing.Size(75, 23);
             this.btnVender.TabIndex = 10;
             this.btnVender.Text = "Vender";
             this.btnVender.UseVisualStyleBackColor = true;
+            this.btnVender.Click += new System.EventHandler(this.BtnVender_Click);
+            // 
+            // txtQtde
+            // 
+            this.txtQtde.Location = new System.Drawing.Point(311, 100);
+            this.txtQtde.Name = "txtQtde";
+            this.txtQtde.Size = new System.Drawing.Size(53, 20);
+            this.txtQtde.TabIndex = 11;
+            // 
+            // quantt
+            // 
+            this.quantt.AutoSize = true;
+            this.quantt.Location = new System.Drawing.Point(302, 84);
+            this.quantt.Name = "quantt";
+            this.quantt.Size = new System.Drawing.Size(62, 13);
+            this.quantt.TabIndex = 12;
+            this.quantt.Text = "Quantidade";
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(224, 316);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.TabIndex = 13;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Location = new System.Drawing.Point(305, 316);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
+            this.btnPesquisar.TabIndex = 14;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.BtnPesquisar_Click);
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Location = new System.Drawing.Point(143, 316);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btnAlterar.TabIndex = 15;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = true;
             // 
             // view_VendaPET
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(443, 351);
+            this.Controls.Add(this.btnAlterar);
+            this.Controls.Add(this.btnPesquisar);
+            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.quantt);
+            this.Controls.Add(this.txtQtde);
             this.Controls.Add(this.btnVender);
             this.Controls.Add(this.btnRmv);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvProdutos);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtValor);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtpData);
             this.Controls.Add(this.button1);
@@ -170,11 +226,16 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dtpData;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvProdutos;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnRmv;
         private System.Windows.Forms.Button btnVender;
+        private System.Windows.Forms.TextBox txtQtde;
+        private System.Windows.Forms.Label quantt;
+        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.Button btnAlterar;
     }
 }

@@ -85,6 +85,7 @@
     <Compile Include="Classes\PedidoPET.cs" />
     <Compile Include="Classes\ProdutoNutricao.cs" />
     <Compile Include="Classes\ProdutoPET.cs" />
+    <Compile Include="Classes\ProdutoVenda.cs" />
     <Compile Include="Classes\SaldoClientePedidoLoja.cs" />
     <Compile Include="Classes\Session.cs" />
     <Compile Include="Classes\TipoProdutoNutricao.cs" />
@@ -184,6 +185,12 @@
     <Compile Include="Views\Pesquisas\PesquisaProdutoPET.Designer.cs">
       <DependentUpon>PesquisaProdutoPET.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pesquisas\PesquisarVendaPET.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisas\PesquisarVendaPET.Designer.cs">
+      <DependentUpon>PesquisarVendaPET.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pesquisas\PesquisaSaldoClienteLoja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +202,12 @@
     </Compile>
     <Compile Include="Views\Pesquisas\PesquisaUsuario.Designer.cs">
       <DependentUpon>PesquisaUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pesquisas\PesquisaVendaPET.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisas\PesquisaVendaPET.Designer.cs">
+      <DependentUpon>PesquisaVendaPET.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SaldoProdutoNutricao.cs">
       <SubType>Form</SubType>
@@ -340,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\PesquisaUsuario.resx">
       <DependentUpon>PesquisaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pesquisas\PesquisaVendaPET.resx">
+      <DependentUpon>PesquisaVendaPET.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SaldoProdutoNutricao.resx">
       <DependentUpon>SaldoProdutoNutricao.cs</DependentUpon>
