@@ -84,6 +84,7 @@
     <Compile Include="Classes\PedidoNutricao.cs" />
     <Compile Include="Classes\PedidoPET.cs" />
     <Compile Include="Classes\ProdutoNutricao.cs" />
+    <Compile Include="Classes\ProdutoPedidoNutricao.cs" />
     <Compile Include="Classes\ProdutoPET.cs" />
     <Compile Include="Classes\ProdutoVenda.cs" />
     <Compile Include="Classes\SaldoClientePedidoLoja.cs" />
@@ -293,6 +294,12 @@
     <Compile Include="Views\view_ProdutoPET.Designer.cs">
       <DependentUpon>view_ProdutoPET.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\view_Quantidade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\view_Quantidade.Designer.cs">
+      <DependentUpon>view_Quantidade.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\view_QuitarContasAPagar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -395,6 +402,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\view_ProdutoPET.resx">
       <DependentUpon>view_ProdutoPET.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\view_Quantidade.resx">
+      <DependentUpon>view_Quantidade.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\view_QuitarContasAPagar.resx">
       <DependentUpon>view_QuitarContasAPagar.cs</DependentUpon>

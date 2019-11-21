@@ -20,6 +20,8 @@ namespace ShrAgropecuaria.Classes
         Cliente cliente;
         Usuario usuario;
 
+        int user_cod = Session.Instance.ID;
+
         public int? Pn_cod { get => pn_cod; set => pn_cod = value; }
         public DateTime Pn_previsaoentrega { get => pn_previsaoentrega; set => pn_previsaoentrega = value; }
         public DateTime Pn_dataentrega { get => pn_dataentrega; set => pn_dataentrega = value; }
@@ -34,5 +36,9 @@ namespace ShrAgropecuaria.Classes
 
         public string FazendaNome { get { return Fazenda.Faz_nome; } }
         public string ClienteNome { get { return cliente?.Cli_nome; } }
+        public int? faz_cod { get { return Fazenda?.Faz_cod; } }
+        public int? cli_cod { get { return Cliente?.Cli_cod; } }
+
+        public int User_cod { get => user_cod; set => user_cod = value; }
     }
 }
