@@ -17,6 +17,14 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
 
         }
 
+        public Fazenda Get(int? id)
+        {
+            if (id != null)
+            {
+                return Connection.Query<Fazenda>("select * from fazenda where faz_cod = @id", new { id }).FirstOrDefault();
+            }
+            return null;
+        }
         public IEnumerable<Fazenda> GetAll(string nome)
         {
             string sql = @"select faz.*, cli.*, cid.*, est.* from fazenda faz

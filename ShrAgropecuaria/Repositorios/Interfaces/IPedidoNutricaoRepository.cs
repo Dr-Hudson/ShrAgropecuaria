@@ -14,5 +14,9 @@ namespace ShrAgropecuaria.Repositorios.Interfaces
         IEnumerable<PedidoNutricao> GetAll();
         IEnumerable<PedidoNutricao> GetByNomeCliente(string Nome);
         IEnumerable<PedidoNutricao> GetByCod(string cod);
+        IEnumerable<ProdutoPedidoNutricao> GetByProduto(string cod);
+        void GravarProdutoPedido(ProdutoPedidoNutricao prodPedNutri);
+        void GravarPedido(PedidoNutricao pedNutri);
+        void Excluir(int id);
     }
 }

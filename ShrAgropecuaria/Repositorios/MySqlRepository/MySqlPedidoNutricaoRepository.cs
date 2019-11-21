@@ -80,7 +80,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
                             inner join fazenda faz on faz.faz_cod = pd.faz_cod
                             inner join cliente cli on cli.cli_cod = pd.cli_cod
                             inner join usuario usu on usu.user_cod = pd.user_cod
-                            where cli.cli_nome = @Nome";
+                            where cli.cli_nome LIKE @Nome";
             return Connection.Query<PedidoNutricao, Fazenda, Cliente, Usuario, PedidoNutricao>(sql, (pedidonutricao, fazenda, cliente, usuario) =>
             {
                 pedidonutricao.Cliente = cliente;
@@ -104,6 +104,57 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
                 pedidonutricao.Usuario = usuario;
                 return pedidonutricao;
             }, new { cod }, splitOn: "faz_cod, cli_cod, user_cod");
+        }
+
+        public IEnumerable<ProdutoPedidoNutricao> GetByProduto(string cod)
+        {
+            string sql = @"select ppn.*, pd.*, pn.* from produtopedidonutricao ppn
+                            inner join pedidonutricao pd on pd.pn_cod = ppn.pn_cod
+                            inner join produtonutricao pn on pn.prodn_cod = ppn.prodn_cod
+                            where ppn.pn_cod = @cod";
+            return Connection.Query<ProdutoPedidoNutricao, PedidoNutricao, ProdutoNutricao, ProdutoPedidoNutricao>(sql, (produtopedidonutricao, pedidonutricao, produtonutricao) =>
+            {
+                produtopedidonutricao.PedidoNutricao = pedidonutricao;
+                produtopedidonutricao.ProdutoNutricao = produtonutricao;
+                return produtopedidonutricao;
+            }, new { cod }, splitOn: "pn_cod, prodn_cod");
+        }
+
+        public void GravarProdutoPedido(ProdutoPedidoNutricao prodPedNutri)
+        {
+
+            Connection.Execute("INSERT INTO produtopedidonutricao " +
+                "(pn_cod, prodn_cod, ppn_quantidade, ppn_peso, ppn_valorvenda) " +
+                "VALUES (@idPedNutri, @idProdNutri, @quantidade, @peso, @valorvenda)", prodPedNutri);
+
+        }
+
+        public void GravarPedido(PedidoNutricao pedNutri)
+        {
+            if (pedNutri.Pn_cod == null)
+            {
+                Connection.Execute("INSERT INTO pedidonutricao " +
+                    "(pn_previsaoentrega, pn_dataentrega, pn_porcentagem, pn_contato, " +
+                    "pn_valortotal, pn_data, pn_obs, faz_cod, cli_cod, user_cod) " +
+                    "VALUES(@pn_previsaoentrega, null, @pn_porcentagem, " +
+                    "@pn_contato, @pn_valortotal, @pn_data, @pn_obs, @faz_cod, " +
+                    "@cli_cod, @user_cod)", pedNutri);
+                pedNutri.Pn_cod = Convert.ToInt32(Connection.ExecuteScalar("select last_insert_id()"));
+            }
+            else
+            {
+                Connection.Execute("UPDATE pedidonutricao SET " +
+                    "pn_cod = @pn_cod, pn_previsaoentrega = @pn_previsaoentrega, pn_dataentrega = @pn_dataentrega, " +
+                    "pn_porcentagem = @pn_porcentagem, pn_contato = @pn_contato, pn_valortotal = @pn_valortotal, " +
+                    "pn_data = @pn_data, pn_obs = @pn_obs, faz_cod = @faz_cod, cli_cod = @cli_cod, user_cod = @user_cod " +
+                    "WHERE pn_cod = @expr; ", pedNutri);
+            }
+        }
+
+        public void Excluir(int id)
+        {
+            Connection.Execute("delete from produtopedidonutricao where prodn_cod = @id", id);
+            Connection.Execute("delete from pedidonutricao where pn_cod = @id", id);
         }
     }
 }

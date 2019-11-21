@@ -26,8 +26,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
 
         public void Excluir(ProdutoNutricao prod)
         {
-                Connection.Execute("update produtonutricao set prodn_ativo = 'I' where prodn_cod = @prodn_cod", prod);
-            
+            Connection.Execute("update produtonutricao set prodn_ativo = 'I' where prodn_cod = @prodn_cod", prod);
         }
 
         public IEnumerable<ProdutoNutricao> GetByNome(string nome)
