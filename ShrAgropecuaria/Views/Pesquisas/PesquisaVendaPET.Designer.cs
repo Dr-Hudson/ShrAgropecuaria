@@ -1,6 +1,6 @@
 ﻿namespace ShrAgropecuaria.Views.Pesquisas
 {
-    partial class PesquisaUsuario
+    partial class PesquisaVendaPET
     {
         /// <summary>
         /// Required designer variable.
@@ -31,10 +31,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.BtnPesquisar = new System.Windows.Forms.Button();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txt_nome = new System.Windows.Forms.TextBox();
             this.dgvDados = new System.Windows.Forms.DataGridView();
-            this.btCancelar = new System.Windows.Forms.Button();
-            this.BtnSelecionar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.BtnSelecionarCid = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDados)).BeginInit();
             this.SuspendLayout();
@@ -43,41 +43,42 @@
             // 
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.BtnPesquisar);
-            this.panel1.Controls.Add(this.txtUsuario);
+            this.panel1.Controls.Add(this.txt_nome);
             this.panel1.Controls.Add(this.dgvDados);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(696, 311);
-            this.panel1.TabIndex = 60;
+            this.panel1.TabIndex = 57;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 12);
+            this.label4.Location = new System.Drawing.Point(10, 12);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 15);
+            this.label4.Size = new System.Drawing.Size(38, 15);
             this.label4.TabIndex = 65;
-            this.label4.Text = "Usuario";
+            this.label4.Text = "Nome";
             // 
             // BtnPesquisar
             // 
-            this.BtnPesquisar.Location = new System.Drawing.Point(387, 8);
+            this.BtnPesquisar.Location = new System.Drawing.Point(348, 9);
             this.BtnPesquisar.Name = "BtnPesquisar";
-            this.BtnPesquisar.Size = new System.Drawing.Size(110, 23);
+            this.BtnPesquisar.Size = new System.Drawing.Size(29, 23);
             this.BtnPesquisar.TabIndex = 64;
-            this.BtnPesquisar.Text = "Pesquisar";
+            this.BtnPesquisar.Text = "*";
             this.BtnPesquisar.UseVisualStyleBackColor = true;
             this.BtnPesquisar.Click += new System.EventHandler(this.BtnPesquisar_Click);
             // 
-            // txtUsuario
+            // txt_nome
             // 
-            this.txtUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtUsuario.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(107, 9);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(274, 23);
-            this.txtUsuario.TabIndex = 1;
+            this.txt_nome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txt_nome.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_nome.Location = new System.Drawing.Point(54, 9);
+            this.txt_nome.Name = "txt_nome";
+            this.txt_nome.Size = new System.Drawing.Size(288, 23);
+            this.txt_nome.TabIndex = 1;
             // 
             // dgvDados
             // 
@@ -87,36 +88,35 @@
             this.dgvDados.Size = new System.Drawing.Size(690, 270);
             this.dgvDados.TabIndex = 54;
             // 
-            // btCancelar
+            // button1
             // 
-            this.btCancelar.Location = new System.Drawing.Point(15, 337);
-            this.btCancelar.Name = "btCancelar";
-            this.btCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btCancelar.TabIndex = 62;
-            this.btCancelar.Text = "Cancelar";
-            this.btCancelar.UseVisualStyleBackColor = true;
-            this.btCancelar.Click += new System.EventHandler(this.BtCancelar_Click);
+            this.button1.Location = new System.Drawing.Point(20, 329);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 59;
+            this.button1.Text = "Cancelar";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // BtnSelecionar
+            // BtnSelecionarCid
             // 
-            this.BtnSelecionar.Location = new System.Drawing.Point(630, 338);
-            this.BtnSelecionar.Name = "BtnSelecionar";
-            this.BtnSelecionar.Size = new System.Drawing.Size(75, 23);
-            this.BtnSelecionar.TabIndex = 61;
-            this.BtnSelecionar.Text = "Selecionar";
-            this.BtnSelecionar.UseVisualStyleBackColor = true;
-            this.BtnSelecionar.Click += new System.EventHandler(this.BtnSelecionar_Click);
+            this.BtnSelecionarCid.Location = new System.Drawing.Point(630, 338);
+            this.BtnSelecionarCid.Name = "BtnSelecionarCid";
+            this.BtnSelecionarCid.Size = new System.Drawing.Size(75, 23);
+            this.BtnSelecionarCid.TabIndex = 58;
+            this.BtnSelecionarCid.Text = "Selecionar";
+            this.BtnSelecionarCid.UseVisualStyleBackColor = true;
+            this.BtnSelecionarCid.Click += new System.EventHandler(this.BtnSelecionarCid_Click);
             // 
-            // PesquisaUsuario
+            // PesquisaVendaPET
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 372);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btCancelar);
-            this.Controls.Add(this.BtnSelecionar);
-            this.Name = "PesquisaUsuario";
-            this.Text = "PesquisaUsuario";
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnSelecionarCid);
+            this.Name = "PesquisaVendaPET";
+            this.Text = "PesquisaVendaPET";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDados)).EndInit();
@@ -129,9 +129,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BtnPesquisar;
-        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txt_nome;
         private System.Windows.Forms.DataGridView dgvDados;
-        private System.Windows.Forms.Button btCancelar;
-        private System.Windows.Forms.Button BtnSelecionar;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnSelecionarCid;
     }
 }

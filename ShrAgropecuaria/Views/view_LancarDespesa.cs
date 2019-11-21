@@ -117,13 +117,20 @@ namespace ShrAgropecuaria.Views
         {
 
             List<ContasAPagar> lcap = (List<ContasAPagar>)DgvDespesa.DataSource;
-            if(ValidaPreco(lcap))
+            if (lcap[0].Cap_cod == null)
             {
-                IContasapagar.Gravar(lcap);
-                MessageBox.Show("Gravado com sucesso!!");
+                if (ValidaPreco(lcap))
+                {
+                    IContasapagar.Gravar(lcap);
+                    MessageBox.Show("Gravado com sucesso!!");
+                    Limpar();
+                    DgvDespesa.DataSource = "";
+                }
+                
             }
-            Limpar();
-            DgvDespesa.DataSource = "";
+            else
+                MessageBox.Show("Essa despesa já foi lançadaaa!!!!");
+            
             
         }
 
@@ -268,6 +275,7 @@ namespace ShrAgropecuaria.Views
                 DgvDespesa.Columns.Remove("PedidoPetid");
                 DgvDespesa.Columns["Cap_descricao"].HeaderText = "Descrição da despesa";
                 DgvDespesa.Columns["Cap_datageracao"].HeaderText = "Data de lançamento";
+                DgvDespesa.Columns["Cap_valordespesa"].HeaderText = "Valor da despesa";
                 DgvDespesa.Columns["Cap_datavencimento"].HeaderText = "Data do vencimento";
                 DgvDespesa.Columns["DespesaDescricao"].HeaderText = "Categoria da despesa";
                 DgvDespesa.Columns["NomeUsuario"].HeaderText = "Nome do Usuario";
@@ -278,10 +286,12 @@ namespace ShrAgropecuaria.Views
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             List<ContasAPagar> lcap = (List<ContasAPagar>)DgvDespesa.DataSource;
-            
-            
-                
-            IContasapagar.Excluir(lcap[0].Cap_datageracao);
+
+
+            if (lcap[0].Cap_valorpago == 0)
+                IContasapagar.Excluir(lcap[0].Cap_datageracao);
+            else
+                MessageBox.Show("Você não pode excluir essa despesa, já houve parcela paga!!");
             Limpar();
         }
 
@@ -307,6 +317,18 @@ namespace ShrAgropecuaria.Views
         {
             
             CamposPreenchido();
+        }
+
+        public bool VerificaDizima(Decimal a, int parcela)
+        {
+            decimal b,c;
+
+            b =Math.Round(a / parcela,2);
+            c = b * parcela;
+            if (c != a)
+                return true;
+            return false;
+
         }
 
         private void btnEnviar_Click(object sender, EventArgs e)
@@ -336,12 +358,23 @@ namespace ShrAgropecuaria.Views
                     cappp.Cap_datageracao = dtpData.Value;
 
                     string a = txtValorDespesa.Text.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", ",").Replace(" ", "");
-
-
-
                     cappp.Despesa = desp;
                     cappp.User = user;
-                    cappp.Cap_valordespesa = Math.Round(Convert.ToDecimal(a), 2) / Convert.ToInt32(txtParcelas.Text);
+                    if(VerificaDizima(Math.Round(Convert.ToDecimal(a),2), Convert.ToInt32(txtParcelas.Text)))
+                    {
+                        int b = (int)Math.Round(Convert.ToDecimal(a), 2) / Convert.ToInt32(txtParcelas.Text);
+                        if (i == Convert.ToInt32(txtParcelas.Text) - 1)
+                        {
+                            b = (int)Math.Round(Convert.ToDecimal(a), 2) - ((int)(Math.Round(Convert.ToDecimal(a), 2)) / Convert.ToInt32(txtParcelas.Text) * (Convert.ToInt32(txtParcelas.Text) - 1));
+                        }
+                        cappp.Cap_valordespesa = Math.Round(Convert.ToDecimal(b), 2);
+                    }
+                    else
+                        cappp.Cap_valordespesa = Math.Round(Convert.ToDecimal(a), 2)/ Convert.ToInt32(txtParcelas.Text);
+
+
+
+
                     cappp.Cap_datavencimento = w;
                     lcap.Add(cappp);
                     
@@ -364,11 +397,20 @@ namespace ShrAgropecuaria.Views
 
                     string a = txtValorDespesa.Text.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", ",").Replace(" ", "");
 
-
+                    if (VerificaDizima(Math.Round(Convert.ToDecimal(a), 2), Convert.ToInt32(txtParcelas.Text)))
+                    {
+                        int b = (int)Math.Round(Convert.ToDecimal(a), 2) / Convert.ToInt32(txtParcelas.Text);
+                        if (i == Convert.ToInt32(txtParcelas.Text) - 1)
+                        {
+                            b = (int)Math.Round(Convert.ToDecimal(a), 2) - ((int)(Math.Round(Convert.ToDecimal(a), 2)) / Convert.ToInt32(txtParcelas.Text) * (Convert.ToInt32(txtParcelas.Text) - 1));
+                        }
+                        cappp.Cap_valordespesa = Math.Round(Convert.ToDecimal(b), 2);
+                    }
+                    else
+                        cappp.Cap_valordespesa = Math.Round(Convert.ToDecimal(a), 2) / Convert.ToInt32(txtParcelas.Text);
 
                     cappp.Despesa = desp;
                     cappp.User = user;
-                    cappp.Cap_valordespesa = Math.Round(Convert.ToDecimal(a), 2) / Convert.ToInt32(txtParcelas.Text);
                     cappp.Cap_datavencimento = w;
                     lcap.Add(cappp);
                     w = w.AddDays(Convert.ToInt32(txtDias.Text));
@@ -389,6 +431,7 @@ namespace ShrAgropecuaria.Views
             DgvDespesa.Columns.Remove("PedidoPetid");
             DgvDespesa.Columns["Cap_descricao"].HeaderText = "Descrição da despesa";
             DgvDespesa.Columns["Cap_datageracao"].HeaderText = "Data de lançamento";
+            DgvDespesa.Columns["Cap_valordespesa"].HeaderText = "Valor da despesa";
             DgvDespesa.Columns["Cap_datavencimento"].HeaderText = "Data do vencimento";
             DgvDespesa.Columns["DespesaDescricao"].HeaderText = "Categoria da despesa";
             DgvDespesa.Columns["NomeUsuario"].HeaderText = "Nome do Usuario";

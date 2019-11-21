@@ -38,6 +38,7 @@ namespace ShrAgropecuaria.Views
             IUsuario = usuario;
             txtUser.Enabled = false;
             txtID.Enabled = false;
+            dtpData.Enabled = false;
             txtVP.Enabled = false;
             txtUser.Text = Session.Instance.Nome;
             
@@ -213,6 +214,14 @@ namespace ShrAgropecuaria.Views
                 LimparTela();
             }
             
+        }
+
+        private void cbFiltro_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbFiltro.Checked == true)
+                dtpData.Enabled = true;
+            else
+                dtpData.Enabled = false;
         }
     }
 }

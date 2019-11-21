@@ -16,9 +16,12 @@ namespace ShrAgropecuaria.Repositorios.Interfaces
 
         IEnumerable<ContasAPagar> GetData(DateTime data);
 
+        IEnumerable<ContasAPagar> Filtro(DateTime data, DateTime data2);
+
         IEnumerable<ContasAPagar> GetAbertas();
 
         IEnumerable<ContasAPagar> GetFechadas();
+        
 
         void Quitar(ContasAPagar cap, bool flag);
 

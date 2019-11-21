@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txt_id = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.BtnPesquisar = new System.Windows.Forms.Button();
             this.txt_nome = new System.Windows.Forms.TextBox();
             this.DvgCidade = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.BtnSelecionarCid = new System.Windows.Forms.Button();
+            this.txt_id = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DvgCidade)).BeginInit();
             this.SuspendLayout();
@@ -53,25 +53,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(696, 311);
             this.panel1.TabIndex = 54;
-            // 
-            // txt_id
-            // 
-            this.txt_id.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txt_id.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_id.Location = new System.Drawing.Point(30, 8);
-            this.txt_id.Name = "txt_id";
-            this.txt_id.Size = new System.Drawing.Size(75, 23);
-            this.txt_id.TabIndex = 67;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(5, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 15);
-            this.label2.TabIndex = 66;
-            this.label2.Text = "ID";
             // 
             // label4
             // 
@@ -129,6 +110,25 @@
             this.BtnSelecionarCid.UseVisualStyleBackColor = true;
             this.BtnSelecionarCid.Click += new System.EventHandler(this.BtnSelecionarCid_Click);
             // 
+            // txt_id
+            // 
+            this.txt_id.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txt_id.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_id.Location = new System.Drawing.Point(30, 8);
+            this.txt_id.Name = "txt_id";
+            this.txt_id.Size = new System.Drawing.Size(75, 23);
+            this.txt_id.TabIndex = 67;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(5, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(19, 15);
+            this.label2.TabIndex = 66;
+            this.label2.Text = "ID";
+            // 
             // PesquisaCidade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,13 +151,13 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txt_id;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BtnPesquisar;
         private System.Windows.Forms.TextBox txt_nome;
         private System.Windows.Forms.DataGridView DvgCidade;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button BtnSelecionarCid;
+        private System.Windows.Forms.TextBox txt_id;
+        private System.Windows.Forms.Label label2;
     }
 }
