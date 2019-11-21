@@ -34,9 +34,9 @@
             this.lbRg = new System.Windows.Forms.Label();
             this.lbCpf = new System.Windows.Forms.Label();
             this.pnPagar = new System.Windows.Forms.Panel();
-            this.txtValor = new System.Windows.Forms.MaskedTextBox();
-            this.btPagar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btPagar = new System.Windows.Forms.Button();
+            this.txtValor = new System.Windows.Forms.MaskedTextBox();
             this.lbFiado = new System.Windows.Forms.Label();
             this.pnPagar.SuspendLayout();
             this.SuspendLayout();
@@ -93,14 +93,14 @@
             this.pnPagar.Size = new System.Drawing.Size(325, 144);
             this.pnPagar.TabIndex = 5;
             // 
-            // txtValor
+            // label1
             // 
-            this.txtValor.Location = new System.Drawing.Point(114, 42);
-            this.txtValor.Mask = "$ 00000000,00";
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(93, 20);
-            this.txtValor.TabIndex = 0;
-            this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValor_KeyPress);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(93, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Valor a ser pago do fiado";
             // 
             // btPagar
             // 
@@ -112,14 +112,14 @@
             this.btPagar.UseVisualStyleBackColor = true;
             this.btPagar.Click += new System.EventHandler(this.btPagar_Click);
             // 
-            // label1
+            // txtValor
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(93, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Valor a ser pago do fiado";
+            this.txtValor.Location = new System.Drawing.Point(114, 42);
+            this.txtValor.Mask = "$ 00000000,00";
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(93, 20);
+            this.txtValor.TabIndex = 0;
+            this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValor_KeyPress);
             // 
             // lbFiado
             // 
@@ -142,7 +142,7 @@
             this.Controls.Add(this.lbInstrucao);
             this.Controls.Add(this.btSelecionar);
             this.Name = "view_Fiado";
-            this.Text = "view_Fiado";
+            this.Text = "Fiado";
             this.pnPagar.ResumeLayout(false);
             this.pnPagar.PerformLayout();
             this.ResumeLayout(false);

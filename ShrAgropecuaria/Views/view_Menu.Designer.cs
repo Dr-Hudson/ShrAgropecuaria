@@ -40,6 +40,8 @@
             this.entregaPedidoNutriçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitarContasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidoNutriçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saldoClienteNaLojaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vendaPETToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,10 +58,12 @@
             this.lançarDespesaToolStripMenuItem,
             this.entregaPedidoNutriçãoToolStripMenuItem,
             this.quitarContasToolStripMenuItem,
-            this.pedidoNutriçãoToolStripMenuItem});
+            this.pedidoNutriçãoToolStripMenuItem,
+            this.saldoClienteNaLojaToolStripMenuItem,
+            this.vendaPETToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1033, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1253, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -80,7 +84,7 @@
             // produtoPETToolStripMenuItem
             // 
             this.produtoPETToolStripMenuItem.Name = "produtoPETToolStripMenuItem";
-            this.produtoPETToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.produtoPETToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
             this.produtoPETToolStripMenuItem.Text = "ProdutoPET";
             this.produtoPETToolStripMenuItem.Click += new System.EventHandler(this.produtoPETToolStripMenuItem_Click);
             // 
@@ -140,11 +144,25 @@
             this.pedidoNutriçãoToolStripMenuItem.Text = "Pedido Nutrição";
             this.pedidoNutriçãoToolStripMenuItem.Click += new System.EventHandler(this.pedidoNutriçãoToolStripMenuItem_Click);
             // 
+            // saldoClienteNaLojaToolStripMenuItem
+            // 
+            this.saldoClienteNaLojaToolStripMenuItem.Name = "saldoClienteNaLojaToolStripMenuItem";
+            this.saldoClienteNaLojaToolStripMenuItem.Size = new System.Drawing.Size(132, 20);
+            this.saldoClienteNaLojaToolStripMenuItem.Text = "Saldo Cliente na Loja ";
+            this.saldoClienteNaLojaToolStripMenuItem.Click += new System.EventHandler(this.SaldoClienteNaLojaToolStripMenuItem_Click);
+            // 
+            // vendaPETToolStripMenuItem
+            // 
+            this.vendaPETToolStripMenuItem.Name = "vendaPETToolStripMenuItem";
+            this.vendaPETToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.vendaPETToolStripMenuItem.Text = "Venda PET";
+            this.vendaPETToolStripMenuItem.Click += new System.EventHandler(this.VendaPETToolStripMenuItem_Click);
+            // 
             // view_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1033, 450);
+            this.ClientSize = new System.Drawing.Size(1253, 450);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "view_Menu";
@@ -170,5 +188,7 @@
         private System.Windows.Forms.ToolStripMenuItem entregaPedidoNutriçãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitarContasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pedidoNutriçãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saldoClienteNaLojaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vendaPETToolStripMenuItem;
     }
 }
