@@ -21,12 +21,15 @@ namespace ShrAgropecuaria.Classes
         PedidoPET pedidopet;
 
         public int? Cap_cod { get => cap_cod; set => cap_cod = value; }
-        public string Cap_descricao { get => cap_descricao; set => cap_descricao = value; }
-        public DateTime Cap_datapagamento { get => cap_datapagamento; set => cap_datapagamento = value; }
-        public DateTime Cap_datageracao { get => cap_datageracao; set => cap_datageracao = value; }
         public DateTime Cap_datavencimento { get => cap_datavencimento; set => cap_datavencimento = value; }
         public decimal Cap_valordespesa { get => cap_valordespesa; set => cap_valordespesa = value; }
+        public string Cap_descricao { get => cap_descricao; set => cap_descricao = value; }
+        public DateTime Cap_datapagamento { get => cap_datapagamento; set => cap_datapagamento = value; }
         public decimal Cap_valorpago { get => cap_valorpago; set => cap_valorpago = value; }
+        public DateTime Cap_datageracao { get => cap_datageracao; set => cap_datageracao = value; }
+        
+        
+        
         public Usuario User { get => user; set => user = value; }
         internal Despesa Despesa { get => despesa; set => despesa = value; }
 

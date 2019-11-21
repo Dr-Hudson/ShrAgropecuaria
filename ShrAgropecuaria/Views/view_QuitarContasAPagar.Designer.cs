@@ -52,10 +52,13 @@
             this.lbData = new System.Windows.Forms.Label();
             this.lbVP = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.cbFiltro = new System.Windows.Forms.CheckBox();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dtpData = new System.Windows.Forms.DateTimePicker();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.cbFiltro = new System.Windows.Forms.CheckBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.dtpData2 = new System.Windows.Forms.DateTimePicker();
+            this.btnEstornar = new System.Windows.Forms.Button();
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -63,8 +66,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvQuitar)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // label7
@@ -136,6 +140,7 @@
             this.rbGeral.Text = "Geral";
             this.rbGeral.UseVisualStyleBackColor = true;
             this.rbGeral.CheckedChanged += new System.EventHandler(this.rbGeral_CheckedChanged);
+            this.rbGeral.Click += new System.EventHandler(this.rbGeral_Click);
             // 
             // rbAberto
             // 
@@ -148,6 +153,7 @@
             this.rbAberto.Text = "Aberto";
             this.rbAberto.UseVisualStyleBackColor = true;
             this.rbAberto.CheckedChanged += new System.EventHandler(this.rbAberto_CheckedChanged);
+            this.rbAberto.Click += new System.EventHandler(this.rbAberto_Click);
             // 
             // rbFechado
             // 
@@ -160,6 +166,7 @@
             this.rbFechado.Text = "Fechado";
             this.rbFechado.UseVisualStyleBackColor = true;
             this.rbFechado.CheckedChanged += new System.EventHandler(this.rbFechado_CheckedChanged);
+            this.rbFechado.Click += new System.EventHandler(this.rbFechado_Click);
             // 
             // panel9
             // 
@@ -202,9 +209,10 @@
             this.DgvQuitar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvQuitar.Location = new System.Drawing.Point(28, 173);
             this.DgvQuitar.Name = "DgvQuitar";
-            this.DgvQuitar.Size = new System.Drawing.Size(644, 273);
+            this.DgvQuitar.Size = new System.Drawing.Size(880, 273);
             this.DgvQuitar.TabIndex = 39;
             this.DgvQuitar.SelectionChanged += new System.EventHandler(this.DgvQuitar_SelectionChanged);
+            this.DgvQuitar.Click += new System.EventHandler(this.DgvQuitar_Click);
             // 
             // label1
             // 
@@ -229,6 +237,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.btnEstornar);
             this.panel2.Controls.Add(this.txtValorPago);
             this.panel2.Controls.Add(this.txtVP);
             this.panel2.Controls.Add(this.dtpDataPagamento);
@@ -239,7 +248,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(28, 453);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(644, 142);
+            this.panel2.Size = new System.Drawing.Size(880, 142);
             this.panel2.TabIndex = 43;
             // 
             // txtValorPago
@@ -296,32 +305,13 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.panel8);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Location = new System.Drawing.Point(348, 122);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(324, 45);
+            this.panel3.Size = new System.Drawing.Size(560, 45);
             this.panel3.TabIndex = 44;
-            // 
-            // cbFiltro
-            // 
-            this.cbFiltro.AutoSize = true;
-            this.cbFiltro.Location = new System.Drawing.Point(3, 3);
-            this.cbFiltro.Name = "cbFiltro";
-            this.cbFiltro.Size = new System.Drawing.Size(78, 17);
-            this.cbFiltro.TabIndex = 45;
-            this.cbFiltro.Text = "Ativar Filtro";
-            this.cbFiltro.UseVisualStyleBackColor = true;
-            this.cbFiltro.CheckedChanged += new System.EventHandler(this.cbFiltro_CheckedChanged);
-            // 
-            // panel5
-            // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel5.Controls.Add(this.cbFiltro);
-            this.panel5.Location = new System.Drawing.Point(3, 8);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(87, 25);
-            this.panel5.TabIndex = 46;
             // 
             // panel6
             // 
@@ -339,11 +329,57 @@
             this.dtpData.Size = new System.Drawing.Size(210, 20);
             this.dtpData.TabIndex = 0;
             // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.cbFiltro);
+            this.panel5.Location = new System.Drawing.Point(3, 8);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(87, 25);
+            this.panel5.TabIndex = 46;
+            // 
+            // cbFiltro
+            // 
+            this.cbFiltro.AutoSize = true;
+            this.cbFiltro.Location = new System.Drawing.Point(3, 3);
+            this.cbFiltro.Name = "cbFiltro";
+            this.cbFiltro.Size = new System.Drawing.Size(78, 17);
+            this.cbFiltro.TabIndex = 45;
+            this.cbFiltro.Text = "Ativar Filtro";
+            this.cbFiltro.UseVisualStyleBackColor = true;
+            this.cbFiltro.CheckedChanged += new System.EventHandler(this.cbFiltro_CheckedChanged);
+            // 
+            // panel8
+            // 
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel8.Controls.Add(this.dtpData2);
+            this.panel8.Location = new System.Drawing.Point(328, 7);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(221, 26);
+            this.panel8.TabIndex = 47;
+            // 
+            // dtpData2
+            // 
+            this.dtpData2.Location = new System.Drawing.Point(4, 2);
+            this.dtpData2.Name = "dtpData2";
+            this.dtpData2.Size = new System.Drawing.Size(210, 20);
+            this.dtpData2.TabIndex = 0;
+            // 
+            // btnEstornar
+            // 
+            this.btnEstornar.Location = new System.Drawing.Point(591, 76);
+            this.btnEstornar.Name = "btnEstornar";
+            this.btnEstornar.Size = new System.Drawing.Size(75, 23);
+            this.btnEstornar.TabIndex = 49;
+            this.btnEstornar.Text = "Estornar";
+            this.btnEstornar.UseVisualStyleBackColor = true;
+            this.btnEstornar.Click += new System.EventHandler(this.btnEstornar_Click);
+            // 
             // view_QuitarContasAPagar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 679);
+            this.ClientSize = new System.Drawing.Size(1070, 679);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.DgvQuitar);
@@ -364,9 +400,10 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -401,5 +438,8 @@
         private System.Windows.Forms.DateTimePicker dtpData;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.CheckBox cbFiltro;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.DateTimePicker dtpData2;
+        private System.Windows.Forms.Button btnEstornar;
     }
 }

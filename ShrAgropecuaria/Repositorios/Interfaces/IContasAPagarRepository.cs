@@ -11,6 +11,8 @@ namespace ShrAgropecuaria.Repositorios.Interfaces
     {
         ContasAPagar Get(int? id);
         IEnumerable<ContasAPagar> GetAll(string nome);
+        IEnumerable<ContasAPagar> GetAllFiltro(DateTime data, DateTime data2);
+
         void Gravar(List<ContasAPagar> lcap);
         void Excluir(DateTime a);
 
@@ -19,8 +21,11 @@ namespace ShrAgropecuaria.Repositorios.Interfaces
         IEnumerable<ContasAPagar> Filtro(DateTime data, DateTime data2);
 
         IEnumerable<ContasAPagar> GetAbertas();
+        IEnumerable<ContasAPagar> GetAbertarFiltro(DateTime data, DateTime data2);
 
         IEnumerable<ContasAPagar> GetFechadas();
+        IEnumerable<ContasAPagar> GetFechadasFiltro(DateTime data, DateTime data2);
+        void Estornar(ContasAPagar update, ContasAPagar excluir, bool flag);
         
 
         void Quitar(ContasAPagar cap, bool flag);
