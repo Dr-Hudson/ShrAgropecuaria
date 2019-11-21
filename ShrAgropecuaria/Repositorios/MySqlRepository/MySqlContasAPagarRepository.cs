@@ -30,6 +30,24 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
                 
         }
 
+        public IEnumerable<ContasAPagar> Filtro(DateTime data, DateTime data2)
+        {
+            
+            string sql = @"select cap.*, desp.*, user.* from contasapagar cap
+                            inner join despesas desp on desp.desp_cod = cap.desp_cod
+                            inner join usuario user on user.user_cod = cap.user_cod
+                            
+                            where cap.cap_datavencimento between @data and @data2";
+            return Connection.Query<ContasAPagar, Despesa, Usuario, ContasAPagar>(sql, (contasapagar, despesa, usuario) =>
+            {
+                contasapagar.Despesa = despesa;
+                contasapagar.User = usuario;
+
+                return contasapagar;
+
+            }, new { data, data2 }, splitOn: "desp_cod, user_cod");
+        }
+
         public ContasAPagar Get(int? id)
         {
             if(id != null)

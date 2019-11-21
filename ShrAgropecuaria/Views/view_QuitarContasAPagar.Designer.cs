@@ -45,18 +45,26 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lbVP = new System.Windows.Forms.Label();
-            this.lbData = new System.Windows.Forms.Label();
-            this.lbVPago = new System.Windows.Forms.Label();
-            this.dtpDataPagamento = new System.Windows.Forms.DateTimePicker();
-            this.txtVP = new System.Windows.Forms.MaskedTextBox();
             this.txtValorPago = new System.Windows.Forms.MaskedTextBox();
+            this.txtVP = new System.Windows.Forms.MaskedTextBox();
+            this.dtpDataPagamento = new System.Windows.Forms.DateTimePicker();
+            this.lbVPago = new System.Windows.Forms.Label();
+            this.lbData = new System.Windows.Forms.Label();
+            this.lbVP = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.cbFiltro = new System.Windows.Forms.CheckBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvQuitar)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // label7
@@ -234,23 +242,29 @@
             this.panel2.Size = new System.Drawing.Size(644, 142);
             this.panel2.TabIndex = 43;
             // 
-            // lbVP
+            // txtValorPago
             // 
-            this.lbVP.AutoSize = true;
-            this.lbVP.Location = new System.Drawing.Point(21, 63);
-            this.lbVP.Name = "lbVP";
-            this.lbVP.Size = new System.Drawing.Size(84, 13);
-            this.lbVP.TabIndex = 41;
-            this.lbVP.Text = "Valor da parcela";
+            this.txtValorPago.Location = new System.Drawing.Point(393, 79);
+            this.txtValorPago.Mask = "$ 00000000.00";
+            this.txtValorPago.Name = "txtValorPago";
+            this.txtValorPago.Size = new System.Drawing.Size(100, 20);
+            this.txtValorPago.TabIndex = 48;
+            this.txtValorPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SomenteNumeroDPE);
             // 
-            // lbData
+            // txtVP
             // 
-            this.lbData.AutoSize = true;
-            this.lbData.Location = new System.Drawing.Point(141, 63);
-            this.lbData.Name = "lbData";
-            this.lbData.Size = new System.Drawing.Size(101, 13);
-            this.lbData.TabIndex = 42;
-            this.lbData.Text = "Data do pagamento";
+            this.txtVP.Location = new System.Drawing.Point(24, 81);
+            this.txtVP.Mask = "$ 00000000.00";
+            this.txtVP.Name = "txtVP";
+            this.txtVP.Size = new System.Drawing.Size(100, 20);
+            this.txtVP.TabIndex = 47;
+            // 
+            // dtpDataPagamento
+            // 
+            this.dtpDataPagamento.Location = new System.Drawing.Point(144, 81);
+            this.dtpDataPagamento.Name = "dtpDataPagamento";
+            this.dtpDataPagamento.Size = new System.Drawing.Size(226, 20);
+            this.dtpDataPagamento.TabIndex = 46;
             // 
             // lbVPago
             // 
@@ -261,35 +275,76 @@
             this.lbVPago.TabIndex = 45;
             this.lbVPago.Text = "Valor Pago";
             // 
-            // dtpDataPagamento
+            // lbData
             // 
-            this.dtpDataPagamento.Location = new System.Drawing.Point(144, 81);
-            this.dtpDataPagamento.Name = "dtpDataPagamento";
-            this.dtpDataPagamento.Size = new System.Drawing.Size(226, 20);
-            this.dtpDataPagamento.TabIndex = 46;
+            this.lbData.AutoSize = true;
+            this.lbData.Location = new System.Drawing.Point(141, 63);
+            this.lbData.Name = "lbData";
+            this.lbData.Size = new System.Drawing.Size(101, 13);
+            this.lbData.TabIndex = 42;
+            this.lbData.Text = "Data do pagamento";
             // 
-            // txtVP
+            // lbVP
             // 
-            this.txtVP.Location = new System.Drawing.Point(24, 81);
-            this.txtVP.Mask = "$ 00000000.00";
-            this.txtVP.Name = "txtVP";
-            this.txtVP.Size = new System.Drawing.Size(100, 20);
-            this.txtVP.TabIndex = 47;
+            this.lbVP.AutoSize = true;
+            this.lbVP.Location = new System.Drawing.Point(21, 63);
+            this.lbVP.Name = "lbVP";
+            this.lbVP.Size = new System.Drawing.Size(84, 13);
+            this.lbVP.TabIndex = 41;
+            this.lbVP.Text = "Valor da parcela";
             // 
-            // txtValorPago
+            // panel3
             // 
-            this.txtValorPago.Location = new System.Drawing.Point(393, 79);
-            this.txtValorPago.Mask = "$ 00000000.00";
-            this.txtValorPago.Name = "txtValorPago";
-            this.txtValorPago.Size = new System.Drawing.Size(100, 20);
-            this.txtValorPago.TabIndex = 48;
-            this.txtValorPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SomenteNumeroDPE);
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.panel6);
+            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Location = new System.Drawing.Point(348, 122);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(324, 45);
+            this.panel3.TabIndex = 44;
+            // 
+            // cbFiltro
+            // 
+            this.cbFiltro.AutoSize = true;
+            this.cbFiltro.Location = new System.Drawing.Point(3, 3);
+            this.cbFiltro.Name = "cbFiltro";
+            this.cbFiltro.Size = new System.Drawing.Size(78, 17);
+            this.cbFiltro.TabIndex = 45;
+            this.cbFiltro.Text = "Ativar Filtro";
+            this.cbFiltro.UseVisualStyleBackColor = true;
+            this.cbFiltro.CheckedChanged += new System.EventHandler(this.cbFiltro_CheckedChanged);
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.cbFiltro);
+            this.panel5.Location = new System.Drawing.Point(3, 8);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(87, 25);
+            this.panel5.TabIndex = 46;
+            // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel6.Controls.Add(this.dtpData);
+            this.panel6.Location = new System.Drawing.Point(96, 7);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(221, 26);
+            this.panel6.TabIndex = 45;
+            // 
+            // dtpData
+            // 
+            this.dtpData.Location = new System.Drawing.Point(4, 2);
+            this.dtpData.Name = "dtpData";
+            this.dtpData.Size = new System.Drawing.Size(210, 20);
+            this.dtpData.TabIndex = 0;
             // 
             // view_QuitarContasAPagar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 679);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.DgvQuitar);
             this.Controls.Add(this.label7);
@@ -308,6 +363,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvQuitar)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,5 +396,10 @@
         private System.Windows.Forms.Label lbVPago;
         private System.Windows.Forms.MaskedTextBox txtValorPago;
         private System.Windows.Forms.MaskedTextBox txtVP;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.DateTimePicker dtpData;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.CheckBox cbFiltro;
     }
 }

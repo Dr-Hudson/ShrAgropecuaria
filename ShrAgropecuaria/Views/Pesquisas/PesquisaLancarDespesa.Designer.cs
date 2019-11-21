@@ -37,12 +37,16 @@
             this.DgvDespesa = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.BtnSelecionarCid = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvDespesa)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dtpData);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txt_id);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label4);
@@ -129,6 +133,23 @@
             this.BtnSelecionarCid.UseVisualStyleBackColor = true;
             this.BtnSelecionarCid.Click += new System.EventHandler(this.BtnSelecionarCid_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(340, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 15);
+            this.label1.TabIndex = 69;
+            this.label1.Text = "Periodo";
+            // 
+            // dtpData
+            // 
+            this.dtpData.Location = new System.Drawing.Point(397, 8);
+            this.dtpData.Name = "dtpData";
+            this.dtpData.Size = new System.Drawing.Size(200, 20);
+            this.dtpData.TabIndex = 70;
+            // 
             // PesquisaLancarDespesa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,6 +160,7 @@
             this.Controls.Add(this.BtnSelecionarCid);
             this.Name = "PesquisaLancarDespesa";
             this.Text = "PesquisaLancarDespesa";
+            this.Load += new System.EventHandler(this.PesquisaLancarDespesa_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvDespesa)).EndInit();
@@ -157,5 +179,7 @@
         private System.Windows.Forms.DataGridView DgvDespesa;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button BtnSelecionarCid;
+        private System.Windows.Forms.DateTimePicker dtpData;
+        private System.Windows.Forms.Label label1;
     }
 }

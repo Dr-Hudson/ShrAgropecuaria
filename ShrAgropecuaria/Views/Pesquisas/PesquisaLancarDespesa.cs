@@ -25,16 +25,27 @@ namespace ShrAgropecuaria.Views.Pesquisas
 
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
-            if (txt_id.Text == "" && txt_nome.Text == "")
+            List<ContasAPagar> CAP = new List<ContasAPagar>();
+
+            if (txt_id.Text == "" && txt_nome.Text != "")
             {
-                List<ContasAPagar> CAP = Icontasapagar.GetAll("").ToList();
+                CAP = Icontasapagar.GetAll(txt_nome.Text).ToList();
                 DgvDespesa.DataSource = CAP;
             }
-            else if(txt_id.Text == "" && txt_nome.Text != "")
+            else if (txt_id.Text == "" && txt_nome.Text == "" && dtpData.Value != null)
             {
-                List<ContasAPagar> CAP = Icontasapagar.GetAll(txt_nome.Text).ToList();
+                string a, b;
+                DateTime c, d;
+                a = dtpData.Value.ToString();
+                b = dtpData.Value.Date.ToString();
+                a= a.Replace("/", "-");
+                b= b.Replace("/", "-");
+                c = DateTime.Parse(a);
+                d = DateTime.Parse(b);
+                CAP = Icontasapagar.Filtro(d,c).ToList();
                 DgvDespesa.DataSource = CAP;
             }
+            
             
             
         }
@@ -58,6 +69,12 @@ namespace ShrAgropecuaria.Views.Pesquisas
             }
 
 
+        }
+
+        private void PesquisaLancarDespesa_Load(object sender, EventArgs e)
+        {
+            List<ContasAPagar> CAP = Icontasapagar.GetAll("").ToList();
+            DgvDespesa.DataSource = CAP;
         }
     }
     
