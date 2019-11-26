@@ -18,8 +18,11 @@ namespace ShrAgropecuaria.Classes
         public int? Vendaid { get => _vendaid; set => _vendaid = value; }
         public ProdutoPET Produto { get => _produto; set => _produto = value; }
         public int? ProdutoID { get => _produto.Pp_cod; set => _produto.Pp_cod = value; }
+        public string DescricaoProduto { get { return _produto.Pp_descricao; } }
         public int Pv_quantidade { get => _pv_quantidade; set => _pv_quantidade = value; }
         public decimal Pv_valor_unitario { get => pv_valor_unitario; set => pv_valor_unitario = value; }
+
+        
 
         public override bool Equals(object obj)
         {

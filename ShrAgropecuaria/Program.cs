@@ -33,7 +33,11 @@ namespace ProjAvaliacao2Bim
                 //Application.Run(new view_Menu());
                 MySqlParametrizacaoRepository m = new MySqlParametrizacaoRepository(Connection.GetConnection());
                 if(m.Get() == null)
+                {
                     Application.Run(Dependencia.Container.GetInstance<view_Parametrização>());
+                    Application.Run(Dependencia.Container.GetInstance<view_Usuario>());
+                }
+                    
                 Application.Run(Dependencia.Container.GetInstance<view_Login>());
             }
             

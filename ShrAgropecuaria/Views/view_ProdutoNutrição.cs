@@ -35,7 +35,7 @@ namespace ShrAgropecuaria.Views
             txtNome.Text = "";
             txtObs.Text = "";
             txtValor.Text = "";
-            dtpPrevisao.Value = DateTime.Now;
+            dtpPrevisao.Text = "";
             cbTipo.SelectedItem = "";
             txtNome.BackColor = Color.White;
             txtValor.BackColor = Color.White;
@@ -60,7 +60,7 @@ namespace ShrAgropecuaria.Views
                 txtNome.BackColor = Color.Red;
             }
             else
-                if (!decimal.TryParse(txtValor.Text, out n))
+                if (!decimal.TryParse(txtValor.Text.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", ",").Replace(" ", ""), out n))
                 {
                     lbR.Text = "Valor invalido";
                     txtValor.BackColor = Color.Red;
@@ -77,7 +77,7 @@ namespace ShrAgropecuaria.Views
                         prod.Prodn_ativo = 'A';
                         prod.Prodn_nomeprod = txtNome.Text;
                         prod.Prodn_obs = txtObs.Text;
-                        prod.Prodn_previsaoentrega = dtpPrevisao.Value;
+                        prod.Prodn_previsaoentrega = Convert.ToInt32(dtpPrevisao.Text);
                         prod.Prod_valorunitario = n;
                         prod.TipoProdutoNutricao = (TipoProdutoNutricao)cbTipo.SelectedItem;
                         if (txtID.Text.Length == 0)
@@ -135,9 +135,51 @@ namespace ShrAgropecuaria.Views
                 txtID.Text = a.Produto.Prodn_cod.ToString();
                 txtNome.Text = a.Produto.Prodn_nomeprod;
                 txtObs.Text = a.Produto.Prodn_obs;
-                txtValor.Text = a.Produto.Prod_valorunitario.ToString();
-                dtpPrevisao.Value = a.Produto.Prodn_previsaoentrega;
+                txtValor.Text = a.Produto.Prod_valorunitario.ToString().PadLeft(11,' ');
+                dtpPrevisao.Text = a.Produto.Prodn_previsaoentrega.ToString();
                 cbTipo.SelectedItem = a.Produto.TipoProdutoNutricao;
+            }
+        }
+
+        private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string buff = "";
+            int i;
+            if (txtValor.MaskCompleted)
+            {
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    char[] chars = txtValor.Text.ToCharArray();
+
+                    for (i = 0; i < chars.Length - 1; i++)
+                        chars[i] = chars[i + 1];
+
+                    chars[i] = e.KeyChar;
+
+                    for (i = 0; i < chars.Length; i++)
+                        buff += chars[i];
+
+                    buff = buff.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", "").Replace(",", "").Replace(" ", "");
+
+                    txtValor.Text = buff.PadLeft(11);
+                }
+            }
+        }
+
+        private void SomenteNumero(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
             }
         }
     }

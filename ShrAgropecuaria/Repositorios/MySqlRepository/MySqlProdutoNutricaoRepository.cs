@@ -41,6 +41,30 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
             }, new { nome = "%" + nome + "%" }, splitOn: "tpn_cod");
         }
 
+        public IEnumerable<ProdutoNutricao> GetCat(int? id)
+        {
+            string sql = @"select prod.*, tipo.* from produtonutricao prod
+                            inner join tipoprodutonutricao tipo on prod.tpn_cod = tipo.tpn_cod
+                            where tipo.tpn_cod = @id and prodn_ativo = 'A'";
+            return Connection.Query<ProdutoNutricao, TipoProdutoNutricao, ProdutoNutricao>(sql, (produtonutricao, tipoprodutonutricao) =>
+            {
+                produtonutricao.TipoProdutoNutricao = tipoprodutonutricao;
+                return produtonutricao;
+            }, new { id }, splitOn: "tpn_cod");
+        }
+
+        public IEnumerable<ProdutoNutricao> GetCatNome(string nome, int? id)
+        {
+            string sql = @"select prod.*, tipo.* from produtonutricao prod
+                            inner join tipoprodutonutricao tipo on prod.tpn_cod = tipo.tpn_cod
+                            where prod.prodn_nomeprod like @nome and tipo.tpn_cod = @id and prodn_ativo = 'A'";
+            return Connection.Query<ProdutoNutricao, TipoProdutoNutricao, ProdutoNutricao>(sql, (produtonutricao, tipoprodutonutricao) =>
+            {
+                produtonutricao.TipoProdutoNutricao = tipoprodutonutricao;
+                return produtonutricao;
+            }, new { id, nome = "%" + nome + "%" }, splitOn: "tpn_cod");
+        }
+
         public void Gravar(ProdutoNutricao prod)
         {
             if (prod.Prodn_cod == null)

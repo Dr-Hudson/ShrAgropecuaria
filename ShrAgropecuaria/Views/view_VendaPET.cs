@@ -38,6 +38,18 @@ namespace ShrAgropecuaria.Views
             }
         }
 
+        public void RenomeiaCampos()
+        {
+            dgvProdutos.Columns.Remove("Venda");
+            dgvProdutos.Columns.Remove("Vendaid");
+            dgvProdutos.Columns.Remove("ProdutoID");
+            dgvProdutos.Columns.Remove("Produto");
+            dgvProdutos.Columns["DescricaoProduto"].HeaderText = "Produto";
+            dgvProdutos.Columns["Pv_quantidade"].HeaderText = "Quantidade";
+            dgvProdutos.Columns["Pv_valor_unitario"].HeaderText = "Valor Unitário";
+
+        }
+
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             int n;
@@ -64,6 +76,7 @@ namespace ShrAgropecuaria.Views
                     }
                     txtQtde.Text = "";
                 }
+                RenomeiaCampos();
             }
         }
 
@@ -127,15 +140,24 @@ namespace ShrAgropecuaria.Views
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
             var a = new PesquisaVendaPET(VendaPETRepository);
-
+            
             if (a.ShowDialog() == DialogResult.OK)
             {
-
-                txtcliente.Text = a.ProdutoPET.Cliente.Cli_nome;
-                txtValor.Text = a.ProdutoPET.Vp_valortotal.ToString();
-                dtpData.Value = a.ProdutoPET.Vp_datavenda;
+                List<ProdutoVenda> lpv = new List<ProdutoVenda>();
+                lpv = VendaPETRepository.GetPVenda(a.VendPet.Vp_cod).ToList();
+                txtcliente.Text = a.VendPet.Cliente.Cli_nome;
+                txtValor.Text = a.VendPet.Vp_valortotal.ToString();
+                dtpData.Value = a.VendPet.Vp_datavenda;
+                dgvProdutos.DataSource = lpv;
+                RenomeiaCampos();
+                
                 
             }
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -14,5 +14,7 @@ namespace ShrAgropecuaria.Repositorios.Interfaces
         void atualizarproduto(int cod, int n);
 
         IEnumerable<VendaPET> getALL(string nome);
+
+        IEnumerable<ProdutoVenda> GetPVenda(int? cod);
     }
 }

@@ -20,7 +20,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
         public void atualizarproduto(int cod, int n)
         {
 
-            Connection.Execute("update produtopet set produtopet" +
+            Connection.Execute("update produtopet set" +
                    " pp_estoque = @n" +
                    " where pp_cod = @cod", new { n, cod});
         }
@@ -56,5 +56,22 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
             }, new { Nome = "%" + nome + "%" }, splitOn: "cli_cod, user_cod");
         }
 
+        public IEnumerable<ProdutoVenda> GetPVenda(int? cod)
+        {
+            string sql = @"select pv.*, ven.*, pp.*, cat.* from produtovenda pv
+                            inner join vendapet ven on pv.vp_cod = ven.vp_cod
+                            inner join produtopet pp on pp.pp_cod = pv.pp_cod
+                            inner join categoriaprodutopet cat on pp.cat_cod = cat.cat_cod
+                            where pv.vp_cod = @id";
+            return Connection.Query<ProdutoVenda, VendaPET, ProdutoPET, CategoriaProdutoPET, ProdutoVenda>(sql, (produtovenda, vendapet, produtopet, categoria) =>
+            {
+                produtopet.Cat = categoria;
+                produtovenda.Produto = produtopet;
+                produtovenda.Venda = vendapet;
+                return produtovenda;
+            }, new { id = cod }, splitOn: "vp_cod,pp_cod, cat_cod");
+        }
+
+        
     }
 }

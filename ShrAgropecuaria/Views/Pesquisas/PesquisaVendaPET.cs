@@ -15,7 +15,7 @@ namespace ShrAgropecuaria.Views.Pesquisas
     public partial class PesquisaVendaPET : Form
     {
         public IVendaPETRepository VendaPETRepository { get; }
-        public VendaPET ProdutoPET = new VendaPET();
+        public VendaPET VendPet = new VendaPET();
 
         public PesquisaVendaPET(IVendaPETRepository vendaPETRepository)
         {
@@ -38,7 +38,7 @@ namespace ShrAgropecuaria.Views.Pesquisas
         {
             try
             {
-                ProdutoPET = dgvDados.CurrentRow?.DataBoundItem as VendaPET;
+                VendPet = dgvDados.CurrentRow?.DataBoundItem as VendaPET;
                 if (dgvDados.CurrentRow != null)
                 {
                     DialogResult = DialogResult.OK;
