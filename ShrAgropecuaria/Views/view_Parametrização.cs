@@ -31,6 +31,13 @@ namespace ShrAgropecuaria.Views
             {
                 txtLogo.Text = p.Par_logo;
                 txtNome.Text = p.Par_nomeemp;
+                mask_cnpj.Text = p.Par_cnpj;
+                txt_endereco.Text = p.Par_endereco;
+                txt_bairro.Text = p.Par_bairro;
+                mask_cep.Text = p.Par_cep;
+                mask_numero.Text = p.Par_numero.ToString();
+                txt_complemento.Text = p.Par_complemento;
+                txt_cidade.Text = CidadeRepository.Get(p.Cid_cod).Cid_nome;
                 flag = false;
             }
 
@@ -38,21 +45,90 @@ namespace ShrAgropecuaria.Views
 
         private void BtAlterar_Click(object sender, EventArgs e)
         {
+            Parametrizacao pa = new Parametrizacao();
             if (txtNome.TextLength > 0)
             {
+                pa.Par_nomeemp = txtNome.Text;
                 if (txtLogo.Text.Length > 0)
                 {
-                    Parametrizacao p = new Parametrizacao();
-                    p.Par_logo = txtLogo.Text;
-                    p.Par_nomeemp = txtNome.Text;
-                    ParametrizacaoRepository.Gravar(p, flag);
-                    if (flag == true)
-                        Close();
+                    pa.Par_logo = txtLogo.Text;
+                    string cnpj = mask_cnpj.Text.Replace(",", "").Replace("-", "").Replace("/", "").Replace(" ", "");
+                    if (cnpj.Length > 13)
+                    {
+                        pa.Par_cnpj = cnpj;
+                        if (txt_endereco.Text.Length > 0)
+                        {
+                            pa.Par_endereco = txt_endereco.Text;
+                            if (txt_bairro.Text.Length > 0)
+                            {
+                                pa.Par_bairro = txt_bairro.Text;
+                                if (mask_cep.Text.Length == 9)
+                                {
+                                    pa.Par_cep = mask_cep.Text.Replace("-", "");
+                                    if (mask_numero.Text.Length > 0)
+                                    {
+                                        pa.Par_numero = Convert.ToInt32(mask_numero.Text);
+                                        if (txt_cidade.Text.Length > 0)
+                                        {
+                                            pa.Cid_cod = CidadeRepository.PegaId(txt_cidade.Text).Cid_cod;
+                                            if (txt_complemento.Text.Length > 0)
+                                                pa.Par_complemento = txt_complemento.Text;
+                                            else
+                                                pa.Par_complemento = "";
+
+                                            ParametrizacaoRepository.Gravar(pa, flag);
+                                            Close();
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Selecione uma Cidade");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        mask_numero.Focus();
+                                        MessageBox.Show("Campo Número incompleto.");
+                                    }
+                                }
+                                else
+                                {
+                                    mask_cep.Focus();
+                                    MessageBox.Show("Campo CEP Incorreto.");
+                                }
+                            }
+                            else
+                            {
+                                txt_bairro.Focus();
+                                MessageBox.Show("Campo Bairro está vazio.");
+                            }
+                        }
+                        else
+                        {
+                            txt_endereco.Focus();
+                            MessageBox.Show("Campo Endereço está vazio.");
+                        }
+                    }
+                    else
+                    {
+                        mask_cnpj.Focus();
+                        MessageBox.Show("Campo CNPJ está invalido.");
+                    }
+
+                    
                 }
-                MessageBox.Show("Link da logo não pode estar vazio");
+                else
+                {
+                    txtLogo.Focus();
+                    MessageBox.Show("Link da logo não pode estar vazio");
+                }
+                
             }
             else
+            {
                 MessageBox.Show("Nome não pode ser vazio");
+                txtNome.Focus();
+            }
+                
 
         }
 

@@ -26,13 +26,14 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
         {
             if(f == true)
             {
-                Connection.Execute("insert into parametrizacao (par_logo,par_nomeemp)" +
-                   " values(@par_logo, @par_nomeemp)", par);
+                Connection.Execute("insert into parametrizacao (par_nomeemp, par_logo, par_cnpj, par_endereco, par_bairro, par_cep, par_complemento, par_numero, cid_cod)" +
+                   " values(@par_nomeemp, @par_logo, @par_cnpj, @par_endereco, @par_bairro, @par_cep, @par_complemento, @par_numero, @cid_cod)", par);
             }
             else
             {
                 Connection.Execute("update parametrizacao set" +
-                   " par_nomeemp = @par_nomeemp, par_logo = @par_logo", par);
+                   " par_nomeemp = @par_nomeemp, par_logo = @par_logo, par_cnpj = @par_cnpj, par_endereco = @par_endereco, par_bairro = @par_bairro," +
+                   " par_cep = @par_cep, par_complemento = @par_complemento, par_numero = @par_numero, cid_cod = @cid_cod", par);
             }
         }
 
