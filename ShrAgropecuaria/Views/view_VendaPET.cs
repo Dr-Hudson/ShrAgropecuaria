@@ -53,7 +53,13 @@ namespace ShrAgropecuaria.Views
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             int n;
-            if(int.TryParse(txtQtde.Text,out n) && n>0)
+            List<ProdutoVenda> aa = new List<ProdutoVenda>();
+            aa = (List<ProdutoVenda>)dgvProdutos.DataSource;
+            if(produtos.Count == 0)
+                if(aa != null)
+                    foreach (var k in aa)
+                        produtos.Add(k);
+            if (int.TryParse(txtQtde.Text,out n) && n>0)
             { 
                 var a = new PesquisaProdutoPET(ProdutoPETRepository);
                 if (a.ShowDialog() == DialogResult.OK)
@@ -62,6 +68,8 @@ namespace ShrAgropecuaria.Views
                     pv.Produto = a.pp;
                     pv.Pv_quantidade = n;
                     pv.Pv_valor_unitario = a.pp.Pp_valorunitario;
+                    
+                        
                     produtos.Add(pv);
                     dgvProdutos.DataSource = null;
                     dgvProdutos.DataSource = produtos;
@@ -90,9 +98,11 @@ namespace ShrAgropecuaria.Views
                     produtos.Remove(pv);
                     decimal d = Convert.ToDecimal(txtValor.Text);
                     d -= pv.Pv_quantidade * pv.Produto.Pp_valorunitario;
+                    txtValor.Text = d.ToString();
                     dgvProdutos.DataSource = null;
                     dgvProdutos.DataSource = produtos;
                 }
+                RenomeiaCampos();
             }
             catch (Exception erro)
             {
@@ -133,6 +143,7 @@ namespace ShrAgropecuaria.Views
                     produtos.Clear();
                     dgvProdutos.DataSource = null;
                     txtValor.Text = "";
+                    MessageBox.Show("Gravado com sucesso!");
                 }
             }
         }
@@ -149,15 +160,43 @@ namespace ShrAgropecuaria.Views
                 txtValor.Text = a.VendPet.Vp_valortotal.ToString();
                 dtpData.Value = a.VendPet.Vp_datavenda;
                 dgvProdutos.DataSource = lpv;
+                produtos.Clear();
+                foreach (var k in lpv)
+                    produtos.Add(k);
                 RenomeiaCampos();
                 
                 
             }
+
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
+            foreach(var a in produtos)
+            {
+                int estoque = a.Produto.Pp_estoque + a.Pv_quantidade;
+                int? c = a.ProdutoID;
+                VendaPETRepository.atualizarproduto((int)c, estoque);
+            }
+            List<ProdutoVenda> lpv = (List<ProdutoVenda>)dgvProdutos.DataSource;
+            
+        }
 
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            List<ProdutoVenda> lpv = (List<ProdutoVenda>)dgvProdutos.DataSource;
+            ProdutoVenda k = new ProdutoVenda();
+            foreach(var a in lpv)
+            {
+                int estoque = a.Produto.Pp_estoque + a.Pv_quantidade;
+                int? c = a.ProdutoID;
+                VendaPETRepository.atualizarproduto((int)c, estoque);
+                k = a;
+
+
+            }
+            VendaPETRepository.Exclui(k, k.Venda);
+            MessageBox.Show("Excluído com sucesso!");
         }
     }
 }

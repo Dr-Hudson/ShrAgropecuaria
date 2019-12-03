@@ -34,20 +34,38 @@ namespace ShrAgropecuaria.Views.Pesquisas
             }
             else if (txt_id.Text == "" && txt_nome.Text == "" && dtpData.Value != null)
             {
-                string a, b;
-                DateTime c, d;
-                a = dtpData.Value.ToString();
-                b = dtpData.Value.Date.ToString();
-                a= a.Replace("/", "-");
-                b= b.Replace("/", "-");
-                c = DateTime.Parse(a);
-                d = DateTime.Parse(b);
-                CAP = Icontasapagar.Filtro(d,c).ToList();
+                //string a, b;
+                //DateTime c, d;
+                //a = dtpData.Value.ToString();
+                //b = dtpDataFinal.Value.ToString();
+                //a= a.Replace("/", "-");
+                //b= b.Replace("/", "-");
+                //c = DateTime.Parse(a);
+                //d = DateTime.Parse(b);
+                CAP = Icontasapagar.Filtro(dtpData.Value.Date, dtpDataFinal.Value.Date).ToList();
                 DgvDespesa.DataSource = CAP;
             }
+            RenomearCampos();
             
             
             
+        }
+        public void RenomearCampos()
+        {
+            DgvDespesa.Columns["Cap_descricao"].HeaderText = "Descrição da despesa";
+            DgvDespesa.Columns["Cap_datageracao"].HeaderText = "Data de lançamento";
+            DgvDespesa.Columns["Cap_datavencimento"].HeaderText = "Data do vencimento";
+            DgvDespesa.Columns["Cap_valordespesa"].HeaderText = "Valor da despesa";
+            DgvDespesa.Columns["Cap_datapagamento"].HeaderText = "Data de pagamento";
+            DgvDespesa.Columns["Cap_valorpago"].HeaderText = "Valor Pago";
+            DgvDespesa.Columns["DespesaDescricao"].HeaderText = "Categoria da despesa";
+            DgvDespesa.Columns["NomeUsuario"].HeaderText = "Nome do Usuario";
+
+            DgvDespesa.Columns.Remove("User");
+            DgvDespesa.Columns.Remove("Despesaid");
+            DgvDespesa.Columns.Remove("Usuarioid");
+            DgvDespesa.Columns.Remove("PedidoPetid");
+            DgvDespesa.Columns.Remove("Cap_cod");
         }
 
         private void BtnSelecionarCid_Click(object sender, EventArgs e)
@@ -75,6 +93,7 @@ namespace ShrAgropecuaria.Views.Pesquisas
         {
             List<ContasAPagar> CAP = Icontasapagar.GetAll("").ToList();
             DgvDespesa.DataSource = CAP;
+            RenomearCampos();
         }
     }
     

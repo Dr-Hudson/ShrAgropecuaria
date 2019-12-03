@@ -72,6 +72,16 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
             }, new { id = cod }, splitOn: "vp_cod,pp_cod, cat_cod");
         }
 
-        
+        public void Exclui(ProdutoVenda p, VendaPET v)
+        {
+            Connection.Execute("delete from produtovenda where vp_cod = @Vendaid", p);
+
+            Connection.Execute("delete from vendapet where vp_cod = @vp_cod", v);
+        }
+
+        public void Update(ProdutoVenda p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

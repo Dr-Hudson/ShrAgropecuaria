@@ -15,7 +15,7 @@ namespace ShrAgropecuaria.Classes
         decimal pv_valor_unitario;
 
         public VendaPET Venda { get => _venda; set => _venda = value; }
-        public int? Vendaid { get => _vendaid; set => _vendaid = value; }
+        public int? Vendaid { get { return Venda.Vp_cod; } set { Venda.Vp_cod = value; } }
         public ProdutoPET Produto { get => _produto; set => _produto = value; }
         public int? ProdutoID { get => _produto.Pp_cod; set => _produto.Pp_cod = value; }
         public string DescricaoProduto { get { return _produto.Pp_descricao; } }
