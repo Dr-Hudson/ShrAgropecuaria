@@ -18,8 +18,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
         }
         public Parametrizacao Get()
         {
-            string sql = @"select *
-                    from parametrizacao";
+            string sql = @"select * from parametrizacao";
             return Connection.Query<Parametrizacao>(sql).FirstOrDefault();
         }
 
@@ -27,8 +26,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
         {
             if(f == true)
             {
-                Connection.Execute("insert into parametrizacao" +
-                   "(par_logo,par_nomeemp)" +
+                Connection.Execute("insert into parametrizacao (par_logo,par_nomeemp)" +
                    " values(@par_logo, @par_nomeemp)", par);
             }
             else
