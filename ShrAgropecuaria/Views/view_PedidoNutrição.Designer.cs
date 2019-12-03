@@ -29,12 +29,9 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cbb_Fazenda = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txt_nomeFazenda = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txt_idFazenda = new System.Windows.Forms.TextBox();
-            this.btn_pesqFazenda = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label28 = new System.Windows.Forms.Label();
@@ -62,13 +59,16 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbb_FormaPgto = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.mask_porcentagem = new System.Windows.Forms.MaskedTextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dataE = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txt_porcentagem = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.mask_telefone = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -89,17 +89,22 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.cbb_Fazenda);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.txt_nomeFazenda);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.txt_idFazenda);
-            this.panel2.Controls.Add(this.btn_pesqFazenda);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(573, 59);
+            this.panel2.Location = new System.Drawing.Point(574, 60);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(555, 116);
+            this.panel2.Size = new System.Drawing.Size(465, 116);
             this.panel2.TabIndex = 3;
+            // 
+            // cbb_Fazenda
+            // 
+            this.cbb_Fazenda.FormattingEnabled = true;
+            this.cbb_Fazenda.Location = new System.Drawing.Point(93, 59);
+            this.cbb_Fazenda.Name = "cbb_Fazenda";
+            this.cbb_Fazenda.Size = new System.Drawing.Size(329, 21);
+            this.cbb_Fazenda.TabIndex = 46;
             // 
             // label2
             // 
@@ -112,60 +117,22 @@
             this.label2.Text = "Dados da Fazenda:";
             this.label2.UseWaitCursor = true;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(7, 45);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(27, 22);
-            this.label3.TabIndex = 47;
-            this.label3.Text = "Id";
-            // 
-            // txt_nomeFazenda
-            // 
-            this.txt_nomeFazenda.Location = new System.Drawing.Point(169, 74);
-            this.txt_nomeFazenda.Name = "txt_nomeFazenda";
-            this.txt_nomeFazenda.ReadOnly = true;
-            this.txt_nomeFazenda.Size = new System.Drawing.Size(256, 20);
-            this.txt_nomeFazenda.TabIndex = 41;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(7, 72);
+            this.label4.Location = new System.Drawing.Point(8, 59);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 22);
+            this.label4.Size = new System.Drawing.Size(79, 22);
             this.label4.TabIndex = 42;
-            this.label4.Text = "Nome da Fazenda";
-            // 
-            // txt_idFazenda
-            // 
-            this.txt_idFazenda.Location = new System.Drawing.Point(169, 47);
-            this.txt_idFazenda.Name = "txt_idFazenda";
-            this.txt_idFazenda.ReadOnly = true;
-            this.txt_idFazenda.Size = new System.Drawing.Size(256, 20);
-            this.txt_idFazenda.TabIndex = 46;
-            // 
-            // btn_pesqFazenda
-            // 
-            this.btn_pesqFazenda.Enabled = false;
-            this.btn_pesqFazenda.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_pesqFazenda.Location = new System.Drawing.Point(431, 71);
-            this.btn_pesqFazenda.Name = "btn_pesqFazenda";
-            this.btn_pesqFazenda.Size = new System.Drawing.Size(89, 27);
-            this.btn_pesqFazenda.TabIndex = 0;
-            this.btn_pesqFazenda.Text = "Pesquisar";
-            this.btn_pesqFazenda.UseVisualStyleBackColor = true;
-            this.btn_pesqFazenda.Click += new System.EventHandler(this.btn_pesqFazenda_Click);
+            this.label4.Text = "Fazenda";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(521, 71);
+            this.label5.Location = new System.Drawing.Point(425, 56);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(27, 33);
             this.label5.TabIndex = 0;
@@ -181,9 +148,9 @@
             this.panel1.Controls.Add(this.txt_idCli);
             this.panel1.Controls.Add(this.btn_pesqCliente);
             this.panel1.Controls.Add(this.label17);
-            this.panel1.Location = new System.Drawing.Point(12, 59);
+            this.panel1.Location = new System.Drawing.Point(102, 60);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(555, 116);
+            this.panel1.Size = new System.Drawing.Size(465, 116);
             this.panel1.TabIndex = 2;
             // 
             // label28
@@ -212,7 +179,7 @@
             this.txt_nomeCliente.Location = new System.Drawing.Point(169, 74);
             this.txt_nomeCliente.Name = "txt_nomeCliente";
             this.txt_nomeCliente.ReadOnly = true;
-            this.txt_nomeCliente.Size = new System.Drawing.Size(256, 20);
+            this.txt_nomeCliente.Size = new System.Drawing.Size(163, 20);
             this.txt_nomeCliente.TabIndex = 41;
             // 
             // label1
@@ -230,13 +197,13 @@
             this.txt_idCli.Location = new System.Drawing.Point(169, 47);
             this.txt_idCli.Name = "txt_idCli";
             this.txt_idCli.ReadOnly = true;
-            this.txt_idCli.Size = new System.Drawing.Size(256, 20);
+            this.txt_idCli.Size = new System.Drawing.Size(90, 20);
             this.txt_idCli.TabIndex = 46;
             // 
             // btn_pesqCliente
             // 
             this.btn_pesqCliente.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_pesqCliente.Location = new System.Drawing.Point(431, 71);
+            this.btn_pesqCliente.Location = new System.Drawing.Point(338, 70);
             this.btn_pesqCliente.Name = "btn_pesqCliente";
             this.btn_pesqCliente.Size = new System.Drawing.Size(89, 27);
             this.btn_pesqCliente.TabIndex = 0;
@@ -249,7 +216,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(521, 71);
+            this.label17.Location = new System.Drawing.Point(428, 70);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(27, 33);
             this.label17.TabIndex = 44;
@@ -431,13 +398,16 @@
             // panel10
             // 
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel10.Controls.Add(this.label3);
+            this.panel10.Controls.Add(this.cbb_FormaPgto);
+            this.panel10.Controls.Add(this.label16);
+            this.panel10.Controls.Add(this.mask_porcentagem);
             this.panel10.Controls.Add(this.label15);
             this.panel10.Controls.Add(this.label14);
             this.panel10.Controls.Add(this.label12);
             this.panel10.Controls.Add(this.dataE);
             this.panel10.Controls.Add(this.label11);
             this.panel10.Controls.Add(this.label10);
-            this.panel10.Controls.Add(this.txt_porcentagem);
             this.panel10.Controls.Add(this.label13);
             this.panel10.Controls.Add(this.mask_telefone);
             this.panel10.Controls.Add(this.label9);
@@ -449,12 +419,53 @@
             this.panel10.Size = new System.Drawing.Size(937, 99);
             this.panel10.TabIndex = 52;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(808, 61);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(27, 33);
+            this.label3.TabIndex = 63;
+            this.label3.Text = "*";
+            // 
+            // cbb_FormaPgto
+            // 
+            this.cbb_FormaPgto.FormattingEnabled = true;
+            this.cbb_FormaPgto.Location = new System.Drawing.Point(676, 64);
+            this.cbb_FormaPgto.Name = "cbb_FormaPgto";
+            this.cbb_FormaPgto.Size = new System.Drawing.Size(129, 21);
+            this.cbb_FormaPgto.TabIndex = 47;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(490, 63);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(186, 22);
+            this.label16.TabIndex = 62;
+            this.label16.Text = "Forma de Pagamento";
+            // 
+            // mask_porcentagem
+            // 
+            this.mask_porcentagem.Location = new System.Drawing.Point(676, 36);
+            this.mask_porcentagem.Mask = "00";
+            this.mask_porcentagem.Name = "mask_porcentagem";
+            this.mask_porcentagem.Size = new System.Drawing.Size(34, 20);
+            this.mask_porcentagem.TabIndex = 61;
+            this.mask_porcentagem.ValidatingType = typeof(int);
+            this.mask_porcentagem.Click += new System.EventHandler(this.mask_porcentagem_Click);
+            this.mask_porcentagem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mask_porcentagem_KeyPress);
+            this.mask_porcentagem.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mask_porcentagem_KeyUp);
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(740, 46);
+            this.label15.Location = new System.Drawing.Point(713, 33);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(27, 33);
             this.label15.TabIndex = 60;
@@ -465,7 +476,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(902, 21);
+            this.label14.Location = new System.Drawing.Point(906, 7);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(27, 33);
             this.label14.TabIndex = 59;
@@ -484,7 +495,7 @@
             // 
             // dataE
             // 
-            this.dataE.Location = new System.Drawing.Point(672, 24);
+            this.dataE.Location = new System.Drawing.Point(676, 10);
             this.dataE.Name = "dataE";
             this.dataE.Size = new System.Drawing.Size(227, 20);
             this.dataE.TabIndex = 57;
@@ -493,7 +504,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(490, 20);
+            this.label11.Location = new System.Drawing.Point(490, 6);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(176, 22);
             this.label11.TabIndex = 56;
@@ -503,19 +514,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(490, 48);
+            this.label10.Location = new System.Drawing.Point(490, 34);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(118, 22);
             this.label10.TabIndex = 55;
             this.label10.Text = "Porcentagem";
-            // 
-            // txt_porcentagem
-            // 
-            this.txt_porcentagem.Location = new System.Drawing.Point(672, 50);
-            this.txt_porcentagem.Name = "txt_porcentagem";
-            this.txt_porcentagem.Size = new System.Drawing.Size(65, 20);
-            this.txt_porcentagem.TabIndex = 54;
-            this.txt_porcentagem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // label13
             // 
@@ -574,17 +577,17 @@
             // panel11
             // 
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel11.Location = new System.Drawing.Point(1044, 181);
+            this.panel11.Location = new System.Drawing.Point(1044, 60);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(85, 99);
+            this.panel11.Size = new System.Drawing.Size(85, 220);
             this.panel11.TabIndex = 53;
             // 
             // panel12
             // 
             this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel12.Location = new System.Drawing.Point(12, 181);
+            this.panel12.Location = new System.Drawing.Point(12, 60);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(85, 99);
+            this.panel12.Size = new System.Drawing.Size(85, 220);
             this.panel12.TabIndex = 54;
             // 
             // view_PedidoNutrição
@@ -628,11 +631,7 @@
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txt_nomeFazenda;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txt_idFazenda;
-        private System.Windows.Forms.Button btn_pesqFazenda;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label28;
@@ -667,7 +666,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.MaskedTextBox mask_telefone;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txt_porcentagem;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
@@ -675,5 +673,10 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.ComboBox cbb_Fazenda;
+        private System.Windows.Forms.MaskedTextBox mask_porcentagem;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbb_FormaPgto;
+        private System.Windows.Forms.Label label16;
     }
 }

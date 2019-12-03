@@ -19,6 +19,7 @@ namespace ShrAgropecuaria.Classes
         Fazenda fazenda;
         Cliente cliente;
         Usuario usuario;
+        int pn_formapgto;
 
         int user_cod = Session.Instance.ID;
 
@@ -40,5 +41,6 @@ namespace ShrAgropecuaria.Classes
         public int? cli_cod { get { return Cliente?.Cli_cod; } }
 
         public int User_cod { get => user_cod; set => user_cod = value; }
+        public int Pn_formapgto { get => pn_formapgto; set => pn_formapgto = value; }
     }
 }

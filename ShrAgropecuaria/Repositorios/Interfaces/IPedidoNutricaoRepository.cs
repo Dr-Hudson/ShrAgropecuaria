@@ -18,5 +18,6 @@ namespace ShrAgropecuaria.Repositorios.Interfaces
         void GravarProdutoPedido(ProdutoPedidoNutricao prodPedNutri);
         void GravarPedido(PedidoNutricao pedNutri);
         void Excluir(int id);
+        void DeletaProdutosPedido(int id);
     }
 }

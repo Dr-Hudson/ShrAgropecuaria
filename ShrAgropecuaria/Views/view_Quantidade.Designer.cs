@@ -57,9 +57,10 @@
             this.txt_quant.Location = new System.Drawing.Point(123, 44);
             this.txt_quant.Name = "txt_quant";
             this.txt_quant.Size = new System.Drawing.Size(141, 20);
-            this.txt_quant.TabIndex = 48;
+            this.txt_quant.TabIndex = 0;
             this.txt_quant.TextChanged += new System.EventHandler(this.txt_quant_TextChanged);
             this.txt_quant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_quant_KeyPress);
+            this.txt_quant.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_quant_KeyUp);
             // 
             // btn_Confirmar
             // 

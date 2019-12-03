@@ -49,5 +49,13 @@ namespace ShrAgropecuaria.Views
         {
 
         }
+
+        private void txt_quant_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txt_quant.Text == "0" || (txt_quant.Text != "" && Convert.ToInt32(txt_quant.Text) > 1000000))
+            {
+                txt_quant.Text = "";
+            }
+        }
     }
 }

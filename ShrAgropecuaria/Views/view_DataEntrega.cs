@@ -13,9 +13,10 @@ namespace ShrAgropecuaria.Views
     public partial class view_DataEntrega : Form
     {
         public DateTime dataEntrega;
-        public view_DataEntrega()
+        public view_DataEntrega(DateTime dataPedido)
         {
             InitializeComponent();
+            dataE.MinDate = dataPedido;
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)

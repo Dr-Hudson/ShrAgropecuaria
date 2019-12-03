@@ -12,6 +12,7 @@ namespace ShrAgropecuaria.Repositorios.Interfaces
         IEnumerable<Fazenda> GetAll(string nome);
         IEnumerable<Fazenda> GetByNome(string Nome);
         IEnumerable<Fazenda> GetByIE(string ie);
+        IEnumerable<Fazenda> GetByCliente(string id);
         Fazenda Get(int? id);
     }
 }

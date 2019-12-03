@@ -10,17 +10,20 @@ namespace ShrAgropecuaria.Classes
     {
         PedidoNutricao pedidoNutricao;
         ProdutoNutricao produtoNutricao;
-        int quantidade;
-        int peso;
-        decimal valorvenda;
+        int ppn_quantidade;
+        int ppn_peso;
+        decimal ppn_valorvenda;
 
         public PedidoNutricao PedidoNutricao { get => pedidoNutricao; set => pedidoNutricao = value; }
         public ProdutoNutricao ProdutoNutricao { get => produtoNutricao; set => produtoNutricao = value; }
-        public int Quantidade { get => quantidade; set => quantidade = value; }
-        public int Peso { get => peso; set => peso = value; }
-        public decimal Valorvenda { get => valorvenda; set => valorvenda = value; }
+
+        public string NomeProd { get { return produtoNutricao?.Prodn_nomeprod; } }
 
         public int? idPedNutri { get { return pedidoNutricao?.Pn_cod; } }
         public int? idProdNutri { get { return produtoNutricao?.Prodn_cod; } }
+
+        public int Ppn_quantidade { get => ppn_quantidade; set => ppn_quantidade = value; }
+        public int Ppn_peso { get => ppn_peso; set => ppn_peso = value; }
+        public decimal Ppn_valorvenda { get => ppn_valorvenda; set => ppn_valorvenda = value; }
     }
 }
