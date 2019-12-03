@@ -25,7 +25,7 @@ namespace ShrAgropecuaria.Repositorios.Interfaces
 
         IEnumerable<ContasAPagar> GetFechadas();
         IEnumerable<ContasAPagar> GetFechadasFiltro(DateTime data, DateTime data2);
-        void Estornar(ContasAPagar update, ContasAPagar excluir, bool flag);
+        void Estornar(ContasAPagar update, ContasAPagar excluir);
         
 
         void Quitar(ContasAPagar cap, bool flag);

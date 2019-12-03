@@ -378,13 +378,19 @@ namespace ShrAgropecuaria.Views
         public bool VerificaUltimaParcelaFechada(ContasAPagar cap)
         {
             List<ContasAPagar> lcap = IContasapagar.GetData(cap.Cap_datageracao).ToList();
+            List<ContasAPagar> suport = new List<ContasAPagar>();
             foreach(var a in lcap)
             {
-                if (a.Cap_cod >= cap.Cap_cod)
-                    if (a.Cap_valorpago.Equals(0) || a.Cap_valordespesa == cap.Cap_valorpago)
-                    {
+                if (cap.Cap_datavencimento == a.Cap_datavencimento)
+                    suport.Add(a);
+            }
+            suport = suport.OrderByDescending(c => c.Cap_cod).ToList();
+            
+            foreach(var a in suport)
+            {
+                if (a.Cap_valorpago != 0)
+                    if (a.Cap_cod == cap.Cap_cod)
                         return true;
-                    }
                     else
                         break;
                 
@@ -404,15 +410,14 @@ namespace ShrAgropecuaria.Views
                 lcap = IContasapagar.GetData(cap.Cap_datageracao).ToList();
                 foreach(var a in lcap)
                     if(a.Cap_datavencimento == cap.Cap_datavencimento)
-                        if(a.Cap_cod > cap.Cap_cod || a.Cap_valordespesa == cap.Cap_valorpago)
+                        if(a.Cap_valorpago == 0)
                         {
                             aux = a;
-                            flag=true;
                             break;
                         }
                 cap.Cap_valorpago = 0;
                 cap.Cap_datapagamento = DateTime.MinValue;
-                IContasapagar.Estornar(cap, aux, flag);
+                IContasapagar.Estornar(cap, aux);
                 MessageBox.Show("O valor da parcela foi estornado!!");
                 rbFechado_Click(sender, e);
                 
