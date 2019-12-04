@@ -12,7 +12,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
 
 namespace ShrAgropecuaria.Views
 {
@@ -205,6 +204,8 @@ namespace ShrAgropecuaria.Views
                             }
 
                             PedidoNutricaoRepository.GravarPedido(pedNutri);
+                            txt_codPedido.Text = pedNutri.Pn_cod.ToString();
+                            
 
                             foreach (var item in prodPedNutriList)
                             {
@@ -212,6 +213,7 @@ namespace ShrAgropecuaria.Views
                                 PedidoNutricaoRepository.GravarProdutoPedido(item);
                             }
                             MessageBox.Show("Gravado com Sucesso!");
+                            GerarExcel(pedNutri);
                             LimparTudo();
                         }
                     }
@@ -293,52 +295,75 @@ namespace ShrAgropecuaria.Views
 
         private void btn_GerarExcel_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        public void GerarExcel(PedidoNutricao pedNutri)
+        {
             var package = new ExcelPackage();
             var workbook = package.Workbook;
 
-            var sheet = workbook.Worksheets.Add("Sheet 1");
-            sheet.Cells[1, 1].Value = "Teste 1";
-            sheet.Cells[1, 2].Value = "Teste 2";
-            sheet.Cells[1, 3].Value = "Teste 3";
-            sheet.Cells[2, 1].Value = "Teste 4";
-            sheet.Cells[2, 2].Value = "Teste 5";
-            sheet.Cells[2, 3].Value = "Teste 6";
+            var sheet = workbook.Worksheets.Add("Pedido");
+            sheet.Cells[1, 1].Value = "Código";
+            sheet.Cells[1, 2].Value = "Nome do Cliente";
+            sheet.Cells[1, 3].Value = "Fazenda do Cliente";
+            sheet.Cells[1, 4].Value = "Data do Pedido";
+            sheet.Cells[1, 5].Value = "Previsão de Entrega";
+            sheet.Cells[1, 6].Value = "Data de Entrega";
+            sheet.Cells[1, 7].Value = "Contato";
+            sheet.Cells[1, 8].Value = "Valor Total";
+            sheet.Cells[1, 9].Value = "Porcentagem ";
+            sheet.Cells[1, 10].Value = "Observação";
+            sheet.Cells[1, 11].Value = "Forma de Pagamento";
 
-            sheet.Cells["A5"].Value = "AAAA5555";
-
-            sheet.Cells["A1:E1"].Style.Font.Bold = true;
-
-            sheet.Cells["A1:E1"].Style.Font.Bold = true;
-
-
-            package.SaveAs(new FileInfo(@"sampleEpplus.xlsx"));
+            sheet.Cells[1, 12].Value = "Produto";
+            sheet.Cells[1, 13].Value = "Quantidade";
+            sheet.Cells[1, 14].Value = "Peso";
+            sheet.Cells[1, 15].Value = "Valor Final do Produto";
 
 
-            //// Inicia o componente Excel
-            //Excel.Application xlApp;
-            //Excel.Workbook xlWorkBook;
-            //Excel.Worksheet xlWorkSheet;
-            //object misValue = System.Reflection.Missing.Value;
-            ////Cria uma planilha temporária na memória do computador
-            //xlApp = new Excel.Application();
-            //xlWorkBook = xlApp.Workbooks.Add(misValue);
-            //xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            sheet.Cells[2, 1].Value = pedNutri.Pn_cod;
+            sheet.Cells[2, 2].Value = pedNutri.ClienteNome;
+            sheet.Cells[2, 3].Value = pedNutri.FazendaNome;
+            sheet.Cells[2, 4].Value = pedNutri.Pn_data;
+            sheet.Cells[2, 5].Value = pedNutri.Pn_previsaoentrega;
+            sheet.Cells[2, 6].Value = pedNutri.Pn_dataentrega;
+            sheet.Cells[2, 7].Value = pedNutri.Pn_contato;
+            sheet.Cells[2, 8].Value = pedNutri.Pn_valortotal;
+            sheet.Cells[2, 9].Value = pedNutri.Pn_porcentagem;
+            sheet.Cells[2, 10].Value = pedNutri.Pn_obs;
+            sheet.Cells[2, 11].Value = pedNutri.Pn_formapgto;
 
-            ////incluindo dados
-            //xlWorkSheet.Cells[1, 1] = "Dados do cliente:";
-            //xlWorkSheet.Cells[2, 2] = "Teste 1";
-            //xlWorkSheet.Cells[2, 3] = "Teste 2";
-            //xlWorkSheet.Cells[2, 4] = "Teste 3";
+            string prod = "=", qtde = "=", peso = "=", vprod = "=";
+            for (int i = 0; i < prodPedNutriList.Count ; i++)
+            {
+                if (i == prodPedNutriList.Count - 1)
+                {
+                    prod += "\"" + prodPedNutriList[i].NomeProd + "\"";
+                    qtde += "\"" + prodPedNutriList[i].Ppn_quantidade + "\"";
+                    peso += "\"" + prodPedNutriList[i].Ppn_peso + "\"";
+                    vprod += "\"" + prodPedNutriList[i].Ppn_valorvenda + "\"";
+                }
+                else
+                {
+                    prod += "\"" + prodPedNutriList[i].NomeProd + "\"" + "&CARACT(10)&";
+                    qtde += "\"" + prodPedNutriList[i].Ppn_quantidade + "\"" + "&CARACT(10)&";
+                    peso += "\"" + prodPedNutriList[i].Ppn_peso + "\"" + "&CARACT(10)&";
+                    vprod += "\"" + prodPedNutriList[i].Ppn_valorvenda + "\"" + "&CARACT(10)&";
+                } 
+            }
+            
+            sheet.Cells[2, 12].Value = prod;
+            sheet.Cells[2, 13].Value = qtde;
+            sheet.Cells[2, 14].Value = peso;
+            sheet.Cells[2, 15].Value = vprod;
+            sheet.Cells["L2:O2"].Style.WrapText = true;
 
-            ////Salva o arquivo de acordo com a documentação do Excel.
-            //xlWorkBook.SaveAs("arquivo.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue,
-            //Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-            //xlWorkBook.Close(true, misValue, misValue);
-            //xlApp.Quit();
+            sheet.Cells["A1:O1"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Justify;
 
-            ////o arquivo foi salvo na pasta Meus Documentos.
-            //string caminho = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            //MessageBox.Show("Concluído. Verifique em " + caminho + "arquivo.xls");
+            sheet.Cells["A1:O1"].Style.Font.Bold = true;
+
+            package.SaveAs(new FileInfo(@"C:\Users\Hudso\Desktop\FuncionaPoha.xlsx"));
         }
     }
 }
