@@ -119,6 +119,8 @@ namespace ShrAgropecuaria.Views
             txt_rg.Text = "";
             mask_cpf.Text = "";
             mask_telefone.Text = "";
+
+            mask_fiado.Enabled = true;
         }
 
         public static bool IsCpf(string cpf)
@@ -313,6 +315,8 @@ namespace ShrAgropecuaria.Views
                 txt_rg.Text = a.cli.Cli_rg;
                 mask_cpf.Text = a.cli.Cli_cpf;
                 mask_telefone.Text = a.cli.Cli_telefone;
+
+                mask_fiado.Enabled = false;
             }
         }
 
@@ -323,8 +327,15 @@ namespace ShrAgropecuaria.Views
             cli = ClienteRepository.Get(cod);
             if (cli != null)
             {
-                ClienteRepository.Excluir(cli);
-                MessageBox.Show("Excluído com sucesso!");
+                try
+                {
+                    ClienteRepository.Excluir(cli);
+                    MessageBox.Show("Excluído com sucesso!");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao Excluir o Cliente, o mesmo já está sendo utilizado.");
+                }
             }
             else
             {

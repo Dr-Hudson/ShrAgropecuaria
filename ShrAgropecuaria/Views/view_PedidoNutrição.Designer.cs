@@ -77,12 +77,14 @@
             this.txt_obs = new System.Windows.Forms.TextBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.btn_GerarExcel = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -390,6 +392,7 @@
             // panel9
             // 
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel9.Controls.Add(this.btn_GerarExcel);
             this.panel9.Location = new System.Drawing.Point(797, 623);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(327, 57);
@@ -590,6 +593,17 @@
             this.panel12.Size = new System.Drawing.Size(85, 220);
             this.panel12.TabIndex = 54;
             // 
+            // btn_GerarExcel
+            // 
+            this.btn_GerarExcel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_GerarExcel.Location = new System.Drawing.Point(119, 12);
+            this.btn_GerarExcel.Name = "btn_GerarExcel";
+            this.btn_GerarExcel.Size = new System.Drawing.Size(107, 30);
+            this.btn_GerarExcel.TabIndex = 3;
+            this.btn_GerarExcel.Text = "Gerar Excel";
+            this.btn_GerarExcel.UseVisualStyleBackColor = true;
+            this.btn_GerarExcel.Click += new System.EventHandler(this.btn_GerarExcel_Click);
+            // 
             // view_PedidoNutrição
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -621,6 +635,7 @@
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.ResumeLayout(false);
@@ -678,5 +693,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbb_FormaPgto;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btn_GerarExcel;
     }
 }
