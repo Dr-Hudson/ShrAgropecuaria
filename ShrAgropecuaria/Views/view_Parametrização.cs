@@ -112,29 +112,19 @@ namespace ShrAgropecuaria.Views
                     {
                         mask_cnpj.Focus();
                         MessageBox.Show("Campo CNPJ está invalido.");
-                    }
-
-                    
+                    }  
                 }
                 else
                 {
                     txtLogo.Focus();
                     MessageBox.Show("Link da logo não pode estar vazio");
-                }
-                
+                }  
             }
             else
             {
                 MessageBox.Show("Nome não pode ser vazio");
                 txtNome.Focus();
             }
-                
-
-        }
-
-        private void View_Parametrização_Load(object sender, EventArgs e)
-        {
-            
         }
 
         private void mask_cep_Click(object sender, EventArgs e)
@@ -180,6 +170,52 @@ namespace ShrAgropecuaria.Views
                 mask_cnpj.Select(cnpj.Length + 4, 0);
             else
                 mask_cnpj.Select(0, 0);
+        }
+
+        public bool isCNPJ()
+        {
+            int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int soma,  resto;
+            string digito, tempCnpj, cnpj = mask_cnpj.Text;
+            cnpj = cnpj.Trim();
+            cnpj = cnpj.Replace(".", "").Replace("-", "").Replace("/", "").Replace(",", "");
+
+            tempCnpj = cnpj.Substring(0, 12);
+            soma = 0;
+            for (int i = 0; i < 12; i++)
+                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador1[i];
+            resto = (soma % 11);
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+            digito = resto.ToString();
+            tempCnpj += digito;
+            soma = 0;
+            for (int i = 0; i < 13; i++)
+                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador2[i];
+            resto = (soma % 11);
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+            digito += resto.ToString();
+            return cnpj.EndsWith(digito);
+        }
+
+        private void mask_cnpj_Leave(object sender, EventArgs e)
+        {
+            string cnpj = mask_cnpj.Text.Replace(",", "").Replace("-", "").Replace("/", "").Replace(" ", "");
+            if (cnpj.Length > 13)
+            {
+                if (!isCNPJ())
+                {
+                    mask_cnpj.Text = "";
+                    mask_cnpj.Focus();
+                    MessageBox.Show("CNPJ Invalido!");
+                }
+            }   
         }
     }
 }

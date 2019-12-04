@@ -32,12 +32,14 @@
             this.txtLogo = new System.Windows.Forms.TextBox();
             this.btAlterar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.mask_cnpj = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -58,12 +60,10 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.mask_cnpj = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -74,14 +74,14 @@
             this.txtNome.Location = new System.Drawing.Point(182, 46);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(223, 20);
-            this.txtNome.TabIndex = 1;
+            this.txtNome.TabIndex = 0;
             // 
             // txtLogo
             // 
             this.txtLogo.Location = new System.Drawing.Point(182, 82);
             this.txtLogo.Name = "txtLogo";
             this.txtLogo.Size = new System.Drawing.Size(223, 20);
-            this.txtLogo.TabIndex = 2;
+            this.txtLogo.TabIndex = 1;
             // 
             // btAlterar
             // 
@@ -89,7 +89,7 @@
             this.btAlterar.Location = new System.Drawing.Point(3, 3);
             this.btAlterar.Name = "btAlterar";
             this.btAlterar.Size = new System.Drawing.Size(71, 28);
-            this.btAlterar.TabIndex = 8;
+            this.btAlterar.TabIndex = 0;
             this.btAlterar.Text = "Gravar";
             this.btAlterar.UseVisualStyleBackColor = true;
             this.btAlterar.Click += new System.EventHandler(this.BtAlterar_Click);
@@ -112,46 +112,37 @@
             this.panel1.Size = new System.Drawing.Size(443, 151);
             this.panel1.TabIndex = 9;
             // 
-            // label2
+            // mask_cnpj
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(10, 44);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(161, 22);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Nome da Empresa";
+            this.mask_cnpj.Location = new System.Drawing.Point(182, 114);
+            this.mask_cnpj.Mask = "00.000.000/0000-00";
+            this.mask_cnpj.Name = "mask_cnpj";
+            this.mask_cnpj.Size = new System.Drawing.Size(223, 20);
+            this.mask_cnpj.TabIndex = 2;
+            this.mask_cnpj.Click += new System.EventHandler(this.mask_cnpj_Click);
+            this.mask_cnpj.Leave += new System.EventHandler(this.mask_cnpj_Leave);
             // 
-            // label3
+            // label4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(10, 79);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(155, 22);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Logo da Empresa";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(5, 5);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(146, 26);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Informações:";
+            this.label4.UseWaitCursor = true;
             // 
-            // label1
+            // label6
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 114);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 22);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "CNPJ";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(408, 42);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(27, 33);
-            this.label17.TabIndex = 30;
-            this.label17.Text = "*";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(408, 111);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(27, 33);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "*";
             // 
             // label5
             // 
@@ -164,16 +155,46 @@
             this.label5.TabIndex = 31;
             this.label5.Text = "*";
             // 
-            // label6
+            // label17
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(408, 111);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(27, 33);
-            this.label6.TabIndex = 31;
-            this.label6.Text = "*";
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Red;
+            this.label17.Location = new System.Drawing.Point(408, 42);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(27, 33);
+            this.label17.TabIndex = 30;
+            this.label17.Text = "*";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 114);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 22);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "CNPJ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(10, 79);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(155, 22);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Logo da Empresa";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(10, 44);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(161, 22);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Nome da Empresa";
             // 
             // panel3
             // 
@@ -321,7 +342,7 @@
             this.button1.Location = new System.Drawing.Point(432, 178);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 27);
-            this.button1.TabIndex = 6;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Pesquisar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -389,17 +410,6 @@
             this.label26.TabIndex = 27;
             this.label26.Text = "*";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(5, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(146, 26);
-            this.label4.TabIndex = 36;
-            this.label4.Text = "Informações:";
-            this.label4.UseWaitCursor = true;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -436,15 +446,6 @@
             this.panel5.Size = new System.Drawing.Size(81, 38);
             this.panel5.TabIndex = 45;
             // 
-            // mask_cnpj
-            // 
-            this.mask_cnpj.Location = new System.Drawing.Point(182, 114);
-            this.mask_cnpj.Mask = "00.000.000/0000-00";
-            this.mask_cnpj.Name = "mask_cnpj";
-            this.mask_cnpj.Size = new System.Drawing.Size(223, 20);
-            this.mask_cnpj.TabIndex = 36;
-            this.mask_cnpj.Click += new System.EventHandler(this.mask_cnpj_Click);
-            // 
             // view_Parametrização
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -458,7 +459,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "view_Parametrização";
             this.Text = "view_Parametrização";
-            this.Load += new System.EventHandler(this.View_Parametrização_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);

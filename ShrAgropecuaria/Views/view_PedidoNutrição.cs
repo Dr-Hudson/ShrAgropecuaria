@@ -195,7 +195,7 @@ namespace ShrAgropecuaria.Views
                             pedNutri.Pn_porcentagem = Convert.ToInt32(mask_porcentagem.Text);
                             pedNutri.Pn_formapgto = Convert.ToInt32(cbb_FormaPgto.SelectedItem.ToString());
 
-                            if (txt_codPedido.Text != null)
+                            if (txt_codPedido.Text != "")
                             {
                                 PedidoNutricaoRepository.DeletaProdutosPedido(Convert.ToInt32(txt_codPedido.Text));
                                 pedNutri.Pn_cod = Convert.ToInt32(txt_codPedido.Text);
