@@ -44,6 +44,10 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
+            this.txtid = new System.Windows.Forms.TextBox();
+            this.txtProduto = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnProd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,7 +122,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(370, 97);
+            this.btnAdd.Location = new System.Drawing.Point(370, 95);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(22, 23);
             this.btnAdd.TabIndex = 8;
@@ -128,7 +132,7 @@
             // 
             // btnRmv
             // 
-            this.btnRmv.Location = new System.Drawing.Point(398, 97);
+            this.btnRmv.Location = new System.Drawing.Point(398, 96);
             this.btnRmv.Name = "btnRmv";
             this.btnRmv.Size = new System.Drawing.Size(21, 23);
             this.btnRmv.TabIndex = 9;
@@ -148,7 +152,7 @@
             // 
             // txtQtde
             // 
-            this.txtQtde.Location = new System.Drawing.Point(311, 100);
+            this.txtQtde.Location = new System.Drawing.Point(307, 99);
             this.txtQtde.Name = "txtQtde";
             this.txtQtde.Size = new System.Drawing.Size(53, 20);
             this.txtQtde.TabIndex = 11;
@@ -156,7 +160,7 @@
             // quantt
             // 
             this.quantt.AutoSize = true;
-            this.quantt.Location = new System.Drawing.Point(302, 84);
+            this.quantt.Location = new System.Drawing.Point(304, 82);
             this.quantt.Name = "quantt";
             this.quantt.Size = new System.Drawing.Size(62, 13);
             this.quantt.TabIndex = 12;
@@ -192,11 +196,48 @@
             this.btnAlterar.UseVisualStyleBackColor = true;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
+            // txtid
+            // 
+            this.txtid.Location = new System.Drawing.Point(143, 76);
+            this.txtid.Name = "txtid";
+            this.txtid.Size = new System.Drawing.Size(19, 20);
+            this.txtid.TabIndex = 16;
+            // 
+            // txtProduto
+            // 
+            this.txtProduto.Location = new System.Drawing.Point(204, 97);
+            this.txtProduto.Name = "txtProduto";
+            this.txtProduto.Size = new System.Drawing.Size(68, 20);
+            this.txtProduto.TabIndex = 17;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(201, 82);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Produto";
+            // 
+            // btnProd
+            // 
+            this.btnProd.Location = new System.Drawing.Point(278, 94);
+            this.btnProd.Name = "btnProd";
+            this.btnProd.Size = new System.Drawing.Size(21, 23);
+            this.btnProd.TabIndex = 19;
+            this.btnProd.Text = "*";
+            this.btnProd.UseVisualStyleBackColor = true;
+            this.btnProd.Click += new System.EventHandler(this.btnProd_Click);
+            // 
             // view_VendaPET
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(443, 351);
+            this.Controls.Add(this.btnProd);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtProduto);
+            this.Controls.Add(this.txtid);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.btnExcluir);
@@ -239,5 +280,9 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.TextBox txtid;
+        private System.Windows.Forms.TextBox txtProduto;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnProd;
     }
 }
