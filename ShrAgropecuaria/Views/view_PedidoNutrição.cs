@@ -1,4 +1,6 @@
 ﻿using OfficeOpenXml;
+using OfficeOpenXml.Drawing;
+using OfficeOpenXml.Table;
 using ShrAgropecuaria.Classes;
 using ShrAgropecuaria.Repositorios.Interfaces;
 using ShrAgropecuaria.Views.Pesquisas;
@@ -9,6 +11,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -174,12 +177,13 @@ namespace ShrAgropecuaria.Views
             cbb_Fazenda.Text = "";
             dataGridView1.DataSource = null;
             prodPedNutriList = new List<ProdutoPedidoNutricao>();
+            
         }
 
         private void btn_gravar_Click(object sender, EventArgs e)
         {
             PedidoNutricao pedNutri = new PedidoNutricao();
-            if (txt_idCli.Text != null)
+            if (txt_idCli.Text != "")
             {
                 pedNutri.Cliente = ClienteRepository.Get(Convert.ToInt32(txt_idCli.Text));
                 if (cbb_Fazenda.Items.Count > 0)
@@ -302,68 +306,111 @@ namespace ShrAgropecuaria.Views
         {
             var package = new ExcelPackage();
             var workbook = package.Workbook;
-
             var sheet = workbook.Worksheets.Add("Pedido");
-            sheet.Cells[1, 1].Value = "Código";
-            sheet.Cells[1, 2].Value = "Nome do Cliente";
-            sheet.Cells[1, 3].Value = "Fazenda do Cliente";
-            sheet.Cells[1, 4].Value = "Data do Pedido";
-            sheet.Cells[1, 5].Value = "Previsão de Entrega";
-            sheet.Cells[1, 6].Value = "Data de Entrega";
-            sheet.Cells[1, 7].Value = "Contato";
-            sheet.Cells[1, 8].Value = "Valor Total";
-            sheet.Cells[1, 9].Value = "Porcentagem ";
-            sheet.Cells[1, 10].Value = "Observação";
-            sheet.Cells[1, 11].Value = "Forma de Pagamento";
 
-            sheet.Cells[1, 12].Value = "Produto";
-            sheet.Cells[1, 13].Value = "Quantidade";
-            sheet.Cells[1, 14].Value = "Peso";
-            sheet.Cells[1, 15].Value = "Valor Final do Produto";
-
-
-            sheet.Cells[2, 1].Value = pedNutri.Pn_cod;
-            sheet.Cells[2, 2].Value = pedNutri.ClienteNome;
-            sheet.Cells[2, 3].Value = pedNutri.FazendaNome;
-            sheet.Cells[2, 4].Value = pedNutri.Pn_data;
-            sheet.Cells[2, 5].Value = pedNutri.Pn_previsaoentrega;
-            sheet.Cells[2, 6].Value = pedNutri.Pn_dataentrega;
-            sheet.Cells[2, 7].Value = pedNutri.Pn_contato;
-            sheet.Cells[2, 8].Value = pedNutri.Pn_valortotal;
-            sheet.Cells[2, 9].Value = pedNutri.Pn_porcentagem;
-            sheet.Cells[2, 10].Value = pedNutri.Pn_obs;
-            sheet.Cells[2, 11].Value = pedNutri.Pn_formapgto;
-
-            string prod = "=", qtde = "=", peso = "=", vprod = "=";
-            for (int i = 0; i < prodPedNutriList.Count ; i++)
             {
-                if (i == prodPedNutriList.Count - 1)
-                {
-                    prod += "\"" + prodPedNutriList[i].NomeProd + "\"";
-                    qtde += "\"" + prodPedNutriList[i].Ppn_quantidade + "\"";
-                    peso += "\"" + prodPedNutriList[i].Ppn_peso + "\"";
-                    vprod += "\"" + prodPedNutriList[i].Ppn_valorvenda + "\"";
-                }
-                else
-                {
-                    prod += "\"" + prodPedNutriList[i].NomeProd + "\"" + "&CARACT(10)&";
-                    qtde += "\"" + prodPedNutriList[i].Ppn_quantidade + "\"" + "&CARACT(10)&";
-                    peso += "\"" + prodPedNutriList[i].Ppn_peso + "\"" + "&CARACT(10)&";
-                    vprod += "\"" + prodPedNutriList[i].Ppn_valorvenda + "\"" + "&CARACT(10)&";
-                } 
+                sheet.Cells.Style.Font.Name = "Times New Roman";
+                sheet.Cells.Style.Font.Size = 12;
+                sheet.Cells["I3"].Style.WrapText = true;
+                sheet.Cells.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left;
+
+                
             }
-            
-            sheet.Cells[2, 12].Value = prod;
-            sheet.Cells[2, 13].Value = qtde;
-            sheet.Cells[2, 14].Value = peso;
-            sheet.Cells[2, 15].Value = vprod;
-            sheet.Cells["L2:O2"].Style.WrapText = true;
 
-            sheet.Cells["A1:O1"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Justify;
+            {
+                sheet.Cells["A1"].Value = "Informações do Pedido";
+                sheet.Cells["A1"].Style.Font.Bold = true;
+                sheet.Cells["A1"].Style.Font.Size = 26;
+                sheet.Cells["A1"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                sheet.Cells["A1"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;
+                sheet.Cells["A1:J1"].Merge = true;
+                
+                sheet.Cells["A2:J2"].Style.Font.Bold = true;
 
-            sheet.Cells["A1:O1"].Style.Font.Bold = true;
+                sheet.Cells[2, 1].Value = "Código";
+                sheet.Cells[2, 2].Value = "Nome do Cliente";
+                sheet.Cells[2, 3].Value = "Fazenda do Cliente";
+                sheet.Cells[2, 4].Value = "Data do Pedido";
+                sheet.Cells[2, 5].Value = "Previsão de Entrega";
+                sheet.Cells[2, 6].Value = "Contato";
+                sheet.Cells[2, 7].Value = "Valor Total";
+                sheet.Cells[2, 8].Value = "Porcentagem ";
+                sheet.Cells[2, 9].Value = "Observação";
+                sheet.Cells[2, 10].Value = "Forma de Pagamento";
+                
+                sheet.Cells[3, 1].Value = pedNutri.Pn_cod;
+                sheet.Cells[3, 2].Value = pedNutri.ClienteNome;
+                sheet.Cells[3, 3].Value = pedNutri.FazendaNome;
+                sheet.Cells[3, 4].Value = pedNutri.Pn_data;
+                sheet.Cells[3, 5].Value = pedNutri.Pn_previsaoentrega.Date.ToShortDateString();
+                sheet.Cells[3, 6].Value = Convert.ToInt64(pedNutri.Pn_contato);
+                sheet.Cells[3, 7].Value = pedNutri.Pn_valortotal;
+                sheet.Cells[3, 8].Value = pedNutri.Pn_porcentagem / 100;
+                sheet.Cells[3, 9].Value = pedNutri.Pn_obs;
+                sheet.Cells[3, 10].Value = pedNutri.Pn_formapgto + " Dias";
 
-            package.SaveAs(new FileInfo(@"C:\Users\Hudso\Desktop\FuncionaPoha.xlsx"));
+                using (ExcelRange Rng = sheet.Cells["A2:J3"])
+                {
+                    ExcelTable table = sheet.Tables.Add(Rng, "infoPedido");
+                    table.TableStyle = TableStyles.Dark2;
+                    table.ShowHeader = true;
+                    table.ShowFilter = false;
+                }
+            }
+
+            {
+                sheet.Cells["A5"].Value = "Informações Produto do Pedido";
+                sheet.Cells["A5"].Style.Font.Bold = true;
+                sheet.Cells["A5"].Style.Font.Size = 24;
+                sheet.Cells["A5"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                sheet.Cells["A5"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;
+                sheet.Cells["A5:D5"].Merge = true;
+
+                sheet.Cells[6, 1].Value = "Produto";
+                sheet.Cells[6, 2].Value = "Quantidade";
+                sheet.Cells[6, 3].Value = "Peso";
+                sheet.Cells[6, 4].Value = "Valor Final do Produto";
+
+                for (int i = 0, l = 7; i < prodPedNutriList.Count; i++, l++)
+                {
+                    sheet.Cells[l, 1].Value = prodPedNutriList[i].NomeProd;
+                    sheet.Cells[l, 2].Value = prodPedNutriList[i].Ppn_quantidade + " Sacos";
+                    sheet.Cells[l, 3].Value = prodPedNutriList[i].Ppn_peso + "Kg";
+                    sheet.Cells[l, 4].Value = prodPedNutriList[i].Ppn_valorvenda;
+                }
+
+                string p = "A6:D" + (prodPedNutriList.Count + 6);
+                using (ExcelRange Rng = sheet.Cells[p])
+                {
+                    ExcelTable table2 = sheet.Tables.Add(Rng, "infoProduto");
+                    table2.TableStyle = TableStyles.Dark2;
+                    table2.ShowHeader = true;
+                    table2.ShowFilter = false;
+                }
+            }
+
+            {
+                //Image img = Image.FromFile(@".\logomarca.png");
+                sheet.Cells["F3"].Style.Numberformat.Format = "0";
+                sheet.Cells["H3"].Style.Numberformat.Format = "0%";
+                sheet.Cells["D3"].Style.Numberformat.Format = "dd/MM/yyyy HH:mm";
+                sheet.Cells["D7:D9"].Style.Numberformat.Format = "R$ #,##0.00";
+                sheet.Cells["G3"].Style.Numberformat.Format = "R$ #,##0.00";
+
+                sheet.Cells[sheet.Dimension.Address].AutoFitColumns();
+                sheet.Column(9).Width = 32;
+
+                {
+                    string c = AppDomain.CurrentDomain.BaseDirectory;
+                    c = c.Remove(c.Length - 10) + "Imagens\\";
+                    Image img = Image.FromFile(c + "logomarca.png");
+                    ExcelPicture pic = sheet.Drawings.AddPicture("Picture_Name", img);
+                    pic.SetPosition(5, 0, 5, 0);
+                }
+
+                string caminho = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\FuncionaPoha.xlsx";
+                package.SaveAs(new FileInfo(caminho));
+            }
         }
     }
 }

@@ -54,10 +54,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txt_codPedido = new System.Windows.Forms.TextBox();
             this.btn_pesqPedido = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.cbb_FormaPgto = new System.Windows.Forms.ComboBox();
@@ -76,15 +73,16 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txt_obs = new System.Windows.Forms.TextBox();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.btn_GerarExcel = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,9 +93,9 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(574, 60);
+            this.panel2.Location = new System.Drawing.Point(95, 181);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(465, 116);
+            this.panel2.Size = new System.Drawing.Size(486, 99);
             this.panel2.TabIndex = 3;
             // 
             // cbb_Fazenda
@@ -105,7 +103,7 @@
             this.cbb_Fazenda.FormattingEnabled = true;
             this.cbb_Fazenda.Location = new System.Drawing.Point(93, 59);
             this.cbb_Fazenda.Name = "cbb_Fazenda";
-            this.cbb_Fazenda.Size = new System.Drawing.Size(329, 21);
+            this.cbb_Fazenda.Size = new System.Drawing.Size(354, 21);
             this.cbb_Fazenda.TabIndex = 46;
             // 
             // label2
@@ -134,7 +132,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(425, 56);
+            this.label5.Location = new System.Drawing.Point(450, 56);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(27, 33);
             this.label5.TabIndex = 0;
@@ -150,9 +148,9 @@
             this.panel1.Controls.Add(this.txt_idCli);
             this.panel1.Controls.Add(this.btn_pesqCliente);
             this.panel1.Controls.Add(this.label17);
-            this.panel1.Location = new System.Drawing.Point(102, 60);
+            this.panel1.Location = new System.Drawing.Point(96, 60);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(465, 116);
+            this.panel1.Size = new System.Drawing.Size(485, 116);
             this.panel1.TabIndex = 2;
             // 
             // label28
@@ -231,9 +229,9 @@
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.btn_adicionar);
             this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Location = new System.Drawing.Point(12, 286);
+            this.panel3.Location = new System.Drawing.Point(12, 473);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1113, 331);
+            this.panel3.Size = new System.Drawing.Size(651, 331);
             this.panel3.TabIndex = 4;
             // 
             // btn_remover
@@ -241,7 +239,7 @@
             this.btn_remover.AutoSize = true;
             this.btn_remover.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_remover.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_remover.Location = new System.Drawing.Point(1062, 6);
+            this.btn_remover.Location = new System.Drawing.Point(588, 6);
             this.btn_remover.Name = "btn_remover";
             this.btn_remover.Size = new System.Drawing.Size(31, 34);
             this.btn_remover.TabIndex = 49;
@@ -253,7 +251,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(498, 10);
+            this.label6.Location = new System.Drawing.Point(24, 10);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(129, 26);
             this.label6.TabIndex = 48;
@@ -265,7 +263,7 @@
             this.btn_adicionar.AutoSize = true;
             this.btn_adicionar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_adicionar.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_adicionar.Location = new System.Drawing.Point(1025, 6);
+            this.btn_adicionar.Location = new System.Drawing.Point(551, 6);
             this.btn_adicionar.Name = "btn_adicionar";
             this.btn_adicionar.Size = new System.Drawing.Size(31, 34);
             this.btn_adicionar.TabIndex = 48;
@@ -276,9 +274,9 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 47);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 50);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1074, 263);
+            this.dataGridView1.Size = new System.Drawing.Size(620, 263);
             this.dataGridView1.TabIndex = 0;
             // 
             // panel4
@@ -287,7 +285,7 @@
             this.panel4.Controls.Add(this.btn_excluir);
             this.panel4.Controls.Add(this.btn_gravar);
             this.panel4.Controls.Add(this.btn_limpar);
-            this.panel4.Location = new System.Drawing.Point(346, 623);
+            this.panel4.Location = new System.Drawing.Point(116, 810);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(442, 57);
             this.panel4.TabIndex = 50;
@@ -331,7 +329,7 @@
             this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.txt_codPedido);
             this.panel5.Controls.Add(this.btn_pesqPedido);
-            this.panel5.Location = new System.Drawing.Point(444, 12);
+            this.panel5.Location = new System.Drawing.Point(208, 12);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(253, 42);
             this.panel5.TabIndex = 48;
@@ -365,38 +363,13 @@
             this.btn_pesqPedido.UseVisualStyleBackColor = true;
             this.btn_pesqPedido.Click += new System.EventHandler(this.btn_pesqPedido_Click);
             // 
-            // panel6
-            // 
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel6.Location = new System.Drawing.Point(12, 12);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(425, 42);
-            this.panel6.TabIndex = 49;
-            // 
             // panel7
             // 
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel7.Location = new System.Drawing.Point(704, 12);
+            this.panel7.Location = new System.Drawing.Point(465, 12);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(425, 42);
+            this.panel7.Size = new System.Drawing.Size(116, 42);
             this.panel7.TabIndex = 50;
-            // 
-            // panel8
-            // 
-            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel8.Location = new System.Drawing.Point(12, 623);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(327, 57);
-            this.panel8.TabIndex = 51;
-            // 
-            // panel9
-            // 
-            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel9.Controls.Add(this.btn_GerarExcel);
-            this.panel9.Location = new System.Drawing.Point(797, 623);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(327, 57);
-            this.panel9.TabIndex = 52;
             // 
             // panel10
             // 
@@ -417,9 +390,9 @@
             this.panel10.Controls.Add(this.txt_valorTotal);
             this.panel10.Controls.Add(this.label7);
             this.panel10.Controls.Add(this.txt_obs);
-            this.panel10.Location = new System.Drawing.Point(102, 181);
+            this.panel10.Location = new System.Drawing.Point(95, 284);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(937, 99);
+            this.panel10.Size = new System.Drawing.Size(486, 182);
             this.panel10.TabIndex = 52;
             // 
             // label3
@@ -427,7 +400,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(808, 61);
+            this.label3.Location = new System.Drawing.Point(324, 146);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 33);
             this.label3.TabIndex = 63;
@@ -436,7 +409,7 @@
             // cbb_FormaPgto
             // 
             this.cbb_FormaPgto.FormattingEnabled = true;
-            this.cbb_FormaPgto.Location = new System.Drawing.Point(676, 64);
+            this.cbb_FormaPgto.Location = new System.Drawing.Point(192, 149);
             this.cbb_FormaPgto.Name = "cbb_FormaPgto";
             this.cbb_FormaPgto.Size = new System.Drawing.Size(129, 21);
             this.cbb_FormaPgto.TabIndex = 47;
@@ -445,7 +418,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(490, 63);
+            this.label16.Location = new System.Drawing.Point(6, 148);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(186, 22);
             this.label16.TabIndex = 62;
@@ -453,7 +426,7 @@
             // 
             // mask_porcentagem
             // 
-            this.mask_porcentagem.Location = new System.Drawing.Point(676, 36);
+            this.mask_porcentagem.Location = new System.Drawing.Point(192, 121);
             this.mask_porcentagem.Mask = "00";
             this.mask_porcentagem.Name = "mask_porcentagem";
             this.mask_porcentagem.Size = new System.Drawing.Size(34, 20);
@@ -468,7 +441,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(713, 33);
+            this.label15.Location = new System.Drawing.Point(229, 118);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(27, 33);
             this.label15.TabIndex = 60;
@@ -479,7 +452,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(906, 7);
+            this.label14.Location = new System.Drawing.Point(422, 92);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(27, 33);
             this.label14.TabIndex = 59;
@@ -490,7 +463,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Berlin Sans FB Demi", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(426, 60);
+            this.label12.Location = new System.Drawing.Point(451, 60);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(27, 33);
             this.label12.TabIndex = 58;
@@ -498,7 +471,7 @@
             // 
             // dataE
             // 
-            this.dataE.Location = new System.Drawing.Point(676, 10);
+            this.dataE.Location = new System.Drawing.Point(192, 95);
             this.dataE.Name = "dataE";
             this.dataE.Size = new System.Drawing.Size(227, 20);
             this.dataE.TabIndex = 57;
@@ -507,7 +480,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(490, 6);
+            this.label11.Location = new System.Drawing.Point(6, 91);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(176, 22);
             this.label11.TabIndex = 56;
@@ -517,7 +490,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(490, 34);
+            this.label10.Location = new System.Drawing.Point(6, 119);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(118, 22);
             this.label10.TabIndex = 55;
@@ -535,7 +508,7 @@
             // 
             // mask_telefone
             // 
-            this.mask_telefone.Location = new System.Drawing.Point(167, 63);
+            this.mask_telefone.Location = new System.Drawing.Point(192, 63);
             this.mask_telefone.Mask = "(00) 00000-0000";
             this.mask_telefone.Name = "mask_telefone";
             this.mask_telefone.Size = new System.Drawing.Size(256, 20);
@@ -554,7 +527,7 @@
             // 
             // txt_valorTotal
             // 
-            this.txt_valorTotal.Location = new System.Drawing.Point(166, 35);
+            this.txt_valorTotal.Location = new System.Drawing.Point(191, 35);
             this.txt_valorTotal.Name = "txt_valorTotal";
             this.txt_valorTotal.ReadOnly = true;
             this.txt_valorTotal.Size = new System.Drawing.Size(256, 20);
@@ -572,7 +545,7 @@
             // 
             // txt_obs
             // 
-            this.txt_obs.Location = new System.Drawing.Point(166, 7);
+            this.txt_obs.Location = new System.Drawing.Point(191, 7);
             this.txt_obs.Name = "txt_obs";
             this.txt_obs.Size = new System.Drawing.Size(256, 20);
             this.txt_obs.TabIndex = 48;
@@ -580,48 +553,62 @@
             // panel11
             // 
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel11.Location = new System.Drawing.Point(1044, 60);
+            this.panel11.Location = new System.Drawing.Point(12, 12);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(85, 220);
+            this.panel11.Size = new System.Drawing.Size(78, 454);
             this.panel11.TabIndex = 53;
+            // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel6.Location = new System.Drawing.Point(96, 12);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(108, 42);
+            this.panel6.TabIndex = 51;
+            // 
+            // panel8
+            // 
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel8.Location = new System.Drawing.Point(585, 12);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(78, 454);
+            this.panel8.TabIndex = 54;
+            // 
+            // panel9
+            // 
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel9.Location = new System.Drawing.Point(12, 810);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(95, 57);
+            this.panel9.TabIndex = 54;
             // 
             // panel12
             // 
             this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel12.Location = new System.Drawing.Point(12, 60);
+            this.panel12.Location = new System.Drawing.Point(568, 810);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(85, 220);
-            this.panel12.TabIndex = 54;
-            // 
-            // btn_GerarExcel
-            // 
-            this.btn_GerarExcel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_GerarExcel.Location = new System.Drawing.Point(119, 12);
-            this.btn_GerarExcel.Name = "btn_GerarExcel";
-            this.btn_GerarExcel.Size = new System.Drawing.Size(107, 30);
-            this.btn_GerarExcel.TabIndex = 3;
-            this.btn_GerarExcel.Text = "Gerar Excel";
-            this.btn_GerarExcel.UseVisualStyleBackColor = true;
-            this.btn_GerarExcel.Click += new System.EventHandler(this.btn_GerarExcel_Click);
+            this.panel12.Size = new System.Drawing.Size(95, 57);
+            this.panel12.TabIndex = 55;
             // 
             // view_PedidoNutrição
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1137, 690);
+            this.ClientSize = new System.Drawing.Size(675, 877);
             this.Controls.Add(this.panel12);
-            this.Controls.Add(this.panel11);
-            this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel8);
-            this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel11);
+            this.Controls.Add(this.panel10);
+            this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.MinimumSize = new System.Drawing.Size(1153, 637);
+            this.MaximumSize = new System.Drawing.Size(691, 916);
+            this.MinimumSize = new System.Drawing.Size(691, 916);
             this.Name = "view_PedidoNutrição";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "view_GerarPedidoNutrição";
@@ -635,7 +622,6 @@
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.ResumeLayout(false);
@@ -669,10 +655,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_codPedido;
         private System.Windows.Forms.Button btn_pesqPedido;
-        private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txt_valorTotal;
@@ -687,12 +670,14 @@
         private System.Windows.Forms.DateTimePicker dataE;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.ComboBox cbb_Fazenda;
         private System.Windows.Forms.MaskedTextBox mask_porcentagem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbb_FormaPgto;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button btn_GerarExcel;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel12;
     }
 }
