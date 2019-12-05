@@ -403,13 +403,15 @@ namespace ShrAgropecuaria.Views
                 {
                     string c = AppDomain.CurrentDomain.BaseDirectory;
                     c = c.Remove(c.Length - 10) + "Imagens\\";
-                    Image img = Image.FromFile(c + "logomarca.png");
+                    Image img = Image.FromFile(c + "banner.png");
                     ExcelPicture pic = sheet.Drawings.AddPicture("Picture_Name", img);
-                    pic.SetPosition(5, 0, 5, 0);
+                    pic.SetPosition(4, 0, 5, 0);
+                    pic.SetSize(36);
                 }
 
-                string caminho = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\FuncionaPoha.xlsx";
+                string caminho = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Pedido_" + pedNutri.ClienteNome + "_" +  pedNutri.Pn_cod + ".xlsx";
                 package.SaveAs(new FileInfo(caminho));
+                MessageBox.Show("Excel Gerado na Pasta de Documentos!");
             }
         }
     }

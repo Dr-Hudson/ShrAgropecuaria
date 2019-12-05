@@ -63,19 +63,9 @@ namespace ShrAgropecuaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _9850_banner_horizontal_68515 {
+        internal static System.Drawing.Bitmap banner {
             get {
-                object obj = ResourceManager.GetObject("9850_banner-horizontal_68515", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _9850_logomarca_31067 {
-            get {
-                object obj = ResourceManager.GetObject("9850_logomarca_31067", resourceCulture);
+                object obj = ResourceManager.GetObject("banner", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
