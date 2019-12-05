@@ -50,6 +50,9 @@ namespace ShrAgropecuaria.Views.Pesquisas
             DgvPedNutri.Columns.Remove("Fazenda");
             DgvPedNutri.Columns.Remove("Cliente");
             DgvPedNutri.Columns.Remove("Usuario");
+            DgvPedNutri.Columns.Remove("faz_cod");
+            DgvPedNutri.Columns.Remove("cli_cod");
+            DgvPedNutri.Columns.Remove("User_cod");
             DgvPedNutri.Columns["Pn_cod"].HeaderText = "Codigo";
             DgvPedNutri.Columns["Pn_previsaoentrega"].HeaderText = "Previsão de Entrega";
             DgvPedNutri.Columns["Pn_dataentrega"].HeaderText = "Data de Entrega";
@@ -60,6 +63,7 @@ namespace ShrAgropecuaria.Views.Pesquisas
             DgvPedNutri.Columns["Pn_obs"].HeaderText = "Obs";
             DgvPedNutri.Columns["FazendaNome"].HeaderText = "Nome da Fazenda";
             DgvPedNutri.Columns["ClienteNome"].HeaderText = "Nome do Cliente";
+            DgvPedNutri.Columns["Pn_formapgto"].HeaderText = "Forma de Pagamento";
         }
 
         private void BtnSelecionarCid_Click(object sender, EventArgs e)

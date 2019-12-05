@@ -1,4 +1,5 @@
-﻿using ShrAgropecuaria.Classes;
+﻿using OfficeOpenXml;
+using ShrAgropecuaria.Classes;
 using ShrAgropecuaria.Repositorios.Interfaces;
 using ShrAgropecuaria.Views.Pesquisas;
 using System;
@@ -6,10 +7,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace ShrAgropecuaria.Views
 {
@@ -286,6 +289,56 @@ namespace ShrAgropecuaria.Views
                 mask_porcentagem.Select(porcentagem.Length, 0);
             else
                 mask_porcentagem.Select(0, 0);
+        }
+
+        private void btn_GerarExcel_Click(object sender, EventArgs e)
+        {
+            var package = new ExcelPackage();
+            var workbook = package.Workbook;
+
+            var sheet = workbook.Worksheets.Add("Sheet 1");
+            sheet.Cells[1, 1].Value = "Teste 1";
+            sheet.Cells[1, 2].Value = "Teste 2";
+            sheet.Cells[1, 3].Value = "Teste 3";
+            sheet.Cells[2, 1].Value = "Teste 4";
+            sheet.Cells[2, 2].Value = "Teste 5";
+            sheet.Cells[2, 3].Value = "Teste 6";
+
+            sheet.Cells["A5"].Value = "AAAA5555";
+
+            sheet.Cells["A1:E1"].Style.Font.Bold = true;
+
+            sheet.Cells["A1:E1"].Style.Font.Bold = true;
+
+
+            package.SaveAs(new FileInfo(@"sampleEpplus.xlsx"));
+
+
+            //// Inicia o componente Excel
+            //Excel.Application xlApp;
+            //Excel.Workbook xlWorkBook;
+            //Excel.Worksheet xlWorkSheet;
+            //object misValue = System.Reflection.Missing.Value;
+            ////Cria uma planilha temporária na memória do computador
+            //xlApp = new Excel.Application();
+            //xlWorkBook = xlApp.Workbooks.Add(misValue);
+            //xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+            ////incluindo dados
+            //xlWorkSheet.Cells[1, 1] = "Dados do cliente:";
+            //xlWorkSheet.Cells[2, 2] = "Teste 1";
+            //xlWorkSheet.Cells[2, 3] = "Teste 2";
+            //xlWorkSheet.Cells[2, 4] = "Teste 3";
+
+            ////Salva o arquivo de acordo com a documentação do Excel.
+            //xlWorkBook.SaveAs("arquivo.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue,
+            //Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            //xlWorkBook.Close(true, misValue, misValue);
+            //xlApp.Quit();
+
+            ////o arquivo foi salvo na pasta Meus Documentos.
+            //string caminho = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            //MessageBox.Show("Concluído. Verifique em " + caminho + "arquivo.xls");
         }
     }
 }

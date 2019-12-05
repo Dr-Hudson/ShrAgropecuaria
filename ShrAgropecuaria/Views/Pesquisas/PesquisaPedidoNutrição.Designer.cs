@@ -45,7 +45,7 @@
             // 
             this.BtnPesquisar.AutoSize = true;
             this.BtnPesquisar.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnPesquisar.Location = new System.Drawing.Point(610, 5);
+            this.BtnPesquisar.Location = new System.Drawing.Point(823, 6);
             this.BtnPesquisar.Name = "BtnPesquisar";
             this.BtnPesquisar.Size = new System.Drawing.Size(83, 27);
             this.BtnPesquisar.TabIndex = 64;
@@ -64,7 +64,7 @@
             this.panel1.Controls.Add(this.DgvPedNutri);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(703, 320);
+            this.panel1.Size = new System.Drawing.Size(914, 365);
             this.panel1.TabIndex = 63;
             // 
             // txt_numPed
@@ -109,14 +109,14 @@
             this.DgvPedNutri.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvPedNutri.Location = new System.Drawing.Point(3, 38);
             this.DgvPedNutri.Name = "DgvPedNutri";
-            this.DgvPedNutri.Size = new System.Drawing.Size(690, 270);
+            this.DgvPedNutri.Size = new System.Drawing.Size(904, 320);
             this.DgvPedNutri.TabIndex = 54;
             // 
             // button1
             // 
             this.button1.AutoSize = true;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 338);
+            this.button1.Location = new System.Drawing.Point(12, 383);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(77, 27);
             this.button1.TabIndex = 65;
@@ -128,7 +128,7 @@
             // 
             this.BtnSelecionarCid.AutoSize = true;
             this.BtnSelecionarCid.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSelecionarCid.Location = new System.Drawing.Point(626, 338);
+            this.BtnSelecionarCid.Location = new System.Drawing.Point(837, 383);
             this.BtnSelecionarCid.Name = "BtnSelecionarCid";
             this.BtnSelecionarCid.Size = new System.Drawing.Size(89, 27);
             this.BtnSelecionarCid.TabIndex = 64;
@@ -140,7 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 373);
+            this.ClientSize = new System.Drawing.Size(938, 422);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.BtnSelecionarCid);
