@@ -50,9 +50,19 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabProdutos = new System.Windows.Forms.TabPage();
             this.tabPagamento = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbVista = new System.Windows.Forms.RadioButton();
+            this.rbPrazo = new System.Windows.Forms.RadioButton();
+            this.rbParcelado = new System.Windows.Forms.RadioButton();
+            this.pnPrazo = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabProdutos.SuspendLayout();
+            this.tabPagamento.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.pnPrazo.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -253,6 +263,8 @@
             // 
             // tabPagamento
             // 
+            this.tabPagamento.Controls.Add(this.pnPrazo);
+            this.tabPagamento.Controls.Add(this.groupBox1);
             this.tabPagamento.Location = new System.Drawing.Point(4, 22);
             this.tabPagamento.Name = "tabPagamento";
             this.tabPagamento.Padding = new System.Windows.Forms.Padding(3);
@@ -260,6 +272,77 @@
             this.tabPagamento.TabIndex = 1;
             this.tabPagamento.Text = "Pagamento";
             this.tabPagamento.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbParcelado);
+            this.groupBox1.Controls.Add(this.rbPrazo);
+            this.groupBox1.Controls.Add(this.rbVista);
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(410, 48);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Forma de Pagamento";
+            // 
+            // rbVista
+            // 
+            this.rbVista.AutoSize = true;
+            this.rbVista.Location = new System.Drawing.Point(28, 19);
+            this.rbVista.Name = "rbVista";
+            this.rbVista.Size = new System.Drawing.Size(58, 17);
+            this.rbVista.TabIndex = 0;
+            this.rbVista.TabStop = true;
+            this.rbVista.Text = "A Vista";
+            this.rbVista.UseVisualStyleBackColor = true;
+            this.rbVista.CheckedChanged += new System.EventHandler(this.rbVista_CheckedChanged);
+            // 
+            // rbPrazo
+            // 
+            this.rbPrazo.AutoSize = true;
+            this.rbPrazo.Location = new System.Drawing.Point(159, 19);
+            this.rbPrazo.Name = "rbPrazo";
+            this.rbPrazo.Size = new System.Drawing.Size(62, 17);
+            this.rbPrazo.TabIndex = 1;
+            this.rbPrazo.TabStop = true;
+            this.rbPrazo.Text = "A Prazo";
+            this.rbPrazo.UseVisualStyleBackColor = true;
+            // 
+            // rbParcelado
+            // 
+            this.rbParcelado.AutoSize = true;
+            this.rbParcelado.Location = new System.Drawing.Point(293, 19);
+            this.rbParcelado.Name = "rbParcelado";
+            this.rbParcelado.Size = new System.Drawing.Size(73, 17);
+            this.rbParcelado.TabIndex = 2;
+            this.rbParcelado.TabStop = true;
+            this.rbParcelado.Text = "Parcelado";
+            this.rbParcelado.UseVisualStyleBackColor = true;
+            // 
+            // pnPrazo
+            // 
+            this.pnPrazo.Controls.Add(this.label5);
+            this.pnPrazo.Controls.Add(this.textBox1);
+            this.pnPrazo.Location = new System.Drawing.Point(6, 60);
+            this.pnPrazo.Name = "pnPrazo";
+            this.pnPrazo.Size = new System.Drawing.Size(410, 186);
+            this.pnPrazo.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(16, 28);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "label5";
             // 
             // view_VendaPET
             // 
@@ -285,6 +368,11 @@
             this.tabControl.ResumeLayout(false);
             this.tabProdutos.ResumeLayout(false);
             this.tabProdutos.PerformLayout();
+            this.tabPagamento.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.pnPrazo.ResumeLayout(false);
+            this.pnPrazo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -314,5 +402,12 @@
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabProdutos;
         private System.Windows.Forms.TabPage tabPagamento;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbVista;
+        private System.Windows.Forms.RadioButton rbParcelado;
+        private System.Windows.Forms.RadioButton rbPrazo;
+        private System.Windows.Forms.Panel pnPrazo;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

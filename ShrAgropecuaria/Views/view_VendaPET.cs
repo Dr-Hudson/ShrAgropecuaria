@@ -260,5 +260,10 @@ namespace ShrAgropecuaria.Views
         {
 
         }
+
+        private void rbVista_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
