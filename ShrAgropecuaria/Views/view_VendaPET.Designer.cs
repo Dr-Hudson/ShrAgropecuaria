@@ -54,14 +54,22 @@
             this.rbVista = new System.Windows.Forms.RadioButton();
             this.rbPrazo = new System.Windows.Forms.RadioButton();
             this.rbParcelado = new System.Windows.Forms.RadioButton();
-            this.pnPrazo = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pnParcelado = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.dtpVencimentoParcela = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pnPrazo = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dtpVencimentoPrazo = new System.Windows.Forms.DateTimePicker();
+            this.txtParcelas = new System.Windows.Forms.MaskedTextBox();
+            this.txtDias = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabProdutos.SuspendLayout();
             this.tabPagamento.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.pnParcelado.SuspendLayout();
             this.pnPrazo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -263,8 +271,9 @@
             // 
             // tabPagamento
             // 
-            this.tabPagamento.Controls.Add(this.pnPrazo);
+            this.tabPagamento.Controls.Add(this.pnParcelado);
             this.tabPagamento.Controls.Add(this.groupBox1);
+            this.tabPagamento.Controls.Add(this.pnPrazo);
             this.tabPagamento.Location = new System.Drawing.Point(4, 22);
             this.tabPagamento.Name = "tabPagamento";
             this.tabPagamento.Padding = new System.Windows.Forms.Padding(3);
@@ -288,6 +297,7 @@
             // rbVista
             // 
             this.rbVista.AutoSize = true;
+            this.rbVista.Checked = true;
             this.rbVista.Location = new System.Drawing.Point(28, 19);
             this.rbVista.Name = "rbVista";
             this.rbVista.Size = new System.Drawing.Size(58, 17);
@@ -304,9 +314,9 @@
             this.rbPrazo.Name = "rbPrazo";
             this.rbPrazo.Size = new System.Drawing.Size(62, 17);
             this.rbPrazo.TabIndex = 1;
-            this.rbPrazo.TabStop = true;
             this.rbPrazo.Text = "A Prazo";
             this.rbPrazo.UseVisualStyleBackColor = true;
+            this.rbPrazo.CheckedChanged += new System.EventHandler(this.rbVista_CheckedChanged);
             // 
             // rbParcelado
             // 
@@ -315,34 +325,101 @@
             this.rbParcelado.Name = "rbParcelado";
             this.rbParcelado.Size = new System.Drawing.Size(73, 17);
             this.rbParcelado.TabIndex = 2;
-            this.rbParcelado.TabStop = true;
             this.rbParcelado.Text = "Parcelado";
             this.rbParcelado.UseVisualStyleBackColor = true;
+            this.rbParcelado.CheckedChanged += new System.EventHandler(this.rbVista_CheckedChanged);
             // 
-            // pnPrazo
+            // pnParcelado
             // 
-            this.pnPrazo.Controls.Add(this.label5);
-            this.pnPrazo.Controls.Add(this.textBox1);
-            this.pnPrazo.Location = new System.Drawing.Point(6, 60);
-            this.pnPrazo.Name = "pnPrazo";
-            this.pnPrazo.Size = new System.Drawing.Size(410, 186);
-            this.pnPrazo.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(16, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.pnParcelado.Controls.Add(this.txtDias);
+            this.pnParcelado.Controls.Add(this.txtParcelas);
+            this.pnParcelado.Controls.Add(this.label7);
+            this.pnParcelado.Controls.Add(this.label6);
+            this.pnParcelado.Controls.Add(this.dtpVencimentoParcela);
+            this.pnParcelado.Controls.Add(this.label5);
+            this.pnParcelado.Location = new System.Drawing.Point(6, 60);
+            this.pnParcelado.Name = "pnParcelado";
+            this.pnParcelado.Size = new System.Drawing.Size(410, 186);
+            this.pnParcelado.TabIndex = 1;
+            this.pnParcelado.Visible = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 12);
+            this.label5.Location = new System.Drawing.Point(52, 18);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 1;
-            this.label5.Text = "label5";
+            this.label5.Text = "Parcelas";
+            // 
+            // dtpVencimentoParcela
+            // 
+            this.dtpVencimentoParcela.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpVencimentoParcela.Location = new System.Drawing.Point(276, 34);
+            this.dtpVencimentoParcela.Name = "dtpVencimentoParcela";
+            this.dtpVencimentoParcela.Size = new System.Drawing.Size(79, 20);
+            this.dtpVencimentoParcela.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(274, 18);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(76, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "1º Vencimento";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(132, 18);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(112, 13);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Dias entre as parcelas";
+            // 
+            // pnPrazo
+            // 
+            this.pnPrazo.Controls.Add(this.label8);
+            this.pnPrazo.Controls.Add(this.dtpVencimentoPrazo);
+            this.pnPrazo.Location = new System.Drawing.Point(6, 60);
+            this.pnPrazo.Name = "pnPrazo";
+            this.pnPrazo.Size = new System.Drawing.Size(404, 183);
+            this.pnPrazo.TabIndex = 6;
+            this.pnPrazo.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(164, 68);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 13);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "1º Vencimento";
+            // 
+            // dtpVencimentoPrazo
+            // 
+            this.dtpVencimentoPrazo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpVencimentoPrazo.Location = new System.Drawing.Point(166, 84);
+            this.dtpVencimentoPrazo.Name = "dtpVencimentoPrazo";
+            this.dtpVencimentoPrazo.Size = new System.Drawing.Size(79, 20);
+            this.dtpVencimentoPrazo.TabIndex = 4;
+            // 
+            // txtParcelas
+            // 
+            this.txtParcelas.Location = new System.Drawing.Point(65, 34);
+            this.txtParcelas.Mask = "00";
+            this.txtParcelas.Name = "txtParcelas";
+            this.txtParcelas.Size = new System.Drawing.Size(21, 20);
+            this.txtParcelas.TabIndex = 7;
+            // 
+            // txtDias
+            // 
+            this.txtDias.Location = new System.Drawing.Point(180, 37);
+            this.txtDias.Mask = "99";
+            this.txtDias.Name = "txtDias";
+            this.txtDias.Size = new System.Drawing.Size(21, 20);
+            this.txtDias.TabIndex = 8;
             // 
             // view_VendaPET
             // 
@@ -371,6 +448,8 @@
             this.tabPagamento.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.pnParcelado.ResumeLayout(false);
+            this.pnParcelado.PerformLayout();
             this.pnPrazo.ResumeLayout(false);
             this.pnPrazo.PerformLayout();
             this.ResumeLayout(false);
@@ -406,8 +485,15 @@
         private System.Windows.Forms.RadioButton rbVista;
         private System.Windows.Forms.RadioButton rbParcelado;
         private System.Windows.Forms.RadioButton rbPrazo;
-        private System.Windows.Forms.Panel pnPrazo;
+        private System.Windows.Forms.Panel pnParcelado;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dtpVencimentoParcela;
+        private System.Windows.Forms.Panel pnPrazo;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker dtpVencimentoPrazo;
+        private System.Windows.Forms.MaskedTextBox txtDias;
+        private System.Windows.Forms.MaskedTextBox txtParcelas;
     }
 }

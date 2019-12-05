@@ -19,5 +19,7 @@ namespace ShrAgropecuaria.Repositorios.Interfaces
         IEnumerable<VendaPET> getALL(string nome);
 
         IEnumerable<ProdutoVenda> GetPVenda(int? cod);
+
+        void GravarContas(ContasAReceber contas);
     }
 }

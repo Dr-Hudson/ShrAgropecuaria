@@ -62,6 +62,9 @@ namespace ShrAgropecuaria.Views
             dgvProdutos.DataSource = null;
             txtid.Visible = false;
             txtProduto.Text = "";
+            txtParcelas.Text = "";
+            txtProduto.Text = "";
+            txtDias.Text = "";
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -79,8 +82,6 @@ namespace ShrAgropecuaria.Views
                 ProdutoPET a = new ProdutoPET();
                 List<ProdutoPET> i = ProdutoPETRepository.GetByNome(txtProduto.Text).ToList();
                 a = i[0];
-
-
                 ProdutoVenda pv = new ProdutoVenda();
                     pv.Produto = a;
                     pv.Pv_quantidade = n;
@@ -150,8 +151,11 @@ namespace ShrAgropecuaria.Views
 
         private void BtnVender_Click(object sender, EventArgs e)
         {
+            int parcelas =0, dias=0;
             VendaPET v = new VendaPET();
-            if(txtcliente.Text == null)
+            bool flag = true;
+            DateTime data = DateTime.Now;
+            if (txtcliente.Text == null)
             {
                 MessageBox.Show("Selecione um cliente");
             }
@@ -169,31 +173,95 @@ namespace ShrAgropecuaria.Views
                     v.Cliente = cliente;
                     v.Vp_datavenda = dtpData.Value;
                     List<ProdutoVenda> lpv = VendaPETRepository.GetPVenda(v.Vp_cod).ToList();
-                    if (txtid.Text != "")
+                    if(rbParcelado.Checked)
                     {
-                        
-                        foreach(var a in lpv)
+                        flag = false;
+                        if(txtParcelas.Text.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", ",").Replace(" ", "").Replace(",", "").Length > 0)
                         {
-                            int estoque = a.Produto.Pp_estoque + a.Pv_quantidade;
-                            int? c = a.ProdutoID;
-                            VendaPETRepository.atualizarproduto((int)c, estoque);
+                            string a = txtParcelas.Text.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", ",").Replace(" ", "");
+                             parcelas = Convert.ToInt32(a);
+                            if(txtDias.Text.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", ",").Replace(" ", "").Replace(",", "").Length > 0)
+                            {
+                                string b = txtParcelas.Text.Replace("R$", "").Replace("-", "").Replace("_", "").Replace(".", ",").Replace(" ", "");
+                                dias = Convert.ToInt32(b);
+                                data = dtpVencimentoParcela.Value;
+                                flag = true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Dias invalidos");
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Parcelas invalidas");
                         }
                     }
-                    VendaPETRepository.gravar(v);
-                    foreach (var item in produtos)
+                    else
                     {
-                        item.Venda = v;
-                        item.Vendaid = v.Vp_cod;
-                        VendaPETRepository.GravarProds(item);
-                        ProdutoPET pp = ProdutoPETRepository.Get(item.ProdutoID);
-                        int n = pp.Pp_estoque - item.Pv_quantidade;
-                        int? c = item.ProdutoID;
-                        VendaPETRepository.atualizarproduto((int)c, n);
+                        if(rbPrazo.Checked)
+                           data = dtpVencimentoPrazo.Value;
                     }
-                    
-                    produtos.Clear();
-                    limpar();
-                    MessageBox.Show("Gravado com sucesso!");
+                    if(flag)
+                    {
+                        if (txtid.Text != "")
+                        {
+                            foreach (var a in lpv)
+                            {
+                                int estoque = a.Produto.Pp_estoque + a.Pv_quantidade;
+                                int? c = a.ProdutoID;
+                                VendaPETRepository.atualizarproduto((int)c, estoque);
+                            }
+                        }
+                        VendaPETRepository.gravar(v);
+                        if (rbParcelado.Checked)
+                        {
+                            decimal total = v.Vp_valortotal;
+                            decimal valorp = v.Vp_valortotal / parcelas;
+                            ContasAReceber c;
+                            for (int i = 0; i < parcelas; i++)
+                            {
+                                c = new ContasAReceber();
+                                c.Cr_dataVencimento = data;
+                                if (i + 1 != parcelas)
+                                    c.Cr_valorAReceber = valorp;
+                                else
+                                    c.Cr_valorAReceber = total;
+                                total -= valorp;
+                                c.Cr_dataGeracao = DateTime.Now;
+                                c.VendaPet = (int)v.Vp_cod;
+                                c.UsuarioId = v.Usuarioid;
+                                VendaPETRepository.GravarContas(c);
+                                data.AddDays(dias);
+                            }
+                        }
+                        else
+                        {
+                            if(rbPrazo.Checked)
+                            {
+                                ContasAReceber c = new ContasAReceber();
+                                c.Cr_dataVencimento = data;
+                                c.Cr_valorAReceber = v.Vp_valortotal;
+                                c.UsuarioId = v.Usuarioid;
+                                c.UsuarioId = (int) v.Vp_cod;
+                                VendaPETRepository.GravarContas(c);
+                            }
+                        }
+                        foreach (var item in produtos)
+                        {
+                            item.Venda = v;
+                            item.Vendaid = v.Vp_cod;
+                            VendaPETRepository.GravarProds(item);
+                            ProdutoPET pp = ProdutoPETRepository.Get(item.ProdutoID);
+                            int n = pp.Pp_estoque - item.Pv_quantidade;
+                            int? c = item.ProdutoID;
+                            VendaPETRepository.atualizarproduto((int)c, n);
+                        }
+                        produtos.Clear();
+                        limpar();
+                        MessageBox.Show("Gravado com sucesso!");
+                    }
                 }
             }
         }
@@ -263,7 +331,27 @@ namespace ShrAgropecuaria.Views
 
         private void rbVista_CheckedChanged(object sender, EventArgs e)
         {
-
+            if(rbParcelado.Checked)
+            {
+                pnParcelado.Visible = true;
+                pnPrazo.Visible = false;
+            }
+            else
+            {
+                if(rbPrazo.Checked)
+                {
+                    pnParcelado.Visible = false;
+                    pnPrazo.Visible = true;
+                }
+                else
+                {
+                    if(rbVista.Checked)
+                    {
+                        pnPrazo.Visible = false;
+                        pnParcelado.Visible = false;
+                    }
+                }
+            }
         }
     }
 }
