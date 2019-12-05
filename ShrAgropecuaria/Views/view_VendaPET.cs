@@ -233,7 +233,7 @@ namespace ShrAgropecuaria.Views
                                 c.VendaPet = (int)v.Vp_cod;
                                 c.UsuarioId = v.Usuarioid;
                                 VendaPETRepository.GravarContas(c);
-                                data.AddDays(dias);
+                                data = data.AddDays(dias);
                             }
                         }
                         else
@@ -243,8 +243,8 @@ namespace ShrAgropecuaria.Views
                                 ContasAReceber c = new ContasAReceber();
                                 c.Cr_dataVencimento = data;
                                 c.Cr_valorAReceber = v.Vp_valortotal;
+                                c.VendaPet = (int)v.Vp_cod;
                                 c.UsuarioId = v.Usuarioid;
-                                c.UsuarioId = (int) v.Vp_cod;
                                 VendaPETRepository.GravarContas(c);
                             }
                         }
