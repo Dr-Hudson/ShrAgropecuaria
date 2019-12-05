@@ -38,6 +38,7 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
             {
                 Connection.Execute("update vendapet set vp_datavenda = @vp_datavenda, vp_valortotal=@vp_valortotal, cli_cod=@clienteid, user_cod=@usuarioid where vp_cod = @vp_cod", venda);
                 Connection.Execute("delete from produtovenda where vp_cod = @vp_cod", venda);
+                Connection.Execute("delete from ContasAReceber where vp_cod = @vp_cod", venda);
             }
             
         }
@@ -53,6 +54,14 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
                 
 
 
+        }
+
+
+        public void GravarContas(ContasAReceber contas)
+        {
+            Connection.Execute("insert into contasareceber " +
+                "(cr_datavencimento, cr_valorareceber, cr_datageracao, vp_cod, user_cod) " +
+                "values(@cr_datavencimento, @cr_valorareceber, @cr_datageracao, @vendapet, @usuarioid)", contas);
         }
 
         public IEnumerable<VendaPET> getALL(string nome)

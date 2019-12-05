@@ -80,6 +80,7 @@
     <Compile Include="Classes\Cidade.cs" />
     <Compile Include="Classes\Cliente.cs" />
     <Compile Include="Classes\ContasAPagar.cs" />
+    <Compile Include="Classes\ContasAReceber.cs" />
     <Compile Include="Classes\Dependencia.cs" />
     <Compile Include="Classes\Despesa.cs" />
     <Compile Include="Classes\Estado.cs" />

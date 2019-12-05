@@ -79,7 +79,7 @@ namespace ShrAgropecuaria.Views
                         if (txtID.Text == "")
                         {
                             Usuario aux = new Usuario();
-                            aux = UsuarioRepository.PegaUsuario(user.User_login, user.User_senha);
+                            aux = UsuarioRepository.PegaUsuario(user.User_login);
                             if (aux == null)
                             {
                                 UsuarioRepository.Gravar(user);
@@ -88,7 +88,7 @@ namespace ShrAgropecuaria.Views
                             }
                             else
                             {
-                                MessageBox.Show("Usuário duplicado");
+                                MessageBox.Show("Usuário já cadastrado");
                                 Limpar();
                             }
                             

@@ -43,12 +43,34 @@
             this.quantt = new System.Windows.Forms.Label();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
             this.txtid = new System.Windows.Forms.TextBox();
             this.txtProduto = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnProd = new System.Windows.Forms.Button();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabProdutos = new System.Windows.Forms.TabPage();
+            this.tabPagamento = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbVista = new System.Windows.Forms.RadioButton();
+            this.rbPrazo = new System.Windows.Forms.RadioButton();
+            this.rbParcelado = new System.Windows.Forms.RadioButton();
+            this.pnParcelado = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtpVencimentoParcela = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pnPrazo = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dtpVencimentoPrazo = new System.Windows.Forms.DateTimePicker();
+            this.txtParcelas = new System.Windows.Forms.MaskedTextBox();
+            this.txtDias = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
+            this.tabControl.SuspendLayout();
+            this.tabProdutos.SuspendLayout();
+            this.tabPagamento.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.pnParcelado.SuspendLayout();
+            this.pnPrazo.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -115,16 +137,16 @@
             // dgvProdutos
             // 
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProdutos.Location = new System.Drawing.Point(15, 126);
+            this.dgvProdutos.Location = new System.Drawing.Point(9, 56);
             this.dgvProdutos.Name = "dgvProdutos";
             this.dgvProdutos.Size = new System.Drawing.Size(404, 150);
             this.dgvProdutos.TabIndex = 7;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(370, 95);
+            this.btnAdd.Location = new System.Drawing.Point(338, 26);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(22, 23);
+            this.btnAdd.Size = new System.Drawing.Size(22, 24);
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "+";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -132,7 +154,7 @@
             // 
             // btnRmv
             // 
-            this.btnRmv.Location = new System.Drawing.Point(398, 96);
+            this.btnRmv.Location = new System.Drawing.Point(366, 27);
             this.btnRmv.Name = "btnRmv";
             this.btnRmv.Size = new System.Drawing.Size(21, 23);
             this.btnRmv.TabIndex = 9;
@@ -142,7 +164,7 @@
             // 
             // btnVender
             // 
-            this.btnVender.Location = new System.Drawing.Point(62, 316);
+            this.btnVender.Location = new System.Drawing.Point(110, 394);
             this.btnVender.Name = "btnVender";
             this.btnVender.Size = new System.Drawing.Size(75, 23);
             this.btnVender.TabIndex = 10;
@@ -152,7 +174,7 @@
             // 
             // txtQtde
             // 
-            this.txtQtde.Location = new System.Drawing.Point(307, 99);
+            this.txtQtde.Location = new System.Drawing.Point(275, 30);
             this.txtQtde.Name = "txtQtde";
             this.txtQtde.Size = new System.Drawing.Size(53, 20);
             this.txtQtde.TabIndex = 11;
@@ -160,7 +182,7 @@
             // quantt
             // 
             this.quantt.AutoSize = true;
-            this.quantt.Location = new System.Drawing.Point(304, 82);
+            this.quantt.Location = new System.Drawing.Point(272, 12);
             this.quantt.Name = "quantt";
             this.quantt.Size = new System.Drawing.Size(62, 13);
             this.quantt.TabIndex = 12;
@@ -168,7 +190,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(224, 316);
+            this.btnExcluir.Location = new System.Drawing.Point(191, 394);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 13;
@@ -178,7 +200,7 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(305, 316);
+            this.btnPesquisar.Location = new System.Drawing.Point(269, 394);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
             this.btnPesquisar.TabIndex = 14;
@@ -186,26 +208,16 @@
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.BtnPesquisar_Click);
             // 
-            // btnAlterar
-            // 
-            this.btnAlterar.Location = new System.Drawing.Point(143, 316);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterar.TabIndex = 15;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = true;
-            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
-            // 
             // txtid
             // 
-            this.txtid.Location = new System.Drawing.Point(143, 76);
+            this.txtid.Location = new System.Drawing.Point(128, 75);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(19, 20);
             this.txtid.TabIndex = 16;
             // 
             // txtProduto
             // 
-            this.txtProduto.Location = new System.Drawing.Point(204, 97);
+            this.txtProduto.Location = new System.Drawing.Point(172, 30);
             this.txtProduto.Name = "txtProduto";
             this.txtProduto.Size = new System.Drawing.Size(68, 20);
             this.txtProduto.TabIndex = 17;
@@ -213,7 +225,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(201, 82);
+            this.label4.Location = new System.Drawing.Point(178, 14);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 18;
@@ -221,32 +233,204 @@
             // 
             // btnProd
             // 
-            this.btnProd.Location = new System.Drawing.Point(278, 94);
+            this.btnProd.Location = new System.Drawing.Point(246, 30);
             this.btnProd.Name = "btnProd";
-            this.btnProd.Size = new System.Drawing.Size(21, 23);
+            this.btnProd.Size = new System.Drawing.Size(23, 20);
             this.btnProd.TabIndex = 19;
             this.btnProd.Text = "*";
             this.btnProd.UseVisualStyleBackColor = true;
             this.btnProd.Click += new System.EventHandler(this.btnProd_Click);
             // 
+            // tabControl
+            // 
+            this.tabControl.Controls.Add(this.tabProdutos);
+            this.tabControl.Controls.Add(this.tabPagamento);
+            this.tabControl.Location = new System.Drawing.Point(12, 101);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(430, 278);
+            this.tabControl.TabIndex = 20;
+            // 
+            // tabProdutos
+            // 
+            this.tabProdutos.Controls.Add(this.dgvProdutos);
+            this.tabProdutos.Controls.Add(this.btnProd);
+            this.tabProdutos.Controls.Add(this.txtProduto);
+            this.tabProdutos.Controls.Add(this.label4);
+            this.tabProdutos.Controls.Add(this.btnAdd);
+            this.tabProdutos.Controls.Add(this.btnRmv);
+            this.tabProdutos.Controls.Add(this.txtQtde);
+            this.tabProdutos.Controls.Add(this.quantt);
+            this.tabProdutos.Location = new System.Drawing.Point(4, 22);
+            this.tabProdutos.Name = "tabProdutos";
+            this.tabProdutos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabProdutos.Size = new System.Drawing.Size(422, 252);
+            this.tabProdutos.TabIndex = 0;
+            this.tabProdutos.Text = "Produtos";
+            this.tabProdutos.UseVisualStyleBackColor = true;
+            // 
+            // tabPagamento
+            // 
+            this.tabPagamento.Controls.Add(this.pnParcelado);
+            this.tabPagamento.Controls.Add(this.groupBox1);
+            this.tabPagamento.Controls.Add(this.pnPrazo);
+            this.tabPagamento.Location = new System.Drawing.Point(4, 22);
+            this.tabPagamento.Name = "tabPagamento";
+            this.tabPagamento.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagamento.Size = new System.Drawing.Size(422, 252);
+            this.tabPagamento.TabIndex = 1;
+            this.tabPagamento.Text = "Pagamento";
+            this.tabPagamento.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbParcelado);
+            this.groupBox1.Controls.Add(this.rbPrazo);
+            this.groupBox1.Controls.Add(this.rbVista);
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(410, 48);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Forma de Pagamento";
+            // 
+            // rbVista
+            // 
+            this.rbVista.AutoSize = true;
+            this.rbVista.Checked = true;
+            this.rbVista.Location = new System.Drawing.Point(28, 19);
+            this.rbVista.Name = "rbVista";
+            this.rbVista.Size = new System.Drawing.Size(58, 17);
+            this.rbVista.TabIndex = 0;
+            this.rbVista.TabStop = true;
+            this.rbVista.Text = "A Vista";
+            this.rbVista.UseVisualStyleBackColor = true;
+            this.rbVista.CheckedChanged += new System.EventHandler(this.rbVista_CheckedChanged);
+            // 
+            // rbPrazo
+            // 
+            this.rbPrazo.AutoSize = true;
+            this.rbPrazo.Location = new System.Drawing.Point(159, 19);
+            this.rbPrazo.Name = "rbPrazo";
+            this.rbPrazo.Size = new System.Drawing.Size(62, 17);
+            this.rbPrazo.TabIndex = 1;
+            this.rbPrazo.Text = "A Prazo";
+            this.rbPrazo.UseVisualStyleBackColor = true;
+            this.rbPrazo.CheckedChanged += new System.EventHandler(this.rbVista_CheckedChanged);
+            // 
+            // rbParcelado
+            // 
+            this.rbParcelado.AutoSize = true;
+            this.rbParcelado.Location = new System.Drawing.Point(293, 19);
+            this.rbParcelado.Name = "rbParcelado";
+            this.rbParcelado.Size = new System.Drawing.Size(73, 17);
+            this.rbParcelado.TabIndex = 2;
+            this.rbParcelado.Text = "Parcelado";
+            this.rbParcelado.UseVisualStyleBackColor = true;
+            this.rbParcelado.CheckedChanged += new System.EventHandler(this.rbVista_CheckedChanged);
+            // 
+            // pnParcelado
+            // 
+            this.pnParcelado.Controls.Add(this.txtDias);
+            this.pnParcelado.Controls.Add(this.txtParcelas);
+            this.pnParcelado.Controls.Add(this.label7);
+            this.pnParcelado.Controls.Add(this.label6);
+            this.pnParcelado.Controls.Add(this.dtpVencimentoParcela);
+            this.pnParcelado.Controls.Add(this.label5);
+            this.pnParcelado.Location = new System.Drawing.Point(6, 60);
+            this.pnParcelado.Name = "pnParcelado";
+            this.pnParcelado.Size = new System.Drawing.Size(410, 186);
+            this.pnParcelado.TabIndex = 1;
+            this.pnParcelado.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(52, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Parcelas";
+            // 
+            // dtpVencimentoParcela
+            // 
+            this.dtpVencimentoParcela.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpVencimentoParcela.Location = new System.Drawing.Point(276, 34);
+            this.dtpVencimentoParcela.Name = "dtpVencimentoParcela";
+            this.dtpVencimentoParcela.Size = new System.Drawing.Size(79, 20);
+            this.dtpVencimentoParcela.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(274, 18);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(76, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "1º Vencimento";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(132, 18);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(112, 13);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Dias entre as parcelas";
+            // 
+            // pnPrazo
+            // 
+            this.pnPrazo.Controls.Add(this.label8);
+            this.pnPrazo.Controls.Add(this.dtpVencimentoPrazo);
+            this.pnPrazo.Location = new System.Drawing.Point(6, 60);
+            this.pnPrazo.Name = "pnPrazo";
+            this.pnPrazo.Size = new System.Drawing.Size(404, 183);
+            this.pnPrazo.TabIndex = 6;
+            this.pnPrazo.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(164, 68);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 13);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "1º Vencimento";
+            // 
+            // dtpVencimentoPrazo
+            // 
+            this.dtpVencimentoPrazo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpVencimentoPrazo.Location = new System.Drawing.Point(166, 84);
+            this.dtpVencimentoPrazo.Name = "dtpVencimentoPrazo";
+            this.dtpVencimentoPrazo.Size = new System.Drawing.Size(79, 20);
+            this.dtpVencimentoPrazo.TabIndex = 4;
+            // 
+            // txtParcelas
+            // 
+            this.txtParcelas.Location = new System.Drawing.Point(65, 34);
+            this.txtParcelas.Mask = "00";
+            this.txtParcelas.Name = "txtParcelas";
+            this.txtParcelas.Size = new System.Drawing.Size(21, 20);
+            this.txtParcelas.TabIndex = 7;
+            // 
+            // txtDias
+            // 
+            this.txtDias.Location = new System.Drawing.Point(180, 37);
+            this.txtDias.Mask = "99";
+            this.txtDias.Name = "txtDias";
+            this.txtDias.Size = new System.Drawing.Size(21, 20);
+            this.txtDias.TabIndex = 8;
+            // 
             // view_VendaPET
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 351);
-            this.Controls.Add(this.btnProd);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtProduto);
+            this.ClientSize = new System.Drawing.Size(454, 429);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.txtid);
-            this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.btnExcluir);
-            this.Controls.Add(this.quantt);
-            this.Controls.Add(this.txtQtde);
             this.Controls.Add(this.btnVender);
-            this.Controls.Add(this.btnRmv);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.dgvProdutos);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtValor);
             this.Controls.Add(this.label2);
@@ -256,7 +440,18 @@
             this.Controls.Add(this.label1);
             this.Name = "view_VendaPET";
             this.Text = "view_VendaPET";
+            this.Load += new System.EventHandler(this.view_VendaPET_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
+            this.tabControl.ResumeLayout(false);
+            this.tabProdutos.ResumeLayout(false);
+            this.tabProdutos.PerformLayout();
+            this.tabPagamento.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.pnParcelado.ResumeLayout(false);
+            this.pnParcelado.PerformLayout();
+            this.pnPrazo.ResumeLayout(false);
+            this.pnPrazo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,10 +474,26 @@
         private System.Windows.Forms.Label quantt;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnPesquisar;
-        private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.TextBox txtProduto;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnProd;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tabProdutos;
+        private System.Windows.Forms.TabPage tabPagamento;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbVista;
+        private System.Windows.Forms.RadioButton rbParcelado;
+        private System.Windows.Forms.RadioButton rbPrazo;
+        private System.Windows.Forms.Panel pnParcelado;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dtpVencimentoParcela;
+        private System.Windows.Forms.Panel pnPrazo;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker dtpVencimentoPrazo;
+        private System.Windows.Forms.MaskedTextBox txtDias;
+        private System.Windows.Forms.MaskedTextBox txtParcelas;
     }
 }
