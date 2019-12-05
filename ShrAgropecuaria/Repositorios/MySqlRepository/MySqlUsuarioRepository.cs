@@ -72,5 +72,13 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
                     where user_login = @usuario and user_senha = @senha and user_status = 'A'";
             return Connection.Query<Usuario>(sql, new { usuario, senha }).FirstOrDefault();
         }
+
+        public Usuario PegaUsuario(string usuario)
+        {
+            string sql = @"select *
+                    from usuario
+                    where user_login = @usuario and user_status = 'A'";
+            return Connection.Query<Usuario>(sql, new { usuario }).FirstOrDefault();
+        }
     }
 }

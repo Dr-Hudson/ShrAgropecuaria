@@ -14,6 +14,7 @@ namespace ShrAgropecuaria.Repositorios.Interfaces
         void Excluir(Usuario user);
         Usuario PegaId(string nome);
         Usuario PegaUsuario(string usuario, string senha);
+        Usuario PegaUsuario(string usuario);
 
         Usuario getNome(string nome);
 
