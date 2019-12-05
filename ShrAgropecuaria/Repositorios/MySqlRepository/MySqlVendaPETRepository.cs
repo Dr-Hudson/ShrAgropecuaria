@@ -27,18 +27,32 @@ namespace ShrAgropecuaria.Repositorios.MySqlRepository
 
         public void gravar(VendaPET venda)
         {
-            Connection.Execute("insert into vendapet" +
+            if (venda.Vp_cod == null)
+            {
+                Connection.Execute("insert into vendapet" +
                    "(vp_datavenda,vp_valortotal,cli_cod, user_cod)" +
                    " values(@vp_datavenda, @vp_valortotal, @clienteid, @usuarioid)", venda);
-            venda.Vp_cod = Convert.ToInt32(Connection.ExecuteScalar("select last_insert_id()"));
+                venda.Vp_cod = Convert.ToInt32(Connection.ExecuteScalar("select last_insert_id()"));
+            }
+            else
+            {
+                Connection.Execute("update vendapet set vp_datavenda = @vp_datavenda, vp_valortotal=@vp_valortotal, cli_cod=@clienteid, user_cod=@usuarioid where vp_cod = @vp_cod", venda);
+                Connection.Execute("delete from produtovenda where vp_cod = @vp_cod", venda);
+            }
+            
         }
 
         public void GravarProds(ProdutoVenda pv)
         {
-            Connection.Execute("insert into produtovenda" +
-                   "(vp_cod, pp_cod, pv_quantidade, pv_valor_unitario)" +
-                   " values(@vendaid, @produtoid, @pv_quantidade, @pv_valor_unitario)", pv);
-           
+            
+            
+                Connection.Execute("insert into produtovenda" +
+                   "(vp_cod, pp_cod, pv_quantidade, pv_valor_unitario, pv_valor_total)" +
+                   " values(@vendaid, @produtoid, @pv_quantidade, @pv_valor_unitario,@pv_valor_total)", pv);
+
+                
+
+
         }
 
         public IEnumerable<VendaPET> getALL(string nome)

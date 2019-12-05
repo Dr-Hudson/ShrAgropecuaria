@@ -13,6 +13,7 @@ namespace ShrAgropecuaria.Classes
         int _pv_quantidade;
         int? _vendaid = null;
         decimal pv_valor_unitario;
+        decimal pv_valor_total;
 
         public VendaPET Venda { get => _venda; set => _venda = value; }
         public int? Vendaid { get { return Venda.Vp_cod; } set { Venda.Vp_cod = value; } }
@@ -21,8 +22,7 @@ namespace ShrAgropecuaria.Classes
         public string DescricaoProduto { get { return _produto.Pp_descricao; } }
         public int Pv_quantidade { get => _pv_quantidade; set => _pv_quantidade = value; }
         public decimal Pv_valor_unitario { get => pv_valor_unitario; set => pv_valor_unitario = value; }
-
-        
+        public decimal Pv_valor_total { get => pv_valor_total; set => pv_valor_total = value; }
 
         public override bool Equals(object obj)
         {
