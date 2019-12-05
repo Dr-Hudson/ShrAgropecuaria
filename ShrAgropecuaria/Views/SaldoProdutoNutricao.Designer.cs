@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbFiado = new System.Windows.Forms.Label();
             this.pnPagar = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btPagar = new System.Windows.Forms.Button();
             this.txtValor = new System.Windows.Forms.MaskedTextBox();
-            this.lbCpf = new System.Windows.Forms.Label();
             this.lbRg = new System.Windows.Forms.Label();
             this.lbNome = new System.Windows.Forms.Label();
             this.lbInstrucao = new System.Windows.Forms.Label();
@@ -41,20 +39,12 @@
             this.pnPagar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lbFiado
-            // 
-            this.lbFiado.AutoSize = true;
-            this.lbFiado.Location = new System.Drawing.Point(24, 186);
-            this.lbFiado.Name = "lbFiado";
-            this.lbFiado.Size = new System.Drawing.Size(0, 13);
-            this.lbFiado.TabIndex = 13;
-            // 
             // pnPagar
             // 
             this.pnPagar.Controls.Add(this.label1);
             this.pnPagar.Controls.Add(this.btPagar);
             this.pnPagar.Controls.Add(this.txtValor);
-            this.pnPagar.Location = new System.Drawing.Point(12, 217);
+            this.pnPagar.Location = new System.Drawing.Point(12, 179);
             this.pnPagar.Name = "pnPagar";
             this.pnPagar.Size = new System.Drawing.Size(325, 144);
             this.pnPagar.TabIndex = 12;
@@ -75,7 +65,7 @@
             this.btPagar.Name = "btPagar";
             this.btPagar.Size = new System.Drawing.Size(75, 23);
             this.btPagar.TabIndex = 1;
-            this.btPagar.Text = "Pagar";
+            this.btPagar.Text = "Retirar";
             this.btPagar.UseVisualStyleBackColor = true;
             this.btPagar.Click += new System.EventHandler(this.btPagar_Click);
             // 
@@ -87,14 +77,6 @@
             this.txtValor.Size = new System.Drawing.Size(66, 20);
             this.txtValor.TabIndex = 0;
             this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValor_KeyPress);
-            // 
-            // lbCpf
-            // 
-            this.lbCpf.AutoSize = true;
-            this.lbCpf.Location = new System.Drawing.Point(24, 159);
-            this.lbCpf.Name = "lbCpf";
-            this.lbCpf.Size = new System.Drawing.Size(0, 13);
-            this.lbCpf.TabIndex = 11;
             // 
             // lbRg
             // 
@@ -134,10 +116,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(356, 379);
-            this.Controls.Add(this.lbFiado);
+            this.ClientSize = new System.Drawing.Size(349, 337);
             this.Controls.Add(this.pnPagar);
-            this.Controls.Add(this.lbCpf);
             this.Controls.Add(this.lbRg);
             this.Controls.Add(this.lbNome);
             this.Controls.Add(this.lbInstrucao);
@@ -152,13 +132,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lbFiado;
         private System.Windows.Forms.Panel pnPagar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btPagar;
         private System.Windows.Forms.MaskedTextBox txtValor;
-        private System.Windows.Forms.Label lbCpf;
         private System.Windows.Forms.Label lbRg;
         private System.Windows.Forms.Label lbNome;
         private System.Windows.Forms.Label lbInstrucao;

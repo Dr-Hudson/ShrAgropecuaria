@@ -93,10 +93,9 @@ namespace ShrAgropecuaria.Views
                             MessageBox.Show(msg);
                             txtValor.Text = "";
                             pnPagar.Visible = false;
-                            lbCpf.Text = "";
+
                             lbRg.Text = "";
                             lbNome.Text = "";
-                            lbFiado.Text = "";
                         }
                         catch (Exception erro)
                         {
